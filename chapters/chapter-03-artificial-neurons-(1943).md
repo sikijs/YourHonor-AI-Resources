@@ -1,6 +1,6 @@
-Chapter 3 — Artificial Neurons (1943)
+# Chapter 3 — Artificial Neurons (1943)
 
-Section 1: The Idea That Thinking Could Be Reduced to Structure
+# Section 1: The Idea That Thinking Could Be Reduced to Structure
 
 Before artificial intelligence became a field of engineering, it began with a quiet but disruptive question: if thinking happens in the brain, can it be reduced to a set of simple rules?
 
