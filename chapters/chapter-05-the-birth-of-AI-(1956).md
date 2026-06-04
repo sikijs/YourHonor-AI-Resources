@@ -798,6 +798,8 @@ The excitement of the 1950s would eventually give way to setbacks, criticism, an
 
 But the dream survived.
 
+![AI Hype Cycle](../images/chapter5_hype_newspaper.svg)
+
 And in the next chapter, that dream would receive a powerful new boost from a machine inspired by the human brain itself.
 
 It was called the Perceptron.
@@ -832,4 +834,6 @@ Today, every AI system—from recommendation engines and search algorithms to se
 The dream was bigger than the technology of the time.
 
 And that dream changed the world.
+
+![Future AI Map](../images/chapter5_future_ai_map.svg)
 
