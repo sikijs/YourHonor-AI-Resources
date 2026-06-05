@@ -406,6 +406,10 @@ It receives information, processes it, and passes a result onward.
 
 Each neuron has three main parts:
 
+![Biological Neuron](../images/chapter2_biological_neuron.svg)
+
+*Figure 2.1 – A biological neuron receives signals through dendrites, processes them in the cell body (soma), and transmits signals along its axon to other neurons.*
+
 Dendrites receive signals from other neurons.
 
 The cell body processes those signals.

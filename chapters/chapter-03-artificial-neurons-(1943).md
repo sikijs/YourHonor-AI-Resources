@@ -57,6 +57,10 @@ Imagine a neuron as a gatekeeper.
 
 Several signals arrive at the gate. The neuron examines those signals and decides whether to send a signal of its own. If enough evidence is present, it activates. If not, it remains silent.
 
+![McCulloch-Pitts Neuron](../images/chapter3_mcculloch_pitts_neuron.svg)
+
+*Figure 3.1 – The McCulloch-Pitts neuron simplified the biological neuron into a mathematical decision-making unit that receives inputs, applies a threshold, and produces an output.*
+
 That simple decision-making process became the foundation of the first artificial neuron.
 
 The model begins with inputs.
