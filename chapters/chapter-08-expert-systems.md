@@ -129,7 +129,7 @@ By now, you might be wondering how thousands of rules could be organized inside 
 
 The answer is that most Expert Systems were built from two major components:
 
-![Inside an Expert System](../images/expert-system-architecture.png
+![Inside an Expert System](../images/expert-system-architecture.png)
 
 1. A Knowledge Base
 2. An Inference Engine
