@@ -322,16 +322,23 @@ As a result, progress remained gradual for many years.
 
 But the foundation had been laid.
 
+
+```text
+1940s–1980s
 Expert Systems
       ↓
+1980s
 Backpropagation
       ↓
+1990s–2000s
 Neural Networks
       ↓
+2010s
 Deep Learning
       ↓
+Today
 Modern AI
-
+```
 
 As computers became faster and larger datasets became available, neural networks began to realize their potential.
 
