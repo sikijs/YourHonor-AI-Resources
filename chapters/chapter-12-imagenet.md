@@ -59,7 +59,7 @@ And it would help ignite the deep learning revolution.
 
 Imagine showing a photograph to a five-year-old child.
 
-![Human Vision vs Computer Vision](../../images/chapter12-human-vs-computer-vision.png)
+![Human Vision vs Computer Vision](../images/chapter12-human-vs-computer-vision.png)
 
 *Humans see objects, meaning, and context. Computers see millions of pixel values that must be transformed into understanding through learning.*
 
@@ -148,7 +148,7 @@ Teaching a computer to recognize a few hundred objects was difficult enough. Tea
 
 Someone would need to collect millions of images and accurately label what appeared in each one.
 
-![Building ImageNet: Teaching Machines to See](../../images/chapter12-building-imagenet-flow.png)
+![Building ImageNet: Teaching Machines to See](../images/chapter12-building-imagenet-flow.png)
 
 At the time, many experts considered the task unrealistic.
 
@@ -563,7 +563,7 @@ A benchmark became a revolution.
 And artificial intelligence moved from possibility to reality.
 
 
-## Insight Box — Chapter 12: The Edge of Intelligent Action
+## Insight Box — The Edge of Intelligent Action
 
 Intelligence reveals its deepest character not in thought, but in action under consequence. A system may model the world with precision, yet it is only when it must act—when outcomes become irreversible—that understanding is tested.
 
@@ -580,7 +580,7 @@ Ultimately, the significance of intelligent action is not that machines begin to
 The frontier, then, is not merely smarter systems. It is systems whose behavior is continuously authored by the world they inhabit.
 
 
-## Final Thoughts — Chapter 12
+## Final Thoughts
 
 Intelligence, when stripped of abstraction, is not a monument of certainty but a process of continual adjustment. It exists less as a thing a system has, and more as something it is doing—moment by moment, in response to a world that never stays still.
 
