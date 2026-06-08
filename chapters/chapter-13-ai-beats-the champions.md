@@ -84,17 +84,6 @@ Researchers could compare different approaches, measure progress, and determine 
 
 But not all games are equally difficult.
 
-Checkers
-   ↓
-Chess
-   ↓
-Go
-   ↓
-Increasing Complexity
-   ↓
-Increasing AI Challenge
-
-
 Consider checkers.
 
 Although challenging for humans, the number of possible positions is relatively limited. Computers eventually became so good at checkers that the game was effectively solved.
@@ -149,18 +138,6 @@ The machine's greatest strength was speed.
 While a human grandmaster might carefully analyze a handful of promising moves, Deep Blue could evaluate millions of positions every second. It explored enormous decision trees, looking many moves ahead and estimating which choices would lead to the strongest outcomes.
 
 The first major showdown took place in 1996.
-
-1996
-Deep Blue defeats Kasparov in one game
-          ↓
-Kasparov wins the match
-          ↓
-1997
-Improved Deep Blue returns
-          ↓
-Deep Blue wins the rematch
-          ↓
-Historic AI Milestone
 
 To the surprise of many observers, Deep Blue won one game against Kasparov. It was the first time a computer had defeated a reigning world champion in a standard tournament game.
 
@@ -259,20 +236,6 @@ By combining hundreds of such considerations, Deep Blue could estimate whether a
 
 In simple terms, the process looked something like this:
 
-Current Position
-       │
-       ▼
-Generate Possible Moves
-       │
-       ▼
-Explore Future Positions
-       │
-       ▼
-Score Each Position
-       │
-       ▼
-Select Best Move
-
 Deep Blue did not "understand" chess like a human player. Instead, it searched through enormous numbers of possible moves and selected the option with the highest calculated score.
 
 1. Generate possible moves.
@@ -334,19 +297,6 @@ No bishops.
 No pieces with different movement rules.
 
 Yet beneath this simplicity lies extraordinary complexity.
-
-CHESS
-♟ Few dozen moves per turn
-↓
-Can search many possibilities
-
-GO
-● Hundreds of moves per turn
-↓
-Too many possibilities to search
-
-Result:
-New AI approaches required
 
 Although Go has simpler rules than chess, the sheer number of possible moves makes it dramatically more difficult for traditional computer search techniques.
 
@@ -426,23 +376,6 @@ First, AlphaGo studied thousands of games played by human experts. By analyzing 
 But learning from humans was only the beginning.
 
 The system then played millions of games against itself.
-
-Human Expert Games
-          │
-          ▼
-Initial Learning
-          │
-          ▼
-Millions of Self-Played Games
-          │
-          ▼
-Pattern Discovery
-          │
-          ▼
-Stronger Strategies
-          │
-          ▼
-AlphaGo
 
 Unlike Deep Blue, AlphaGo improved by learning from both human games and its own experience, allowing it to discover powerful strategies that were never explicitly programmed by its creators.
 
@@ -550,20 +483,6 @@ It could improve through experience.
 It could discover strategies that were not explicitly programmed by its creators.
 
 This represented a major shift in the history of AI.
-
-Rule-Based AI
-      │
-      ▼
-Search-Based AI
-(Deep Blue)
-      │
-      ▼
-Learning-Based AI
-(AlphaGo)
-      │
-      ▼
-Modern AI
-(ChatGPT, Image Generation, Agents)
 
 The victories of Deep Blue and AlphaGo marked two major stages in AI's evolution—from systems that followed programmed strategies to systems that learned from experience. Modern AI builds upon this learning-based foundation.
 
