@@ -1,0 +1,129 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg width="1000" height="700" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <style>
+      .title {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 32px;
+        font-weight: bold;
+        text-anchor: middle;
+      }
+
+      .centerBox {
+        fill: #f8f9fa;
+        stroke: #333;
+        stroke-width: 3;
+        rx: 12;
+      }
+
+      .nodeBox {
+        fill: white;
+        stroke: #666;
+        stroke-width: 2;
+        rx: 10;
+      }
+
+      .mainText {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        text-anchor: middle;
+      }
+
+      .nodeText {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        text-anchor: middle;
+      }
+
+      .caption {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        text-anchor: middle;
+      }
+
+      .arrow {
+        stroke: #333;
+        stroke-width: 3;
+        fill: none;
+      }
+    </style>
+
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333"></polygon>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="60" class="title">
+    Where Embeddings Power Modern AI
+  </text>
+
+  <!-- Center -->
+  <rect x="375" y="140" width="250" height="80" class="centerBox"></rect>
+  <text x="500" y="190" class="mainText">
+    EMBEDDINGS
+  </text>
+
+  <!-- Search -->
+  <rect x="70" y="320" width="180" height="70" class="nodeBox"></rect>
+  <text x="160" y="365" class="nodeText">
+    Search
+  </text>
+
+  <!-- Translation -->
+  <rect x="410" y="320" width="180" height="70" class="nodeBox"></rect>
+  <text x="500" y="365" class="nodeText">
+    Translation
+  </text>
+
+  <!-- Chatbots -->
+  <rect x="750" y="320" width="180" height="70" class="nodeBox"></rect>
+  <text x="840" y="365" class="nodeText">
+    Chatbots
+  </text>
+
+  <!-- Recommendations -->
+  <rect x="40" y="500" width="240" height="70" class="nodeBox"></rect>
+  <text x="160" y="545" class="nodeText">
+    Recommendations
+  </text>
+
+  <!-- Semantic Search -->
+  <rect x="380" y="500" width="240" height="70" class="nodeBox"></rect>
+  <text x="500" y="545" class="nodeText">
+    Semantic Search
+  </text>
+
+  <!-- AI Assistants -->
+  <rect x="720" y="500" width="240" height="70" class="nodeBox"></rect>
+  <text x="840" y="545" class="nodeText">
+    AI Assistants
+  </text>
+
+  <!-- Arrows from Embeddings -->
+  <line x1="430" y1="220" x2="200" y2="320" class="arrow" marker-end="url(#arrowhead)"></line>
+
+  <line x1="500" y1="220" x2="500" y2="320" class="arrow" marker-end="url(#arrowhead)"></line>
+
+  <line x1="570" y1="220" x2="800" y2="320" class="arrow" marker-end="url(#arrowhead)"></line>
+
+  <!-- Down arrows -->
+  <line x1="160" y1="390" x2="160" y2="500" class="arrow" marker-end="url(#arrowhead)"></line>
+
+  <line x1="500" y1="390" x2="500" y2="500" class="arrow" marker-end="url(#arrowhead)"></line>
+
+  <line x1="840" y1="390" x2="840" y2="500" class="arrow" marker-end="url(#arrowhead)"></line>
+
+  <!-- Caption -->
+  <text x="500" y="650" class="caption">
+    Embeddings help AI understand similarity,
+  </text>
+
+  <text x="500" y="685" class="caption">
+    relationships, and meaning.
+  </text>
+
+</svg>
