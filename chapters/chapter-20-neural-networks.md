@@ -455,7 +455,7 @@ Each neuron contributes information.
 
 The weights determine how much influence that information has on the next layer.
 
-![Not All Signals Are Equal](./images/ch20-not-all-signals-are-equal.png)
+![Not All Signals Are Equal](../images/ch20-not-all-signals-are-equal.png)
 
 *Figure 20.4: Not all signals carry equal weight — inputs are combined using weighted influence to produce a final decision.*
 
