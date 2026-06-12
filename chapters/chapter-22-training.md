@@ -1,6 +1,5 @@
 # Chapter 22 -- Training
 
-# Chapter 22: Training
 
 ## Opening Story: Learning to Shoot a Basketball
 
@@ -251,7 +250,7 @@ flowchart TD
 
 **Caption:**  
 *Figure 22.3: Human learning and AI learning follow a similar pattern. Both improve by studying examples and extracting useful patterns.*
-```
+
 
 Let's return to our cat-recognition example.
 
@@ -412,102 +411,6 @@ flowchart TD
 
 **Caption:**  
 *Figure 22.4: The loss signal acts as feedback. It measures how wrong the prediction is and guides the model to adjust its internal weights for the next attempt.*
-
-Without the loss signal, training would be blind.
-
-The model would be guessing without feedback.
-
-With it, every mistake becomes a stepping stone toward better performance.
-
-In the next section, we will see what the model actually *does* with this error signal—how it adjusts its internal weights to reduce future mistakes.
-
-
-# Section 3: The Learning Signal — How AI Knows It Is Wrong
-
-Training data gives the AI examples.
-
-But examples alone are not enough.
-
-A model also needs to know one critical thing:
-
-**Was it right or wrong?**
-
-Without this feedback, learning cannot happen.
-
-Imagine again the student learning to play basketball.
-
-If they shoot the ball and no one tells them whether it went in or not, they have no way to improve.
-
-They might keep making the same mistakes forever.
-
-AI systems face the same problem.
-
-After making a prediction, the model needs a way to measure how far off it was from the correct answer.
-
-This measurement is called **error**.
-
-In machine learning, we often call it **loss**.
-
-Loss is simply a number that tells us how bad the model's prediction was.
-
-* Small loss → good prediction
-* Large loss → bad prediction
-
-Think of it as a scorecard for every guess the AI makes.
-
-Let’s return to the cat recognition example.
-
-The model sees an image and says:
-
-> “This is a cat” (60% confidence)
-
-But the correct answer is:
-
-> “This is not a cat”
-
-The system compares the prediction to the truth and calculates an error value.
-
-That error becomes a signal.
-
-Not a punishment.
-
-Not a judgment.
-
-Just information.
-
-And that information is crucial.
-
-Because now the model knows:
-
-* Which direction it was wrong in
-* How far off it was
-* How much it needs to adjust
-
-This idea is extremely important:
-
-**AI does not learn from being right. It learns from being wrong.**
-
-Every mistake becomes a guide for improvement.
-
-You can think of loss as a compass.
-
-It does not tell the model where to go directly.
-
-But it does point out whether it is heading in the right direction or not.
-
-Now connect this back to the training loop.
-
-1. The model makes a prediction
-2. The prediction is compared to the correct answer
-3. The error (loss) is calculated
-4. The model uses that error to adjust itself
-
-This cycle repeats again and again.
-
-![Training Flow Overview](../images/ch22-training-flow.svg)
-
-**Figure 22.3: The complete training flow of an AI system.**  
-Training follows a continuous loop: data is processed in batches, the model makes predictions, errors are measured using loss, and weights are updated repeatedly over time.
 
 Without the loss signal, training would be blind.
 
