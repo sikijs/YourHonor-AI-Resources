@@ -1,0 +1,60 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .box { fill:#f7f9fc; stroke:#2b3a55; stroke-width:2; rx:14; }
+    .title { font: bold 20px sans-serif; fill:#1c2b3a; }
+    .text { font: 16px sans-serif; fill:#1c2b3a; }
+    .small { font: 14px sans-serif; fill:#3a4a5a; }
+    .arrow { stroke:#2b3a55; stroke-width:2; marker-end:url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2b3a55"></polygon>
+    </marker>
+  </defs>
+
+  <!-- INPUT -->
+  <rect x="450" y="40" width="300" height="60" class="box"></rect>
+  <text x="560" y="75" class="title">Input Data</text>
+
+  <!-- BATCH -->
+  <rect x="400" y="140" width="400" height="80" class="box"></rect>
+  <text x="520" y="175" class="title">Batch Selection</text>
+  <text x="470" y="200" class="small">Small groups of training examples</text>
+
+  <!-- MODEL -->
+  <rect x="450" y="260" width="300" height="60" class="box"></rect>
+  <text x="550" y="295" class="title">AI Model</text>
+
+  <!-- PREDICTION -->
+  <rect x="450" y="350" width="300" height="60" class="box"></rect>
+  <text x="530" y="385" class="title">Prediction</text>
+
+  <!-- LOSS -->
+  <rect x="450" y="440" width="300" height="60" class="box"></rect>
+  <text x="540" y="475" class="title">Loss (Error)</text>
+
+  <!-- UPDATE -->
+  <rect x="450" y="530" width="300" height="60" class="box"></rect>
+  <text x="520" y="565" class="title">Weight Update</text>
+
+  <!-- EPOCH -->
+  <rect x="450" y="620" width="300" height="60" class="box"></rect>
+  <text x="550" y="655" class="title">Epoch</text>
+
+  <!-- FLOW ARROWS -->
+  <line x1="600" y1="100" x2="600" y2="140" class="arrow"></line>
+  <line x1="600" y1="220" x2="600" y2="260" class="arrow"></line>
+  <line x1="600" y1="320" x2="600" y2="350" class="arrow"></line>
+  <line x1="600" y1="410" x2="600" y2="440" class="arrow"></line>
+  <line x1="600" y1="500" x2="600" y2="530" class="arrow"></line>
+  <line x1="600" y1="590" x2="600" y2="620" class="arrow"></line>
+
+  <!-- LOOP BACK -->
+  <path d="M 850 650 C 1080 650, 1080 80, 850 60" fill="none" class="arrow"></path>
+
+  <text x="900" y="340" class="small">Continuous training loop</text>
+  <text x="880" y="370" class="small">Data → Learning → Update → Repeat</text>
+
+</svg>

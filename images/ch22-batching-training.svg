@@ -1,0 +1,72 @@
+<svg width="1100" height="650" viewBox="0 0 1100 650" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .box { fill:#f7f9fc; stroke:#2b3a55; stroke-width:2; rx:12; }
+    .title { font: bold 20px sans-serif; fill:#1c2b3a; }
+    .text { font: 16px sans-serif; fill:#1c2b3a; }
+    .small { font: 14px sans-serif; fill:#3a4a5a; }
+    .arrow { stroke:#2b3a55; stroke-width:2; marker-end:url(#arrowhead); }
+    .batch { fill:#ffffff; stroke:#2b3a55; stroke-width:1.5; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2b3a55"></polygon>
+    </marker>
+  </defs>
+
+  <!-- Dataset -->
+  <rect x="420" y="40" width="260" height="60" class="box"></rect>
+  <text x="485" y="75" class="title">Dataset</text>
+
+  <!-- Split into batches -->
+  <rect x="300" y="140" width="500" height="90" class="box"></rect>
+  <text x="470" y="175" class="title">Split into Batches</text>
+
+  <!-- Batches -->
+  <rect x="330" y="190" width="80" height="30" class="batch"></rect>
+  <rect x="430" y="190" width="80" height="30" class="batch"></rect>
+  <rect x="530" y="190" width="80" height="30" class="batch"></rect>
+  <rect x="630" y="190" width="80" height="30" class="batch"></rect>
+
+  <text x="335" y="210" class="small">B1</text>
+  <text x="435" y="210" class="small">B2</text>
+  <text x="535" y="210" class="small">B3</text>
+  <text x="635" y="210" class="small">B4</text>
+
+  <!-- Model -->
+  <rect x="420" y="270" width="260" height="60" class="box"></rect>
+  <text x="465" y="305" class="title">AI Model</text>
+
+  <!-- Prediction -->
+  <rect x="420" y="360" width="260" height="60" class="box"></rect>
+  <text x="460" y="395" class="title">Prediction</text>
+
+  <!-- Loss -->
+  <rect x="420" y="450" width="260" height="60" class="box"></rect>
+  <text x="470" y="485" class="title">Loss</text>
+
+  <!-- Update -->
+  <rect x="420" y="540" width="260" height="60" class="box"></rect>
+  <text x="445" y="575" class="title">Weight Update</text>
+
+  <!-- Arrows -->
+  <line x1="550" y1="100" x2="550" y2="140" class="arrow"></line>
+  <line x1="550" y1="230" x2="550" y2="270" class="arrow"></line>
+  <line x1="550" y1="330" x2="550" y2="360" class="arrow"></line>
+  <line x1="550" y1="420" x2="550" y2="450" class="arrow"></line>
+  <line x1="550" y1="510" x2="550" y2="540" class="arrow"></line>
+
+  <!-- Batch arrows -->
+  <line x1="370" y1="220" x2="520" y2="270" class="arrow"></line>
+  <line x1="470" y1="220" x2="540" y2="270" class="arrow"></line>
+  <line x1="570" y1="220" x2="560" y2="270" class="arrow"></line>
+  <line x1="670" y1="220" x2="580" y2="270" class="arrow"></line>
+
+  <!-- Loop note -->
+  <path d="M 700 570 C 900 570, 900 120, 700 90" fill="none" class="arrow"></path>
+
+  <text x="780" y="330" class="small">Each batch = small update</text>
+  <text x="760" y="360" class="small">One epoch = all batches once</text>
+
+</svg>

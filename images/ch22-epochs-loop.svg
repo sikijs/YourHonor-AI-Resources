@@ -1,0 +1,45 @@
+<svg width="1100" height="600" viewBox="0 0 1100 600" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .box { fill:#f7f9fc; stroke:#2b3a55; stroke-width:2; rx:12; }
+    .title { font: bold 20px sans-serif; fill:#1c2b3a; }
+    .text { font: 16px sans-serif; fill:#1c2b3a; }
+    .small { font: 14px sans-serif; fill:#3a4a5a; }
+    .arrow { stroke:#2b3a55; stroke-width:2; marker-end:url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2b3a55"></polygon>
+    </marker>
+  </defs>
+
+  <!-- Training Loop -->
+  <rect x="420" y="40" width="260" height="60" class="box"></rect>
+  <text x="470" y="75" class="title">Dataset</text>
+
+  <rect x="420" y="140" width="260" height="60" class="box"></rect>
+  <text x="450" y="175" class="title">AI Model</text>
+
+  <rect x="420" y="240" width="260" height="60" class="box"></rect>
+  <text x="465" y="275" class="title">Prediction</text>
+
+  <rect x="420" y="340" width="260" height="60" class="box"></rect>
+  <text x="475" y="375" class="title">Loss</text>
+
+  <rect x="420" y="440" width="260" height="60" class="box"></rect>
+  <text x="460" y="475" class="title">Weight Update</text>
+
+  <!-- Flow arrows -->
+  <line x1="550" y1="100" x2="550" y2="140" class="arrow"></line>
+  <line x1="550" y1="200" x2="550" y2="240" class="arrow"></line>
+  <line x1="550" y1="300" x2="550" y2="340" class="arrow"></line>
+  <line x1="550" y1="400" x2="550" y2="440" class="arrow"></line>
+
+  <!-- Loop back arrow -->
+  <path d="M 680 470 C 850 470, 850 100, 680 70" fill="none" class="arrow"></path>
+
+  <text x="820" y="300" class="small">Repeat = 1 Epoch</text>
+  <text x="780" y="330" class="small">Many epochs = better learning</text>
+
+</svg>

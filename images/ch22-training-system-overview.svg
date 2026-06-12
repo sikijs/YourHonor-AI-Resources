@@ -1,0 +1,59 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .box { fill:#f7f9fc; stroke:#2b3a55; stroke-width:2; rx:14; }
+    .title { font: bold 20px sans-serif; fill:#1c2b3a; }
+    .text { font: 16px sans-serif; fill:#1c2b3a; }
+    .small { font: 14px sans-serif; fill:#3a4a5a; }
+    .arrow { stroke:#2b3a55; stroke-width:2; marker-end:url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2b3a55"></polygon>
+    </marker>
+  </defs>
+
+  <!-- Dataset -->
+  <rect x="480" y="40" width="240" height="60" class="box"></rect>
+  <text x="545" y="75" class="title">Dataset</text>
+
+  <!-- Batch -->
+  <rect x="430" y="130" width="340" height="70" class="box"></rect>
+  <text x="520" y="165" class="title">Batch Selection</text>
+
+  <!-- Model -->
+  <rect x="480" y="230" width="240" height="60" class="box"></rect>
+  <text x="545" y="265" class="title">AI Model</text>
+
+  <!-- Prediction -->
+  <rect x="480" y="320" width="240" height="60" class="box"></rect>
+  <text x="535" y="355" class="title">Prediction</text>
+
+  <!-- Loss -->
+  <rect x="480" y="410" width="240" height="60" class="box"></rect>
+  <text x="540" y="445" class="title">Loss</text>
+
+  <!-- Update -->
+  <rect x="480" y="500" width="240" height="60" class="box"></rect>
+  <text x="510" y="535" class="title">Weight Update</text>
+
+  <!-- Epoch -->
+  <rect x="480" y="590" width="240" height="60" class="box"></rect>
+  <text x="545" y="625" class="title">Epoch</text>
+
+  <!-- Flow arrows -->
+  <line x1="600" y1="100" x2="600" y2="130" class="arrow"></line>
+  <line x1="600" y1="200" x2="600" y2="230" class="arrow"></line>
+  <line x1="600" y1="290" x2="600" y2="320" class="arrow"></line>
+  <line x1="600" y1="380" x2="600" y2="410" class="arrow"></line>
+  <line x1="600" y1="470" x2="600" y2="500" class="arrow"></line>
+  <line x1="600" y1="560" x2="600" y2="590" class="arrow"></line>
+
+  <!-- Loop back arrow (big cycle) -->
+  <path d="M 820 620 C 1050 620, 1050 80, 820 70" fill="none" class="arrow"></path>
+
+  <text x="880" y="350" class="small">Continuous Learning Loop</text>
+  <text x="860" y="380" class="small">Repeat across many epochs</text>
+
+</svg>
