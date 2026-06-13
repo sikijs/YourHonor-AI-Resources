@@ -394,22 +394,10 @@ Now connect this back to the training loop.
 
 This cycle repeats again and again.
 
-```mermaid
-flowchart TD
+![Loss Feedback Loop](../images/ch22-loss-feedback-loop.svg)
 
-    A[Input Data] --> B[AI Makes Prediction]
-    B --> C[Compare with Correct Answer]
-    C --> D[Compute Loss (Error)]
-
-    D --> E[Feedback Signal]
-
-    E --> F[Adjust Model Weights]
-
-    F --> B
-```
-
-**Caption:**  
-*Figure 22.4: The loss signal acts as feedback. It measures how wrong the prediction is and guides the model to adjust its internal weights for the next attempt.*
+**Figure 22.4: The loss signal acts as feedback.**  
+It measures how wrong the prediction is and guides the model to adjust its internal weights for the next attempt.
 
 Without the loss signal, training would be blind.
 
