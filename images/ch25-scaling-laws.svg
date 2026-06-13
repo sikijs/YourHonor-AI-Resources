@@ -1,0 +1,112 @@
+<svg width="900" height="550" viewBox="0 0 900 550" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .title {
+      font-family: Arial, sans-serif;
+      font-size: 26px;
+      font-weight: bold;
+      text-anchor: middle;
+    }
+
+    .axis {
+      stroke: #333;
+      stroke-width: 3;
+    }
+
+    .label {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      fill: #333;
+    }
+
+    .small {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      fill: #555;
+    }
+
+    .curve {
+      fill: none;
+      stroke: #2563eb;
+      stroke-width: 5;
+    }
+
+    .point {
+      fill: #2563eb;
+    }
+
+    .box {
+      fill: #f8fafc;
+      stroke: #cbd5e1;
+      stroke-width: 2;
+      rx: 10;
+    }
+  </style>
+
+  <!-- Title -->
+  <text x="450" y="45" class="title">
+    Scaling Laws in AI
+  </text>
+
+  <!-- Axes -->
+  <line x1="120" y1="450" x2="760" y2="450" class="axis"></line>
+  <line x1="120" y1="450" x2="120" y2="90" class="axis"></line>
+
+  <!-- Arrowheads -->
+  <polygon points="760,450 745,442 745,458" fill="#333"></polygon>
+  <polygon points="120,90 112,105 128,105" fill="#333"></polygon>
+
+  <!-- Axis Labels -->
+  <text x="420" y="500" class="label">
+    Model Size
+  </text>
+
+  <g transform="translate(45,300) rotate(-90)">
+    <text class="label">AI Performance</text>
+  </g>
+
+  <!-- Scale Labels -->
+  <text x="150" y="475" class="small">Small</text>
+  <text x="400" y="475" class="small">Medium</text>
+  <text x="660" y="475" class="small">Large</text>
+
+  <!-- Scaling Curve -->
+  <path d="
+    M160 400
+    C240 350, 300 300, 360 250
+    S500 170, 620 130
+    S700 105, 730 95" class="curve"></path>
+
+  <!-- Points -->
+  <circle cx="160" cy="400" r="7" class="point"></circle>
+  <circle cx="240" cy="340" r="7" class="point"></circle>
+  <circle cx="320" cy="280" r="7" class="point"></circle>
+  <circle cx="400" cy="225" r="7" class="point"></circle>
+  <circle cx="500" cy="170" r="7" class="point"></circle>
+  <circle cx="600" cy="130" r="7" class="point"></circle>
+  <circle cx="700" cy="105" r="7" class="point"></circle>
+
+  <!-- Explanatory Box -->
+  <rect x="520" y="290" width="280" height="130" class="box"></rect>
+
+  <text x="660" y="325" text-anchor="middle" class="label">
+    Scaling Law
+  </text>
+
+  <text x="660" y="355" text-anchor="middle" class="small">
+    Bigger Models
+  </text>
+
+  <text x="660" y="378" text-anchor="middle" class="small">
+    + More Data
+  </text>
+
+  <text x="660" y="401" text-anchor="middle" class="small">
+    + More Computing Power
+  </text>
+
+  <text x="660" y="425" text-anchor="middle" class="small">
+    = Better Performance
+  </text>
+
+</svg>

@@ -1,0 +1,67 @@
+<svg width="950" height="550" viewBox="0 0 950 550" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .title { font: bold 24px Arial; text-anchor: middle; }
+    .label { font: 18px Arial; fill: #333; }
+    .small { font: 15px Arial; fill: #555; }
+    .axis { stroke: #333; stroke-width: 3; }
+    .curve { fill: none; stroke: #2563eb; stroke-width: 4; }
+    .dash { stroke: #999; stroke-width: 2; stroke-dasharray: 6 6; }
+    .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 10; }
+  </style>
+
+  <text x="475" y="40" class="title">Emergent Abilities at Scale</text>
+
+  <!-- Axes -->
+  <line x1="120" y1="460" x2="120" y2="90" class="axis"></line>
+  <line x1="120" y1="460" x2="820" y2="460" class="axis"></line>
+
+  <!-- Labels -->
+  <text x="470" y="510" class="label">Model Size (Scale)</text>
+
+  <g transform="translate(50,300) rotate(-90)">
+    <text class="label">Capability Level</text>
+  </g>
+
+  <!-- Threshold line -->
+  <line x1="600" y1="120" x2="600" y2="460" class="dash"></line>
+  <text x="615" y="140" class="small">Threshold</text>
+
+  <!-- Curve (flat then sharp rise) -->
+  <path d="
+    M140 430
+    C250 420, 320 410, 380 405
+    C450 400, 520 395, 580 380
+    C610 350, 640 280, 670 220
+    C710 150, 760 120, 800 110" class="curve"></path>
+
+  <!-- Key points -->
+  <circle cx="180" cy="428" r="6" fill="#2563eb"></circle>
+  <circle cx="300" cy="415" r="6" fill="#2563eb"></circle>
+  <circle cx="420" cy="400" r="6" fill="#2563eb"></circle>
+  <circle cx="520" cy="392" r="6" fill="#2563eb"></circle>
+
+  <!-- Emergent region highlight -->
+  <rect x="610" y="110" width="190" height="350" class="box"></rect>
+
+  <text x="705" y="160" text-anchor="middle" class="label">
+    Emergent
+  </text>
+
+  <text x="705" y="200" text-anchor="middle" class="small">
+    New abilities
+  </text>
+
+  <text x="705" y="230" text-anchor="middle" class="small">
+    become visible
+  </text>
+
+  <text x="705" y="260" text-anchor="middle" class="small">
+    (reasoning,
+  </text>
+
+  <text x="705" y="285" text-anchor="middle" class="small">
+    instruction following)
+  </text>
+
+</svg>
