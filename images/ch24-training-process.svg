@@ -1,0 +1,60 @@
+<svg width="1000" height="600" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .title { font: bold 26px sans-serif; fill: #111; }
+    .box { stroke: #333; stroke-width: 2; rx: 14; }
+    .label { font: 16px sans-serif; fill: #111; }
+    .small { font: 13px sans-serif; fill: #333; }
+    .arrow { stroke: #333; stroke-width: 2; marker-end: url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"></polygon>
+    </marker>
+  </defs>
+
+  <!-- TITLE -->
+  <text x="500" y="40" text-anchor="middle" class="title">
+    How Training Works
+  </text>
+
+  <!-- STEP 1 -->
+  <rect x="120" y="100" width="220" height="110" class="box" fill="#E8F5E9"></rect>
+  <text x="230" y="140" text-anchor="middle" class="label">Input Data</text>
+  <text x="230" y="170" text-anchor="middle" class="small">Examples / Training Set</text>
+
+  <!-- STEP 2 -->
+  <rect x="400" y="100" width="220" height="110" class="box" fill="#E3F2FD"></rect>
+  <text x="510" y="140" text-anchor="middle" class="label">Model Prediction</text>
+  <text x="510" y="170" text-anchor="middle" class="small">What the model thinks</text>
+
+  <!-- STEP 3 -->
+  <rect x="680" y="100" width="220" height="110" class="box" fill="#FFF3E0"></rect>
+  <text x="790" y="140" text-anchor="middle" class="label">Correct Answer</text>
+  <text x="790" y="170" text-anchor="middle" class="small">Ground truth</text>
+
+  <!-- ERROR -->
+  <rect x="400" y="300" width="220" height="110" class="box" fill="#FFEBEE"></rect>
+  <text x="510" y="340" text-anchor="middle" class="label">Error Calculation</text>
+  <text x="510" y="370" text-anchor="middle" class="small">Difference measured</text>
+
+  <!-- UPDATE -->
+  <rect x="400" y="460" width="220" height="110" class="box" fill="#F3E5F5"></rect>
+  <text x="510" y="500" text-anchor="middle" class="label">Parameter Update</text>
+  <text x="510" y="530" text-anchor="middle" class="small">Model adjusts weights</text>
+
+  <!-- ARROWS -->
+  <line x1="340" y1="155" x2="400" y2="155" class="arrow"></line>
+  <line x1="620" y1="155" x2="680" y2="155" class="arrow"></line>
+  <line x1="790" y1="210" x2="790" y2="300" class="arrow"></line>
+  <line x1="680" y1="355" x2="510" y2="355" class="arrow"></line>
+  <line x1="510" y1="410" x2="510" y2="460" class="arrow"></line>
+  <line x1="400" y1="515" x2="340" y2="155" class="arrow"></line>
+
+  <!-- LOOP LABEL -->
+  <text x="500" y="585" text-anchor="middle" class="small">
+    Training is a loop: predict → compare → correct → adjust → repeat
+  </text>
+
+</svg>

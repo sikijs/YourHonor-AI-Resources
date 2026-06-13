@@ -1,0 +1,52 @@
+<svg width="1000" height="560" viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .title { font: bold 26px sans-serif; fill: #111; }
+    .box { stroke: #333; stroke-width: 2; rx: 14; }
+    .label { font: 16px sans-serif; fill: #111; font-weight: bold; }
+    .small { font: 13px sans-serif; fill: #333; }
+    .arrow { stroke: #333; stroke-width: 2; marker-end: url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"></polygon>
+    </marker>
+  </defs>
+
+  <!-- TITLE -->
+  <text x="500" y="40" text-anchor="middle" class="title">
+    From Training Process to Trained Model
+  </text>
+
+  <!-- TRAINING SIDE -->
+  <rect x="80" y="110" width="360" height="380" class="box" fill="#E8F5E9"></rect>
+  <text x="260" y="150" text-anchor="middle" class="label">Training Phase</text>
+
+  <text x="120" y="200" class="small">• Model changes continuously</text>
+  <text x="120" y="230" class="small">• Learns from examples</text>
+  <text x="120" y="260" class="small">• Error → adjustment → update</text>
+  <text x="120" y="290" class="small">• Parameters constantly shifting</text>
+
+  <text x="120" y="350" class="small">State: flexible, evolving system</text>
+
+  <!-- ARROW -->
+  <line x1="450" y1="300" x2="550" y2="300" class="arrow"></line>
+
+  <!-- TRAINED MODEL -->
+  <rect x="560" y="110" width="360" height="380" class="box" fill="#E3F2FD"></rect>
+  <text x="740" y="150" text-anchor="middle" class="label">Trained Model</text>
+
+  <text x="600" y="200" class="small">• Parameters are frozen</text>
+  <text x="600" y="230" class="small">• No further learning happens</text>
+  <text x="600" y="260" class="small">• Acts as a prediction system</text>
+  <text x="600" y="290" class="small">• Encodes learned patterns</text>
+
+  <text x="600" y="350" class="small">State: fixed structure used for inference</text>
+
+  <!-- BOTTOM INSIGHT -->
+  <text x="500" y="530" text-anchor="middle" class="small">
+    Training builds the system. The trained model is what remains after learning stops.
+  </text>
+
+</svg>

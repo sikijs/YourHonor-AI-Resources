@@ -1,0 +1,60 @@
+<svg width="1000" height="560" viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .title { font: bold 26px sans-serif; fill: #111; }
+    .box { stroke: #333; stroke-width: 2; rx: 14; }
+    .label { font: 16px sans-serif; fill: #111; }
+    .small { font: 14px sans-serif; fill: #333; }
+    .arrow { stroke: #333; stroke-width: 2; marker-end: url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"></polygon>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" class="title">
+    How a Model Learns
+  </text>
+
+  <!-- INPUT -->
+  <rect x="80" y="120" width="200" height="120" class="box" fill="#E8F5E9"></rect>
+  <text x="180" y="160" text-anchor="middle" class="label">Input Data</text>
+  <text x="180" y="190" text-anchor="middle" class="small">Text / Images / Signals</text>
+
+  <!-- MODEL -->
+  <rect x="400" y="120" width="200" height="120" class="box" fill="#E3F2FD"></rect>
+  <text x="500" y="160" text-anchor="middle" class="label">Model</text>
+  <text x="500" y="190" text-anchor="middle" class="small">Makes Prediction</text>
+
+  <!-- OUTPUT -->
+  <rect x="720" y="120" width="200" height="120" class="box" fill="#FFF3E0"></rect>
+  <text x="820" y="160" text-anchor="middle" class="label">Output</text>
+  <text x="820" y="190" text-anchor="middle" class="small">Prediction</text>
+
+  <!-- ERROR -->
+  <rect x="400" y="320" width="200" height="120" class="box" fill="#FFEBEE"></rect>
+  <text x="500" y="360" text-anchor="middle" class="label">Error Signal</text>
+  <text x="500" y="390" text-anchor="middle" class="small">Difference vs Correct Answer</text>
+
+  <!-- WEIGHTS -->
+  <rect x="80" y="320" width="200" height="120" class="box" fill="#F3E5F5"></rect>
+  <text x="180" y="360" text-anchor="middle" class="label">Parameters</text>
+  <text x="180" y="390" text-anchor="middle" class="small">Internal Numbers</text>
+
+  <!-- ARROWS -->
+  <line x1="280" y1="180" x2="400" y2="180" class="arrow"></line>
+  <line x1="600" y1="180" x2="720" y2="180" class="arrow"></line>
+  <line x1="820" y1="240" x2="820" y2="320" class="arrow"></line>
+  <line x1="720" y1="380" x2="600" y2="380" class="arrow"></line>
+  <line x1="400" y1="380" x2="280" y2="380" class="arrow"></line>
+  <line x1="180" y1="320" x2="180" y2="240" class="arrow"></line>
+
+  <!-- LOOP LABEL -->
+  <text x="500" y="500" text-anchor="middle" class="small">
+    Learning is a feedback loop: prediction → error → adjustment → improved model
+  </text>
+
+</svg>
