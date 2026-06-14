@@ -1,0 +1,36 @@
+<svg width="1200" height="700" xmlns="http://www.w3.org/2000/svg">
+<style>
+.box{fill:#f7f9fc;stroke:#2b3a55;stroke-width:2}
+.txt{font-family:Arial;font-size:18px;text-anchor:middle}
+.arrow{stroke:#2b3a55;stroke-width:2;marker-end:url(#a)}
+</style>
+
+<defs>
+<marker id="a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+<polygon points="0 0,10 3.5,0 7" fill="#2b3a55"></polygon>
+</marker>
+</defs>
+
+<rect x="500" y="50" width="200" height="80" class="box"></rect>
+<text x="600" y="95" class="txt">Coordinator Agent</text>
+
+<rect x="100" y="300" width="200" height="80" class="box"></rect>
+<text x="200" y="345" class="txt">Research Agent</text>
+
+<rect x="500" y="300" width="200" height="80" class="box"></rect>
+<text x="600" y="345" class="txt">Analysis Agent</text>
+
+<rect x="900" y="300" width="200" height="80" class="box"></rect>
+<text x="1000" y="345" class="txt">Writing Agent</text>
+
+<line x1="560" y1="130" x2="250" y2="300" class="arrow"></line>
+<line x1="600" y1="130" x2="600" y2="300" class="arrow"></line>
+<line x1="640" y1="130" x2="950" y2="300" class="arrow"></line>
+
+<rect x="500" y="550" width="200" height="80" class="box"></rect>
+<text x="600" y="595" class="txt">Final Output</text>
+
+<line x1="200" y1="380" x2="560" y2="550" class="arrow"></line>
+<line x1="600" y1="380" x2="600" y2="550" class="arrow"></line>
+<line x1="1000" y1="380" x2="640" y2="550" class="arrow"></line>
+</svg>

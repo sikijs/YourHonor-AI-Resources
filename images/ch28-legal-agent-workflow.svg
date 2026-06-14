@@ -1,0 +1,29 @@
+<svg width="1200" height="400" xmlns="http://www.w3.org/2000/svg">
+<style>
+.box{fill:#f7f9fc;stroke:#2b3a55;stroke-width:2}
+.txt{font-family:Arial;font-size:18px;text-anchor:middle}
+.arrow{stroke:#2b3a55;stroke-width:2;marker-end:url(#a)}
+</style>
+
+<defs>
+<marker id="a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+<polygon points="0 0,10 3.5,0 7" fill="#2b3a55"></polygon>
+</marker>
+</defs>
+
+<rect x="50" y="150" width="180" height="70" class="box"></rect>
+<text x="140" y="190" class="txt">Research Goal</text>
+
+<rect x="320" y="150" width="180" height="70" class="box"></rect>
+<text x="410" y="190" class="txt">Search Cases</text>
+
+<rect x="590" y="150" width="180" height="70" class="box"></rect>
+<text x="680" y="190" class="txt">Analyze Findings</text>
+
+<rect x="860" y="150" width="180" height="70" class="box"></rect>
+<text x="950" y="190" class="txt">Draft Memo</text>
+
+<line x1="230" y1="185" x2="320" y2="185" class="arrow"></line>
+<line x1="500" y1="185" x2="590" y2="185" class="arrow"></line>
+<line x1="770" y1="185" x2="860" y2="185" class="arrow"></line>
+</svg>
