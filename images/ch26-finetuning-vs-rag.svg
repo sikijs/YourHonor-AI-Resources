@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="450" viewBox="0 0 1000 450">
+  <rect width="1000" height="450" fill="white"></rect>
+
+  <text x="500" y="50" text-anchor="middle" font-family="Georgia" font-size="24" fill="#111">
+    Fine-Tuning vs Retrieval-Augmented Generation
+  </text>
+
+  <!-- Fine-Tuning -->
+  <rect x="90" y="120" width="320" height="220" rx="12" fill="#eef6ff" stroke="#cfe0f5"></rect>
+
+  <text x="250" y="165" text-anchor="middle" font-family="Georgia" font-size="18">
+    Fine-Tuning
+  </text>
+
+  <text x="250" y="210" text-anchor="middle" font-family="Georgia" font-size="14">
+    Knowledge stored
+  </text>
+
+  <text x="250" y="235" text-anchor="middle" font-family="Georgia" font-size="14">
+    inside the model
+  </text>
+
+  <text x="250" y="285" text-anchor="middle" font-family="Georgia" font-size="14">
+    Requires retraining
+  </text>
+
+  <!-- RAG -->
+  <rect x="590" y="120" width="320" height="220" rx="12" fill="#eef9ee" stroke="#cde5cd"></rect>
+
+  <text x="750" y="165" text-anchor="middle" font-family="Georgia" font-size="18">
+    RAG
+  </text>
+
+  <text x="750" y="210" text-anchor="middle" font-family="Georgia" font-size="14">
+    Retrieves information
+  </text>
+
+  <text x="750" y="235" text-anchor="middle" font-family="Georgia" font-size="14">
+    when needed
+  </text>
+
+  <text x="750" y="285" text-anchor="middle" font-family="Georgia" font-size="14">
+    Easier to update
+  </text>
+
+  <line x1="410" y1="230" x2="590" y2="230" stroke="#888" stroke-width="2"></line>
+</svg>
