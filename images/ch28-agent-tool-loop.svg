@@ -1,0 +1,43 @@
+<svg width="1000" height="700" xmlns="http://www.w3.org/2000/svg">
+
+<style>
+.box { fill:#f7f9fc; stroke:#2b3a55; stroke-width:2; rx:12; }
+.text { font-family: Arial, sans-serif; font-size:18px; fill:#1c2430; text-anchor:middle; }
+.arrow { stroke:#2b3a55; stroke-width:2; marker-end:url(#arrow); }
+</style>
+
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+<polygon points="0 0, 10 3.5, 0 7" fill="#2b3a55"></polygon>
+</marker>
+</defs>
+
+<rect x="400" y="40" width="200" height="70" class="box"></rect>
+<text x="500" y="80" class="text">Need More Info?</text>
+
+<line x1="500" y1="110" x2="500" y2="170" class="arrow"></line>
+
+<rect x="400" y="170" width="200" height="70" class="box"></rect>
+<text x="500" y="210" class="text">Select Tool</text>
+
+<line x1="500" y1="240" x2="500" y2="300" class="arrow"></line>
+
+<rect x="400" y="300" width="200" height="70" class="box"></rect>
+<text x="500" y="340" class="text">Use Tool</text>
+
+<line x1="500" y1="370" x2="500" y2="430" class="arrow"></line>
+
+<rect x="400" y="430" width="200" height="70" class="box"></rect>
+<text x="500" y="470" class="text">Get Result</text>
+
+<line x1="500" y1="500" x2="500" y2="560" class="arrow"></line>
+
+<rect x="400" y="560" width="200" height="70" class="box"></rect>
+<text x="500" y="600" class="text">Update Plan</text>
+
+<line x1="500" y1="630" x2="500" y2="680" class="arrow"></line>
+
+<rect x="400" y="680" width="200" height="70" class="box"></rect>
+<text x="500" y="720" class="text">Continue Loop</text>
+
+</svg>

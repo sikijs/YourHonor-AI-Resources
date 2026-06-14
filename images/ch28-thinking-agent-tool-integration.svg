@@ -1,0 +1,34 @@
+<svg width="1000" height="600" xmlns="http://www.w3.org/2000/svg">
+
+<style>
+.box { fill:#f7f9fc; stroke:#2b3a55; stroke-width:2; rx:12; }
+.text { font-family: Arial, sans-serif; font-size:18px; fill:#1c2430; text-anchor:middle; }
+.arrow { stroke:#2b3a55; stroke-width:2; marker-end:url(#arrow); }
+.label { font-size:16px; fill:#3a4a5e; }
+</style>
+
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+<polygon points="0 0, 10 3.5, 0 7" fill="#2b3a55"></polygon>
+</marker>
+</defs>
+
+<rect x="380" y="40" width="240" height="70" class="box"></rect>
+<text x="500" y="85" class="text">Reasoning Engine</text>
+
+<line x1="500" y1="110" x2="250" y2="220" class="arrow"></line>
+<line x1="500" y1="110" x2="750" y2="220" class="arrow"></line>
+
+<rect x="150" y="220" width="200" height="70" class="box"></rect>
+<text x="250" y="265" class="text">Search Tool</text>
+
+<rect x="650" y="220" width="200" height="70" class="box"></rect>
+<text x="750" y="265" class="text">Compute / Code</text>
+
+<line x1="250" y1="290" x2="500" y2="420" class="arrow"></line>
+<line x1="750" y1="290" x2="500" y2="420" class="arrow"></line>
+
+<rect x="380" y="420" width="240" height="70" class="box"></rect>
+<text x="500" y="465" class="text">Updated Understanding</text>
+
+</svg>

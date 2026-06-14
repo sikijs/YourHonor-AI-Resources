@@ -1,0 +1,27 @@
+<svg width="1000" height="500" xmlns="http://www.w3.org/2000/svg">
+<style>
+.box{fill:#f7f9fc;stroke:#2b3a55;stroke-width:2}
+.txt{font-family:Arial;font-size:18px;text-anchor:middle}
+.arrow{stroke:#2b3a55;stroke-width:2;marker-end:url(#a)}
+</style>
+
+<defs>
+<marker id="a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+<polygon points="0 0,10 3.5,0 7" fill="#2b3a55"></polygon>
+</marker>
+</defs>
+
+<rect x="100" y="200" width="180" height="70" class="box"></rect>
+<text x="190" y="240" class="txt">Step 1</text>
+
+<rect x="410" y="200" width="180" height="70" class="box"></rect>
+<text x="500" y="240" class="txt">Step 2</text>
+
+<rect x="720" y="200" width="180" height="70" class="box"></rect>
+<text x="810" y="240" class="txt">Step 3</text>
+
+<line x1="280" y1="235" x2="410" y2="235" class="arrow"></line>
+<line x1="590" y1="235" x2="720" y2="235" class="arrow"></line>
+
+<text x="500" y="120" class="txt">Shared Working Memory</text>
+</svg>
