@@ -1,0 +1,32 @@
+<svg width="1000" height="420" viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="420" fill="#ffffff"></rect>
+
+  <text x="500" y="40" text-anchor="middle" font-size="18">Retrieval Quality Determines Answer Quality</text>
+
+  <!-- Left: Good retrieval -->
+  <rect x="100" y="110" width="320" height="240" rx="12" fill="#f0fff4" stroke="#333"></rect>
+  <text x="260" y="140" text-anchor="middle" font-size="14">Good Retrieval</text>
+
+  <rect x="140" y="170" width="240" height="50" rx="8" fill="#ffffff" stroke="#333"></rect>
+  <text x="260" y="200" text-anchor="middle" font-size="12">Relevant Case A</text>
+
+  <rect x="140" y="230" width="240" height="50" rx="8" fill="#ffffff" stroke="#333"></rect>
+  <text x="260" y="260" text-anchor="middle" font-size="12">Relevant Case B</text>
+
+  <text x="260" y="320" text-anchor="middle" font-size="12">Complete + aligned context</text>
+
+  <!-- Right: Bad retrieval -->
+  <rect x="580" y="110" width="320" height="240" rx="12" fill="#ffe5e5" stroke="#333"></rect>
+  <text x="740" y="140" text-anchor="middle" font-size="14">Poor Retrieval</text>
+
+  <rect x="620" y="170" width="240" height="50" rx="8" fill="#ffffff" stroke="#333"></rect>
+  <text x="740" y="200" text-anchor="middle" font-size="12">Partially Relevant Doc</text>
+
+  <rect x="620" y="230" width="240" height="50" rx="8" fill="#ffffff" stroke="#333"></rect>
+  <text x="740" y="260" text-anchor="middle" font-size="12">Missing Key Exception</text>
+
+  <text x="740" y="320" text-anchor="middle" font-size="12">Incomplete context → weak answer</text>
+
+  <!-- Divider -->
+  <line x1="500" y1="100" x2="500" y2="360" stroke="#ccc"></line>
+</svg>

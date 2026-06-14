@@ -1,0 +1,24 @@
+<svg width="900" height="420" viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="420" fill="#ffffff"></rect>
+
+  <text x="450" y="40" text-anchor="middle" font-size="20">The Core Problem: No Access to Reality</text>
+
+  <!-- Brain box -->
+  <rect x="100" y="140" width="260" height="140" rx="12" fill="#f5f5f5" stroke="#333"></rect>
+  <text x="230" y="180" text-anchor="middle">AI Model</text>
+  <text x="230" y="210" text-anchor="middle" font-size="12">Trained once</text>
+  <text x="230" y="230" text-anchor="middle" font-size="12">No live updates</text>
+
+  <!-- World box -->
+  <rect x="540" y="140" width="260" height="140" rx="12" fill="#e8f4ff" stroke="#333"></rect>
+  <text x="670" y="180" text-anchor="middle">Real World Data</text>
+  <text x="670" y="210" text-anchor="middle" font-size="12">Courts</text>
+  <text x="670" y="230" text-anchor="middle" font-size="12">Databases</text>
+  <text x="670" y="250" text-anchor="middle" font-size="12">Documents</text>
+
+  <!-- Broken link -->
+  <line x1="360" y1="210" x2="540" y2="210" stroke="#aa0000" stroke-width="3"></line>
+  <text x="450" y="190" text-anchor="middle" fill="#aa0000" font-size="12">No direct connection</text>
+
+  <text x="450" y="350" text-anchor="middle" font-size="14">This gap is what RAG is designed to fix</text>
+</svg>

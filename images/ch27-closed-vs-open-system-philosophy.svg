@@ -1,0 +1,32 @@
+<svg width="1000" height="420" viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="420" fill="#ffffff"></rect>
+
+  <text x="500" y="40" text-anchor="middle" font-size="18">The Philosophical Shift Behind RAG</text>
+
+  <!-- Closed system -->
+  <rect x="100" y="110" width="340" height="250" rx="12" fill="#f5f5f5" stroke="#333"></rect>
+  <text x="270" y="140" text-anchor="middle" font-size="14">Closed System AI</text>
+
+  <circle cx="270" cy="220" r="50" fill="#ddd" stroke="#333"></circle>
+  <text x="270" y="225" text-anchor="middle" font-size="12">Model</text>
+
+  <text x="270" y="290" text-anchor="middle" font-size="12">“Everything is inside the model”</text>
+
+  <!-- Open system -->
+  <rect x="560" y="110" width="340" height="250" rx="12" fill="#e8f4ff" stroke="#333"></rect>
+  <text x="730" y="140" text-anchor="middle" font-size="14">Open System AI (RAG)</text>
+
+  <circle cx="730" cy="220" r="40" fill="#f5f5f5" stroke="#333"></circle>
+  <text x="730" y="225" text-anchor="middle" font-size="12">Model</text>
+
+  <rect x="640" y="180" width="80" height="60" fill="#ffffff" stroke="#333"></rect>
+  <text x="680" y="215" text-anchor="middle" font-size="11">Docs</text>
+
+  <rect x="800" y="180" width="80" height="60" fill="#ffffff" stroke="#333"></rect>
+  <text x="840" y="215" text-anchor="middle" font-size="11">Search</text>
+
+  <line x1="720" y1="220" x2="640" y2="210" stroke="#333"></line>
+  <line x1="740" y1="220" x2="800" y2="210" stroke="#333"></line>
+
+  <text x="730" y="290" text-anchor="middle" font-size="12">“Knowledge is accessed, not stored”</text>
+</svg>

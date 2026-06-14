@@ -1,0 +1,31 @@
+<svg width="1000" height="420" viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="420" fill="#ffffff"></rect>
+
+  <text x="500" y="40" text-anchor="middle" font-size="18">From Single Retrieval to Iterative Reasoning</text>
+
+  <!-- Nodes -->
+  <rect x="80" y="160" width="140" height="70" rx="12" fill="#f5f5f5" stroke="#333"></rect>
+  <text x="150" y="200" text-anchor="middle">Question</text>
+
+  <rect x="260" y="160" width="140" height="70" rx="12" fill="#e8f4ff" stroke="#333"></rect>
+  <text x="330" y="200" text-anchor="middle">Retrieve</text>
+
+  <rect x="440" y="160" width="140" height="70" rx="12" fill="#fff4e6" stroke="#333"></rect>
+  <text x="510" y="200" text-anchor="middle">Reason</text>
+
+  <rect x="620" y="160" width="140" height="70" rx="12" fill="#e8f4ff" stroke="#333"></rect>
+  <text x="690" y="200" text-anchor="middle">Refine Query</text>
+
+  <rect x="800" y="160" width="140" height="70" rx="12" fill="#f0fff4" stroke="#333"></rect>
+  <text x="870" y="200" text-anchor="middle">Final Answer</text>
+
+  <!-- Arrows -->
+  <line x1="220" y1="195" x2="260" y2="195" stroke="#333"></line>
+  <line x1="400" y1="195" x2="440" y2="195" stroke="#333"></line>
+  <line x1="580" y1="195" x2="620" y2="195" stroke="#333"></line>
+  <line x1="760" y1="195" x2="800" y2="195" stroke="#333"></line>
+
+  <!-- Loop back -->
+  <path d="M 690 160 C 690 80, 330 80, 330 160" fill="none" stroke="#999" stroke-dasharray="5,5"></path>
+  <text x="510" y="90" text-anchor="middle" font-size="12" fill="#666">Iterative improvement loop</text>
+</svg>
