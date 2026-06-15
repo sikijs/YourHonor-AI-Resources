@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560">
+  <rect width="100%" height="100%" fill="#0b1220"></rect>
+
+  <text x="50" y="60" fill="#ffffff" font-size="30" font-family="Arial">
+    Modern AI System Architecture
+  </text>
+
+  <!-- User -->
+  <rect x="60" y="200" width="160" height="120" rx="12" fill="#111827" stroke="#38bdf8"></rect>
+  <text x="110" y="255" fill="#38bdf8" font-size="16">User</text>
+
+  <!-- Orchestrator -->
+  <rect x="280" y="140" width="200" height="240" rx="12" fill="#111827" stroke="#a855f7"></rect>
+  <text x="310" y="190" fill="#a855f7" font-size="16">Orchestrator</text>
+  <text x="300" y="230" fill="#cbd5e1" font-size="13">Routing logic</text>
+  <text x="300" y="255" fill="#cbd5e1" font-size="13">Tool selection</text>
+  <text x="300" y="280" fill="#cbd5e1" font-size="13">Prompt assembly</text>
+
+  <!-- Model -->
+  <rect x="540" y="140" width="200" height="240" rx="12" fill="#111827" stroke="#22c55e"></rect>
+  <text x="600" y="190" fill="#22c55e" font-size="16">LLM</text>
+  <text x="560" y="230" fill="#cbd5e1" font-size="13">Token generation</text>
+  <text x="560" y="255" fill="#cbd5e1" font-size="13">Language reasoning</text>
+
+  <!-- Tools -->
+  <rect x="800" y="120" width="160" height="140" rx="12" fill="#111827" stroke="#facc15"></rect>
+  <text x="845" y="165" fill="#facc15" font-size="14">Tools</text>
+  <text x="820" y="195" fill="#cbd5e1" font-size="12">Search</text>
+  <text x="820" y="215" fill="#cbd5e1" font-size="12">DB</text>
+  <text x="820" y="235" fill="#cbd5e1" font-size="12">APIs</text>
+
+  <!-- Retrieval -->
+  <rect x="800" y="300" width="160" height="140" rx="12" fill="#111827" stroke="#38bdf8"></rect>
+  <text x="820" y="345" fill="#38bdf8" font-size="14">Retrieval</text>
+  <text x="820" y="375" fill="#cbd5e1" font-size="12">Vector DB</text>
+  <text x="820" y="395" fill="#cbd5e1" font-size="12">Documents</text>
+
+  <!-- Arrows -->
+  <line x1="220" y1="260" x2="280" y2="260" stroke="#facc15" stroke-width="3"></line>
+  <line x1="480" y1="260" x2="540" y2="260" stroke="#facc15" stroke-width="3"></line>
+  <line x1="740" y1="200" x2="800" y2="190" stroke="#facc15" stroke-width="3"></line>
+  <line x1="740" y1="300" x2="800" y2="340" stroke="#facc15" stroke-width="3"></line>
+
+</svg>
