@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560">
+  <rect width="100%" height="100%" fill="#0b1220"></rect>
+
+  <text x="50" y="60" fill="#ffffff" font-size="30" font-family="Arial">
+    Tool-Enabled AI System Flow
+  </text>
+
+  <!-- User -->
+  <rect x="80" y="220" width="180" height="140" rx="12" fill="#111827" stroke="#38bdf8"></rect>
+  <text x="140" y="270" fill="#38bdf8" font-size="16">User</text>
+  <text x="110" y="300" fill="#cbd5e1" font-size="13">Query input</text>
+
+  <!-- Orchestrator -->
+  <rect x="320" y="180" width="220" height="220" rx="12" fill="#111827" stroke="#a855f7"></rect>
+  <text x="365" y="230" fill="#a855f7" font-size="16">Orchestrator</text>
+  <text x="340" y="265" fill="#cbd5e1" font-size="13">Decides routing</text>
+  <text x="340" y="290" fill="#cbd5e1" font-size="13">Selects tools</text>
+  <text x="340" y="315" fill="#cbd5e1" font-size="13">Builds prompts</text>
+
+  <!-- LLM -->
+  <rect x="600" y="180" width="200" height="220" rx="12" fill="#111827" stroke="#22c55e"></rect>
+  <text x="665" y="230" fill="#22c55e" font-size="16">LLM</text>
+  <text x="625" y="265" fill="#cbd5e1" font-size="13">Reasoning</text>
+  <text x="625" y="290" fill="#cbd5e1" font-size="13">Generation</text>
+
+  <!-- Tools box -->
+  <rect x="840" y="120" width="140" height="140" rx="12" fill="#111827" stroke="#facc15"></rect>
+  <text x="885" y="165" fill="#facc15" font-size="14">Tools</text>
+  <text x="860" y="195" fill="#cbd5e1" font-size="12">Search</text>
+  <text x="860" y="215" fill="#cbd5e1" font-size="12">DB</text>
+  <text x="860" y="235" fill="#cbd5e1" font-size="12">APIs</text>
+
+  <!-- External Data -->
+  <rect x="840" y="320" width="140" height="140" rx="12" fill="#111827" stroke="#38bdf8"></rect>
+  <text x="870" y="365" fill="#38bdf8" font-size="14">External</text>
+  <text x="860" y="390" fill="#cbd5e1" font-size="12">Docs</text>
+  <text x="860" y="410" fill="#cbd5e1" font-size="12">Knowledge</text>
+
+  <!-- Flow arrows -->
+  <line x1="260" y1="290" x2="320" y2="290" stroke="#facc15" stroke-width="4"></line>
+  <polygon points="320,290 305,280 305,300" fill="#facc15"></polygon>
+
+  <line x1="540" y1="290" x2="600" y2="290" stroke="#facc15" stroke-width="4"></line>
+  <polygon points="600,290 585,280 585,300" fill="#facc15"></polygon>
+
+  <line x1="800" y1="190" x2="840" y2="190" stroke="#facc15" stroke-width="3"></line>
+  <line x1="800" y1="330" x2="840" y2="390" stroke="#facc15" stroke-width="3"></line>
+
+  <!-- Bottom insight -->
+  <text x="50" y="520" fill="#94a3b8" font-size="18">
+    Tools connect language models to external reality, reducing hallucination risk.
+  </text>
+</svg>
