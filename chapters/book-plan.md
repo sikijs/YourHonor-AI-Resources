@@ -386,34 +386,9 @@ Topics:
 Human-AI collaboration
 New careers
 New skills
-Appendices
-Appendix A — AI Timeline
 
-1943 — Artificial Neuron
 
-1950 — Turing Test
-
-1956 — AI Named
-
-1957 — Perceptron
-
-1970s — AI Winter
-
-1980s — Expert Systems
-
-1986 — Backpropagation
-
-2012 — Deep Learning Revolution
-
-2016 — AlphaGo
-
-2017 — Transformer
-
-2022 — ChatGPT
-
-2024+ — Agents and Vibe Coding
-
-Appendix B — AI Glossary
+Appendix A — AI Glossary
 
 Definitions for:
 
@@ -431,15 +406,6 @@ LLM
 RAG
 Agent
 Hallucination
-Appendix C — Visual AI Cheat Sheet
-
-A single document containing:
-
-All diagrams
-All timelines
-All concept illustrations
-
-For quick review and study.
 
 Current Status
 
