@@ -260,8 +260,6 @@ This is one reason modern language models often break words into smaller pieces 
 
 Instead of treating "unhappiness" as a completely new word, the AI might divide it into parts such as:
 
-![Why AI breaks words into subword tokens and reusable building blocks.](../images/ch18-subword-tokens-building-blocks.png)
-
 *Figure 18.2: Modern language models often split words into smaller reusable pieces called subword tokens. Like building blocks, these pieces can be combined to represent millions of different words while helping AI recognize relationships between them.*
 
 

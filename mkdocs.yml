@@ -1,0 +1,66 @@
+site_name: AI Learning Center
+site_description: Educational AI resources for law students — YourHonor AI
+repo_url: https://github.com/sikijs/YourHonor-AI-Resources
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    scheme: default
+    primary: indigo
+    accent: indigo
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
+    - toc.follow
+
+nav:
+  - Home: index.md
+  - Chapters:
+      - chapters/chapter-01-what-is-intelligence.md
+      - chapters/chapter-02-how-the-human-brain-inspired-ai.md
+      - chapters/chapter-03-artificial-neurons-(1943).md
+      - chapters/chapter-04-alan-turing-and thinking-machines.md
+      - chapters/chapter-05-the-birth-of-AI-(1956).md
+      - chapters/chapter-06-the-perceptron.md
+      - chapters/chapter-07-the-first-ai-winter.md
+      - chapters/chapter-08-expert-systems.md
+      - chapters/chapter-09-backpropagation.md
+      - chapters/chapter-10-deep-learning.md
+      - chapters/chapter-11-the-gpu-revolution.md
+      - chapters/chapter-12-imagenet.md
+      - chapters/chapter-13-ai-beats-the champions.md
+      - chapters/chapter-14-transformers-and-attention.md
+      - chapters/chapter-15-large-language-models.md
+      - chapters/chapter-16-data-the-fuel-of-ai.md
+      - chapters/chapter-17-how-computer-sees-everything-as-numbers.md
+      - chapters/chapter-18-tokens.md
+      - chapters/chapter-19-embeddings.md
+      - chapters/chapter-20-neural-networks.md
+      - chapters/chapter-21-weights-and-parameters.md
+      - chapters/chapter-22-training.md
+      - chapters/chapter-23-backpropagation-simplified.md
+      - chapters/chapter-24-models.md
+      - chapters/chapter-25-why-bigger-models-work.md
+      - chapters/chapter-26-fine-tuning.md
+      - chapters/chapter-27-retrieval-augmented-generation-rag.md
+      - chapters/chapter-28-agents.md
+      - chapters/chapter-29-vibe-coding.md
+      - chapters/chapter-30-multimodal-ai.md
+      - chapters/chapter-31-hallucinations.md
+      - chapters/chapter-32-what-ai-still-cannot-do.md
+  - Appendix:
+      - Appendix A — AI Glossary: chapters/appendix-A-ai-glossary.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/sikijs/YourHonor-AI-Resources
