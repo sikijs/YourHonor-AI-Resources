@@ -1,7 +1,7 @@
-# Chapter 30 -- Multimodal AI
+# Chapter 30: Multimodal AI
 
 
-# Opening Story
+## Opening Story
 
 Imagine you are driving home after work.
 
@@ -88,7 +88,7 @@ It represents one of the most important shifts in the history of artificial inte
 In this chapter, we will explore how AI learned to see, hear, and understand multiple forms of information—and why this ability is bringing machines one step closer to interacting with the world the way humans do.
 
 
-# Section 1: What Does Multimodal Mean?
+## Section 1: What Does Multimodal Mean?
 
 The word *multimodal* may sound technical, but the idea behind it is surprisingly simple.
 

@@ -1,4 +1,4 @@
-# Chapter 14 -- Transformers and Attention
+# Chapter 14: Transformers and Attention
 
 ## Opening Story: The Sentence That Changed Everything
 

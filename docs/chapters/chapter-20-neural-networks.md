@@ -1,4 +1,4 @@
-# Chapter 20 -- Neural Networks
+# Chapter 20: Neural Networks
 
 
 ## Opening Story: How Do You Recognize a Face?
@@ -50,7 +50,7 @@ The idea was inspired by the human brain, but modern neural networks are far sim
 In this chapter, we will explore what neural networks are, how they are structured, and why they became the foundation of the AI revolution. By the end, you will understand how simple mathematical building blocks can work together to perform tasks that once seemed impossible for machines.
 
 
-# Section 1: What Is a Neural Network?
+## Section 1: What Is a Neural Network?
 
 At first glance, the term *neural network* sounds intimidating.
 
@@ -131,7 +131,7 @@ Nearly every major AI breakthrough of the past decade—from image recognition t
 To understand modern AI, we must first understand how these networks are organized and how information flows through them.
 
 
-# Section 2: Inside a Neural Network
+## Section 2: Inside a Neural Network
 
 Now that we understand the basic idea behind neural networks, let's look inside one.
 
@@ -244,7 +244,7 @@ The remarkable power of neural networks comes not from any single neuron, but fr
 In the next section, we will examine how information actually moves through a neural network and how each neuron contributes to the final decision.
 
 
-# Section 3: How Information Flows Through a Neural Network
+## Section 3: How Information Flows Through a Neural Network
 
 Now that we have seen the structure of a neural network, let's follow a piece of information as it travels through the system.
 
@@ -365,7 +365,7 @@ The answer lies in the connections between neurons and the numerical values atta
 These values are called **weights**, and they are the secret ingredient that allows neural networks to learn.
 
 
-# Section 4: The Secret of Learning — Connections and Weights
+## Section 4: The Secret of Learning — Connections and Weights
 
 So far, we have seen that information flows through a neural network from one layer to the next.
 

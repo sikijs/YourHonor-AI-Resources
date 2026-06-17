@@ -1,0 +1,13 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="400" fill="white"/>
+<text x="50" y="50" font-size="20">Cognitive Scale Expansion</text>
+
+<rect x="80" y="120" width="120" height="200" fill="lightgray"/>
+<text x="90" y="350" font-size="12">Human Alone</text>
+
+<rect x="300" y="80" width="120" height="240" fill="lightblue"/>
+<text x="310" y="350" font-size="12">Human + AI</text>
+
+<rect x="520" y="40" width="120" height="280" fill="lightgreen"/>
+<text x="530" y="350" font-size="12">AI-Scaled Work</text>
+</svg>

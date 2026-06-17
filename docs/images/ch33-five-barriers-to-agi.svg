@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850">
+
+<rect width="1200" height="850" fill="white"></rect>
+
+<text x="600" y="60" text-anchor="middle" font-family="Arial" font-size="34" font-weight="bold">
+The Five Barriers to AGI
+</text>
+
+<!-- AGI Goal -->
+
+<rect x="475" y="120" width="250" height="70" fill="white" stroke="black" stroke-width="2"></rect>
+
+<text x="600" y="165" text-anchor="middle" font-family="Arial" font-size="28" font-weight="bold">
+AGI
+</text>
+
+<!-- Barrier 1 -->
+
+<rect x="450" y="260" width="300" height="60" fill="white" stroke="black" stroke-width="2"></rect>
+
+<text x="600" y="300" text-anchor="middle" font-family="Arial" font-size="22">
+Generalization
+</text>
+
+<!-- Barrier 2 -->
+
+<rect x="450" y="360" width="300" height="60" fill="white" stroke="black" stroke-width="2"></rect>
+
+<text x="600" y="400" text-anchor="middle" font-family="Arial" font-size="22">
+Grounding
+</text>
+
+<!-- Barrier 3 -->
+
+<rect x="450" y="460" width="300" height="60" fill="white" stroke="black" stroke-width="2"></rect>
+
+<text x="600" y="500" text-anchor="middle" font-family="Arial" font-size="22">
+Transfer
+</text>
+
+<!-- Barrier 4 -->
+
+<rect x="450" y="560" width="300" height="60" fill="white" stroke="black" stroke-width="2"></rect>
+
+<text x="600" y="600" text-anchor="middle" font-family="Arial" font-size="22">
+Long-Horizon Stability
+</text>
+
+<!-- Barrier 5 -->
+
+<rect x="450" y="660" width="300" height="60" fill="white" stroke="black" stroke-width="2"></rect>
+
+<text x="600" y="700" text-anchor="middle" font-family="Arial" font-size="22">
+Prioritization &amp; Judgment
+</text>
+
+<!-- Connecting Lines -->
+
+<line x1="600" y1="190" x2="600" y2="260" stroke="black" stroke-width="2"></line>
+
+<line x1="600" y1="320" x2="600" y2="360" stroke="black" stroke-width="2"></line>
+
+<line x1="600" y1="420" x2="600" y2="460" stroke="black" stroke-width="2"></line>
+
+<line x1="600" y1="520" x2="600" y2="560" stroke="black" stroke-width="2"></line>
+
+<line x1="600" y1="620" x2="600" y2="660" stroke="black" stroke-width="2"></line>
+
+<text x="600" y="800" text-anchor="middle" font-family="Arial" font-size="20">
+Progress in one area does not automatically solve the others.
+</text>
+
+</svg>

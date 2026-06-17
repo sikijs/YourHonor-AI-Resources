@@ -1,4 +1,4 @@
-# Chapter 27 -- Retrieval-Augmented Generation (RAG)
+# Chapter 27: Retrieval-Augmented Generation (RAG)
 
 
 ## Opening Story: The Lawyer Who Couldn’t Trust the Answer
@@ -97,7 +97,7 @@ flowchart TD
 
 
 
-# Section 1 — Why This Problem Exists in the First Place
+## Section 1 — Why This Problem Exists in the First Place
 
 Retrieval-Augmented Generation does not begin as a solution.
 
@@ -254,7 +254,7 @@ But from *grounded sources*.
 This idea is the foundation that leads directly into Retrieval-Augmented Generation.
 
 
-# Section 2 — What RAG Actually Changes
+## Section 2 — What RAG Actually Changes
 
 Once you understand the limitation of standard AI systems, RAG stops looking like an optional enhancement.
 
@@ -422,7 +422,7 @@ It is a new way of building AI systems that stay anchored to evidence rather tha
 
 
 
-# Section 3 — How RAG Actually Works Under the Hood
+## Section 3 — How RAG Actually Works Under the Hood
 
 Up to this point, RAG has looked like a simple idea:
 
@@ -615,7 +615,7 @@ With it, they become usable in environments where correctness matters more than 
 
 
 
-# Section 4 — Why RAG Is Not Enough (and What Comes Next)
+## Section 4 — Why RAG Is Not Enough (and What Comes Next)
 
 At this point, RAG looks like a complete solution.
 
@@ -799,7 +799,7 @@ And that shift is what leads directly into the next evolution: **agent-based sys
 
 
 
-# Section 5 — When RAG Is No Longer Enough: The Rise of Agents
+## Section 5 — When RAG Is No Longer Enough: The Rise of Agents
 
 RAG solved a critical problem in AI systems: it gave models access to external knowledge.
 
@@ -981,7 +981,7 @@ And with that, AI systems begin to resemble something closer to *processes* than
 
 
 
-# Section 6 — The Real Meaning of RAG
+## Section 6 — The Real Meaning of RAG
 
 By this point, RAG may look like a technical pipeline:
 

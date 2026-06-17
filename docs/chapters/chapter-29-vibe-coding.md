@@ -1,4 +1,4 @@
-# Chapter 29 -- Vibe Coding
+# Chapter 29: Vibe Coding
 
 
 ## Opening Story: Building Software by Conversation
@@ -89,7 +89,7 @@ In this chapter, we'll explore what vibe coding is, why it emerged, how modern A
 
 
 
-# Section 1 -  What Is Vibe Coding?
+## Section 1 -  What Is Vibe Coding?
 
 A high school teacher built a working software tool in less than an hour.
 
@@ -236,7 +236,7 @@ This is why vibe coding is widely seen as one of the most significant shifts in 
 It turns programming from a technical craft into a collaborative conversation between humans and machines.
 
 
-# Section 2 - How AI Becomes a Coding Partner
+## Section 2 - How AI Becomes a Coding Partner
 
 To understand vibe coding, you do not need to understand complex programming.
 
@@ -418,7 +418,7 @@ It is deciding:
 That is the new skill emerging from vibe coding.
 
 
-# Section 3 - Why Vibe Coding Sometimes Fails
+## Section 3 - Why Vibe Coding Sometimes Fails
 
 After watching an AI generate software in seconds, many people have the same reaction:
 
@@ -647,7 +647,7 @@ That partnership—rather than full automation—is what makes vibe coding power
 
 
 
-# Section 4 - The Tools Behind Vibe Coding
+## Section 4 - The Tools Behind Vibe Coding
 
 Vibe coding would not exist without a new generation of AI-powered software tools.
 
@@ -845,7 +845,7 @@ As AI systems continue to improve, the boundary between having an idea and creat
 That possibility is what makes vibe coding so powerful—and so disruptive.
 
 
-# Section 5 - The Future of Software Creation
+## Section 5 - The Future of Software Creation
 
 Every major technological shift begins with a simple question:
 

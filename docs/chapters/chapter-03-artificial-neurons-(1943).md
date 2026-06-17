@@ -1,6 +1,6 @@
-# Chapter 3 — Artificial Neurons (1943)
+# Chapter 3: Artificial Neurons (1943)
 
-# Section 1: The Idea That Thinking Could Be Reduced to Structure
+## Section 1: The Idea That Thinking Could Be Reduced to Structure
 
 Before artificial intelligence became a field of engineering, it began with a quiet but disruptive question: if thinking happens in the brain, can it be reduced to a set of simple rules?
 
@@ -47,7 +47,7 @@ A blueprint suggesting something unusual for its time: intelligence may not be s
 
 Here is the publication-ready draft for Section 2 of Chapter 3.
 
-# Section 2: The First Artificial Neuron
+## Section 2: The First Artificial Neuron
 
 The idea proposed by McCulloch and Pitts was elegant, but it remained an idea until it was expressed as a model.
 
@@ -145,7 +145,7 @@ But it was the first building block in a journey that would eventually lead to m
 
 
 
-# Section 3: From Brain Cells to Mathematical Models
+## Section 3: From Brain Cells to Mathematical Models
 
 One of the most fascinating aspects of artificial intelligence is that it was inspired by biology but ultimately became mathematics.
 
@@ -230,7 +230,7 @@ Dendrites                         Inputs
 
 Here is the publication-ready draft for Section 4.
 
-# Section 4: Teaching a Machine to Make Simple Decisions
+## Section 4: Teaching a Machine to Make Simple Decisions
 
 So far, we have seen that an artificial neuron receives inputs, processes them, and produces an output. But what can such a simple system actually do?
 
@@ -386,7 +386,7 @@ Input A    Input B    Output
 
 Here is the publication-ready draft for Section 5.
 
-# Section 5: Why This Discovery Mattered
+## Section 5: Why This Discovery Mattered
 
 Looking back from the age of ChatGPT, self-driving cars, and AI-powered assistants, the artificial neuron of 1943 can seem almost laughably simple.
 
@@ -492,7 +492,7 @@ That idea changed the direction of computer science, influenced generations of r
 
 Here is the publication-ready draft for Section 6.
 
-# Section 6: The Limits of the First Artificial Neuron
+## Section 6: The Limits of the First Artificial Neuron
 
 The work of McCulloch and Pitts was groundbreaking, but it is important to understand what their artificial neuron could not do.
 

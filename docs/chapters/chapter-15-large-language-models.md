@@ -1,4 +1,4 @@
-# Chapter 15 -- Large Language Models
+# Chapter 15: Large Language Models
 
 
 ## Opening Story: The Librarian Who Could Write
@@ -58,7 +58,7 @@ These systems have become extraordinarily good at predicting the next piece of l
 In this chapter, we will explore how Large Language Models emerged, why they became so powerful, and how they transformed artificial intelligence from a specialized technology into a tool used by hundreds of millions of people around the world.
 
 
-# Section 1. What Is a Large Language Model?
+## Section 1. What Is a Large Language Model?
 
 The term "Large Language Model" sounds intimidating, but the idea can be broken into three simple words.
 
@@ -170,7 +170,7 @@ Instead, they learned a compressed representation of language itself.
 This breakthrough would eventually lead to systems like ChatGPT and trigger one of the most significant technological shifts of the twenty-first century.
 
 
-# Section 2 — Predicting One Token at a Time
+## Section 2 — Predicting One Token at a Time
 
 One of the biggest misconceptions about AI is that it somehow "knows" entire answers before it begins responding.
 
@@ -284,7 +284,7 @@ By learning what comes next in billions of examples of human writing, Large Lang
 What appears to be a conversation is actually a remarkable sequence of predictions happening at incredible speed—often hundreds of tokens every second.
 
 
-# Section 3 — Learning from Billions of Words
+## Section 3 — Learning from Billions of Words
 
 Imagine trying to learn a new language by reading every book in a library.
 
@@ -393,7 +393,7 @@ It has read more text than any human could encounter in thousands of lifetimes.
 And from that ocean of language, it has learned how words, ideas, and concepts connect to one another.
 
 
-# Section 4 — GPT and the Rise of Generative AI
+## Section 4 — GPT and the Rise of Generative AI
 
 By the late 2010s, researchers had discovered something remarkable.
 
@@ -496,7 +496,7 @@ The technology was moving from recognition to creation.
 And the world was about to notice.
 
 
-# Section 5 — The Moment AI Went Mainstream
+## Section 5 — The Moment AI Went Mainstream
 
 For decades, artificial intelligence was largely a topic discussed by researchers, engineers, and technology companies.
 
@@ -603,7 +603,7 @@ In many ways, ChatGPT was the smartphone moment for artificial intelligence—a 
 The world had entered a new phase of the AI era.
 
 
-# Section 6 — Why Large Language Models Matter
+## Section 6 — Why Large Language Models Matter
 
 Large Language Models represent more than another milestone in the history of artificial intelligence.
 

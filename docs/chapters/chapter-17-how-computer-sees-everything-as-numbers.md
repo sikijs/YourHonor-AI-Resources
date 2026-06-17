@@ -1,4 +1,4 @@
-# Chapter 17 — How Computers See Everything as Numbers
+# Chapter 17: How Computers See Everything as Numbers
 
 ## Opening Story: The Picture That Became Millions of Numbers
 
@@ -40,7 +40,7 @@ In this chapter, we will explore how computers represent images, words, sounds, 
 
 ---
 
-# Section 1 — Why Computers Need Numbers
+## Section 1 — Why Computers Need Numbers
 
 Human beings experience the world through sights, sounds, language, touch, and emotions.
 
@@ -139,7 +139,7 @@ Everything begins with a simple rule:
 And once something becomes numbers, AI can begin learning from it.
 
 
-# Section 2 — Images Are Made of Tiny Squares
+## Section 2 — Images Are Made of Tiny Squares
 
 When we look at a photograph, we see a complete image.
 
@@ -210,7 +210,7 @@ Before AI can recognize faces, read handwriting, detect tumors, or identify traf
 The journey from pixels to understanding is one of the most remarkable achievements in modern artificial intelligence.
 
 
-# Section 3 — How Colors Become Numbers
+## Section 3 — How Colors Become Numbers
 
 So far, we have learned that images are made of pixels.
 
@@ -332,7 +332,7 @@ The remarkable fact is that every photograph ever taken with a digital camera, e
 Rows and rows of numbers.
 
 
-# Section 4 — Finding Patterns in the Pixels
+## Section 4 — Finding Patterns in the Pixels
 
 At this point, we know that a computer sees an image as a massive collection of numbers.
 
@@ -446,7 +446,7 @@ Features become understanding.
 That transformation is the foundation of modern computer vision.
 
 
-# Section 5 — Seeing Beyond Images: Everything Can Become Numbers
+## Section 5 — Seeing Beyond Images: Everything Can Become Numbers
 
 By now, we have explored how computers represent photographs as pixels and colors as numbers.
 

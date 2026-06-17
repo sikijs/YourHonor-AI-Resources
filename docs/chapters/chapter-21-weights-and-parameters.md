@@ -1,6 +1,6 @@
-# Chapter 21 -- Weights and Parameters
+# Chapter 21: Weights and Parameters
 
-# Opening Story: Choosing a Restaurant
+## Opening Story: Choosing a Restaurant
 
 Imagine that you and a group of friends are trying to decide where to have dinner.
 

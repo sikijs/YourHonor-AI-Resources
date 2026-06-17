@@ -1,4 +1,4 @@
-# Chapter 24 -- Models
+# Chapter 24: Models
 
 
 ## Opening Story

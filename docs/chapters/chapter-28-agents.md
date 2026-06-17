@@ -1,4 +1,4 @@
-# Chapter 28 -- Agents
+# Chapter 28: Agents
 
   
 ### Opening Story: *The Assistant That Refused to Stay Still*
@@ -63,7 +63,7 @@ Doing.
 And once you see that difference clearly, everything about modern AI systems starts to shift.
 
 
-# Section 1 — What Is an AI Agent?
+## Section 1 — What Is an AI Agent?
 
 Most software is predictable.
 
@@ -170,7 +170,7 @@ But progressively.
 And that difference is where modern AI begins to feel less like a model—and more like a system that operates.
 
   
-# Section 2 — How Agents Actually Think
+## Section 2 — How Agents Actually Think
 
 An agent does not “understand” in the human sense.
 
@@ -480,7 +480,7 @@ Not toward static intelligence.
 But toward **continuous decision-making systems that learn while they work**.
 
 
-# Section 3 — The Building Blocks of an Agent
+## Section 3 — The Building Blocks of an Agent
 
 At first glance, an AI agent can seem mysterious.
 
@@ -654,7 +654,7 @@ And as agents continue to evolve, these four foundations remain at the heart of 
 
 
 
-# Section 4 — Memory: The Secret Ingredient
+## Section 4 — Memory: The Secret Ingredient
 
 Imagine meeting someone who forgets everything after every sentence.
 
@@ -841,7 +841,7 @@ That simple difference may be one of the most important reasons modern agents ar
 
 
 
-# Section 5 — Agents in the Real World
+## Section 5 — Agents in the Real World
 
 Up to this point, we have explored agents as concepts.
 

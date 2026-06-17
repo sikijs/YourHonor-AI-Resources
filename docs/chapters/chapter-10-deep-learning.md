@@ -53,7 +53,7 @@ Today, whenever people talk about modern AI, they are usually talking about tech
 The revolution that changed artificial intelligence had begun.
 
 
-# Section 1: When AI Suddenly Got Much Better
+## Section 1: When AI Suddenly Got Much Better
 
 If you had asked an AI researcher in 1995 when intelligent machines would arrive, you probably would have received an optimistic answer.
 
@@ -165,7 +165,7 @@ Deep learning transformed neural networks from an interesting research idea into
 To understand why, we need to look inside these layers and see what they actually learn.
 
 
-# Section 2: Learning in Layers
+## Section 2: Learning in Layers
 
 Imagine that you show a photograph of a cat to a computer.
 
@@ -306,7 +306,7 @@ That simple idea—learning layer by layer—became one of the most important di
 *Figure 10.1: A deep neural network learns in stages. Early layers detect simple features such as edges and lines. Deeper layers combine those features into shapes, object parts, and eventually complete objects such as a cat.*
 
 
-# Section 3: Why More Layers Matter
+## Section 3: Why More Layers Matter
 
 At first glance, deep learning sounds almost too simple.
 
@@ -425,7 +425,7 @@ And as researchers continued building deeper networks, they discovered that thes
 The age of deep learning had truly begun.
 
 
-# Section 4: Why Deep Learning Finally Worked
+## Section 4: Why Deep Learning Finally Worked
 
 By now, you may be wondering something important.
 
@@ -550,7 +550,7 @@ The revolution had been building for years.
 The world was only beginning to notice.
 
 
-# Section 5: Deep Learning Changes the World
+## Section 5: Deep Learning Changes the World
 
 For most people, the deep learning revolution did not arrive with a dramatic announcement.
 
@@ -661,7 +661,7 @@ It had become part of everyday life.
 And its influence was only beginning to grow.
 
 
-# Section 6: The Modern AI Revolution
+## Section 6: The Modern AI Revolution
 
 Looking back, the success of deep learning may seem inevitable.
 

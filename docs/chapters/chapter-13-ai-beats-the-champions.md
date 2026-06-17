@@ -1,4 +1,4 @@
-# Chapter 13 -- AI Beats The Champions
+# Chapter 13: AI Beats The Champions
 
 
 ## Opening Story: The Move Nobody Expected
@@ -56,7 +56,7 @@ That game was Go.
 And its victory would change how the world viewed artificial intelligence forever.
 
 
-# 1. Why Games Became AI's Testing Ground
+## 1. Why Games Became AI's Testing Ground
 
 If researchers wanted to measure intelligence, they faced a difficult problem.
 

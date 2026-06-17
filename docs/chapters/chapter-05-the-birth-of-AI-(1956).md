@@ -1,4 +1,4 @@
-# Chapter 5 — The Birth of AI (1956)
+# Chapter 5: The Birth of AI (1956)
 
 ## Section 1: A Summer That Changed History
 

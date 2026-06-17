@@ -1,0 +1,55 @@
+<svg width="1000" height="550" xmlns="http://www.w3.org/2000/svg">
+
+<rect width="100%" height="100%" fill="white"></rect>
+
+<text x="500" y="50" text-anchor="middle" font-size="28" font-family="Arial" font-weight="bold">
+Human + AI Partnership
+</text>
+
+<circle cx="300" cy="260" r="130" fill="#eef4ff" stroke="#3366cc" stroke-width="3"></circle>
+
+<text x="300" y="220" text-anchor="middle" font-size="24" font-weight="bold">
+Human
+</text>
+
+<text x="300" y="260" text-anchor="middle" font-size="18">
+Judgment
+</text>
+
+<text x="300" y="290" text-anchor="middle" font-size="18">
+Creativity
+</text>
+
+<text x="300" y="320" text-anchor="middle" font-size="18">
+Purpose
+</text>
+
+<circle cx="700" cy="260" r="130" fill="#eefcf0" stroke="#2e8b57" stroke-width="3"></circle>
+
+<text x="700" y="220" text-anchor="middle" font-size="24" font-weight="bold">
+AI
+</text>
+
+<text x="700" y="260" text-anchor="middle" font-size="18">
+Speed
+</text>
+
+<text x="700" y="290" text-anchor="middle" font-size="18">
+Scale
+</text>
+
+<text x="700" y="320" text-anchor="middle" font-size="18">
+Automation
+</text>
+
+<line x1="430" y1="260" x2="570" y2="260" stroke="#555" stroke-width="4"></line>
+
+<polygon points="570,260 550,250 550,270" fill="#555"></polygon>
+
+<polygon points="430,260 450,250 450,270" fill="#555"></polygon>
+
+<text x="500" y="430" text-anchor="middle" font-size="20">
+The Future: Collaboration, Not Replacement
+</text>
+
+</svg>

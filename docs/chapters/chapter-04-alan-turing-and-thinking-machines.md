@@ -1,7 +1,7 @@
-# Chapter 4 - Alan Turing and Thinking Machines
+# Chapter 4: Alan Turing and Thinking Machines
 
 
-# Section 1: The Man Who Asked the Impossible Question
+## Section 1: The Man Who Asked the Impossible Question
 
 By the late 1940s, researchers had begun exploring a remarkable possibility.
 
@@ -130,7 +130,7 @@ This section sets up Section 2 naturally, where the reader explores why the conc
 
 Here is the publication-ready draft for Section 2 of Chapter 4.
 
-# Section 2: Why "Thinking" Is Difficult to Define
+## Section 2: Why "Thinking" Is Difficult to Define
 
 At first glance, Alan Turing's question seems remarkably simple:
 
@@ -295,7 +295,7 @@ This section creates the philosophical tension that naturally leads into Section
 
 Here is the publication-ready draft for Section 3 of Chapter 4.
 
-# Section 3: The Imitation Game
+## Section 3: The Imitation Game
 
 By 1950, Alan Turing had reached an important conclusion.
 
@@ -461,7 +461,7 @@ This section naturally sets up Section 4, where you explain why the Imitation Ga
 
 Here is the publication-ready draft for Section 4 of Chapter 4.
 
-# Section 4: The Birth of the Turing Test
+## Section 4: The Birth of the Turing Test
 
 The Imitation Game was more than a clever thought experiment.
 
@@ -610,7 +610,7 @@ This section serves as the intellectual payoff of the chapter. Section 5 can now
 
 Here is the publication-ready draft for Section 5 of Chapter 4.
 
-# Section 5: Does Appearing Intelligent Mean Being Intelligent?
+## Section 5: Does Appearing Intelligent Mean Being Intelligent?
 
 The Turing Test was brilliant, influential, and controversial.
 
@@ -756,7 +756,7 @@ This section creates a strong philosophical climax for the chapter. Section 6 ca
 
 Here is the publication-ready draft for Section 6 of Chapter 4.
 
-# Section 6: Why Turing Still Matters Today
+## Section 6: Why Turing Still Matters Today
 
 When Alan Turing published his ideas about machine intelligence in 1950, computers were rare, expensive, and extraordinarily limited.
 
@@ -921,7 +921,7 @@ Future
 At this point, Chapter 4 is complete. The chapter takes the reader from Turing the person, to the challenge of defining thinking, to the Imitation Game, the Turing Test, its criticisms, and finally its continuing relevance in the age of modern AI. The natural next step is the Chapter 4 "Looking Ahead" section, which bridges into the 1956 Dartmouth Conference and the formal birth of Artificial Intelligence.
 
 
-# Looking Ahead
+## Looking Ahead
 
 By the end of his life, Alan Turing had helped reshape humanity's understanding of machines.
 

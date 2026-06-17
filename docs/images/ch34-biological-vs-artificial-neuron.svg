@@ -1,0 +1,46 @@
+<svg width="1000" height="500" xmlns="http://www.w3.org/2000/svg">
+<style>
+.label { font: 18px sans-serif; }
+.title { font: bold 24px sans-serif; }
+</style>
+
+<text x="250" y="40" class="title">
+Biological Neuron vs Artificial Neuron
+</text>
+
+<rect x="80" y="100" width="350" height="300" fill="#eef7ff" stroke="black"></rect>
+
+<text x="160" y="140" class="label">
+Biological Neuron
+</text>
+
+<text x="120" y="210" class="label">
+Signals
+</text>
+
+<text x="120" y="250" class="label">
+Cell Body
+</text>
+
+<text x="120" y="290" class="label">
+Axon
+</text>
+
+<rect x="570" y="100" width="350" height="300" fill="#f4fff0" stroke="black"></rect>
+
+<text x="650" y="140" class="label">
+Artificial Neuron
+</text>
+
+<text x="610" y="210" class="label">
+Inputs
+</text>
+
+<text x="610" y="250" class="label">
+Weights
+</text>
+
+<text x="610" y="290" class="label">
+Output
+</text>
+</svg>

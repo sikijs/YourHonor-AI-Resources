@@ -1,4 +1,4 @@
-# Chapter 19 -- Embeddings
+# Chapter 19: Embeddings
 
 
 ## Opening Story

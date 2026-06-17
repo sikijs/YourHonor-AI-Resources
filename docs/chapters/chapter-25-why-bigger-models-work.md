@@ -1,7 +1,7 @@
-# Chapter 25 -- Why Bigger Models Work
+# Chapter 25: Why Bigger Models Work
 
 
-# Opening Story: The Library Visitor
+## Opening Story: The Library Visitor
 
 Imagine walking into a small neighborhood library.
 

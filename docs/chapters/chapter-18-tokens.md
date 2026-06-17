@@ -1,4 +1,4 @@
-# Chapter 18 — Tokens
+# Chapter 18: Tokens
 
 
 ## Opening Story: The Librarian Who Could Not Read
@@ -66,7 +66,7 @@ Every conversation with a language model begins with them.
 In this chapter, we will explore what tokens are, why they exist, and how they allow computers to work with human language.
 
 
-# Section 1 — What Is a Token?
+## Section 1 — What Is a Token?
 
 If computers only understand numbers, a problem immediately appears.
 
@@ -208,7 +208,7 @@ All begin with the same essential step:
 Breaking language into tokens.
 
 
-# Section 2 — Why AI Does Not Simply Use Words
+## Section 2 — Why AI Does Not Simply Use Words
 
 At first, tokens may seem unnecessary.
 

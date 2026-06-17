@@ -1,4 +1,4 @@
-# Chapter 26 -- Fine-tuning
+# Chapter 26: Fine-tuning
   
 ### Opening Story: “The Generalist Who Knew Everything… but Not Enough”
 
@@ -178,7 +178,7 @@ It is about making AI *behave appropriately in a specific world*.
 It is the step that transforms a general conversational system into a practical tool used in law firms, hospitals, financial institutions, and enterprise systems where accuracy is not optional—it is required.
 
 
-# Section 2 — Why Not Train a New Model From Scratch?
+## Section 2 — Why Not Train a New Model From Scratch?
 
 When people first hear about fine-tuning, a question often follows:
 
@@ -335,7 +335,7 @@ It starts with a model that has already learned the fundamentals and then teache
 That is why fine-tuning has become one of the most practical and widely used techniques in modern AI.
 
 
-# Section 3 — How Fine-Tuning Works
+## Section 3 — How Fine-Tuning Works
 
 By now, fine-tuning may sound almost magical.
 
@@ -503,7 +503,7 @@ It is the same model—guided, refined, and adapted for a specific purpose.
 
 
 
-# Section 4 — Fine-Tuning in the Real World
+## Section 4 — Fine-Tuning in the Real World
 
 Fine-tuning may sound like a technical procedure performed inside research laboratories, but in reality it is one of the most widely used techniques in modern AI.
 
@@ -673,7 +673,7 @@ That ability to adapt one model to many professions is one of the reasons fine-t
 
 
 
-# Section 5 — The Limits of Fine-Tuning
+## Section 5 — The Limits of Fine-Tuning
 
 By now, fine-tuning may seem like the perfect solution.
 
@@ -864,7 +864,7 @@ These limitations inspired a new approach—one that allows AI to retrieve infor
 That approach is called RAG, and it will be the focus of the next chapter.
 
 
-# Insight Box — Fine-Tuning in One Mental Model
+## Insight Box — Fine-Tuning in One Mental Model
 
 If you strip everything down, fine-tuning is not a complex idea.
 
@@ -955,7 +955,7 @@ Instead of forcing the model to remember everything, what if it could **look thi
 That question leads directly to Retrieval-Augmented Generation (RAG).
 
 
-# Final Thoughts — Fine-Tuning
+## Final Thoughts — Fine-Tuning
 
 Fine-tuning is one of those ideas that looks bigger on the inside than on the outside.
 

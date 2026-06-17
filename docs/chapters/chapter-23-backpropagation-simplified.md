@@ -1,4 +1,4 @@
-# Chapter 23 -- Backpropagation Simplified
+# Chapter 23: Backpropagation Simplified
 
 
 ## Opening Story: Learning the Perfect Basketball Shot
@@ -69,7 +69,7 @@ In the previous chapter, we explored the training process and saw how AI learns 
 That mechanism is backpropagation—the engine that powers learning in modern neural networks.
 
 
-# Section 1: Why Training Needs More Than Practice
+## Section 1: Why Training Needs More Than Practice
 
 In the previous chapter, we learned that AI models improve through training.
 
@@ -151,7 +151,7 @@ Backpropagation gives the network a way to answer one of the most important ques
 That question lies at the heart of learning—not only for machines, but for humans as well.
 
 
-# Section 2: Following the Error Backward
+## Section 2: Following the Error Backward
 
 The word *backpropagation* sounds complicated, but its meaning is surprisingly simple.
 
@@ -245,7 +245,7 @@ The key idea is simple:
 That information is what makes learning possible.
 
 
-# Section 3: The Credit Assignment Problem
+## Section 3: The Credit Assignment Problem
 
 By now, we know two important ideas.
 
@@ -339,7 +339,7 @@ And without it, deep learning would not work at all.
 
 
 
-# Section 4: How Backpropagation Actually Works
+## Section 4: How Backpropagation Actually Works
 
 Up to this point, we have built the intuition.
 
@@ -439,7 +439,7 @@ And that is what makes modern AI learning possible.
 
 
 
-# Section 5: From Small Adjustments to Intelligence
+## Section 5: From Small Adjustments to Intelligence
 
 If you step back and look at the learning process, something almost surprising becomes clear.
 
@@ -536,7 +536,7 @@ And intelligence, in modern AI systems, is not a single invention.
 It is the result of millions or billions of small corrections layered on top of each other until patterns begin to emerge.
 
 
-# Section 6: Why Backpropagation Changed Everything
+## Section 6: Why Backpropagation Changed Everything
 
 At this point, the mechanics of backpropagation are clear.
 
@@ -610,7 +610,7 @@ Not smarter rules.
 But systems that learn their own rules.
 
 
-# Insight Box: Backpropagation in One View
+## Insight Box: Backpropagation in One View
 
 Backpropagation is the mechanism that allows neural networks to learn from mistakes.
 
@@ -642,7 +642,7 @@ Backpropagation does not create intelligence in a single step.
 It builds it through continuous correction at scale.
 
 
-# Final Thoughts
+## Final Thoughts
 
 Backpropagation is one of those ideas that feels far more complex than it actually is.
 

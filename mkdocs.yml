@@ -21,7 +21,7 @@ nav:
       - chapters/chapter-01-what-is-intelligence.md
       - chapters/chapter-02-how-the-human-brain-inspired-ai.md
       - chapters/chapter-03-artificial-neurons-(1943).md
-      - chapters/chapter-04-alan-turing-and thinking-machines.md
+      - chapters/chapter-04-alan-turing-and-thinking-machines.md
       - chapters/chapter-05-the-birth-of-AI-(1956).md
       - chapters/chapter-06-the-perceptron.md
       - chapters/chapter-07-the-first-ai-winter.md
@@ -30,7 +30,7 @@ nav:
       - chapters/chapter-10-deep-learning.md
       - chapters/chapter-11-the-gpu-revolution.md
       - chapters/chapter-12-imagenet.md
-      - chapters/chapter-13-ai-beats-the champions.md
+      - chapters/chapter-13-ai-beats-the-champions.md
       - chapters/chapter-14-transformers-and-attention.md
       - chapters/chapter-15-large-language-models.md
       - chapters/chapter-16-data-the-fuel-of-ai.md
@@ -50,6 +50,8 @@ nav:
       - chapters/chapter-30-multimodal-ai.md
       - chapters/chapter-31-hallucinations.md
       - chapters/chapter-32-what-ai-still-cannot-do.md
+      - chapters/chapter-33-agi-and-beyond.md
+      - chapters/chapter-34-the-future-of-work.md
   - Appendix:
       - Appendix A — AI Glossary: chapters/appendix-A-ai-glossary.md
 

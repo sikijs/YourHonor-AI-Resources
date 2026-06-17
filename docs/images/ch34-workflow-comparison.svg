@@ -1,0 +1,10 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="400" fill="white"/>
+<text x="50" y="50" font-size="20">Traditional vs AI Workflow</text>
+
+<text x="50" y="120" font-size="16">Human → Execution → Review</text>
+<line x1="50" y1="140" x2="300" y2="140" stroke="black"/>
+
+<text x="50" y="220" font-size="16">Human → AI (many outputs) → Selection → Refinement</text>
+<line x1="50" y1="240" x2="700" y2="240" stroke="black"/>
+</svg>

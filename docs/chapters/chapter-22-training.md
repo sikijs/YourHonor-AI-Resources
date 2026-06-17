@@ -1,4 +1,4 @@
-# Chapter 22 -- Training
+# Chapter 22: Training
 
 
 ## Opening Story: Learning to Shoot a Basketball
@@ -94,7 +94,7 @@ The secret is surprisingly simple:
 Everything from image recognition systems to ChatGPT ultimately learns through some version of this cycle.
 
 
-# Section 1: What Does It Mean to Train an AI?
+## Section 1: What Does It Mean to Train an AI?
 
 By now, we have learned that a neural network contains weights and parameters—the numerical values that influence every decision the model makes.
 
@@ -210,7 +210,7 @@ Whether the task is recognizing faces, translating languages, recommending movie
 **Training allows a model to transform from a collection of random numbers into a system that has learned useful patterns from data.**
 
 
-# Section 2: Training Data — The AI's Practice Material
+## Section 2: Training Data — The AI's Practice Material
 
 Imagine trying to learn a new language without ever hearing anyone speak it.
 
@@ -312,7 +312,7 @@ But there is no knowledge to learn from.
 Training data provides the experiences that make learning possible.
 
 
-# Section 3: The Learning Signal — How AI Knows It Is Wrong
+## Section 3: The Learning Signal — How AI Knows It Is Wrong
 
 Training data gives the AI examples.
 
@@ -408,7 +408,7 @@ With it, every mistake becomes a stepping stone toward better performance.
 In the next section, we will see what the model actually *does* with this error signal—how it adjusts its internal weights to reduce future mistakes.
 
 
-# Section 4: Adjusting the Knobs — How AI Actually Learns from Mistakes
+## Section 4: Adjusting the Knobs — How AI Actually Learns from Mistakes
 
 We now know two key ingredients of training:
 
@@ -521,7 +521,7 @@ The model makes a prediction, measures error (loss), receives feedback, and upda
 In the next section, we will look at how these adjustments are applied repeatedly over large datasets—what it actually means when we say a model is “trained over many epochs.”
 
 
-# Section 5: Repetition at Scale — Why One Round of Learning Is Not Enough
+## Section 5: Repetition at Scale — Why One Round of Learning Is Not Enough
 
 So far, we have described training as a cycle:
 
@@ -615,7 +615,7 @@ It is a process stretched across time, data, and repetition.
 And when that process is scaled up enough, simple prediction systems begin to behave in surprisingly intelligent ways.
 
 
-# Section 6: Learning in Small Batches — Why AI Doesn’t Study Everything at Once
+## Section 6: Learning in Small Batches — Why AI Doesn’t Study Everything at Once
 
 So far, we have described training as if the model learns from the entire dataset in one go.
 
@@ -692,7 +692,7 @@ And from this simple but powerful structure, intelligence begins to emerge.
 Each batch produces a small weight update. One epoch is completed when all batches have been processed once.
 
 
-# Section 7: The Complete Picture — How Training Really Works
+## Section 7: The Complete Picture — How Training Really Works
 
 At this point, we have broken training into several pieces:
 
@@ -792,7 +792,7 @@ Repeat. Correct. Improve.
 Again and again.
 
 
-# Insight Box — What Training Really Means
+## Insight Box — What Training Really Means
 
 If you strip away all the technical terms, training is surprisingly simple.
 
@@ -828,7 +828,7 @@ They are not magic.
 They are feedback systems running at scale.
 
 
-# Final Thoughts
+## Final Thoughts
 
 Training is the quiet engine behind every modern AI system.
 

@@ -63,7 +63,7 @@ A technology built to power virtual worlds had become the engine behind modern A
 To understand how artificial intelligence changed the world, we must first understand the remarkable machine that made it possible.
 
 
-# Section 1: The Problem with Ordinary Computers
+## Section 1: The Problem with Ordinary Computers
 
 To understand why GPUs changed artificial intelligence, we first need to understand the problem they were designed to solve.
 
@@ -174,7 +174,7 @@ It had been built for an entirely different purpose.
 And it was sitting inside the gaming computers of millions of people around the world.
 
 
-# Section 2: What Is a GPU?
+## Section 2: What Is a GPU?
 
 The solution to AI's computing problem came from an unexpected place.
 
@@ -265,7 +265,7 @@ The next step was to compare these two kinds of processors directly.
 Only then would researchers fully understand why GPUs were such a perfect match for deep learning.
 
 
-# Section 3: CPUs vs GPUs
+## Section 3: CPUs vs GPUs
 
 By the time researchers began experimenting with GPUs, they already knew that neural networks required enormous amounts of computation.
 
@@ -378,7 +378,7 @@ Figure 11.2 illustrates why GPUs proved so much more effective than traditional 
 *Figure 11.2: CPUs and GPUs are both processors, but they are designed for different kinds of work. CPUs contain a small number of powerful cores optimized for flexibility, while GPUs contain hundreds or thousands of smaller cores optimized for parallel processing. This ability to perform many calculations simultaneously made GPUs ideal for training deep neural networks and helped spark the modern AI revolution.*
 
 
-# Section 4: The Discovery That Changed AI
+## Section 4: The Discovery That Changed AI
 
 Sometimes the most important breakthroughs occur when a tool designed for one purpose is unexpectedly applied to another.
 
@@ -493,7 +493,7 @@ And GPUs were one of the key reasons why.
 *Figure 11.3: GPUs were originally developed for computer graphics, but researchers discovered they were ideally suited for training neural networks. The breakthrough reached a turning point in 2012 when AlexNet, trained on GPUs, dramatically outperformed competing systems in the ImageNet competition. This success helped launch the modern deep learning revolution.*
 
 
-# Section 5: NVIDIA and the AI Boom
+## Section 5: NVIDIA and the AI Boom
 
 As researchers discovered the power of GPUs, a surprising company found itself at the center of the AI revolution.
 
@@ -591,7 +591,7 @@ Deep Learning Boom
 Generative AI Era
 
 
-# Section 6: Why Computing Power Still Matters
+## Section 6: Why Computing Power Still Matters
 
 The story of GPUs is not just a chapter in the history of artificial intelligence.
 

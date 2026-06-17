@@ -1,4 +1,4 @@
-# Chapter 16 -- Data: The Fuel Of AI
+# Chapter 16: Data: The Fuel Of AI
 
 ## Opening Story: Teaching a Child About Dogs
 
@@ -65,7 +65,7 @@ To understand modern AI, we must first understand the resource that makes it pos
 And that resource is data.
 
 
-# Section 1 — What Is Data?
+## Section 1 — What Is Data?
 
 The word *data* appears constantly in discussions about artificial intelligence.
 
@@ -172,7 +172,7 @@ Modern AI systems are powerful not simply because they use data, but because the
 Before AI can become intelligent, it must first have something to learn from.
 
 
-# Section 2 — The Many Forms of Data
+## Section 2 — The Many Forms of Data
 
 When people hear the word *data*, they often imagine rows of numbers in a spreadsheet.
 
@@ -291,7 +291,7 @@ As we will soon discover, having large amounts of data is helpful—but quantity
 The quality of the data matters just as much.
 
 
-# Section 3 — Why Data Quality Matters
+## Section 3 — Why Data Quality Matters
 
 Imagine trying to learn history from a collection of books.
 
@@ -430,7 +430,7 @@ And just as the quality of fuel affects the performance of a vehicle, the qualit
 Before an AI model can learn effectively, it must first be given reliable information from which to learn.
 
 
-# Section 4 — Teaching AI with Labels
+## Section 4 — Teaching AI with Labels
 
 Imagine showing a child a series of photographs.
 
@@ -571,7 +571,7 @@ Labels are one of the ways humans teach AI.
 By providing examples along with the correct answers, people create learning opportunities that allow machines to gradually improve their understanding of the world.
 
 
-# Section 5 — Learning Without Labels
+## Section 5 — Learning Without Labels
 
 Imagine entering a room filled with thousands of photographs.
 
@@ -710,7 +710,7 @@ Sometimes the data itself contains the answers.
 The challenge is learning how to find them.
 
 
-# Section 6 — From Raw Data to Training Data
+## Section 6 — From Raw Data to Training Data
 
 Imagine trying to prepare a meal for hundreds of guests.
 

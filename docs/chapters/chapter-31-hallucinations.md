@@ -1,4 +1,4 @@
-# Chapter 31 -- Hallucinations
+# Chapter 31: Hallucinations
   
 ## Opening Story
 
@@ -41,7 +41,7 @@ It was that it spoke too confidently in a moment it should have been uncertain.
 And that gap—the space between fluency and fact—is where this chapter begins.
 
 
-# Section 1 — When AI Sounds Right but Isn’t
+## Section 1 — When AI Sounds Right but Isn’t
 
 AI systems do not “know” things in the way humans do. They do not store facts in a database of truth. Instead, they learn statistical relationships between words, ideas, and contexts.
 
@@ -190,7 +190,7 @@ That is where the next section begins.
 
 
 
-# Section 2 — Why Even Powerful AI Gets Things Wrong
+## Section 2 — Why Even Powerful AI Gets Things Wrong
 
 Hallucinations are not random mistakes. They are structured outcomes of how language models are trained, scaled, and used.
 
@@ -355,7 +355,7 @@ How do we detect them, reduce them, and design systems that compensate for them?
 That is where things become operational rather than theoretical.
 
 
-# Section 3 — How to Detect When AI Is Making Things Up
+## Section 3 — How to Detect When AI Is Making Things Up
 
 Knowing that hallucinations exist is not enough. In real workflows—especially legal, medical, or financial work—the critical skill is not awareness, but detection.
 
@@ -531,7 +531,7 @@ How do we design AI tools that reduce hallucinations at the source rather than r
 That is where architecture begins to matter more than prompts.
 
 
-# Section 4 — Designing AI Systems That Stay Grounded
+## Section 4 — Designing AI Systems That Stay Grounded
 
 Detection helps you catch hallucinations after they appear.  
 But in production systems, that is not enough.
@@ -730,7 +730,7 @@ Even with all safeguards in place, why do hallucinations still appear in subtle,
 That is where we move from system design to real-world failure modes.
 
 
-# Section 5 — AI Failure Taxonomy and Real-World Legal Failure Cases
+## Section 5 — AI Failure Taxonomy and Real-World Legal Failure Cases
 
 At this point, hallucinations are no longer abstract.
 
@@ -746,7 +746,7 @@ Some are legally catastrophic.
 
 ---
 
-# 1. The AI Failure Taxonomy
+## 1. The AI Failure Taxonomy
 
 AI hallucinations can be grouped into distinct failure modes based on *how* and *why* the system breaks.
 
@@ -875,7 +875,7 @@ Place this image directly below this section.
 
 ---
 
-# 2. Real-World Legal Failure Patterns
+## 2. Real-World Legal Failure Patterns
 
 Now we move from classification to reality.
 
@@ -988,7 +988,7 @@ Place this image directly below this section.
 
 ---
 
-# 4. Key Insight: Failure Is Structured, Not Random
+## 4. Key Insight: Failure Is Structured, Not Random
 
 Across all categories, one pattern emerges:
 
@@ -1004,7 +1004,7 @@ But they cannot be fully eliminated.
 
 ---
 
-# 5. Final Insight of Section 5
+## 5. Final Insight of Section 5
 
 The goal is not to build hallucination-free systems.
 
@@ -1020,7 +1020,7 @@ Because in real-world applications:
 
 ---
 
-# Transition
+## Transition
 
 With hallucinations now mapped, detected, and categorized, the final question emerges:
 
@@ -1030,7 +1030,7 @@ That is where the discussion moves next.
 
 
 
-# Section 6 — Working With AI That Can Be Wrong
+## Section 6 — Working With AI That Can Be Wrong
 
 At this point, one conclusion should be obvious:
 
@@ -1048,7 +1048,7 @@ The answer is not avoidance. It is structured usage.
 
 ---
 
-# 1. The Core Shift: From Trust to Workflow Design
+## 1. The Core Shift: From Trust to Workflow Design
 
 Most failures in real-world AI usage come from a single mistake:
 
@@ -1073,7 +1073,7 @@ Place this image directly below this section.
 
 ---
 
-# 2. The Verification-First Workflow
+## 2. The Verification-First Workflow
 
 The safest way to use AI in high-stakes domains is not to “ask better questions.”
 
@@ -1110,7 +1110,7 @@ Place this image directly below this section.
 
 ---
 
-# 3. Human-in-the-Loop is Not Optional
+## 3. Human-in-the-Loop is Not Optional
 
 A critical misunderstanding in AI deployment is automation bias:
 
@@ -1140,7 +1140,7 @@ Place this image directly below this section.
 
 ---
 
-# 4. Risk-Based Usage: Not All Queries Are Equal
+## 4. Risk-Based Usage: Not All Queries Are Equal
 
 Not every AI interaction carries the same risk.
 
@@ -1173,7 +1173,7 @@ Place this image directly below this section.
 
 ---
 
-# 5. Citation Discipline in Professional Use
+## 5. Citation Discipline in Professional Use
 
 In legal and research-heavy workflows, hallucination risk concentrates around citations.
 
@@ -1191,7 +1191,7 @@ If a citation cannot be verified, the entire argument built on it becomes unstab
 
 ---
 
-# 6. Designing Against Hallucinations (System View)
+## 6. Designing Against Hallucinations (System View)
 
 The most reliable systems do not rely on the model alone.
 
@@ -1217,7 +1217,7 @@ Place this image directly below this section.
 
 ---
 
-# 7. Key Insight
+## 7. Key Insight
 
 The most important shift in professional AI usage is this:
 
@@ -1233,7 +1233,7 @@ This changes how systems are designed:
 
 ---
 
-# 8. Final Insight of Chapter 31
+## 8. Final Insight of Chapter 31
 
 Hallucinations are not failures you remove at the model level.
 
@@ -1247,7 +1247,7 @@ And once you accept that, AI stops being a questionable oracle…
 
 ---
 
-# Transition to Chapter 32
+## Transition to Chapter 32
 
 Even with all safeguards in place, some limitations remain unavoidable.
 
@@ -1256,7 +1256,7 @@ The next chapter explores exactly that:
 > What AI still cannot do—no matter how advanced it becomes.
 
 
-# Insight Box — Hallucinations in One Frame
+## Insight Box — Hallucinations in One Frame
 
 If you strip away the technical language, hallucinations can be reduced to a simple operational reality:
 
@@ -1339,7 +1339,7 @@ The real maturity of AI systems is not measured by whether they can avoid errors
 > how safely they behave when errors inevitably occur.
 
 
-# Final Thoughts
+## Final Thoughts
 
 Hallucinations are often treated like a flaw that needs to be engineered away. That framing is incomplete.
 

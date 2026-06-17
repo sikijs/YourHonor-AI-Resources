@@ -1,0 +1,149 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg width="1000" height="900" viewBox="0 0 1000 900" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <style>
+      .title {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+        text-anchor: middle;
+      }
+
+      .box {
+        fill: white;
+        stroke: #333;
+        stroke-width: 2;
+        rx: 12;
+      }
+
+      .label {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 22px;
+        text-anchor: middle;
+      }
+
+      .small {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+      }
+
+      .cluster {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .footer {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        text-anchor: middle;
+      }
+
+      .arrow {
+        stroke: #333;
+        stroke-width: 3;
+        fill: none;
+      }
+    </style>
+
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333"></polygon>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="50" class="title">
+    How AI Learns Embeddings
+  </text>
+
+  <!-- Box 1 -->
+  <rect x="325" y="90" width="350" height="70" class="box"></rect>
+  <text x="500" y="133" class="label">
+    Training Text
+  </text>
+
+  <!-- Arrow -->
+  <line x1="500" y1="160" x2="500" y2="210" class="arrow" marker-end="url(#arrowhead)"></line>
+
+  <!-- Box 2 -->
+  <rect x="325" y="220" width="350" height="70" class="box"></rect>
+  <text x="500" y="263" class="label">
+    Observe Word Contexts
+  </text>
+
+  <!-- Arrow -->
+  <line x1="500" y1="290" x2="500" y2="340" class="arrow" marker-end="url(#arrowhead)"></line>
+
+  <!-- Box 3 -->
+  <rect x="325" y="350" width="350" height="70" class="box"></rect>
+  <text x="500" y="393" class="label">
+    Find Similar Patterns
+  </text>
+
+  <!-- Arrow -->
+  <line x1="500" y1="420" x2="500" y2="470" class="arrow" marker-end="url(#arrowhead)"></line>
+
+  <!-- Box 4 -->
+  <rect x="325" y="480" width="350" height="70" class="box"></rect>
+  <text x="500" y="523" class="label">
+    Move Similar Words Closer
+  </text>
+
+  <!-- Arrow -->
+  <line x1="500" y1="550" x2="500" y2="600" class="arrow" marker-end="url(#arrowhead)"></line>
+
+  <!-- Box 5 -->
+  <rect x="325" y="610" width="350" height="70" class="box"></rect>
+  <text x="500" y="653" class="label">
+    Create Meaning Clusters
+  </text>
+
+  <!-- Arrow -->
+  <line x1="500" y1="680" x2="500" y2="730" class="arrow" marker-end="url(#arrowhead)"></line>
+
+  <!-- Box 6 -->
+  <rect x="325" y="740" width="350" height="70" class="box"></rect>
+  <text x="500" y="783" class="label">
+    Learn Embeddings
+  </text>
+
+  <!-- Example Clusters -->
+  <text x="150" y="250" class="cluster">
+    CAT
+  </text>
+  <text x="220" y="250" class="cluster">
+    DOG
+  </text>
+  <text x="300" y="250" class="cluster">
+    PUPPY
+  </text>
+
+  <line x1="165" y1="245" x2="205" y2="245" stroke="#333" stroke-width="2"></line>
+  <line x1="245" y1="245" x2="285" y2="245" stroke="#333" stroke-width="2"></line>
+
+  <text x="730" y="250" class="cluster">
+    PARIS
+  </text>
+  <text x="840" y="250" class="cluster">
+    LONDON
+  </text>
+
+  <line x1="785" y1="245" x2="825" y2="245" stroke="#333" stroke-width="2"></line>
+
+  <text x="110" y="720" class="cluster">
+    DOCTOR
+  </text>
+  <text x="250" y="720" class="cluster">
+    NURSE
+  </text>
+
+  <line x1="180" y1="715" x2="235" y2="715" stroke="#333" stroke-width="2"></line>
+
+  <!-- Footer -->
+  <text x="500" y="865" class="footer">
+    Similar Contexts → Similar Meanings
+  </text>
+
+</svg>

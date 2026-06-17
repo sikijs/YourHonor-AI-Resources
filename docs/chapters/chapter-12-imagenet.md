@@ -1,6 +1,6 @@
-# Chapter 12 -- ImageNet: The Dataset That Changed Everything
+# Chapter 12: ImageNet: The Dataset That Changed Everything
 
-# Opening Story
+## Opening Story
 
 In the summer of 2012, a group of researchers gathered to watch the results of an annual computer vision competition.
 
