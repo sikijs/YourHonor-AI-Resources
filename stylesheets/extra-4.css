@@ -147,4 +147,14 @@
     transition: grid-template-rows 0.25s, opacity 0.15s 0.1s, visibility 0ms !important;
     visibility: visible !important;
   }
+  /* Force all nested navs in left sidebar to stay expanded (prevents JS from collapsing at narrow widths) */
+  .md-sidebar--primary .md-nav__item--nested > .md-nav {
+    display: block !important;
+    grid-template-rows: none !important;
+    max-height: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    position: static !important;
+  }
 }
