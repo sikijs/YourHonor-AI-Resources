@@ -127,9 +127,13 @@
     display: none !important;
   }
   .md-sidebar--primary .md-sidebar__scrollwrap {
-    overflow: visible !important;
+    overflow-y: auto !important;
+    max-height: calc(100vh - 4rem) !important;
   }
   .md-nav__toggle {
+    display: none !important;
+  }
+  .md-sidebar--primary .md-nav--secondary {
     display: none !important;
   }
   .md-nav__toggle ~ .md-nav {
