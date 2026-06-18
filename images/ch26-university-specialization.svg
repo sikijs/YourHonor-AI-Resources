@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="white"></rect>
+
+  <text x="500" y="50" text-anchor="middle" font-family="Georgia" font-size="24" fill="#111">
+    From General Knowledge to Specialization
+  </text>
+
+  <!-- General education -->
+  <rect x="80" y="130" width="250" height="160" rx="12" fill="#fafafa" stroke="#d9d9d9"></rect>
+
+  <text x="205" y="170" text-anchor="middle" font-family="Georgia" font-size="18">
+    General Education
+  </text>
+
+  <text x="205" y="210" text-anchor="middle" font-family="Georgia" font-size="14">
+    Language
+  </text>
+
+  <text x="205" y="235" text-anchor="middle" font-family="Georgia" font-size="14">
+    Logic
+  </text>
+
+  <text x="205" y="260" text-anchor="middle" font-family="Georgia" font-size="14">
+    Research Skills
+  </text>
+
+  <!-- Arrow -->
+  <line x1="330" y1="210" x2="470" y2="210" stroke="#888" stroke-width="2"></line>
+  <polygon points="470,210 455,202 455,218" fill="#888"></polygon>
+
+  <!-- Professional training -->
+  <rect x="470" y="130" width="250" height="160" rx="12" fill="#eef6ff" stroke="#cfe0f5"></rect>
+
+  <text x="595" y="170" text-anchor="middle" font-family="Georgia" font-size="18">
+    Professional Training
+  </text>
+
+  <text x="595" y="220" text-anchor="middle" font-family="Georgia" font-size="14">
+    Law School
+  </text>
+
+  <text x="595" y="245" text-anchor="middle" font-family="Georgia" font-size="14">
+    Medical School
+  </text>
+
+  <!-- Arrow -->
+  <line x1="720" y1="210" x2="860" y2="210" stroke="#888" stroke-width="2"></line>
+  <polygon points="860,210 845,202 845,218" fill="#888"></polygon>
+
+  <!-- Expert -->
+  <rect x="860" y="130" width="90" height="160" rx="12" fill="#eef9ee" stroke="#cde5cd"></rect>
+
+  <text x="905" y="190" text-anchor="middle" font-family="Georgia" font-size="16">
+    Expert
+  </text>
+
+  <text x="905" y="220" text-anchor="middle" font-family="Georgia" font-size="13">
+    Specialist
+  </text>
+
+  <!-- AI mapping -->
+  <text x="500" y="360" text-anchor="middle" font-family="Georgia" font-size="15" fill="#444">
+    Pretraining → Fine-Tuning → Domain Expert
+  </text>
+</svg>

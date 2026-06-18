@@ -1,0 +1,45 @@
+<svg width="980" height="560" viewBox="0 0 980 560" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .title { font: bold 24px Arial; text-anchor: middle; }
+    .label { font: 18px Arial; fill: #333; }
+    .small { font: 15px Arial; fill: #555; }
+    .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 12; }
+    .arrow { stroke: #333; stroke-width: 2.5; marker-end: url(#arrow); }
+    .center { font: bold 18px Arial; text-anchor: middle; }
+  </style>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"></polygon>
+    </marker>
+  </defs>
+
+  <text x="490" y="40" class="title">Why Bigger Models Work</text>
+
+  <!-- Inputs -->
+  <rect x="80" y="120" width="240" height="120" class="box"></rect>
+  <text x="200" y="160" class="label" text-anchor="middle">More Parameters</text>
+  <text x="200" y="190" class="small" text-anchor="middle">Richer representations</text>
+
+  <rect x="370" y="120" width="240" height="120" class="box"></rect>
+  <text x="490" y="160" class="label" text-anchor="middle">More Data</text>
+  <text x="490" y="190" class="small" text-anchor="middle">Broader experience</text>
+
+  <rect x="660" y="120" width="240" height="120" class="box"></rect>
+  <text x="780" y="160" class="label" text-anchor="middle">More Compute</text>
+  <text x="780" y="190" class="small" text-anchor="middle">Better optimization</text>
+
+  <!-- Center result -->
+  <rect x="300" y="320" width="380" height="140" class="box"></rect>
+  <text x="490" y="370" class="label center">Stronger AI Systems</text>
+  <text x="490" y="405" class="small" text-anchor="middle">
+    Better generalization • Better reasoning • Better flexibility
+  </text>
+
+  <!-- Arrows -->
+  <line x1="200" y1="240" x2="430" y2="320" class="arrow"></line>
+  <line x1="490" y1="240" x2="490" y2="320" class="arrow"></line>
+  <line x1="780" y1="240" x2="550" y2="320" class="arrow"></line>
+
+</svg>

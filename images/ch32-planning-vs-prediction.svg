@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+
+  <rect width="1200" height="900" fill="white"></rect>
+
+  <!-- Title -->
+  <text x="600" y="60" text-anchor="middle" font-family="Arial" font-size="34" font-weight="bold">
+    Planning vs Prediction
+  </text>
+
+  <!-- Left Panel -->
+  <rect x="80" y="120" width="460" height="680" fill="white" stroke="black" stroke-width="2"></rect>
+
+  <text x="310" y="170" text-anchor="middle" font-family="Arial" font-size="28" font-weight="bold">
+    Human Planning
+  </text>
+
+  <!-- Goal -->
+  <rect x="210" y="220" width="200" height="55" fill="white" stroke="black" stroke-width="2"></rect>
+
+  <text x="310" y="255" text-anchor="middle" font-family="Arial" font-size="22">
+    Goal
+  </text>
+
+  <!-- Arrow -->
+  <line x1="310" y1="275" x2="310" y2="325" stroke="black" stroke-width="2"></line>
+  <polygon points="310,340 300,320 320,320" fill="black"></polygon>
+
+  <!-- Plan -->
+  <rect x="210" y="340" width="200" height="55" fill="white" stroke="black" stroke-width="2"></rect>
+
+  <text x="310" y="375" text-anchor="middle" font-family="Arial" font-size="22">
+    Plan
+  </text>
+
+  <line x1="310" y1="395" x2="310" y2="445" stroke="black" stroke-width="2"></line>
+  <polygon points="310,460 300,440 320,440" fill="black"></polygon>
+
+  <!-- Actions -->
+  <rect x="210" y="460" width="200" height="55" fill="white" stroke="black" stroke-width="2"></rect>
+
+  <text x="310" y="495" text-anchor="middle" font-family="Arial" font-size="22">
+    Actions
+  </text>
+
+  <line x1="310" y1="515" x2="310" y2="565" stroke="black" stroke-width="2"></line>
+  <polygon points="310,580 300,560 320,560" fill="black"></polygon>
+
+  <!-- Feedback -->
+  <rect x="210" y="580" width="200" height="55" fill="white" stroke="black" stroke-width="2"></rect>
+
+  <text x="310" y="615" text-anchor="middle" font-family="Arial" font-size="22">
+    Feedback
+  </text>
+
+  <!-- Feedback Loop -->
+  <path d="M210 607
+           C120 607,120 367,210 367" fill="none" stroke="black" stroke-width="2"></path>
+
+  <polygon points="210,367 195,360 200,378" fill="black"></polygon>
+
+  <text x="115" y="500" font-family="Arial" font-size="18">
+    Adjust
+  </text>
+
+  <!-- Goal Achieved -->
+  <text x="310" y="735" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">
+    Goal Achieved
+  </text>
+
+  <!-- Right Panel -->
+  <rect x="660" y="120" width="460" height="680" fill="white" stroke="black" stroke-width="2"></rect>
+
+  <text x="890" y="170" text-anchor="middle" font-family="Arial" font-size="28" font-weight="bold">
+    Typical AI Interaction
+  </text>
+
+  <!-- Prompt -->
+  <rect x="790" y="300" width="200" height="60" fill="white" stroke="black" stroke-width="2"></rect>
+
+  <text x="890" y="338" text-anchor="middle" font-family="Arial" font-size="22">
+    Prompt
+  </text>
+
+  <line x1="890" y1="360" x2="890" y2="440" stroke="black" stroke-width="2"></line>
+
+  <polygon points="890,455 880,435 900,435" fill="black"></polygon>
+
+  <!-- Response -->
+  <rect x="790" y="455" width="200" height="60" fill="white" stroke="black" stroke-width="2"></rect>
+
+  <text x="890" y="493" text-anchor="middle" font-family="Arial" font-size="22">
+    Response
+  </text>
+
+  <!-- Bottom Explanation -->
+  <line x1="600" y1="820" x2="600" y2="870" stroke="black" stroke-width="1"></line>
+
+  <text x="600" y="850" text-anchor="middle" font-family="Arial" font-size="20">
+    Planning requires goals, feedback, and adaptation. Prediction generates the next response.
+  </text>
+
+</svg>

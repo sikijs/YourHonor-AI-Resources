@@ -1,0 +1,80 @@
+<svg width="1000" height="580" viewBox="0 0 1000 580" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .title { font: bold 26px sans-serif; fill: #111; }
+
+    .subtitle { font: 18px sans-serif; font-weight: bold; }
+
+    .label { font: 15px sans-serif; fill: #111; }
+    .small { font: 13px sans-serif; fill: #333; }
+
+    .box { stroke: #333; stroke-width: 2; rx: 14; }
+
+    .arrow { stroke: #333; stroke-width: 2; marker-end: url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"></polygon>
+    </marker>
+  </defs>
+
+  <!-- TITLE -->
+  <text x="500" y="40" text-anchor="middle" class="title">
+    Database vs AI Model vs Human Intuition
+  </text>
+
+  <!-- DATABASE (BLUE) -->
+  <rect x="50" y="100" width="270" height="400" class="box" fill="#E3F2FD"></rect>
+  <text x="185" y="140" text-anchor="middle" class="subtitle" fill="#1565C0">
+    Database
+  </text>
+
+  <text x="80" y="200" class="label">Stores exact facts</text>
+  <text x="80" y="240" class="small">• Tables</text>
+  <text x="80" y="265" class="small">• Records</text>
+  <text x="80" y="290" class="small">• Index lookup</text>
+
+  <text x="80" y="350" class="label">Behavior</text>
+  <text x="80" y="380" class="small">Retrieves stored data only</text>
+  <text x="80" y="405" class="small">No generalization</text>
+
+  <!-- MODEL (GREEN) -->
+  <rect x="365" y="100" width="270" height="400" class="box" fill="#E8F5E9"></rect>
+  <text x="500" y="140" text-anchor="middle" class="subtitle" fill="#2E7D32">
+    AI Model
+  </text>
+
+  <text x="395" y="200" class="label">Learns patterns</text>
+  <text x="395" y="240" class="small">• Training data</text>
+  <text x="395" y="265" class="small">• Weights</text>
+  <text x="395" y="290" class="small">• Parameters</text>
+
+  <text x="395" y="350" class="label">Behavior</text>
+  <text x="395" y="380" class="small">Generates new outputs</text>
+  <text x="395" y="405" class="small">Based on learned structure</text>
+
+  <!-- INTUITION (ORANGE) -->
+  <rect x="680" y="100" width="270" height="400" class="box" fill="#FFF3E0"></rect>
+  <text x="815" y="140" text-anchor="middle" class="subtitle" fill="#EF6C00">
+    Human Intuition
+  </text>
+
+  <text x="710" y="200" class="label">Experience-driven thinking</text>
+  <text x="710" y="240" class="small">• Memory</text>
+  <text x="710" y="265" class="small">• Context</text>
+  <text x="710" y="290" class="small">• Judgment</text>
+
+  <text x="710" y="350" class="label">Behavior</text>
+  <text x="710" y="380" class="small">Adapts to new situations</text>
+  <text x="710" y="405" class="small">Combines logic + intuition</text>
+
+  <!-- ARROWS -->
+  <line x1="320" y1="300" x2="365" y2="300" class="arrow"></line>
+  <line x1="635" y1="300" x2="680" y2="300" class="arrow"></line>
+
+  <text x="500" y="545" text-anchor="middle" class="small">
+    Key insight: Models sit between storage systems and human reasoning
+  </text>
+
+</svg>

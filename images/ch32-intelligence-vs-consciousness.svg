@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+
+  <rect width="1200" height="800" fill="white"></rect>
+
+  <!-- Title -->
+  <text x="600" y="60" text-anchor="middle" font-family="Arial" font-size="34" font-weight="bold">
+    Intelligence vs Consciousness
+  </text>
+
+  <!-- Human Panel -->
+  <rect x="100" y="130" width="420" height="560" fill="white" stroke="black" stroke-width="2"></rect>
+
+  <text x="310" y="185" text-anchor="middle" font-family="Arial" font-size="30" font-weight="bold">
+    Human
+  </text>
+
+  <line x1="180" y1="220" x2="440" y2="220" stroke="black" stroke-width="1"></line>
+
+  <text x="310" y="280" text-anchor="middle" font-family="Arial" font-size="24">
+    ✓ Knowledge
+  </text>
+
+  <text x="310" y="350" text-anchor="middle" font-family="Arial" font-size="24">
+    ✓ Reasoning
+  </text>
+
+  <text x="310" y="420" text-anchor="middle" font-family="Arial" font-size="24">
+    ✓ Emotions
+  </text>
+
+  <text x="310" y="490" text-anchor="middle" font-family="Arial" font-size="24">
+    ✓ Self-Awareness
+  </text>
+
+  <text x="310" y="560" text-anchor="middle" font-family="Arial" font-size="24">
+    ✓ Subjective Experience
+  </text>
+
+  <!-- AI Panel -->
+  <rect x="680" y="130" width="420" height="560" fill="white" stroke="black" stroke-width="2"></rect>
+
+  <text x="890" y="185" text-anchor="middle" font-family="Arial" font-size="30" font-weight="bold">
+    AI System
+  </text>
+
+  <line x1="760" y1="220" x2="1020" y2="220" stroke="black" stroke-width="1"></line>
+
+  <text x="890" y="280" text-anchor="middle" font-family="Arial" font-size="24">
+    ✓ Knowledge
+  </text>
+
+  <text x="890" y="350" text-anchor="middle" font-family="Arial" font-size="24">
+    ✓ Reasoning
+  </text>
+
+  <text x="890" y="420" text-anchor="middle" font-family="Arial" font-size="24">
+    ✓ Pattern Recognition
+  </text>
+
+  <text x="890" y="520" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">
+    ✗ Self-Awareness
+  </text>
+
+  <text x="890" y="590" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">
+    ✗ Subjective Experience
+  </text>
+
+  <!-- Center Divider -->
+  <line x1="600" y1="130" x2="600" y2="690" stroke="black" stroke-width="2" stroke-dasharray="10,10"></line>
+
+  <!-- Bottom Caption -->
+  <text x="600" y="750" text-anchor="middle" font-family="Arial" font-size="20">
+    Intelligence and consciousness are related but distinct concepts.
+  </text>
+
+</svg>

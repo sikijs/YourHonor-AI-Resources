@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+
+  <rect width="1200" height="800" fill="white"></rect>
+
+  <text x="600" y="60" text-anchor="middle" font-family="Arial" font-size="34" font-weight="bold">
+    The Common Sense Gap
+  </text>
+
+  <!-- Human Side -->
+
+  <rect x="120" y="140" width="360" height="520" fill="white" stroke="black" stroke-width="2"></rect>
+
+  <text x="300" y="190" text-anchor="middle" font-family="Arial" font-size="28" font-weight="bold">
+    Human
+  </text>
+
+  <text x="300" y="270" text-anchor="middle" font-family="Arial" font-size="24">
+    Experience
+  </text>
+
+  <line x1="300" y1="290" x2="300" y2="340" stroke="black" stroke-width="2"></line>
+
+  <polygon points="300,350 292,335 308,335" fill="black"></polygon>
+
+  <text x="300" y="430" text-anchor="middle" font-family="Arial" font-size="24">
+    Mental Model
+  </text>
+
+  <line x1="300" y1="450" x2="300" y2="500" stroke="black" stroke-width="2"></line>
+
+  <polygon points="300,510 292,495 308,495" fill="black"></polygon>
+
+  <text x="300" y="590" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">
+    Common Sense
+  </text>
+
+  <text x="300" y="635" text-anchor="middle" font-family="Arial" font-size="18">
+    Learns through living in the world
+  </text>
+
+  <!-- AI Side -->
+
+  <rect x="720" y="140" width="360" height="520" fill="white" stroke="black" stroke-width="2"></rect>
+
+  <text x="900" y="190" text-anchor="middle" font-family="Arial" font-size="28" font-weight="bold">
+    AI System
+  </text>
+
+  <text x="900" y="270" text-anchor="middle" font-family="Arial" font-size="24">
+    Training Data
+  </text>
+
+  <line x1="900" y1="290" x2="900" y2="340" stroke="black" stroke-width="2"></line>
+
+  <polygon points="900,350 892,335 908,335" fill="black"></polygon>
+
+  <text x="900" y="430" text-anchor="middle" font-family="Arial" font-size="24">
+    Pattern Learning
+  </text>
+
+  <line x1="900" y1="450" x2="900" y2="500" stroke="black" stroke-width="2"></line>
+
+  <polygon points="900,510 892,495 908,495" fill="black"></polygon>
+
+  <text x="900" y="590" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">
+    Predictions
+  </text>
+
+  <text x="900" y="635" text-anchor="middle" font-family="Arial" font-size="18">
+    Learns through examples and text
+  </text>
+
+  <!-- Center Label -->
+
+  <line x1="480" y1="400" x2="720" y2="400" stroke="black" stroke-width="2" stroke-dasharray="8,8"></line>
+
+  <text x="600" y="380" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">
+    Knowledge ≠ Understanding
+  </text>
+
+  <!-- Footer -->
+
+  <text x="600" y="740" text-anchor="middle" font-family="Arial" font-size="20">
+    Humans build common sense from experience. AI builds knowledge from patterns.
+  </text>
+
+</svg>

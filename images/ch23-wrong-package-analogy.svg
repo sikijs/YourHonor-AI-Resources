@@ -1,0 +1,68 @@
+<svg width="900" height="700" viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg">
+
+<style>
+.title { font: bold 28px Arial, sans-serif; fill: #222; }
+.box { fill: white; stroke: #444; stroke-width: 2; rx: 12; ry: 12; }
+.text { font: 20px Arial, sans-serif; fill: #333; }
+.arrow { stroke: #666; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+.note { font: italic 18px Arial, sans-serif; fill: #555; }
+.highlight { fill: #f5f5f5; stroke: #444; stroke-width: 3; rx: 12; ry: 12; }
+</style>
+
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+<polygon points="0 0,10 3,0 6" fill="#666"></polygon>
+</marker>
+</defs>
+
+<text x="450" y="45" text-anchor="middle" class="title">
+Tracing an Error Back to Its Source
+</text>
+
+<!-- Customer -->
+<rect x="300" y="90" width="300" height="70" class="highlight"></rect>
+<text x="450" y="135" text-anchor="middle" class="text">
+Customer Receives Wrong Package
+</text>
+
+<!-- arrows upward -->
+<line x1="450" y1="180" x2="450" y2="240" class="arrow"></line>
+
+<!-- shipping -->
+<rect x="300" y="240" width="300" height="70" class="box"></rect>
+<text x="450" y="285" text-anchor="middle" class="text">
+Shipping Department
+</text>
+
+<line x1="450" y1="330" x2="450" y2="390" class="arrow"></line>
+
+<!-- warehouse -->
+<rect x="300" y="390" width="300" height="70" class="box"></rect>
+<text x="450" y="435" text-anchor="middle" class="text">
+Warehouse
+</text>
+
+<line x1="450" y1="480" x2="450" y2="540" class="arrow"></line>
+
+<!-- order processing -->
+<rect x="300" y="540" width="300" height="70" class="box"></rect>
+<text x="450" y="585" text-anchor="middle" class="text">
+Order Processing
+</text>
+
+<!-- root cause -->
+<rect x="650" y="535" width="180" height="80" class="highlight"></rect>
+<text x="740" y="570" text-anchor="middle" class="text">
+Wrong Item
+</text>
+<text x="740" y="595" text-anchor="middle" class="text">
+Entered
+</text>
+
+<line x1="600" y1="575" x2="650" y2="575" class="arrow"></line>
+
+<text x="450" y="660" text-anchor="middle" class="note">
+Start with the problem and work backward until the source is found.
+</text>
+
+</svg>

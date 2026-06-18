@@ -1,0 +1,31 @@
+<svg width="1000" height="600" xmlns="http://www.w3.org/2000/svg">
+<style>
+.box{fill:#f7f9fc;stroke:#2b3a55;stroke-width:2}
+.txt{font-family:Arial;font-size:18px;text-anchor:middle}
+.arrow{stroke:#2b3a55;stroke-width:2;marker-end:url(#a)}
+</style>
+
+<defs>
+<marker id="a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+<polygon points="0 0,10 3.5,0 7" fill="#2b3a55"></polygon>
+</marker>
+</defs>
+
+<rect x="400" y="50" width="200" height="70" class="box"></rect>
+<text x="500" y="90" class="txt">Question</text>
+
+<line x1="500" y1="120" x2="500" y2="200" class="arrow"></line>
+
+<rect x="400" y="200" width="200" height="70" class="box"></rect>
+<text x="500" y="240" class="txt">Search Memory</text>
+
+<line x1="500" y1="270" x2="500" y2="350" class="arrow"></line>
+
+<rect x="400" y="350" width="200" height="70" class="box"></rect>
+<text x="500" y="390" class="txt">Relevant Context</text>
+
+<line x1="500" y1="420" x2="500" y2="500" class="arrow"></line>
+
+<rect x="400" y="500" width="200" height="70" class="box"></rect>
+<text x="500" y="540" class="txt">Better Answer</text>
+</svg>

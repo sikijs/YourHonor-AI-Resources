@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+
+<rect width="1200" height="800" fill="white"></rect>
+
+<text x="600" y="60" text-anchor="middle" font-family="Arial" font-size="34" font-weight="bold">
+Narrow Intelligence vs General Intelligence
+</text>
+
+<!-- Left Panel -->
+
+<rect x="80" y="140" width="420" height="560" fill="white" stroke="black" stroke-width="2"></rect>
+
+<text x="290" y="190" text-anchor="middle" font-family="Arial" font-size="28" font-weight="bold">
+Narrow AI
+</text>
+
+<text x="290" y="270" text-anchor="middle" font-family="Arial" font-size="22">
+Legal Research
+</text>
+
+<text x="290" y="340" text-anchor="middle" font-family="Arial" font-size="22">
+Medical Diagnosis
+</text>
+
+<text x="290" y="410" text-anchor="middle" font-family="Arial" font-size="22">
+Chess
+</text>
+
+<text x="290" y="480" text-anchor="middle" font-family="Arial" font-size="22">
+Translation
+</text>
+
+<text x="290" y="550" text-anchor="middle" font-family="Arial" font-size="22">
+Coding
+</text>
+
+<text x="290" y="650" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">
+Excellent in Specific Tasks
+</text>
+
+<!-- Right Panel -->
+
+<rect x="700" y="140" width="420" height="560" fill="white" stroke="black" stroke-width="2"></rect>
+
+<text x="910" y="190" text-anchor="middle" font-family="Arial" font-size="28" font-weight="bold">
+General Intelligence
+</text>
+
+<circle cx="910" cy="420" r="90" fill="white" stroke="black" stroke-width="2"></circle>
+
+<text x="910" y="425" text-anchor="middle" font-family="Arial" font-size="22">
+Adapt
+</text>
+
+<text x="910" y="270" text-anchor="middle" font-family="Arial" font-size="22">
+Law
+</text>
+
+<line x1="910" y1="320" x2="910" y2="350" stroke="black" stroke-width="2"></line>
+
+<text x="910" y="610" text-anchor="middle" font-family="Arial" font-size="22">
+Business
+</text>
+
+<line x1="910" y1="490" x2="910" y2="560" stroke="black" stroke-width="2"></line>
+
+<text x="760" y="425" text-anchor="middle" font-family="Arial" font-size="22">
+Medicine
+</text>
+
+<line x1="800" y1="420" x2="845" y2="420" stroke="black" stroke-width="2"></line>
+
+<text x="1060" y="425" text-anchor="middle" font-family="Arial" font-size="22">
+Science
+</text>
+
+<line x1="975" y1="420" x2="1020" y2="420" stroke="black" stroke-width="2"></line>
+
+<text x="910" y="720" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">
+Transfer Knowledge Across Domains
+</text>
+
+</svg>

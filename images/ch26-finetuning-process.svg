@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="white"></rect>
+
+  <text x="500" y="50" text-anchor="middle" font-family="Georgia" font-size="24" fill="#111">
+    The Fine-Tuning Process
+  </text>
+
+  <rect x="60" y="150" width="160" height="70" rx="10" fill="#f8f8f8" stroke="#d9d9d9"></rect>
+  <text x="140" y="192" text-anchor="middle" font-family="Georgia" font-size="14">
+    Specialized Data
+  </text>
+
+  <line x1="220" y1="185" x2="340" y2="185" stroke="#888" stroke-width="2"></line>
+  <polygon points="340,185 325,177 325,193" fill="#888"></polygon>
+
+  <rect x="340" y="150" width="160" height="70" rx="10" fill="#eef6ff" stroke="#cfe0f5"></rect>
+  <text x="420" y="192" text-anchor="middle" font-family="Georgia" font-size="14">
+    Model Prediction
+  </text>
+
+  <line x1="500" y1="185" x2="620" y2="185" stroke="#888" stroke-width="2"></line>
+  <polygon points="620,185 605,177 605,193" fill="#888"></polygon>
+
+  <rect x="620" y="150" width="160" height="70" rx="10" fill="#fff7ea" stroke="#ead7ad"></rect>
+  <text x="700" y="192" text-anchor="middle" font-family="Georgia" font-size="14">
+    Measure Error
+  </text>
+
+  <line x1="700" y1="220" x2="700" y2="300" stroke="#888" stroke-width="2"></line>
+  <polygon points="700,300 692,285 708,285" fill="#888"></polygon>
+
+  <line x1="700" y1="300" x2="420" y2="300" stroke="#888" stroke-width="2"></line>
+  <polygon points="420,300 435,292 435,308" fill="#888"></polygon>
+
+  <line x1="420" y1="300" x2="420" y2="220" stroke="#888" stroke-width="2"></line>
+
+  <text x="560" y="285" font-family="Georgia" font-size="14" fill="#555">
+    Adjust Parameters
+  </text>
+</svg>

@@ -1,0 +1,3686 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Educational AI resources for law students — YourHonor AI">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter-27-retrieval-augmented-generation-rag/">
+      
+      
+        <link rel="next" href="../chapter-29-vibe-coding/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Chapter 28: Agents - AI Learning Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-28-agents" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AI Learning Center" class="md-header__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI Learning Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 28: Agents
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AI Learning Center" class="md-nav__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI Learning Center
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-01-what-is-intelligence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: What Is Intelligence?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-02-how-the-human-brain-inspired-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: How the Human Brain Inspired AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-03-artificial-neurons-%281943%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: Artificial Neurons (1943)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-04-alan-turing-and-thinking-machines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Alan Turing and Thinking Machines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-05-the-birth-of-AI-%281956%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: The Birth of AI (1956)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-06-the-perceptron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: The Perceptron
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-07-the-first-ai-winter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: The First AI Winter (1969–1974)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-08-expert-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Expert Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-09-backpropagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9: Backpropagation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-10-deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10: Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-11-the-gpu-revolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: The GPU Revolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-12-imagenet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12: ImageNet: The Dataset That Changed Everything
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-13-ai-beats-the-champions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13: AI Beats The Champions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-14-transformers-and-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14: Transformers and Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-15-large-language-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15: Large Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-16-data-the-fuel-of-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16: Data: The Fuel Of AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-17-how-computer-sees-everything-as-numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 17: How Computers See Everything as Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-18-tokens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 18: Tokens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-19-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 19: Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-20-neural-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 20: Neural Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-21-weights-and-parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 21: Weights and Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-22-training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 22: Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-23-backpropagation-simplified/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 23: Backpropagation Simplified
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-24-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 24: Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-25-why-bigger-models-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 25: Why Bigger Models Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-26-fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 26: Fine-tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-27-retrieval-augmented-generation-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 27: Retrieval-Augmented Generation (RAG)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 28: Agents
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 28: Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story-the-assistant-that-refused-to-stay-still" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story: The Assistant That Refused to Stay Still
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-just-happened" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What just happened?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-what-is-an-ai-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1 — What Is an AI Agent?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 1 — What Is an AI Agent?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-responding-to-executing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From “Responding” to “Executing”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-agent-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Agent Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chatbot-vs-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chatbot vs Agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turning-goals-into-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Turning Goals into Work
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-how-agents-actually-think" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2 — How Agents Actually Think
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 2 — How Agents Actually Think">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-hidden-machinery-behind-an-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Hidden Machinery Behind an Agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planning-is-not-a-fixed-blueprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning Is Not a Fixed Blueprint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-agent-decision-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Agent Decision Cycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualizing-agent-decision-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualizing Agent Decision Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-use-the-key-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Use: The Key Difference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-driven-reasoning-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool-Driven Reasoning Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modern-trend-thinking-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modern Trend: Thinking Agents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-execution-to-thinking-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Execution to Thinking-in-Action
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-thinking-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is a “Thinking Agent”?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-key-shift-interleaved-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Key Shift: Interleaved Reasoning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-modern-agent-loop-upgraded-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Modern Agent Loop (Upgraded Version)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Modern Agent Loop (Upgraded Version)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visual-thinking-agent-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual: Thinking Agent Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-use-reasoning-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Use + Reasoning Together
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool Use + Reasoning Together">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visual-reasoning-tool-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual: Reasoning + Tool Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-big-idea-agents-are-becoming-process-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Big Idea: Agents Are Becoming “Process Systems”
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-this-is-heading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where This Is Heading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-reality-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Reality Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-the-building-blocks-of-an-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3 — The Building Blocks of an Agent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 3 — The Building Blocks of an Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-block-1-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building Block 1: Reasoning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-block-2-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building Block 2: Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-block-3-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building Block 3: Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-block-4-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building Block 4: Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-the-components-work-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the Components Work Together
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-memory-the-secret-ingredient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4 — Memory: The Secret Ingredient
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 4 — Memory: The Secret Ingredient">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-memory-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Memory Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-term-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short-Term Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-term-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Long-Term Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-is-not-just-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory Is Not Just Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-creates-better-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory Creates Better Decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-emergence-of-persistent-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Emergence of Persistent Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-agents-in-the-real-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5 — Agents in the Real World
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 5 — Agents in the Real World">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-information-to-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Information to Action
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-agents-in-legal-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Agents in Legal Practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-agents-in-business" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Agents in Business
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-agents-in-software-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Agents in Software Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-rise-of-multi-agent-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Rise of Multi-Agent Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-companies-are-investing-in-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Companies Are Investing in Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-comes-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Comes Next?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-from-knowledge-machines-to-work-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box — From Knowledge Machines to Work Machines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Final Thoughts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-29-vibe-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 29: Vibe Coding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-30-multimodal-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 30: Multimodal AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-31-hallucinations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 31: Hallucinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-32-what-ai-still-cannot-do/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 32: What AI Still Cannot Do
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-33-agi-and-beyond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 33: AGI (Artificial General Intelligence) and Beyond
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-34-the-future-of-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 34: The Future of Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-A-ai-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix A — AI Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story-the-assistant-that-refused-to-stay-still" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story: The Assistant That Refused to Stay Still
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-just-happened" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What just happened?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-what-is-an-ai-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1 — What Is an AI Agent?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 1 — What Is an AI Agent?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-responding-to-executing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From “Responding” to “Executing”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-agent-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Agent Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chatbot-vs-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chatbot vs Agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turning-goals-into-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Turning Goals into Work
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-how-agents-actually-think" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2 — How Agents Actually Think
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 2 — How Agents Actually Think">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-hidden-machinery-behind-an-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Hidden Machinery Behind an Agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planning-is-not-a-fixed-blueprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning Is Not a Fixed Blueprint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-agent-decision-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Agent Decision Cycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualizing-agent-decision-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualizing Agent Decision Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-use-the-key-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Use: The Key Difference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-driven-reasoning-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool-Driven Reasoning Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modern-trend-thinking-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modern Trend: Thinking Agents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-execution-to-thinking-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Execution to Thinking-in-Action
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-thinking-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is a “Thinking Agent”?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-key-shift-interleaved-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Key Shift: Interleaved Reasoning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-modern-agent-loop-upgraded-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Modern Agent Loop (Upgraded Version)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Modern Agent Loop (Upgraded Version)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visual-thinking-agent-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual: Thinking Agent Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-use-reasoning-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Use + Reasoning Together
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool Use + Reasoning Together">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visual-reasoning-tool-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual: Reasoning + Tool Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-big-idea-agents-are-becoming-process-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Big Idea: Agents Are Becoming “Process Systems”
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-this-is-heading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where This Is Heading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-reality-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Reality Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-the-building-blocks-of-an-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3 — The Building Blocks of an Agent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 3 — The Building Blocks of an Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-block-1-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building Block 1: Reasoning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-block-2-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building Block 2: Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-block-3-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building Block 3: Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-block-4-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building Block 4: Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-the-components-work-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the Components Work Together
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-memory-the-secret-ingredient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4 — Memory: The Secret Ingredient
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 4 — Memory: The Secret Ingredient">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-memory-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Memory Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-term-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short-Term Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-term-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Long-Term Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-is-not-just-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory Is Not Just Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-creates-better-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory Creates Better Decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-emergence-of-persistent-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Emergence of Persistent Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-agents-in-the-real-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5 — Agents in the Real World
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 5 — Agents in the Real World">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-information-to-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Information to Action
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-agents-in-legal-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Agents in Legal Practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-agents-in-business" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Agents in Business
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-agents-in-software-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Agents in Software Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-rise-of-multi-agent-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Rise of Multi-Agent Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-companies-are-investing-in-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Companies Are Investing in Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-comes-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Comes Next?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-from-knowledge-machines-to-work-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box — From Knowledge Machines to Work Machines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Final Thoughts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-28-agents">Chapter 28: Agents</h1>
+<h3 id="opening-story-the-assistant-that-refused-to-stay-still">Opening Story: <em>The Assistant That Refused to Stay Still</em></h3>
+<p>It started with a simple request.</p>
+<p>A lawyer in a small firm opened her laptop late in the evening and typed:</p>
+<blockquote>
+<p>“Find recent cases on contract disputes involving AI-generated content, summarize them, and draft a client memo.”</p>
+</blockquote>
+<p>She expected what she always got from traditional tools: a list of links, maybe a few paragraphs of summary, and the rest of the work still waiting for her attention.</p>
+<p>Instead, something unusual happened.</p>
+<p>The system didn’t just respond. It <em>paused</em>—not in the human sense, but in a structured, deliberate way. It broke the request into parts, almost like it was thinking out loud, but silently:</p>
+<ul>
+<li>What needs to be found?</li>
+<li>Where should it look?</li>
+<li>Which sources are trustworthy?</li>
+<li>What format is required at the end?</li>
+</ul>
+<p>Then it began working.</p>
+<p>First, it searched legal databases. Not once, but repeatedly, refining its queries as new results appeared. Then it filtered cases by relevance, jurisdiction, and recency. It noticed contradictions between rulings and flagged them. It organized the material into themes—liability, authorship, and contractual intent.</p>
+<p>But it didn’t stop there.</p>
+<p>It drafted the memo.</p>
+<p>Not as a rough outline. As a structured legal document with headings, reasoning, and citations placed exactly where they belonged. It even adjusted tone—more cautious in uncertain areas, more assertive where precedent was strong.</p>
+<p>Then it paused again.</p>
+<p>A final check.</p>
+<p>Missing authority? Added. Weak argument? Rewritten. Ambiguous phrasing? Tightened.</p>
+<p>Only then did it present the result.</p>
+<p>The lawyer leaned back. Nothing about this felt like a search engine anymore. It felt like something had taken her request, understood the goal behind it, and carried the work forward step by step—without asking for permission at every stage.</p>
+<p>That was the unsettling part.</p>
+<p>Because traditional software waits.</p>
+<p>This did not.</p>
+<p>It acted.</p>
+<hr />
+<h3 id="what-just-happened">What just happened?</h3>
+<p>What she interacted with was not a single model responding to a prompt.</p>
+<p>It was an <strong>agent</strong>—a system designed to take a goal, break it into steps, use tools, make decisions, and continue working until the objective is complete.</p>
+<p>Not just answering.</p>
+<p>Doing.</p>
+<p>And once you see that difference clearly, everything about modern AI systems starts to shift.</p>
+<h2 id="section-1-what-is-an-ai-agent">Section 1 — What Is an AI Agent?</h2>
+<p>Most software is predictable.</p>
+<p>You give it an instruction, it executes that instruction, and it stops. Every step is explicitly defined in advance, either by a developer or by a fixed workflow.</p>
+<p>An <strong>AI agent</strong> works differently. It starts with a goal and determines the steps required to achieve it.</p>
+<p>Not prewritten steps.</p>
+<p>Chosen steps.</p>
+<p>That distinction is where everything changes.</p>
+<hr />
+<h3 id="from-responding-to-executing">From “Responding” to “Executing”</h3>
+<p>A traditional AI system behaves like this:</p>
+<blockquote>
+<p>Input → Processing → Output → Stop</p>
+</blockquote>
+<p>An agent behaves more like this:</p>
+<blockquote>
+<p>Goal → Planning → Action → Feedback → Adjustment → Repeat</p>
+</blockquote>
+<p>The important shift is continuity. The system does not treat its response as the end of the process. It treats it as part of an ongoing cycle of work.</p>
+<p>It is no longer just generating text.</p>
+<p>It is managing a process.</p>
+<hr />
+<h3 id="the-agent-loop">The Agent Loop</h3>
+<p>At the core of every agent is a repeating cycle of reasoning and action:</p>
+<ol>
+<li>Understand the objective  </li>
+<li>Decide the next step  </li>
+<li>Take an action (often using tools)  </li>
+<li>Observe the result  </li>
+<li>Update its internal state  </li>
+<li>Repeat until the goal is achieved  </li>
+</ol>
+<p><img alt="AI Agent Loop" src="../../images/ch28-agent-loop.svg" /></p>
+<p>The loop is what allows agents to handle tasks that are too complex to solve in a single response. Instead of trying to “know everything upfront,” they adapt as new information becomes available.</p>
+<hr />
+<h3 id="chatbot-vs-agent">Chatbot vs Agent</h3>
+<p>To understand why this matters, compare two systems given the same request.</p>
+<p>A chatbot waits for a prompt, produces a response, and stops.</p>
+<p>An agent takes the same request and begins decomposing it into subtasks, deciding what to do first, what tools to use, and how to refine its output over time.</p>
+<p><img alt="Chatbot vs AI Agent" src="../../images/ch28-chatbot-vs-agent.svg" /></p>
+<p>On the surface, both may produce text. But internally, their behavior is fundamentally different.</p>
+<p>One reacts.</p>
+<p>The other executes.</p>
+<hr />
+<h3 id="turning-goals-into-work">Turning Goals into Work</h3>
+<p>An agent does not rely on a single monolithic response. Instead, it continuously transforms a high-level goal into actionable steps.</p>
+<p>This typically looks like:</p>
+<ul>
+<li>Breaking the task into smaller components  </li>
+<li>Selecting tools or data sources  </li>
+<li>Running intermediate steps  </li>
+<li>Evaluating whether the result is sufficient  </li>
+<li>Refining the approach if necessary  </li>
+</ul>
+<p><img alt="Agent Task Execution Flow" src="../../images/ch28-agent-task-flow.svg" /></p>
+<p>Each cycle improves the outcome. The system effectively “works toward correctness” rather than assuming correctness in one pass.</p>
+<hr />
+<h3 id="why-this-matters">Why This Matters</h3>
+<p>Agents fundamentally change what AI systems are capable of.</p>
+<p>Instead of being tools that answer questions, they become systems that can carry out tasks:</p>
+<ul>
+<li>Researching multi-step problems  </li>
+<li>Writing structured documents  </li>
+<li>Coordinating tool usage  </li>
+<li>Iterating until results are satisfactory  </li>
+</ul>
+<p>This is the first step toward AI systems that behave less like calculators and more like assistants that <em>do work</em>.</p>
+<p>Not instantly.</p>
+<p>But progressively.</p>
+<p>And that difference is where modern AI begins to feel less like a model—and more like a system that operates.</p>
+<h2 id="section-2-how-agents-actually-think">Section 2 — How Agents Actually Think</h2>
+<p>An agent does not “understand” in the human sense.</p>
+<p>It processes goals, breaks them into steps, and continuously adjusts its behavior based on what it observes.</p>
+<p>What looks like intelligence is actually a structured loop of decision-making.</p>
+<hr />
+<h3 id="the-hidden-machinery-behind-an-agent">The Hidden Machinery Behind an Agent</h3>
+<p>When an agent receives a task, three things happen immediately:</p>
+<ol>
+<li>It interprets the goal  </li>
+<li>It constructs a working plan  </li>
+<li>It decides what tools (if any) are needed  </li>
+</ol>
+<p>But unlike traditional software, none of these steps are final.</p>
+<p>They are continuously revised.</p>
+<hr />
+<h3 id="planning-is-not-a-fixed-blueprint">Planning Is Not a Fixed Blueprint</h3>
+<p>A common misunderstanding is that agents follow a rigid plan.</p>
+<p>They do not.</p>
+<p>Instead, they operate with <strong>adaptive planning</strong>, meaning:</p>
+<ul>
+<li>Plans are created on the fly  </li>
+<li>Plans are updated after every action  </li>
+<li>Plans can be discarded entirely if they fail  </li>
+</ul>
+<p>This is closer to navigation than execution.</p>
+<p>You don’t map the entire journey once—you keep recalculating based on where you are.</p>
+<hr />
+<h3 id="the-agent-decision-cycle">The Agent Decision Cycle</h3>
+<p>Every meaningful agent system is built around a decision loop:</p>
+<ul>
+<li>What is the current situation?  </li>
+<li>What action moves me closest to the goal?  </li>
+<li>What tool should I use?  </li>
+<li>What changed after the last step?  </li>
+</ul>
+<p>This cycle is continuous.</p>
+<p>It does not pause for confirmation after every step unless explicitly designed to.</p>
+<hr />
+<h3 id="visualizing-agent-decision-flow">Visualizing Agent Decision Flow</h3>
+<p><img alt="Agent Decision Flow" src="../../images/ch28-agent-decision-flow.svg" /></p>
+<p>This diagram shows how an agent repeatedly evaluates its environment and adjusts its next action instead of following a fixed script.</p>
+<hr />
+<h3 id="tool-use-the-key-difference">Tool Use: The Key Difference</h3>
+<p>A major distinction between simple AI models and agents is <strong>tool access</strong>.</p>
+<p>Tools allow agents to interact with external systems:</p>
+<ul>
+<li>Search engines  </li>
+<li>Databases  </li>
+<li>Code execution  </li>
+<li>APIs  </li>
+<li>Documents  </li>
+</ul>
+<p>Without tools, an agent is limited to internal knowledge.</p>
+<p>With tools, it becomes operational.</p>
+<hr />
+<h3 id="tool-driven-reasoning-loop">Tool-Driven Reasoning Loop</h3>
+<p><img alt="Agent Tool Use Loop" src="../../images/ch28-agent-tool-loop.svg" /></p>
+<p>Each cycle typically follows this pattern:</p>
+<ul>
+<li>Decide if external information is needed  </li>
+<li>Select a tool  </li>
+<li>Use the tool  </li>
+<li>Interpret results  </li>
+<li>Update plan  </li>
+</ul>
+<p>This is what transforms a model into a system that can <em>do work in the real world</em>.</p>
+<hr />
+<h3 id="why-this-matters_1">Why This Matters</h3>
+<p>This architecture explains why agents feel fundamentally different from chatbots.</p>
+<p>Chatbots generate responses.</p>
+<p>Agents generate outcomes.</p>
+<p>They don’t just answer the question:</p>
+<blockquote>
+<p>They try to complete the task behind the question.</p>
+</blockquote>
+<h2 id="modern-trend-thinking-agents">Modern Trend: Thinking Agents</h2>
+<p>Modern AI agents are no longer just “task executors.”</p>
+<p>They are evolving into something more interesting:</p>
+<blockquote>
+<p>systems that <em>reason while they act</em>.</p>
+</blockquote>
+<p>This is where the idea of <strong>thinking agents</strong> comes in.</p>
+<hr />
+<h2 id="from-execution-to-thinking-in-action">From Execution to Thinking-in-Action</h2>
+<p>Earlier agent systems followed a simple pattern:</p>
+<ul>
+<li>Plan  </li>
+<li>Execute  </li>
+<li>Observe  </li>
+<li>Repeat  </li>
+</ul>
+<p>That worked well for structured tasks.</p>
+<p>But real-world problems are messy.</p>
+<p>Information is incomplete. Goals shift. Tools fail. Context changes.</p>
+<p>So modern agents evolved.</p>
+<p>They no longer separate thinking and doing.</p>
+<p>They combine them.</p>
+<hr />
+<h2 id="what-is-a-thinking-agent">What Is a “Thinking Agent”?</h2>
+<p>A <strong>thinking agent</strong> is an AI system that:</p>
+<ul>
+<li>reasons about a problem while working on it  </li>
+<li>updates its understanding continuously  </li>
+<li>revises its plan mid-execution  </li>
+<li>uses feedback to improve decisions in real time  </li>
+</ul>
+<p>Instead of:</p>
+<blockquote>
+<p>“Think first, act later”</p>
+</blockquote>
+<p>It becomes:</p>
+<blockquote>
+<p>“Think while acting”</p>
+</blockquote>
+<hr />
+<h2 id="the-key-shift-interleaved-reasoning">The Key Shift: Interleaved Reasoning</h2>
+<p>Traditional systems:</p>
+<blockquote>
+<p>Plan → Execute → Done</p>
+</blockquote>
+<p>Thinking agents:</p>
+<blockquote>
+<p>Think → Act → Think → Observe → Adjust → Act → Think</p>
+</blockquote>
+<p>This is called <strong>interleaved reasoning</strong>.</p>
+<p>The intelligence is not in a single plan.</p>
+<p>It is in constant adjustment.</p>
+<hr />
+<h2 id="why-this-matters_2">Why This Matters</h2>
+<p>This shift solves a major limitation of earlier AI systems:</p>
+<ul>
+<li>Plans were brittle  </li>
+<li>Errors were only discovered at the end  </li>
+<li>No mid-course correction  </li>
+</ul>
+<p>Thinking agents fix this by treating every step as feedback.</p>
+<hr />
+<h2 id="the-modern-agent-loop-upgraded-version">The Modern Agent Loop (Upgraded Version)</h2>
+<p>Modern agents often behave like this:</p>
+<ol>
+<li>Interpret the goal  </li>
+<li>Form a partial plan  </li>
+<li>Take a step  </li>
+<li>Evaluate the result  </li>
+<li>Re-think the next step  </li>
+<li>Update the plan  </li>
+<li>Repeat  </li>
+</ol>
+<p>This is no longer a straight loop.</p>
+<p>It is a <em>self-correcting loop</em>.</p>
+<hr />
+<h3 id="visual-thinking-agent-loop">Visual: Thinking Agent Loop</h3>
+<p><img alt="Thinking Agent Loop" src="../../images/ch28-thinking-agent-loop.svg" /></p>
+<hr />
+<h2 id="tool-use-reasoning-together">Tool Use + Reasoning Together</h2>
+<p>Older agents treated tools as external utilities.</p>
+<p>Modern thinking agents treat tools as part of reasoning.</p>
+<p>They constantly decide:</p>
+<ul>
+<li>Do I already know enough?  </li>
+<li>Should I search?  </li>
+<li>Should I compute?  </li>
+<li>Should I verify?  </li>
+</ul>
+<p>This is what makes them feel “adaptive.”</p>
+<hr />
+<h3 id="visual-reasoning-tool-integration">Visual: Reasoning + Tool Integration</h3>
+<p><img alt="Reasoning Tool Integration" src="../../images/ch28-thinking-agent-tool-integration.svg" /></p>
+<hr />
+<h2 id="the-big-idea-agents-are-becoming-process-systems">The Big Idea: Agents Are Becoming “Process Systems”</h2>
+<p>A simple way to understand modern agents:</p>
+<ul>
+<li>Chatbots = generate answers  </li>
+<li>Classic agents = follow workflows  </li>
+<li>Thinking agents = manage evolving processes  </li>
+</ul>
+<p>They do not just complete tasks.</p>
+<p>They manage <em>how the task unfolds over time</em>.</p>
+<hr />
+<h2 id="where-this-is-heading">Where This Is Heading</h2>
+<p>The direction of research is clear:</p>
+<ul>
+<li>Less rigid planning  </li>
+<li>More continuous reasoning  </li>
+<li>More self-correction  </li>
+<li>More autonomy in tool selection  </li>
+<li>More persistence across long tasks  </li>
+</ul>
+<p>In practical terms, this means:</p>
+<blockquote>
+<p>Agents will increasingly behave like junior collaborators, not tools.</p>
+</blockquote>
+<p>They will not just respond to instructions.</p>
+<p>They will carry responsibility for execution quality.</p>
+<hr />
+<h2 id="important-reality-check">Important Reality Check</h2>
+<p>Thinking agents are powerful, but not magical.</p>
+<p>They still struggle with:</p>
+<ul>
+<li>hallucinated assumptions  </li>
+<li>overconfidence in uncertain steps  </li>
+<li>tool misuse  </li>
+<li>long-horizon planning drift  </li>
+</ul>
+<p>So the real challenge is not building agents that “think.”</p>
+<p>It is building agents that <strong>think reliably</strong>.</p>
+<hr />
+<h2 id="summary">Summary</h2>
+<p>The evolution looks like this:</p>
+<ul>
+<li>Chatbots → respond  </li>
+<li>Early agents → execute  </li>
+<li>Modern agents → adapt  </li>
+<li>Thinking agents → reason while executing  </li>
+</ul>
+<p>And that final category is where most active research and industry systems are now moving.</p>
+<p>Not toward static intelligence.</p>
+<p>But toward <strong>continuous decision-making systems that learn while they work</strong>.</p>
+<h2 id="section-3-the-building-blocks-of-an-agent">Section 3 — The Building Blocks of an Agent</h2>
+<p>At first glance, an AI agent can seem mysterious.</p>
+<p>You give it a goal, and somehow it plans, searches, decides, adapts, and produces results.</p>
+<p>But underneath the surface, most modern agents are built from a surprisingly small set of components.</p>
+<p>Think of an agent as a machine assembled from four essential building blocks:</p>
+<ol>
+<li>Reasoning</li>
+<li>Memory</li>
+<li>Tools</li>
+<li>Actions</li>
+</ol>
+<p>Each component plays a different role.</p>
+<p>Remove any one of them, and the agent becomes significantly less capable.</p>
+<hr />
+<h3 id="building-block-1-reasoning">Building Block 1: Reasoning</h3>
+<p>Reasoning is the agent's decision-making system.</p>
+<p>It helps answer questions such as:</p>
+<ul>
+<li>What is the goal?</li>
+<li>What should I do next?</li>
+<li>Which tool should I use?</li>
+<li>Is the current approach working?</li>
+</ul>
+<p>Reasoning is what allows an agent to move beyond simple automation.</p>
+<p>Instead of blindly following instructions, it can evaluate options and choose a path forward.</p>
+<p>For example, if an agent is asked to prepare a legal research memo, reasoning helps it determine:</p>
+<ul>
+<li>Which cases are relevant</li>
+<li>Which sources are trustworthy</li>
+<li>Which arguments deserve emphasis</li>
+</ul>
+<p>Without reasoning, an agent becomes little more than a scripted workflow.</p>
+<hr />
+<h3 id="building-block-2-memory">Building Block 2: Memory</h3>
+<p>Humans constantly rely on memory.</p>
+<p>We remember conversations, goals, facts, and previous decisions.</p>
+<p>Agents increasingly do the same.</p>
+<p>Memory allows an agent to retain information across multiple steps.</p>
+<p>Without memory, an agent would need to rediscover everything repeatedly.</p>
+<p>For example:</p>
+<ul>
+<li>A customer-support agent remembers earlier questions in a conversation.</li>
+<li>A legal research agent remembers cases already reviewed.</li>
+<li>A coding agent remembers files it modified earlier.</li>
+</ul>
+<p>Memory creates continuity.</p>
+<p>It allows work to build upon previous work.</p>
+<hr />
+<p><img alt="Agent Memory System" src="../../images/ch28-agent-memory-system.svg" /></p>
+<p><em>Figure 28.4: Memory allows agents to retain context, previous actions, and important information while working toward a goal.</em></p>
+<hr />
+<h3 id="building-block-3-tools">Building Block 3: Tools</h3>
+<p>Reasoning alone is not enough.</p>
+<p>An agent also needs ways to interact with the outside world.</p>
+<p>This is where tools come in.</p>
+<p>Tools might include:</p>
+<ul>
+<li>Search engines</li>
+<li>Databases</li>
+<li>Calculators</li>
+<li>APIs</li>
+<li>Document repositories</li>
+<li>Code execution environments</li>
+</ul>
+<p>A useful way to think about tools is this:</p>
+<blockquote>
+<p>Knowledge tells an agent what it knows.</p>
+<p>Tools help an agent discover what it does not know.</p>
+</blockquote>
+<p>This dramatically expands what an agent can accomplish.</p>
+<hr />
+<h3 id="building-block-4-actions">Building Block 4: Actions</h3>
+<p>After reasoning and tool usage comes action.</p>
+<p>An action is any step the agent takes that changes the state of a task.</p>
+<p>Examples include:</p>
+<ul>
+<li>Searching a database</li>
+<li>Sending an email</li>
+<li>Generating a report</li>
+<li>Updating a document</li>
+<li>Executing code</li>
+<li>Scheduling a meeting</li>
+</ul>
+<p>Actions transform planning into progress.</p>
+<p>Without actions, reasoning remains only a thought process.</p>
+<hr />
+<p><img alt="Agent Components Architecture" src="../../images/ch28-agent-components-architecture.svg" /></p>
+<p><em>Figure 28.5: Modern agents combine reasoning, memory, tools, and actions into a unified system.</em></p>
+<hr />
+<h3 id="how-the-components-work-together">How the Components Work Together</h3>
+<p>The real power of agents comes from the interaction between these components.</p>
+<p>A typical workflow might look like this:</p>
+<ol>
+<li>Reason about the goal.</li>
+<li>Recall relevant information from memory.</li>
+<li>Use tools to gather additional information.</li>
+<li>Take actions based on what was learned.</li>
+<li>Store new information in memory.</li>
+<li>Repeat until the goal is complete.</li>
+</ol>
+<p>Notice that no single component is responsible for intelligence.</p>
+<p>The intelligence emerges from the combination.</p>
+<hr />
+<p><img alt="Complete Agent Workflow" src="../../images/ch28-complete-agent-workflow.svg" /></p>
+<p><em>Figure 28.6: The complete workflow of a modern AI agent.</em></p>
+<hr />
+<h3 id="why-this-matters_3">Why This Matters</h3>
+<p>When people imagine AI agents, they often focus on the model itself.</p>
+<p>But the model is only one piece of the puzzle.</p>
+<p>Modern agents succeed because they combine:</p>
+<ul>
+<li>reasoning to make decisions,</li>
+<li>memory to maintain context,</li>
+<li>tools to access information,</li>
+<li>and actions to accomplish work.</li>
+</ul>
+<p>Together, these building blocks transform a language model into a system capable of pursuing goals.</p>
+<p>And as agents continue to evolve, these four foundations remain at the heart of nearly every modern design.</p>
+<h2 id="section-4-memory-the-secret-ingredient">Section 4 — Memory: The Secret Ingredient</h2>
+<p>Imagine meeting someone who forgets everything after every sentence.</p>
+<p>You tell them your name.</p>
+<p>A moment later, they ask again.</p>
+<p>You explain a problem.</p>
+<p>A few seconds later, they have forgotten the details.</p>
+<p>Holding a meaningful conversation would be nearly impossible.</p>
+<p>Yet this is surprisingly close to how early AI systems worked.</p>
+<p>Without memory, every interaction begins from scratch.</p>
+<p>This is why memory has become one of the most important ingredients in modern AI agents.</p>
+<hr />
+<h3 id="why-memory-matters">Why Memory Matters</h3>
+<p>An agent's job is not merely to answer questions.</p>
+<p>Its job is to achieve goals.</p>
+<p>Goals often require many steps:</p>
+<ul>
+<li>Gathering information</li>
+<li>Making decisions</li>
+<li>Using tools</li>
+<li>Tracking progress</li>
+<li>Revising plans</li>
+</ul>
+<p>Without memory, the agent would repeatedly lose track of what it has already done.</p>
+<p>It would be forced to solve the same problems again and again.</p>
+<p>Memory creates continuity.</p>
+<p>It allows today's decision to benefit from yesterday's work.</p>
+<hr />
+<h3 id="short-term-memory">Short-Term Memory</h3>
+<p>The simplest form of memory is short-term memory.</p>
+<p>This is the information an agent actively keeps while working on a task.</p>
+<p>For example, if an agent is researching a legal issue, it may remember:</p>
+<ul>
+<li>Cases already reviewed</li>
+<li>Notes already written</li>
+<li>Arguments already considered</li>
+<li>Sources already searched</li>
+</ul>
+<p>This prevents unnecessary repetition.</p>
+<p>It also allows the agent to build increasingly sophisticated understanding as a task progresses.</p>
+<p><img alt="Short-Term Memory" src="../../images/ch28-short-term-memory.svg" /></p>
+<p><em>Figure 28.7: Short-term memory helps an agent maintain context while working on an active task.</em></p>
+<hr />
+<h3 id="long-term-memory">Long-Term Memory</h3>
+<p>Humans do not rely solely on short-term memory.</p>
+<p>We also store information for later use.</p>
+<p>Agents increasingly do the same.</p>
+<p>Long-term memory allows an agent to remember information across days, weeks, months, or even years.</p>
+<p>Examples include:</p>
+<ul>
+<li>User preferences</li>
+<li>Prior projects</li>
+<li>Frequently used documents</li>
+<li>Organizational knowledge</li>
+<li>Historical decisions</li>
+</ul>
+<p>Instead of relearning everything repeatedly, the agent can build upon accumulated experience.</p>
+<p>This creates a much more personalized and efficient system.</p>
+<hr />
+<h3 id="memory-is-not-just-storage">Memory Is Not Just Storage</h3>
+<p>A common misconception is that memory is simply a database.</p>
+<p>It is not.</p>
+<p>Useful memory involves two separate abilities:</p>
+<ol>
+<li>Storing information</li>
+<li>Retrieving the right information at the right moment</li>
+</ol>
+<p>An agent with perfect storage but poor retrieval is like a library with no catalog.</p>
+<p>The information exists, but finding it becomes difficult.</p>
+<p>The true challenge is not remembering everything.</p>
+<p>The challenge is remembering what matters.</p>
+<hr />
+<p><img alt="Memory Retrieval Process" src="../../images/ch28-memory-retrieval.svg" /></p>
+<p><em>Figure 28.8: Modern memory systems focus on retrieving relevant information when needed.</em></p>
+<hr />
+<h3 id="memory-creates-better-decisions">Memory Creates Better Decisions</h3>
+<p>Consider two agents performing the same task.</p>
+<p>The first agent remembers previous work.</p>
+<p>The second agent starts fresh every time.</p>
+<p>Which one is likely to make better decisions?</p>
+<p>Almost always, the first.</p>
+<p>Memory improves:</p>
+<ul>
+<li>Consistency</li>
+<li>Personalization</li>
+<li>Planning</li>
+<li>Efficiency</li>
+<li>Accuracy</li>
+</ul>
+<p>Each decision can build upon previous knowledge rather than beginning from zero.</p>
+<p>This is one reason modern agents often feel significantly more capable than traditional chatbots.</p>
+<hr />
+<h3 id="the-emergence-of-persistent-agents">The Emergence of Persistent Agents</h3>
+<p>One of the most important trends in AI is the rise of persistent agents.</p>
+<p>A persistent agent does not disappear when a conversation ends.</p>
+<p>Instead, it maintains memory across interactions.</p>
+<p>This allows it to:</p>
+<ul>
+<li>Track long-term goals</li>
+<li>Learn user preferences</li>
+<li>Continue unfinished work</li>
+<li>Improve future performance</li>
+</ul>
+<p>In many ways, persistent memory transforms an agent from a tool into a long-term collaborator.</p>
+<hr />
+<p><img alt="Persistent Agent Memory" src="../../images/ch28-persistent-agent-memory.svg" /></p>
+<p><em>Figure 28.9: Persistent memory allows agents to carry knowledge forward across multiple interactions.</em></p>
+<hr />
+<h3 id="why-this-matters_4">Why This Matters</h3>
+<p>Reasoning helps an agent decide.</p>
+<p>Tools help an agent act.</p>
+<p>But memory helps an agent learn from experience.</p>
+<p>Without memory, every task begins at zero.</p>
+<p>With memory, every task starts from everything the agent already knows.</p>
+<p>That simple difference may be one of the most important reasons modern agents are becoming increasingly powerful.</p>
+<h2 id="section-5-agents-in-the-real-world">Section 5 — Agents in the Real World</h2>
+<p>Up to this point, we have explored agents as concepts.</p>
+<p>But agents are no longer experimental ideas confined to research laboratories.</p>
+<p>They are increasingly becoming part of everyday software.</p>
+<p>In fact, many of the most exciting developments in AI today involve systems that behave less like chatbots and more like agents.</p>
+<p>The reason is simple:</p>
+<p>People rarely want answers.</p>
+<p>They want outcomes.</p>
+<hr />
+<h3 id="from-information-to-action">From Information to Action</h3>
+<p>Consider the difference between these two requests:</p>
+<blockquote>
+<p>"What are the latest court decisions involving AI copyright?"</p>
+</blockquote>
+<p>and</p>
+<blockquote>
+<p>"Research the latest AI copyright cases and prepare a summary for my client."</p>
+</blockquote>
+<p>The first request asks for information.</p>
+<p>The second asks for work.</p>
+<p>Traditional AI systems excel at providing information.</p>
+<p>Agents are designed to perform work.</p>
+<p>This shift from answering questions to completing tasks is one of the biggest transitions occurring in modern AI.</p>
+<hr />
+<h3 id="ai-agents-in-legal-practice">AI Agents in Legal Practice</h3>
+<p>The legal profession is an ideal environment for agents.</p>
+<p>Legal work often involves:</p>
+<ul>
+<li>Research</li>
+<li>Document review</li>
+<li>Drafting</li>
+<li>Verification</li>
+<li>Organization</li>
+</ul>
+<p>These activities consist of many interconnected steps.</p>
+<p>An agent can help by:</p>
+<ul>
+<li>Searching legal databases</li>
+<li>Finding relevant precedents</li>
+<li>Organizing research results</li>
+<li>Drafting memoranda</li>
+<li>Summarizing lengthy documents</li>
+</ul>
+<p>Rather than handling one isolated request, the agent can coordinate an entire workflow.</p>
+<p><img alt="Legal Research Agent" src="../../images/ch28-legal-agent-workflow.svg" /></p>
+<p><em>Figure 28.10: A legal research agent coordinating multiple tasks to produce a final work product.</em></p>
+<hr />
+<h3 id="ai-agents-in-business">AI Agents in Business</h3>
+<p>Businesses are also adopting agent-based systems.</p>
+<p>Imagine a sales manager asking:</p>
+<blockquote>
+<p>"Prepare a report on declining customer retention."</p>
+</blockquote>
+<p>An agent might:</p>
+<ol>
+<li>Access company databases</li>
+<li>Retrieve customer metrics</li>
+<li>Analyze recent trends</li>
+<li>Generate visual summaries</li>
+<li>Draft recommendations</li>
+</ol>
+<p>What once required several tools and multiple employees can increasingly be coordinated by a single intelligent workflow.</p>
+<hr />
+<h3 id="ai-agents-in-software-development">AI Agents in Software Development</h3>
+<p>One of the fastest-growing uses of agents is software development.</p>
+<p>Modern coding agents can:</p>
+<ul>
+<li>Read source code</li>
+<li>Search documentation</li>
+<li>Suggest improvements</li>
+<li>Write new functions</li>
+<li>Execute tests</li>
+<li>Fix bugs</li>
+</ul>
+<p>Instead of generating a single block of code, the agent participates in the entire development process.</p>
+<p>This is one reason AI-assisted programming has advanced so rapidly.</p>
+<p><img alt="Coding Agent Workflow" src="../../images/ch28-coding-agent-workflow.svg" /></p>
+<p><em>Figure 28.11: A coding agent continuously reasoning, modifying code, testing, and improving results.</em></p>
+<hr />
+<h3 id="the-rise-of-multi-agent-systems">The Rise of Multi-Agent Systems</h3>
+<p>An especially important trend is the emergence of multi-agent systems.</p>
+<p>Rather than using a single agent, organizations are beginning to use teams of specialized agents.</p>
+<p>For example:</p>
+<ul>
+<li>One agent performs research</li>
+<li>Another analyzes findings</li>
+<li>Another drafts documents</li>
+<li>Another verifies results</li>
+</ul>
+<p>Together, they function like a digital team.</p>
+<p>This approach mirrors how human organizations operate.</p>
+<p>Different specialists handle different responsibilities while working toward a common objective.</p>
+<hr />
+<p><img alt="Multi-Agent Collaboration" src="../../images/ch28-multi-agent-system.svg" /></p>
+<p><em>Figure 28.12: Multiple specialized agents collaborating to solve a complex problem.</em></p>
+<hr />
+<h3 id="why-companies-are-investing-in-agents">Why Companies Are Investing in Agents</h3>
+<p>Businesses are not investing billions of dollars in agents because they generate impressive text.</p>
+<p>They are investing because agents have the potential to automate entire workflows.</p>
+<p>The value comes from:</p>
+<ul>
+<li>Reduced manual effort</li>
+<li>Faster execution</li>
+<li>Better coordination</li>
+<li>Continuous operation</li>
+<li>Scalable expertise</li>
+</ul>
+<p>In many industries, the goal is no longer simply to generate content.</p>
+<p>The goal is to automate meaningful work.</p>
+<hr />
+<h3 id="what-comes-next">What Comes Next?</h3>
+<p>The future of agents is likely to involve:</p>
+<ul>
+<li>Better reasoning</li>
+<li>Longer memory</li>
+<li>More reliable planning</li>
+<li>Greater autonomy</li>
+<li>Improved collaboration between agents</li>
+</ul>
+<p>Researchers are increasingly focused on building systems that can pursue goals over hours, days, or even weeks.</p>
+<p>The long-term vision is not merely a smarter chatbot.</p>
+<p>It is a digital collaborator capable of helping humans solve increasingly complex problems.</p>
+<hr />
+<h3 id="why-this-matters_5">Why This Matters</h3>
+<p>When most people hear the word "AI," they imagine a chatbot answering questions.</p>
+<p>But the industry is rapidly moving toward something different.</p>
+<p>The future is not just conversational AI.</p>
+<p>The future is agentic AI.</p>
+<p>Systems that can plan, reason, remember, use tools, and take action.</p>
+<p>In other words:</p>
+<p>Systems that do more than talk.</p>
+<p>Systems that work.</p>
+<h2 id="insight-box-from-knowledge-machines-to-work-machines">Insight Box — From Knowledge Machines to Work Machines</h2>
+<p>Throughout most of AI's history, the goal was to build systems that could answer questions.</p>
+<p>Researchers wanted machines that could:</p>
+<ul>
+<li>Recognize images</li>
+<li>Translate languages</li>
+<li>Play games</li>
+<li>Predict outcomes</li>
+<li>Generate text</li>
+</ul>
+<p>In other words, they wanted machines that could produce knowledge.</p>
+<p>Modern agents represent a significant shift in that vision.</p>
+<p>Instead of simply answering questions, agents are increasingly designed to accomplish objectives.</p>
+<p>This may sound like a subtle difference, but it changes everything.</p>
+<p>Consider the progression:</p>
+<ul>
+<li>A search engine helps you find information.</li>
+<li>A chatbot helps you understand information.</li>
+<li>An agent helps you complete a task.</li>
+</ul>
+<p>Each step moves AI closer to becoming an active participant in human work.</p>
+<p>The defining characteristic of an agent is not intelligence alone.</p>
+<p>It is the ability to combine intelligence with action.</p>
+<p>An agent can:</p>
+<ul>
+<li>Reason about a goal</li>
+<li>Remember relevant information</li>
+<li>Use tools to gather knowledge</li>
+<li>Take actions that move a task forward</li>
+<li>Adjust its strategy when circumstances change</li>
+</ul>
+<p>This is why many experts believe agents represent the next major phase of AI development.</p>
+<p>The future may not belong to systems that simply know things.</p>
+<p>It may belong to systems that can reliably get things done.</p>
+<p>That idea can be summarized in a single sentence:</p>
+<blockquote>
+<p>Chatbots answer questions. Agents pursue goals.</p>
+</blockquote>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>When most people first encounter AI, they encounter a chatbot.</p>
+<p>They ask a question.</p>
+<p>The system provides an answer.</p>
+<p>The interaction feels impressive, but ultimately familiar. It resembles a conversation.</p>
+<p>Agents introduce something fundamentally different.</p>
+<p>Instead of merely responding to prompts, they pursue goals.</p>
+<p>They can plan, reason, remember, use tools, evaluate results, and adapt their behavior as circumstances change. Rather than producing a single response, they participate in an ongoing process aimed at accomplishing a task.</p>
+<p>This shift may prove to be one of the most important developments in the history of AI.</p>
+<p>For decades, researchers focused on making machines smarter.</p>
+<p>Today, an equally important challenge has emerged:</p>
+<blockquote>
+<p>How do we make machines useful?</p>
+</blockquote>
+<p>Agents are one answer to that question.</p>
+<p>By combining language models with memory, tools, planning, and action, agents transform AI from a source of information into a system capable of performing meaningful work.</p>
+<p>Yet it is important to maintain perspective.</p>
+<p>Modern agents are not independent thinkers.</p>
+<p>They do not possess human understanding, self-awareness, judgment, or common sense. They can make mistakes, follow flawed reasoning, and pursue incorrect assumptions if not properly guided.</p>
+<p>Their strength lies not in replacing human intelligence, but in extending it.</p>
+<p>The most powerful future is unlikely to be one where agents replace professionals.</p>
+<p>It is more likely to be one where professionals use agents to amplify their capabilities.</p>
+<p>A lawyer supported by research agents.</p>
+<p>A doctor assisted by diagnostic agents.</p>
+<p>An engineer collaborating with coding agents.</p>
+<p>A teacher working alongside educational agents.</p>
+<p>In each case, the human remains responsible for judgment, ethics, and final decisions.</p>
+<p>The agent contributes speed, scale, memory, and persistence.</p>
+<p>As we move deeper into the era of AI, understanding agents will become increasingly important because they represent the direction in which many AI systems are evolving.</p>
+<p>The story of AI is no longer only about machines that can answer questions.</p>
+<p>It is increasingly about machines that can help achieve goals.</p>
+<p>And that journey is only beginning.</p>
+<hr />
+<h3 id="chapter-summary">Chapter Summary</h3>
+<p>In this chapter, you learned that:</p>
+<ul>
+<li>An AI agent is a system designed to pursue goals rather than simply answer questions.</li>
+<li>Agents operate through continuous cycles of planning, action, observation, and adjustment.</li>
+<li>Modern agents combine reasoning, memory, tools, and actions.</li>
+<li>Memory enables agents to maintain context and improve over time.</li>
+<li>Thinking agents continuously revise plans as they work.</li>
+<li>Agents are already being used in law, business, software development, and many other industries.</li>
+<li>The future of AI is moving toward systems that can perform increasingly complex tasks with greater autonomy.</li>
+</ul>
+<p>The next chapter explores another rapidly emerging trend in AI:</p>
+<p><strong>Vibe Coding</strong>—the idea that software can increasingly be created through conversation, collaboration, and natural language rather than traditional programming alone.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sikijs/YourHonor-AI-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2102 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Educational AI resources for law students — YourHonor AI">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter-05-the-birth-of-AI-%281956%29/">
+      
+      
+        <link rel="next" href="../chapter-07-the-first-ai-winter/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Chapter 6: The Perceptron - AI Learning Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-6-the-perceptron" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AI Learning Center" class="md-header__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI Learning Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 6: The Perceptron
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AI Learning Center" class="md-nav__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI Learning Center
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-01-what-is-intelligence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: What Is Intelligence?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-02-how-the-human-brain-inspired-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: How the Human Brain Inspired AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-03-artificial-neurons-%281943%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: Artificial Neurons (1943)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-04-alan-turing-and-thinking-machines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Alan Turing and Thinking Machines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-05-the-birth-of-AI-%281956%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: The Birth of AI (1956)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: The Perceptron
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: The Perceptron
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-a-machine-that-could-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1: A Machine That Could Learn
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-meet-frank-rosenblatt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2: Meet Frank Rosenblatt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-how-the-perceptron-worked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3: How the Perceptron Worked
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-learning-from-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4: Learning from Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-learning-from-examples_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4: Learning from Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 4: Learning from Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-data-what-learning-actually-looks-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Training Data: What Learning Actually Looks Like
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-learning-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Learning Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-learning-actually-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Learning Actually Happens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-quiet-shift-in-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Quiet Shift in Thinking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-why-the-world-got-excited" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5: Why the World Got Excited
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 5: Why the World Got Excited">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-machine-that-sees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Machine That “Sees”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-media-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Media Effect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-dream-expands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Dream Expands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-was-really-happening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Was Really Happening
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-07-the-first-ai-winter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: The First AI Winter (1969–1974)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-08-expert-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Expert Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-09-backpropagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9: Backpropagation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-10-deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10: Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-11-the-gpu-revolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: The GPU Revolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-12-imagenet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12: ImageNet: The Dataset That Changed Everything
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-13-ai-beats-the-champions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13: AI Beats The Champions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-14-transformers-and-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14: Transformers and Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-15-large-language-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15: Large Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-16-data-the-fuel-of-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16: Data: The Fuel Of AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-17-how-computer-sees-everything-as-numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 17: How Computers See Everything as Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-18-tokens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 18: Tokens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-19-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 19: Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-20-neural-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 20: Neural Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-21-weights-and-parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 21: Weights and Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-22-training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 22: Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-23-backpropagation-simplified/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 23: Backpropagation Simplified
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-24-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 24: Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-25-why-bigger-models-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 25: Why Bigger Models Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-26-fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 26: Fine-tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-27-retrieval-augmented-generation-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 27: Retrieval-Augmented Generation (RAG)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-28-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 28: Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-29-vibe-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 29: Vibe Coding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-30-multimodal-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 30: Multimodal AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-31-hallucinations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 31: Hallucinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-32-what-ai-still-cannot-do/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 32: What AI Still Cannot Do
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-33-agi-and-beyond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 33: AGI (Artificial General Intelligence) and Beyond
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-34-the-future-of-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 34: The Future of Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-A-ai-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix A — AI Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-a-machine-that-could-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1: A Machine That Could Learn
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-meet-frank-rosenblatt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2: Meet Frank Rosenblatt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-how-the-perceptron-worked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3: How the Perceptron Worked
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-learning-from-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4: Learning from Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-learning-from-examples_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4: Learning from Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 4: Learning from Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-data-what-learning-actually-looks-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Training Data: What Learning Actually Looks Like
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-learning-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Learning Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-learning-actually-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Learning Actually Happens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-quiet-shift-in-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Quiet Shift in Thinking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-why-the-world-got-excited" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5: Why the World Got Excited
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 5: Why the World Got Excited">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-machine-that-sees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Machine That “Sees”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-media-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Media Effect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-dream-expands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Dream Expands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-was-really-happening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Was Really Happening
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-6-the-perceptron">Chapter 6: The Perceptron</h1>
+<h2 id="section-1-a-machine-that-could-learn">Section 1: A Machine That Could Learn</h2>
+<p>In the summer of 1956, the researchers at Dartmouth believed they were standing at the beginning of a new era.</p>
+<p>They imagined machines that could reason, solve problems, understand language, and perhaps one day rival human intelligence itself.</p>
+<p>But there was one problem.</p>
+<p>Nobody really knew how to build such a machine.</p>
+<p>The ideas were exciting. The vision was bold. Yet most of the early AI programs still depended on human-written instructions. A programmer had to tell the machine exactly what to do, step by step.</p>
+<p>Human beings do not learn that way.</p>
+<p>A child does not receive thousands of pages of instructions explaining how to recognize a dog. Instead, the child sees dogs again and again. Over time, the brain notices patterns. Eventually, recognition becomes automatic.</p>
+<p>Many AI researchers began asking an important question:</p>
+<p>Could a machine learn from experience instead of relying entirely on programmed rules?</p>
+<p>One scientist in particular believed the answer was yes.</p>
+<p>His name was Frank Rosenblatt.</p>
+<p>Rosenblatt was a psychologist and computer researcher who became fascinated by the way the human brain learns. He wondered whether a machine could imitate this process. Rather than giving a computer every rule in advance, perhaps the machine could gradually improve its own decisions by studying examples.</p>
+<p>This idea was revolutionary.</p>
+<p>At the time, computers were generally viewed as giant calculators. They followed instructions perfectly, but they did not adapt. They did not learn. They did not improve through experience.</p>
+<p>Rosenblatt wanted to change that.</p>
+<p>Drawing inspiration from the artificial neuron proposed by Warren McCulloch and Walter Pitts more than a decade earlier, he designed a new kind of system that could adjust itself based on what it observed.</p>
+<p>He called it the <em>Perceptron</em>.</p>
+<p>The Perceptron would become one of the most influential inventions in the history of artificial intelligence. Although simple by modern standards, it introduced a powerful concept that remains at the heart of AI today:</p>
+<p>A machine can learn from examples.</p>
+<p>That idea may sound obvious now, but in the late 1950s it felt almost magical.</p>
+<p>For the first time, researchers believed they might have found a path toward creating machines that could improve themselves rather than simply obey instructions.</p>
+<p>The age of machine learning was beginning.</p>
+<h2 id="section-2-meet-frank-rosenblatt">Section 2: Meet Frank Rosenblatt</h2>
+<p>In the late 1950s, one of the most exciting figures in artificial intelligence was a young scientist named Frank Rosenblatt.</p>
+<p>Unlike many computer researchers of his era, Rosenblatt was not focused solely on mathematics or engineering. He had studied psychology and was deeply interested in how living brains learn from experience.</p>
+<p>This background led him to ask a question that would shape the future of AI:</p>
+<p>How does a brain learn to recognize patterns?</p>
+<p>A child can quickly learn to distinguish a cat from a dog, a friend from a stranger, or a tree from a building. Nobody programs these abilities into the child step by step. Learning happens through observation and experience.</p>
+<p>Rosenblatt wondered whether a machine could do something similar.</p>
+<p>At the time, most computers operated like obedient clerks. They followed instructions exactly as written. If a programmer forgot to include a rule, the computer would not magically discover it on its own.</p>
+<p>Human learning seemed very different.</p>
+<p>People make mistakes, adjust their understanding, and gradually improve. A child learning to read does not become perfect after seeing a few words. Progress comes through repetition, correction, and experience.</p>
+<p>Rosenblatt believed machines might be able to learn in the same way.</p>
+<p>Inspired by earlier work on artificial neurons, he developed a system designed to imitate a tiny part of the brain's learning process. His goal was not to recreate the entire human brain. Instead, he wanted to explore whether a simple network of artificial neurons could learn to recognize patterns.</p>
+<p>In 1957, he introduced the Perceptron.</p>
+<p>The Perceptron was one of the first AI systems specifically designed to learn from examples. Rather than relying entirely on rules written by programmers, it could adjust its own behavior based on the information it received.</p>
+<p>This was a major shift in thinking.</p>
+<p>Instead of telling a machine exactly how to solve a problem, researchers could provide examples and allow the machine to discover useful patterns for itself.</p>
+<p>Today, this approach forms the foundation of modern machine learning.</p>
+<p>From image recognition to language models such as ChatGPT, many of today's AI systems are built on the same basic idea that fascinated Rosenblatt nearly seventy years ago:</p>
+<p>Learning is often more powerful than programming.</p>
+<p>The Perceptron was simple, but it introduced a concept that would eventually transform artificial intelligence and change the way humans interact with computers.</p>
+<p><img alt="Perceptron Demo" src="../../images/chapter5_perceptron_demo.svg" /></p>
+<h2 id="section-3-how-the-perceptron-worked">Section 3: How the Perceptron Worked</h2>
+<p>At first glance, the Perceptron looks almost too simple to be important.</p>
+<p>It was not a brain. It was not even close to a brain. It was a mathematical system built to take inputs, process them, and produce a single output.</p>
+<p>But inside that simplicity was a powerful idea: learning through adjustment.</p>
+<p>The Perceptron can be thought of as a decision-making machine.</p>
+<p>Imagine you are trying to decide whether to go outside for a walk. You might consider a few factors:</p>
+<p>Is it raining?
+Is it cold?
+Do I feel energetic?</p>
+<p>Each of these factors influences your final decision. Some matter more than others. For example, rain might strongly discourage you from going out, while temperature might matter less.</p>
+<p>The Perceptron works in a similar way.</p>
+<p>It takes several inputs, each representing a piece of information. But not all inputs are treated equally. Each input is assigned a <em>weight</em>, which represents its importance.</p>
+<p>A high weight means the input strongly influences the decision. A low weight means it has little effect.</p>
+<p>The Perceptron then combines all the inputs, multiplies them by their weights, and adds them together. This produces a single number.</p>
+<p>If that number is above a certain threshold, the Perceptron outputs one answer (for example, “yes”). If it is below the threshold, it outputs another answer (for example, “no”).</p>
+<p>In simple terms:</p>
+<p>Inputs → Weighted Sum → Decision</p>
+<p>At this stage, the system does not “know” anything. It is just making guesses based on its current weights.</p>
+<p>The real magic happens next.</p>
+<p>When the Perceptron makes a mistake, it does not panic or stop working. Instead, it adjusts its weights slightly to improve future decisions.</p>
+<p>If it predicts correctly, the weights are reinforced. If it predicts incorrectly, the weights are modified in the opposite direction.</p>
+<p>Over time, this process allows the system to gradually improve.</p>
+<p>It is similar to learning to throw a basketball into a hoop. You try, you miss, you adjust your aim, and you try again. With enough practice, your throws become more accurate.</p>
+<p>The Perceptron follows the same cycle:</p>
+<p>Make a prediction → Check the result → Adjust → Repeat</p>
+<p>This simple loop is what allows a machine to learn from experience.</p>
+<p>There is an important limitation, however. The Perceptron can only learn patterns that are <em>linearly separable</em>, meaning problems where a straight line can separate the answers.</p>
+<p>This limitation would later become one of its biggest weaknesses, and it played a key role in the first major setback in early AI research.</p>
+<p>But despite its simplicity, the Perceptron introduced a revolutionary idea:</p>
+<p>A machine does not need to be explicitly programmed to behave intelligently. It can learn by adjusting itself based on feedback.</p>
+<p>That idea would eventually become the foundation of modern artificial intelligence.</p>
+<h2 id="section-4-learning-from-examples">Section 4: Learning from Examples</h2>
+<h2 id="section-4-learning-from-examples_1">Section 4: Learning from Examples</h2>
+<p>A Perceptron does not learn from theory. It learns from examples.</p>
+<p>But examples are not abstract ideas. They are data points—simple pairs of information:</p>
+<p>A situation, and the correct answer.</p>
+<h3 id="training-data-what-learning-actually-looks-like">Training Data: What Learning Actually Looks Like</h3>
+<p>At the most basic level, training data looks like this:</p>
+<p>Email text → Label
+“win money now” → Spam
+“meeting tomorrow” → Not spam
+“urgent click link” → Spam
+“lunch at 1?” → Not spam</p>
+<p>At the beginning of training, the Perceptron does not understand any of this. Its internal settings are random. It is essentially guessing.</p>
+<hr />
+<h3 id="the-learning-loop">The Learning Loop</h3>
+<p>The entire learning process can be reduced to a repeating cycle.</p>
+<p>Input → Prediction → Check Answer → Adjust → Repeat</p>
+<p>Each step is simple on its own. The power comes from repetition.</p>
+<p>The Perceptron makes a prediction, compares it to the correct answer, and then adjusts itself slightly when it is wrong. This adjustment is not dramatic. It is small, controlled, and continuous.</p>
+<p>Over time, these small corrections accumulate.</p>
+<hr />
+<h3 id="how-learning-actually-happens">How Learning Actually Happens</h3>
+<p>To understand what is changing inside the system, imagine a set of “dials” or “sliders” controlling how strongly each input influences the decision.</p>
+<p>When the Perceptron makes a mistake, it slightly shifts these internal values:</p>
+<ul>
+<li>Inputs that contributed to a correct decision are strengthened</li>
+<li>Inputs that contributed to a wrong decision are weakened</li>
+</ul>
+<p>Nothing about this process is intelligent in the human sense. There is no understanding, no reasoning, and no awareness.</p>
+<p>And yet, behavior improves.</p>
+<hr />
+<h3 id="why-this-works">Why This Works</h3>
+<p>This is the key insight behind early machine learning:</p>
+<p>The intelligence is not in the instructions. The intelligence is in the data.</p>
+<p>The Perceptron does not need rules like “spam emails often contain suspicious phrases.” Instead, it gradually discovers patterns by adjusting itself across many examples.</p>
+<p>But this only works because of repetition.</p>
+<p>A single example teaches almost nothing. Hundreds teach a little. Thousands begin to shape behavior. Millions create reliable performance.</p>
+<p>This is why modern AI systems depend so heavily on large datasets.</p>
+<hr />
+<h3 id="a-quiet-shift-in-thinking">A Quiet Shift in Thinking</h3>
+<p>In the 1950s, this idea was not universally accepted.</p>
+<p>Some researchers believed intelligence had to be explicitly programmed through rules. Others, like Rosenblatt, argued that learning from examples was enough.</p>
+<p>The Perceptron did not settle the debate.</p>
+<p>But it changed the direction of the conversation.</p>
+<p>For the first time, machines were not just following instructions.</p>
+<p>They were beginning to adjust themselves.</p>
+<h2 id="section-5-why-the-world-got-excited">Section 5: Why the World Got Excited</h2>
+<p>When the Perceptron was introduced, it did not quietly enter academic circles.</p>
+<p>It made headlines.</p>
+<p>For the first time, researchers were not just talking about machines that could calculate. They were talking about machines that could <em>learn</em>.</p>
+<p>That single word changed everything.</p>
+<h3 id="a-machine-that-sees">A Machine That “Sees”</h3>
+<p>Rosenblatt demonstrated the Perceptron using simple pattern recognition tasks, such as distinguishing shapes.</p>
+<p>To the public—and even to some scientists—it felt like a breakthrough moment.</p>
+<p>A system that once seemed like theory was now making correct choices on real inputs. Even if the tasks were simple, the implication was enormous.</p>
+<p>If a machine could recognize patterns, what else could it learn to recognize?</p>
+<p>Faces? Speech? Language? Thought itself?</p>
+<p>No one had clear answers yet—but the questions were powerful enough to drive excitement across research labs.</p>
+<hr />
+<h3 id="the-media-effect">The Media Effect</h3>
+<p>Newspapers and magazines quickly picked up the story.</p>
+<p>The Perceptron was described in bold terms, sometimes far beyond what it could actually do.</p>
+<p>Some reports suggested that machines capable of seeing and thinking were just around the corner.</p>
+<p>The tone was not cautious. It was confident. Sometimes even exaggerated.</p>
+<p>In hindsight, this was the beginning of a pattern that would repeat throughout AI history:</p>
+<p>A real technical breakthrough… followed by public imagination running ahead of reality.</p>
+<hr />
+<h3 id="the-dream-expands">The Dream Expands</h3>
+<p>Researchers began to imagine systems that could:</p>
+<ul>
+<li>Translate languages automatically</li>
+<li>Recognize handwritten text</li>
+<li>Understand spoken speech</li>
+<li>Make decisions like humans</li>
+</ul>
+<p>At this stage, the Perceptron was no longer just a technical experiment.</p>
+<p>It had become a symbol.</p>
+<p>A symbol of a future where machines might learn, adapt, and eventually think.</p>
+<hr />
+<h3 id="what-was-really-happening">What Was Really Happening</h3>
+<p>Behind the excitement, the actual technology was still very simple.</p>
+<p>The Perceptron could only solve limited types of problems. It worked well for clean, separable patterns—but struggled with anything more complex.</p>
+<p>But in the early excitement, that limitation was easy to overlook.</p>
+<p>The world saw potential.</p>
+<p>Not boundaries.</p>
+<p>And that gap between possibility and reality would soon become very important.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sikijs/YourHonor-AI-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

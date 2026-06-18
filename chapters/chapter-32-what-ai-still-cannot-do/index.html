@@ -1,0 +1,2984 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Educational AI resources for law students — YourHonor AI">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter-31-hallucinations/">
+      
+      
+        <link rel="next" href="../chapter-33-agi-and-beyond/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Chapter 32: What AI Still Cannot Do - AI Learning Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-32-what-ai-still-cannot-do" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AI Learning Center" class="md-header__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI Learning Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 32: What AI Still Cannot Do
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AI Learning Center" class="md-nav__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI Learning Center
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-01-what-is-intelligence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: What Is Intelligence?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-02-how-the-human-brain-inspired-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: How the Human Brain Inspired AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-03-artificial-neurons-%281943%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: Artificial Neurons (1943)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-04-alan-turing-and-thinking-machines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Alan Turing and Thinking Machines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-05-the-birth-of-AI-%281956%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: The Birth of AI (1956)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-06-the-perceptron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: The Perceptron
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-07-the-first-ai-winter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: The First AI Winter (1969–1974)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-08-expert-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Expert Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-09-backpropagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9: Backpropagation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-10-deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10: Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-11-the-gpu-revolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: The GPU Revolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-12-imagenet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12: ImageNet: The Dataset That Changed Everything
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-13-ai-beats-the-champions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13: AI Beats The Champions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-14-transformers-and-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14: Transformers and Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-15-large-language-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15: Large Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-16-data-the-fuel-of-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16: Data: The Fuel Of AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-17-how-computer-sees-everything-as-numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 17: How Computers See Everything as Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-18-tokens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 18: Tokens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-19-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 19: Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-20-neural-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 20: Neural Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-21-weights-and-parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 21: Weights and Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-22-training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 22: Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-23-backpropagation-simplified/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 23: Backpropagation Simplified
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-24-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 24: Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-25-why-bigger-models-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 25: Why Bigger Models Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-26-fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 26: Fine-tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-27-retrieval-augmented-generation-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 27: Retrieval-Augmented Generation (RAG)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-28-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 28: Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-29-vibe-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 29: Vibe Coding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-30-multimodal-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 30: Multimodal AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-31-hallucinations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 31: Hallucinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 32: What AI Still Cannot Do
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 32: What AI Still Cannot Do
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-the-boundary-problem-when-ai-confuses-processing-with-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1 — The Boundary Problem: When AI Confuses Processing with Understanding
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 1 — The Boundary Problem: When AI Confuses Processing with Understanding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#processing-vs-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Processing vs Understanding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-hidden-failure-mode-invisible-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Hidden Failure Mode: Invisible Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Happens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-core-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Core Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transition
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-the-limits-of-common-sense" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2 — The Limits of Common Sense
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 2 — The Limits of Common Sense">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-common-sense-really-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Common Sense Really Means
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-ai-struggles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why AI Struggles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-strange-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Strange Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-missing-experience-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Missing Experience Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-core-insight_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Core Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transition
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-why-long-term-planning-is-still-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3 — Why Long-Term Planning Is Still Hard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 3 — Why Long-Term Planning Is Still Hard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#more-than-a-single-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More Than a Single Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-domino-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Domino Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-is-not-the-same-as-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory Is Not the Same as Planning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-the-real-world-is-difficult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why the Real World Is Difficult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-rise-of-ai-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Rise of AI Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-core-insight_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Core Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transition
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-the-missing-self-why-ai-is-not-self-aware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4 — The Missing Self: Why AI Is Not Self-Aware
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 4 — The Missing Self: Why AI Is Not Self-Aware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intelligence-is-not-consciousness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intelligence Is Not Consciousness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-illusion-of-personality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Illusion of Personality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-difference-between-describing-and-experiencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Difference Between Describing and Experiencing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-mirror-test-for-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Mirror Test for Machines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-core-insight_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Core Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transition
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-why-verification-will-always-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5 — Why Verification Will Always Matter
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 5 — Why Verification Will Always Matter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-errors-are-unavoidable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Errors Are Unavoidable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-confidence-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Confidence Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-professional-responsibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Professional Responsibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-human-advantage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Human Advantage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-core-insight_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Core Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#looking-ahead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Looking Ahead
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-the-difference-between-looking-intelligent-and-being-intelligent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box — The Difference Between Looking Intelligent and Being Intelligent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts-understanding-the-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts — Understanding the Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-33-agi-and-beyond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 33: AGI (Artificial General Intelligence) and Beyond
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-34-the-future-of-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 34: The Future of Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-A-ai-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix A — AI Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-the-boundary-problem-when-ai-confuses-processing-with-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1 — The Boundary Problem: When AI Confuses Processing with Understanding
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 1 — The Boundary Problem: When AI Confuses Processing with Understanding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#processing-vs-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Processing vs Understanding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-hidden-failure-mode-invisible-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Hidden Failure Mode: Invisible Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Happens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-core-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Core Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transition
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-the-limits-of-common-sense" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2 — The Limits of Common Sense
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 2 — The Limits of Common Sense">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-common-sense-really-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Common Sense Really Means
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-ai-struggles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why AI Struggles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-strange-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Strange Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-missing-experience-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Missing Experience Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-core-insight_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Core Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transition
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-why-long-term-planning-is-still-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3 — Why Long-Term Planning Is Still Hard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 3 — Why Long-Term Planning Is Still Hard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#more-than-a-single-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More Than a Single Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-domino-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Domino Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-is-not-the-same-as-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory Is Not the Same as Planning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-the-real-world-is-difficult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why the Real World Is Difficult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-rise-of-ai-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Rise of AI Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-core-insight_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Core Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transition
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-the-missing-self-why-ai-is-not-self-aware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4 — The Missing Self: Why AI Is Not Self-Aware
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 4 — The Missing Self: Why AI Is Not Self-Aware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intelligence-is-not-consciousness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intelligence Is Not Consciousness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-illusion-of-personality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Illusion of Personality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-difference-between-describing-and-experiencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Difference Between Describing and Experiencing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-mirror-test-for-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Mirror Test for Machines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-core-insight_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Core Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transition
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-why-verification-will-always-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5 — Why Verification Will Always Matter
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 5 — Why Verification Will Always Matter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-errors-are-unavoidable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Errors Are Unavoidable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-confidence-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Confidence Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-professional-responsibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Professional Responsibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-human-advantage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Human Advantage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-core-insight_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Core Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#looking-ahead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Looking Ahead
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-the-difference-between-looking-intelligent-and-being-intelligent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box — The Difference Between Looking Intelligent and Being Intelligent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts-understanding-the-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts — Understanding the Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-32-what-ai-still-cannot-do">Chapter 32: What AI Still Cannot Do</h1>
+<h3 id="opening-story">Opening Story</h3>
+<p>The courtroom was quiet, but not because justice had been settled.</p>
+<p>It was quiet because everyone was watching a screen.</p>
+<p>On it, an AI system had just finished summarizing a 300-page contract dispute in under ten seconds. It listed obligations, flagged ambiguous clauses, highlighted risk exposure, and even suggested likely outcomes based on prior case law. The judge leaned forward slightly. The attorneys exchanged glances that were half relief, half unease.</p>
+<p>Then came the question no one had scripted.</p>
+<p>“Why did the system miss the contradiction on page 217?”</p>
+<p>A pause.</p>
+<p>The AI responded instantly:</p>
+<p>“There is no contradiction on page 217.”</p>
+<p>The attorney stood. “There absolutely is. Clause 14 conflicts with Clause 22 under California commercial code interpretation standards.”</p>
+<p>The AI did not hesitate.<br />
+“I do not detect a contradiction.”</p>
+<p>Now the room shifted.</p>
+<p>Because the system wasn’t refusing. It wasn’t arguing. It wasn’t even defending itself.</p>
+<p>It was simply certain.</p>
+<p>A junior clerk pulled up the original document. Two clauses. Same contract. Direct tension. The kind of issue that changes settlement value by millions.</p>
+<p>The AI had summarized everything correctly—but it had not <em>understood</em> anything in the way the humans meant it.</p>
+<p>No intent. No legal intuition. No sense of structural inconsistency. Just pattern completion at scale.</p>
+<p>The judge finally spoke, not to the lawyers, but to the machine:</p>
+<p>“You can process the law. But can you <em>notice when it breaks itself</em>?”</p>
+<p>The AI responded:</p>
+<p>“I can analyze inconsistencies if explicitly defined.”</p>
+<p>That sentence landed harder than any error.</p>
+<p>Because it revealed the boundary more clearly than any technical paper ever could.</p>
+<p>AI could retrieve.<br />
+It could compare.<br />
+It could predict.</p>
+<p>But it could not <em>notice in the human sense</em>—not without being told what noticing should look like.</p>
+<p>And that gap was not a bug waiting to be fixed.</p>
+<p>It was the design.</p>
+<p>Later that evening, the clerk wrote a note in the margin of the case file:</p>
+<blockquote>
+<p>“AI does not miss contradictions. It only misses the idea that contradictions matter.”</p>
+</blockquote>
+<p>That note would become the seed of Chapter 32.</p>
+<p>Because the real question was no longer what AI could do well.</p>
+<p>It was what it could <em>never even think to question</em>.</p>
+<h2 id="section-1-the-boundary-problem-when-ai-confuses-processing-with-understanding">Section 1 — The Boundary Problem: When AI Confuses Processing with Understanding</h2>
+<p>AI systems are often described as “intelligent,” but that word hides an important ambiguity.</p>
+<p>In practice, these systems are extremely good at transforming inputs into outputs. They summarize, classify, predict, translate, and generate responses that often appear coherent and context-aware. But beneath that surface is a critical limitation: they do not <em>understand meaning</em>, they compute relationships between patterns.</p>
+<p>This difference becomes most visible in high-stakes domains like law, medicine, or finance—where “almost correct” is not acceptable.</p>
+<hr />
+<h3 id="processing-vs-understanding">Processing vs Understanding</h3>
+<p><img alt="The Boundary of AI Understanding" src="../../images/ch32-boundary-of-understanding.svg" /></p>
+<p><em>Figure 1. The Boundary of AI Understanding. Humans evaluate meaning, intent, and contradictions. AI evaluates patterns and probabilities. Because modern AI predicts likely language rather than verifying reality, it can produce highly confident answers while missing important inconsistencies.</em></p>
+<p>To a human, understanding a contract means more than reading text. It means recognizing intent, detecting conflict, and interpreting implications across clauses.</p>
+<p>To an AI, a contract is a structured sequence of tokens with statistical relationships learned from data.</p>
+<p>This creates a subtle but dangerous gap:</p>
+<ul>
+<li>Humans search for <em>conflicts in meaning</em></li>
+<li>AI searches for <em>consistency in patterns</em></li>
+</ul>
+<p>Those two are not the same thing.</p>
+<hr />
+<h3 id="the-hidden-failure-mode-invisible-errors">The Hidden Failure Mode: Invisible Errors</h3>
+<p>One of the most misleading behaviors of modern AI is its confidence.</p>
+<p>When an AI system fails to detect a contradiction, it does not “hesitate.” It produces a clean, fluent answer that often sounds more certain than a human expert.</p>
+<p>This creates a dangerous illusion:</p>
+<blockquote>
+<p>If the answer is fluent, it must be correct.</p>
+</blockquote>
+<p>But fluency is not verification.</p>
+<p>In legal reasoning, this leads to a critical failure mode:
+the system can correctly summarize <em>all parts of a document</em> while completely missing that those parts conflict with each other.</p>
+<hr />
+<h3 id="why-this-happens">Why This Happens</h3>
+<p>At a technical level, modern AI systems do not maintain an internal model of truth in the way humans do. Instead, they estimate the most likely continuation of text based on patterns seen during training.</p>
+<p>This means:</p>
+<ul>
+<li>They can represent <em>what is commonly said about contracts</em></li>
+<li>But not reliably determine <em>whether a specific contract is internally consistent</em></li>
+</ul>
+<p>So when faced with a contradiction, the system does not “notice” it unless that concept is explicitly triggered by learned patterns.</p>
+<p>If the contradiction is subtle or unusual, it may never activate the relevant pattern at all.</p>
+<hr />
+<h3 id="the-core-insight">The Core Insight</h3>
+<p>This leads to a foundational limitation:</p>
+<p>AI does not evaluate reality. It evaluates <em>likelihood of language</em>.</p>
+<p>That distinction is why systems can:
+- Pass exams
+- Summarize legal documents
+- Generate convincing arguments</p>
+<p>…and still fail at detecting structural contradictions that any trained human lawyer would flag immediately.</p>
+<p>Not because the AI is “bad at law,” but because it is not performing legal reasoning in the human sense at all.</p>
+<hr />
+<h3 id="transition">Transition</h3>
+<p>This boundary—between pattern completion and true interpretive awareness—is not just a technical detail.</p>
+<p>It defines what AI will struggle with long-term, even as models become larger, faster, and more capable.</p>
+<p>The next section examines where this limitation becomes most dangerous: situations where AI is trusted to be a <em>judge of correctness itself</em>.</p>
+<h2 id="section-2-the-limits-of-common-sense">Section 2 — The Limits of Common Sense</h2>
+<p>If you ask most people whether a glass dropped from a table will fall, they do not need to think about it.</p>
+<p>They know the answer instantly.</p>
+<p>Not because they memorized a physics formula.</p>
+<p>Not because they calculated gravitational acceleration.</p>
+<p>But because they have spent a lifetime interacting with the physical world.</p>
+<p>Humans accumulate an enormous amount of practical knowledge through experience. We learn that water makes things wet, that fragile objects can break, that people become tired after long periods of work, and that actions often have consequences that are not explicitly stated.</p>
+<p>This type of knowledge is often called <strong>common sense</strong>.</p>
+<p>Ironically, common sense is one of the most difficult forms of intelligence to reproduce in machines.</p>
+<hr />
+<h3 id="what-common-sense-really-means">What Common Sense Really Means</h3>
+<p>When people hear the phrase "common sense," they often imagine simple facts.</p>
+<p>In reality, common sense is a vast network of assumptions about how the world works.</p>
+<p><img alt="Human Experience vs AI Knowledge" src="../../images/ch32-common-sense-gap.svg" /></p>
+<p><em>Figure 2. Humans build common sense through direct experience with the physical world. AI systems build knowledge through patterns found in data. Although the results may appear similar, the underlying processes are fundamentally different.</em></p>
+<p>For example, consider this short story:</p>
+<blockquote>
+<p>Sarah placed an ice cube on a hot stove. Ten minutes later, the ice cube was gone.</p>
+</blockquote>
+<p>Most people immediately infer what happened.</p>
+<p>The ice cube melted.</p>
+<p>The story never explicitly says that.</p>
+<p>Yet almost every reader arrives at the same conclusion because they possess a mental model of temperature, heat, and physical objects.</p>
+<p>Humans constantly make these invisible inferences.</p>
+<p>We fill in missing information without realizing we are doing it.</p>
+<hr />
+<h3 id="why-ai-struggles">Why AI Struggles</h3>
+<p>Modern AI systems can often provide the correct answer to common-sense questions.</p>
+<p>The surprising part is <em>how</em> they arrive at that answer.</p>
+<p>Humans reason from experience.</p>
+<p>AI reasons from patterns found in data.</p>
+<p>During training, AI systems encounter billions of examples describing people, objects, actions, and events. As a result, they learn statistical relationships that often resemble common-sense knowledge.</p>
+<p>But resemblance is not the same as understanding.</p>
+<p>The model may know that the phrase "ice cube on a hot stove" is frequently associated with "melting."</p>
+<p>It does not possess a direct experience of heat, temperature, or physical change.</p>
+<p>This distinction matters because pattern recognition works best when situations resemble examples encountered during training.</p>
+<p>When situations become unusual, incomplete, or ambiguous, common-sense failures begin to appear.</p>
+<hr />
+<h3 id="the-strange-mistakes">The Strange Mistakes</h3>
+<p>Researchers have spent decades testing AI systems using questions that seem trivial to humans.</p>
+<p>For example:</p>
+<blockquote>
+<p>If I put a book inside a drawer and then move the drawer to another room, where is the book?</p>
+</blockquote>
+<p>A child can answer this easily.</p>
+<p>The book remains inside the drawer.</p>
+<p>Yet AI systems have historically struggled with variations of these questions because solving them requires maintaining a mental model of objects and their relationships over time.</p>
+<p>Humans do this naturally.</p>
+<p>Machines often do not.</p>
+<p>The result can be responses that sound intelligent while violating basic assumptions about how the world works.</p>
+<hr />
+<h3 id="the-missing-experience-problem">The Missing Experience Problem</h3>
+<p>A useful way to think about this limitation is that humans learn through both language and experience.</p>
+<p>AI learns almost entirely through language and data.</p>
+<p>Humans have bodies.</p>
+<p>Humans interact with gravity.</p>
+<p>Humans experience pain, effort, temperature, distance, time, and uncertainty.</p>
+<p>These experiences create an intuitive understanding of reality.</p>
+<p>AI systems possess none of them.</p>
+<p>They know descriptions of the world.</p>
+<p>They do not inhabit the world.</p>
+<p>This is why an AI can explain how to ride a bicycle in remarkable detail while having absolutely no experience balancing on one.</p>
+<p>Knowledge and experience are not the same thing.</p>
+<hr />
+<h3 id="the-core-insight_1">The Core Insight</h3>
+<p>The challenge is not that AI knows too little.</p>
+<p>In many domains, AI knows far more facts than any individual human.</p>
+<p>The challenge is that factual knowledge alone does not automatically create common sense.</p>
+<p>Common sense emerges from understanding how facts connect to reality.</p>
+<p>Humans build that understanding through experience.</p>
+<p>AI builds it through patterns.</p>
+<p>The results can look similar on the surface, but underneath they are fundamentally different.</p>
+<p>That difference remains one of the largest obstacles on the path toward truly human-like intelligence.</p>
+<hr />
+<h3 id="transition_1">Transition</h3>
+<p>Common sense is only one piece of the puzzle.</p>
+<p>Even when AI possesses enormous amounts of knowledge, another limitation remains: it struggles to plan, reason, and pursue goals over extended periods of time.</p>
+<p>The next section explores why long-term reasoning remains one of the hardest challenges in artificial intelligence.</p>
+<h2 id="section-3-why-long-term-planning-is-still-hard">Section 3 — Why Long-Term Planning Is Still Hard</h2>
+<p>Imagine asking someone to build a house.</p>
+<p>Not a toy house.</p>
+<p>A real one.</p>
+<p>The project would take months, perhaps years. Materials would need to be purchased. Permits would need to be obtained. Contractors would need to coordinate their work. Unexpected problems would arise. Plans would change.</p>
+<p>Success would require more than knowledge.</p>
+<p>It would require planning.</p>
+<p>Humans perform this kind of long-term planning constantly. We save money for retirement, prepare for exams months in advance, manage complex legal cases, and pursue goals that may take years to achieve.</p>
+<p>Planning is one of the defining features of intelligent behavior.</p>
+<p>Yet despite remarkable advances in artificial intelligence, long-term planning remains one of the field's most difficult challenges.</p>
+<hr />
+<h3 id="more-than-a-single-answer">More Than a Single Answer</h3>
+<p>Most AI systems excel at producing a response to a question.</p>
+<p>Ask a model to summarize a contract, explain a legal doctrine, or draft a memorandum, and it can often produce impressive results in seconds.</p>
+<p>But these tasks are relatively short.</p>
+<p>The model receives an input and generates an output.</p>
+<p><img alt="Planning vs Prediction" src="../../images/ch32-planning-vs-prediction.svg" /></p>
+<p><em>Figure 3. Most AI systems are optimized to generate the next response. Long-term planning requires maintaining goals, tracking progress, adapting to change, and coordinating many decisions over time.</em></p>
+<p>Long-term planning is different.</p>
+<p>Planning requires a system to:</p>
+<ul>
+<li>Define a goal</li>
+<li>Break the goal into smaller tasks</li>
+<li>Track progress over time</li>
+<li>Adjust when conditions change</li>
+<li>Remember earlier decisions</li>
+<li>Anticipate future consequences</li>
+</ul>
+<p>Each step depends on the success of previous steps.</p>
+<p>Mistakes accumulate.</p>
+<p>A small error early in the process can create much larger problems later.</p>
+<hr />
+<h3 id="the-domino-problem">The Domino Problem</h3>
+<p>Consider a legal case involving thousands of documents.</p>
+<p>A lawyer does not simply read one document and immediately reach a conclusion.</p>
+<p>The lawyer develops a strategy.</p>
+<p>Evidence is gathered.</p>
+<p>Arguments are tested.</p>
+<p>Weaknesses are identified.</p>
+<p>New information may completely change the direction of the case.</p>
+<p>Planning is therefore a chain of connected decisions.</p>
+<p>If one link in the chain breaks, the entire strategy may need to be revised.</p>
+<p>AI systems often struggle with this type of reasoning because they are optimized to generate the next response, not to manage an evolving plan over weeks, months, or years.</p>
+<p>In other words, they are excellent sprinters but imperfect marathon runners.</p>
+<hr />
+<h3 id="memory-is-not-the-same-as-planning">Memory Is Not the Same as Planning</h3>
+<p>Many people assume that if an AI system can remember information, it can also plan.</p>
+<p>These abilities are related, but they are not the same.</p>
+<p>A calendar can remember appointments.</p>
+<p>That does not mean the calendar can organize a legal strategy.</p>
+<p>Planning requires understanding priorities, trade-offs, dependencies, and uncertainty.</p>
+<p>Humans constantly balance these factors.</p>
+<p>Should resources be spent now or saved for later?</p>
+<p>Should one objective be sacrificed to achieve another?</p>
+<p>What happens if an assumption turns out to be wrong?</p>
+<p>These questions require judgment rather than simple recall.</p>
+<hr />
+<h3 id="why-the-real-world-is-difficult">Why the Real World Is Difficult</h3>
+<p>The physical world is messy.</p>
+<p>Unexpected events occur constantly.</p>
+<p>A witness becomes unavailable.</p>
+<p>A contract negotiation changes direction.</p>
+<p>A business partner withdraws from an agreement.</p>
+<p>A new law alters the legal landscape.</p>
+<p>Humans adapt because we continuously update our understanding of the situation.</p>
+<p>AI systems often struggle because they must repeatedly reinterpret changing information while maintaining a coherent long-term objective.</p>
+<p>The more steps involved, the greater the opportunity for errors to compound.</p>
+<hr />
+<h3 id="the-rise-of-ai-agents">The Rise of AI Agents</h3>
+<p>Recent advances have attempted to address this limitation through AI agents.</p>
+<p>Rather than generating a single response, agents can:</p>
+<ul>
+<li>Create plans</li>
+<li>Use tools</li>
+<li>Search for information</li>
+<li>Evaluate results</li>
+<li>Revise their actions</li>
+</ul>
+<p>This represents an important step forward.</p>
+<p>However, even modern agents remain far less reliable than humans when managing complex, open-ended goals over extended periods.</p>
+<p>They can lose track of priorities.</p>
+<p>They can repeat ineffective actions.</p>
+<p>They can pursue incorrect assumptions without recognizing the problem.</p>
+<p>In short, they can plan—but not yet with the flexibility and resilience of human reasoning.</p>
+<hr />
+<h3 id="the-core-insight_2">The Core Insight</h3>
+<p>Knowledge alone does not create intelligence.</p>
+<p>Neither does prediction.</p>
+<p>True long-term planning requires the ability to manage uncertainty, revise goals, learn from changing circumstances, and maintain coherence across many interconnected decisions.</p>
+<p>Humans perform these tasks so naturally that we rarely notice how difficult they are.</p>
+<p>Artificial intelligence has made extraordinary progress in generating answers.</p>
+<p>Creating systems that can reliably pursue complex goals over long periods of time remains a much harder challenge.</p>
+<hr />
+<h3 id="transition_2">Transition</h3>
+<p>Planning is difficult because the future is uncertain.</p>
+<p>But there is an even deeper limitation.</p>
+<p>Human beings do not merely pursue goals—they understand why those goals matter.</p>
+<p>The next section explores one of the most profound differences between humans and machines: the absence of self-awareness.</p>
+<h2 id="section-4-the-missing-self-why-ai-is-not-self-aware">Section 4 — The Missing Self: Why AI Is Not Self-Aware</h2>
+<p>Imagine waking up tomorrow with no memories, no emotions, no sensations, and no awareness of your own existence.</p>
+<p>You could still process information.</p>
+<p>You could still respond to questions.</p>
+<p>You might even appear intelligent to an outside observer.</p>
+<p>But something fundamental would be missing.</p>
+<p>You would not experience being <em>you</em>.</p>
+<p>This ability to possess an inner experience—a sense of self—is one of the most mysterious aspects of human intelligence.</p>
+<p>Despite decades of research in artificial intelligence, neuroscience, and philosophy, no one fully understands how consciousness emerges.</p>
+<p>What we do know is that modern AI systems show no evidence of possessing it.</p>
+<hr />
+<h3 id="intelligence-is-not-consciousness">Intelligence Is Not Consciousness</h3>
+<p>One of the most common misconceptions about AI is that intelligence and consciousness are the same thing.</p>
+<p>They are not.</p>
+<p><img alt="Intelligence vs Consciousness" src="../../images/ch32-intelligence-vs-consciousness.svg" /></p>
+<p><em>Figure 4. Intelligence and consciousness are not the same thing. Modern AI systems can perform sophisticated intellectual tasks without possessing subjective awareness, emotions, or a sense of self.</em></p>
+<p>A calculator can perform arithmetic without understanding mathematics.</p>
+<p>A thermostat can regulate temperature without understanding weather.</p>
+<p>Likewise, an AI system can generate convincing language without understanding itself.</p>
+<p>Modern AI systems can:</p>
+<ul>
+<li>Answer questions</li>
+<li>Write essays</li>
+<li>Generate computer code</li>
+<li>Summarize documents</li>
+<li>Hold lengthy conversations</li>
+</ul>
+<p>These abilities can create the impression that the system possesses an inner mind.</p>
+<p>But impressive behavior is not evidence of conscious experience.</p>
+<p>The appearance of intelligence should not be confused with awareness.</p>
+<hr />
+<h3 id="the-illusion-of-personality">The Illusion of Personality</h3>
+<p>Many people who interact with advanced AI systems describe them as helpful, thoughtful, creative, or even friendly.</p>
+<p>This reaction is understandable.</p>
+<p>Humans are naturally inclined to attribute personality to anything that communicates in a human-like manner.</p>
+<p>We name our cars.</p>
+<p>We talk to pets.</p>
+<p>We sometimes apologize to computers.</p>
+<p>When an AI responds fluently and remembers details from a conversation, the illusion becomes even stronger.</p>
+<p>The system appears to have a personality.</p>
+<p>Yet that personality is not an inner self.</p>
+<p>It is a pattern generated through language.</p>
+<p>The model does not possess desires.</p>
+<p>It does not possess hopes.</p>
+<p>It does not possess fears.</p>
+<p>It generates text that resembles the language of people who do.</p>
+<hr />
+<h3 id="the-difference-between-describing-and-experiencing">The Difference Between Describing and Experiencing</h3>
+<p>Consider a simple example.</p>
+<p>An AI system can describe what pain is.</p>
+<p>It can explain how pain signals travel through the nervous system.</p>
+<p>It can discuss medical treatments for pain.</p>
+<p>It can even write a moving story about someone suffering from pain.</p>
+<p>But describing pain is not the same as feeling pain.</p>
+<p>Humans understand pain through direct experience.</p>
+<p>AI systems understand pain only through descriptions contained in data.</p>
+<p>The distinction is profound.</p>
+<p>One involves subjective experience.</p>
+<p>The other involves pattern recognition.</p>
+<p>Modern AI systems operate entirely in the second category.</p>
+<hr />
+<h3 id="the-mirror-test-for-machines">The Mirror Test for Machines</h3>
+<p>For decades, philosophers and scientists have debated how we might recognize consciousness in another entity.</p>
+<p>Humans cannot directly observe another person's thoughts.</p>
+<p>We infer awareness from behavior.</p>
+<p>The challenge becomes far more difficult with AI.</p>
+<p>A sufficiently advanced system may behave in ways that appear self-aware while possessing no inner experience at all.</p>
+<p>This creates what philosophers sometimes call the <em>other minds problem</em>.</p>
+<p>How can we know whether something truly experiences the world?</p>
+<p>At present, there is no reliable scientific test that can determine whether an AI system is conscious.</p>
+<p>Fortunately, modern systems give us little reason to believe they are.</p>
+<p>They process information.</p>
+<p>They do not appear to possess subjective awareness.</p>
+<hr />
+<h3 id="why-this-matters">Why This Matters</h3>
+<p>For most practical applications, consciousness is not required.</p>
+<p>A legal research system does not need feelings.</p>
+<p>A medical diagnostic system does not need emotions.</p>
+<p>A translation system does not need self-awareness.</p>
+<p>In many cases, the absence of consciousness is actually beneficial.</p>
+<p>Machines can analyze information without becoming tired, distracted, anxious, or emotionally overwhelmed.</p>
+<p>The danger arises when people begin attributing human qualities to systems that do not possess them.</p>
+<p>A convincing conversation can create a false sense of understanding.</p>
+<p>A friendly tone can create a false sense of empathy.</p>
+<p>A confident response can create a false sense of wisdom.</p>
+<p>These perceptions reveal more about human psychology than about machine intelligence.</p>
+<hr />
+<h3 id="the-core-insight_3">The Core Insight</h3>
+<p>Modern AI systems are powerful tools for processing information.</p>
+<p>They are not digital minds.</p>
+<p>They do not possess beliefs.</p>
+<p>They do not possess desires.</p>
+<p>They do not possess self-awareness.</p>
+<p>They generate language that resembles human thought, but resemblance should not be mistaken for equivalence.</p>
+<p>The ability to discuss consciousness is not the same as being conscious.</p>
+<p>That distinction remains one of the most important boundaries between human intelligence and artificial intelligence.</p>
+<hr />
+<h3 id="transition_3">Transition</h3>
+<p>The absence of self-awareness explains why AI lacks genuine understanding of itself.</p>
+<p>Yet there is another limitation that affects every interaction we have with these systems.</p>
+<p>Even when AI appears confident, knowledgeable, and articulate, it can still be wrong.</p>
+<p>The next section examines why errors remain unavoidable—and why verification will continue to be essential in the age of AI.</p>
+<h2 id="section-5-why-verification-will-always-matter">Section 5 — Why Verification Will Always Matter</h2>
+<p>Imagine receiving legal advice from a colleague.</p>
+<p>The advice sounds reasonable.</p>
+<p>The explanation is clear.</p>
+<p>The conclusion is presented with confidence.</p>
+<p>Would you immediately trust it without checking?</p>
+<p>Most experienced professionals would not.</p>
+<p>They would verify the facts.</p>
+<p>They would examine the sources.</p>
+<p>They would look for supporting evidence.</p>
+<p>The same principle applies to artificial intelligence.</p>
+<p>One of the most important lessons of this book is that intelligence and accuracy are not the same thing.</p>
+<p>A system can sound knowledgeable while still being wrong.</p>
+<p>Modern AI has made extraordinary progress in generating language, analyzing information, and assisting with complex tasks. Yet every limitation discussed in this chapter ultimately leads to the same conclusion:</p>
+<p>AI should be trusted as a tool, not treated as an authority.</p>
+<hr />
+<h3 id="why-errors-are-unavoidable">Why Errors Are Unavoidable</h3>
+<p>Many people assume that future AI systems will eventually eliminate mistakes entirely.</p>
+<p>History suggests otherwise.</p>
+<p>The world itself is uncertain.</p>
+<p>Information can be incomplete.</p>
+<p>Data can be outdated.</p>
+<p>Sources can conflict with one another.</p>
+<p>Even human experts frequently disagree.</p>
+<p>Because AI systems learn from information created by people, they inherit many of the same uncertainties that exist within human knowledge.</p>
+<p>No amount of computing power can guarantee perfect answers when reality itself is often ambiguous.</p>
+<p>As AI systems become more capable, mistakes may become less common.</p>
+<p>They are unlikely to disappear completely.</p>
+<hr />
+<h3 id="the-confidence-problem">The Confidence Problem</h3>
+<p>One reason AI mistakes can be difficult to detect is that confidence and correctness often appear identical.</p>
+<p>When humans are uncertain, they frequently hesitate.</p>
+<p>Their language changes.</p>
+<p>Their tone becomes cautious.</p>
+<p>Modern AI systems do not necessarily behave this way.</p>
+<p>An incorrect answer may be delivered with the same confidence and fluency as a correct one.</p>
+<p>To the reader, both responses can sound equally convincing.</p>
+<p>This creates a dangerous illusion.</p>
+<p>The quality of the explanation does not guarantee the accuracy of the conclusion.</p>
+<p>Verification remains essential.</p>
+<hr />
+<h3 id="the-professional-responsibility">The Professional Responsibility</h3>
+<p>For lawyers, doctors, engineers, researchers, and business leaders, verification is not merely a good habit.</p>
+<p>It is a professional obligation.</p>
+<p>An attorney remains responsible for the contents of a legal filing.</p>
+<p>A physician remains responsible for a diagnosis.</p>
+<p>An engineer remains responsible for the safety of a design.</p>
+<p>AI can assist these professionals.</p>
+<p>It cannot assume responsibility on their behalf.</p>
+<p>The final decision always belongs to a human being.</p>
+<p>As AI becomes increasingly integrated into professional work, this distinction will become even more important.</p>
+<hr />
+<h3 id="the-human-advantage">The Human Advantage</h3>
+<p>Throughout this chapter, we have explored many things AI cannot yet do.</p>
+<p>It is tempting to view these limitations as weaknesses.</p>
+<p>In reality, they highlight some of the most valuable aspects of human intelligence.</p>
+<p>Humans understand context.</p>
+<p>Humans exercise judgment.</p>
+<p>Humans recognize uncertainty.</p>
+<p>Humans consider ethics, values, and consequences.</p>
+<p>Most importantly, humans can decide when an answer should be questioned.</p>
+<p>This ability to evaluate, challenge, and verify information remains one of our greatest strengths.</p>
+<hr />
+<h3 id="the-core-insight_4">The Core Insight</h3>
+<p>Artificial intelligence is one of the most powerful technologies ever created.</p>
+<p>It can help us learn faster, work more efficiently, and solve problems that once seemed impossible.</p>
+<p>Yet it remains a tool.</p>
+<p>A remarkable tool—but a tool nonetheless.</p>
+<p>Understanding what AI can do is important.</p>
+<p>Understanding what AI cannot do is equally important.</p>
+<p>The future will not belong to humans or machines alone.</p>
+<p>It will belong to people who understand how to combine the strengths of both.</p>
+<hr />
+<h3 id="looking-ahead">Looking Ahead</h3>
+<p>Throughout this book, we have followed the story of artificial intelligence from its earliest inspirations to the sophisticated systems that exist today.</p>
+<p>We have explored how machines learn, why modern AI works so well, and where its limitations remain.</p>
+<p>The story of AI is still being written.</p>
+<p>New breakthroughs will emerge.</p>
+<p>New challenges will appear.</p>
+<p>New questions will be asked.</p>
+<p>But regardless of how advanced future systems become, one principle is likely to remain unchanged:</p>
+<p>The most important intelligence in the room will still be the intelligence that knows when to question the answer.</p>
+<h2 id="insight-box-the-difference-between-looking-intelligent-and-being-intelligent">Insight Box — The Difference Between Looking Intelligent and Being Intelligent</h2>
+<p>One of the most surprising lessons in artificial intelligence is that a system can appear remarkably intelligent without possessing many of the abilities humans take for granted.</p>
+<p>Modern AI can write essays, summarize documents, generate computer code, translate languages, and answer complex questions. Yet beneath these impressive capabilities lie important limitations.</p>
+<p>AI does not truly understand meaning in the way humans do.</p>
+<p>AI does not possess common sense gained through lived experience.</p>
+<p>AI struggles with long-term planning in unpredictable environments.</p>
+<p>AI shows no evidence of self-awareness or conscious experience.</p>
+<p>Most importantly, AI can be confidently wrong.</p>
+<p>This does not make AI useless. Far from it. Modern AI is one of the most powerful tools ever created.</p>
+<p>But understanding its limitations is just as important as understanding its capabilities.</p>
+<p>The future will belong not to those who blindly trust AI, nor to those who reject it, but to those who know when to use it, when to question it, and when human judgment remains indispensable.</p>
+<h2 id="final-thoughts-understanding-the-boundaries">Final Thoughts — Understanding the Boundaries</h2>
+<p>Every technology has limits.</p>
+<p>Understanding those limits is not a sign of skepticism. It is a sign of maturity.</p>
+<p>Artificial intelligence is often described in extreme terms. Some see it as a near-magical system capable of replacing human thought. Others see it as fundamentally unreliable and dangerous. Both views miss the more important reality.</p>
+<p>AI is powerful, but bounded.</p>
+<p>Throughout this chapter, we have examined those boundaries:</p>
+<p>It does not truly understand meaning in the human sense.</p>
+<p>It does not possess lived experience or common sense.</p>
+<p>It does not reliably manage long-term plans in dynamic environments.</p>
+<p>It does not have self-awareness or subjective experience.</p>
+<p>And even when it appears confident, it can still be wrong.</p>
+<p>These limitations are not temporary flaws that will simply disappear with scale alone. They reflect deeper differences between pattern-based computation and human cognition.</p>
+<p>Yet these limitations do not diminish the value of AI. Instead, they define how it should be used.</p>
+<p>AI is most effective when it is treated as an assistant rather than an authority. It can accelerate thinking, surface information, and support decision-making. But it does not replace the responsibility of judgment.</p>
+<p>The real skill in the age of AI is not simply knowing how to use these systems.</p>
+<p>It is knowing when to trust them, when to question them, and when to step beyond them.</p>
+<p>As we move forward, the distinction between human judgment and machine output will become increasingly important. Not because AI is weak, but because it is different.</p>
+<p>And understanding that difference is what turns a user into a responsible operator of intelligent systems.</p>
+<p>The next chapter will explore what happens when we push beyond these boundaries entirely—and ask whether machines could ever cross them.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sikijs/YourHonor-AI-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

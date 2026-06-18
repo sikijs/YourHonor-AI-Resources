@@ -1,0 +1,63 @@
+<svg width="1000" height="600" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+
+<style>
+.title { font: bold 26px sans-serif; fill:#111; }
+.axis { stroke:#333; stroke-width:2; }
+.label { font:16px sans-serif; fill:#111; }
+.small { font:14px sans-serif; fill:#333; }
+.curve { fill:none; stroke:#2E7D32; stroke-width:5; }
+.dash { stroke:#888; stroke-width:2; stroke-dasharray:6 6; }
+</style>
+
+<text x="500" y="40" text-anchor="middle" class="title">
+How Scale Changes Capability
+</text>
+
+<!-- Axes -->
+<line x1="120" y1="500" x2="900" y2="500" class="axis"></line>
+<line x1="120" y1="500" x2="120" y2="100" class="axis"></line>
+
+<!-- Labels -->
+<text x="510" y="550" text-anchor="middle" class="label">
+Model Size / Training Scale
+</text>
+
+<text transform="rotate(-90 40 300)" x="40" y="300" text-anchor="middle" class="label">
+Capability
+</text>
+
+<!-- Curve -->
+<path d="
+M120 470
+C250 450,350 430,450 380
+C550 320,620 260,700 170
+C760 120,820 90,900 70" class="curve"></path>
+
+<!-- Emergence line -->
+<line x1="650" y1="100" x2="650" y2="500" class="dash"></line>
+
+<text x="670" y="130" class="label">
+Emergent Capabilities
+</text>
+
+<text x="180" y="440" class="small">
+Basic pattern recognition
+</text>
+
+<text x="360" y="360" class="small">
+Better generalization
+</text>
+
+<text x="700" y="210" class="small">
+Reasoning-like behavior
+</text>
+
+<text x="700" y="235" class="small">
+Instruction following
+</text>
+
+<text x="700" y="260" class="small">
+Complex task completion
+</text>
+
+</svg>

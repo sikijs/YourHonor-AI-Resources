@@ -1,0 +1,2223 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Educational AI resources for law students — YourHonor AI">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter-17-how-computer-sees-everything-as-numbers/">
+      
+      
+        <link rel="next" href="../chapter-19-embeddings/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Chapter 18: Tokens - AI Learning Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-18-tokens" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AI Learning Center" class="md-header__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI Learning Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 18: Tokens
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AI Learning Center" class="md-nav__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI Learning Center
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-01-what-is-intelligence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: What Is Intelligence?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-02-how-the-human-brain-inspired-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: How the Human Brain Inspired AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-03-artificial-neurons-%281943%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: Artificial Neurons (1943)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-04-alan-turing-and-thinking-machines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Alan Turing and Thinking Machines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-05-the-birth-of-AI-%281956%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: The Birth of AI (1956)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-06-the-perceptron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: The Perceptron
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-07-the-first-ai-winter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: The First AI Winter (1969–1974)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-08-expert-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Expert Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-09-backpropagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9: Backpropagation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-10-deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10: Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-11-the-gpu-revolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: The GPU Revolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-12-imagenet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12: ImageNet: The Dataset That Changed Everything
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-13-ai-beats-the-champions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13: AI Beats The Champions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-14-transformers-and-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14: Transformers and Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-15-large-language-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15: Large Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-16-data-the-fuel-of-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16: Data: The Fuel Of AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-17-how-computer-sees-everything-as-numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 17: How Computers See Everything as Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 18: Tokens
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 18: Tokens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story-the-librarian-who-could-not-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story: The Librarian Who Could Not Read
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-what-is-a-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1 — What Is a Token?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-why-ai-does-not-simply-use-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2 — Why AI Does Not Simply Use Words
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-from-tokens-to-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3 — From Tokens to Numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-why-numbers-alone-are-not-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4 — Why Numbers Alone Are Not Enough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-why-ai-counts-words-instead-of-reading-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box: Why AI Counts Words Instead of Reading Them
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Final Thoughts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-flow-of-language-through-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Flow of Language Through AI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-big-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Big Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#looking-ahead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Looking Ahead
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-19-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 19: Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-20-neural-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 20: Neural Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-21-weights-and-parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 21: Weights and Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-22-training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 22: Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-23-backpropagation-simplified/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 23: Backpropagation Simplified
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-24-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 24: Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-25-why-bigger-models-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 25: Why Bigger Models Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-26-fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 26: Fine-tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-27-retrieval-augmented-generation-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 27: Retrieval-Augmented Generation (RAG)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-28-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 28: Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-29-vibe-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 29: Vibe Coding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-30-multimodal-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 30: Multimodal AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-31-hallucinations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 31: Hallucinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-32-what-ai-still-cannot-do/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 32: What AI Still Cannot Do
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-33-agi-and-beyond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 33: AGI (Artificial General Intelligence) and Beyond
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-34-the-future-of-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 34: The Future of Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-A-ai-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix A — AI Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story-the-librarian-who-could-not-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story: The Librarian Who Could Not Read
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-what-is-a-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1 — What Is a Token?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-why-ai-does-not-simply-use-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2 — Why AI Does Not Simply Use Words
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-from-tokens-to-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3 — From Tokens to Numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-why-numbers-alone-are-not-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4 — Why Numbers Alone Are Not Enough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-why-ai-counts-words-instead-of-reading-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box: Why AI Counts Words Instead of Reading Them
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Final Thoughts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-flow-of-language-through-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Flow of Language Through AI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-big-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Big Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#looking-ahead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Looking Ahead
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-18-tokens">Chapter 18: Tokens</h1>
+<h2 id="opening-story-the-librarian-who-could-not-read">Opening Story: The Librarian Who Could Not Read</h2>
+<p>Imagine a librarian who has access to every book ever written.</p>
+<p>Millions of books.</p>
+<p>Billions of pages.</p>
+<p>An unimaginable amount of knowledge.</p>
+<p>Now imagine something unusual.</p>
+<p>The librarian cannot actually read.</p>
+<p>He does not understand English.</p>
+<p>He does not understand French, Spanish, Chinese, or any other language.</p>
+<p>In fact, he does not understand words at all.</p>
+<p>Instead, every word in every book has been replaced by a number.</p>
+<p>The librarian sees:</p>
+<p>4827 194 7621 33 981</p>
+<p>rather than:</p>
+<p>"The cat sat on the mat."</p>
+<p>Yet somehow, the librarian becomes remarkably good at predicting what number is likely to come next.</p>
+<p>After examining billions of pages, he notices patterns.</p>
+<p>When he sees certain sequences of numbers, other numbers frequently follow.</p>
+<p>Over time, he becomes so skilled at recognizing these patterns that he can generate entire paragraphs that appear meaningful to human readers.</p>
+<p>From the outside, it almost looks as though he understands language.</p>
+<p>But underneath, he is really working with numbers.</p>
+<p>Surprisingly, this is very similar to how modern language models such as ChatGPT operate.</p>
+<p>When you type a question into an AI system, the computer does not see words the way you do.</p>
+<p>It does not see sentences.</p>
+<p>It does not see grammar.</p>
+<p>It does not see meaning in the human sense.</p>
+<p>Before the AI can process your message, every word must first be transformed into a format the computer understands.</p>
+<p>Just as images become pixels and numbers, language must also become numbers.</p>
+<p>The first step in that transformation is something called a token.</p>
+<p>Tokens are one of the most important building blocks of modern AI.</p>
+<p>Every conversation with a language model begins with them.</p>
+<p>In this chapter, we will explore what tokens are, why they exist, and how they allow computers to work with human language.</p>
+<h2 id="section-1-what-is-a-token">Section 1 — What Is a Token?</h2>
+<p>If computers only understand numbers, a problem immediately appears.</p>
+<p>Human language is not made of numbers.</p>
+<p>It is made of words.</p>
+<p>When you read a sentence, you naturally understand the meaning behind it.</p>
+<p>Consider the sentence:</p>
+<p>"The cat sat on the mat."</p>
+<p>A human reader instantly recognizes the words, understands the grammar, and forms a mental picture.</p>
+<p>A computer cannot do that.</p>
+<p>Before an AI system can process language, it must first convert the text into a form it can understand.</p>
+<p>This is where tokens come in.</p>
+<p>A token is a piece of text that an AI system uses as a basic unit of language.</p>
+<div class="highlight"><pre><span></span><code>flowchart LR
+    A[&quot;The cat sat on the mat&quot;] --&gt; B[&quot;Tokens&quot;]
+    B --&gt; C[&quot;The&quot;]
+    B --&gt; D[&quot;cat&quot;]
+    B --&gt; E[&quot;sat&quot;]
+    B --&gt; F[&quot;on&quot;]
+    B --&gt; G[&quot;the&quot;]
+    B --&gt; H[&quot;mat&quot;]
+</code></pre></div>
+<p><em>Figure 18.1: Before AI can process language, text is broken into smaller units called tokens.</em></p>
+<p>You can think of tokens as the building blocks that allow computers to work with words.</p>
+<p>Sometimes a token is an entire word.</p>
+<p>For example:</p>
+<p>"The"</p>
+<p>"cat"</p>
+<p>"sat"</p>
+<p>"on"</p>
+<p>"mat"</p>
+<p>In this case, each word could become a separate token.</p>
+<p>However, tokens are not always complete words.</p>
+<p>A token might be:</p>
+<ul>
+<li>A word</li>
+<li>Part of a word</li>
+<li>A punctuation mark</li>
+<li>A number</li>
+<li>A symbol</li>
+</ul>
+<p>For example, the word:</p>
+<p>"unbelievable"</p>
+<p>might be broken into smaller pieces such as:</p>
+<p>"un"</p>
+<p>"believ"</p>
+<p>"able"</p>
+<p>Each of these pieces becomes a token.</p>
+<p>Why would AI systems do this?</p>
+<p>Because human language contains an enormous number of possible words.</p>
+<p>New words appear constantly.</p>
+<p>People invent slang.</p>
+<p>Technical fields create new terminology.</p>
+<p>Names and abbreviations emerge every day.</p>
+<p>If AI treated every possible word as a completely separate item, the system would become inefficient and difficult to train.</p>
+<p>By breaking language into smaller reusable pieces, AI can handle unfamiliar words much more effectively.</p>
+<p>Imagine a child learning language.</p>
+<p>Even if the child has never heard the word "microscope" before, recognizing parts such as "micro" can provide clues about its meaning.</p>
+<p>Modern AI systems benefit from a similar approach.</p>
+<p>Instead of memorizing every possible word, they learn patterns involving smaller language units.</p>
+<p>Once the text has been divided into tokens, the AI can begin the next step.</p>
+<p>Each token is assigned a numerical identifier.</p>
+<p>For example:</p>
+<p>"The" → 1024</p>
+<p>"cat" → 5847</p>
+<p>"sat" → 3192</p>
+<p>These numbers do not contain meaning by themselves.</p>
+<p>They simply allow the computer to represent language mathematically.</p>
+<p>At this stage, the original sentence has been transformed from human language into something the computer can process.</p>
+<p>Words have become tokens.</p>
+<p>Tokens have become numbers.</p>
+<p>Only then can the AI begin searching for patterns.</p>
+<p>This idea may seem simple, but it is one of the most important concepts in modern artificial intelligence.</p>
+<p>Every question you ask ChatGPT.</p>
+<p>Every response it generates.</p>
+<p>Every document analyzed by a language model.</p>
+<p>Every translation produced by AI.</p>
+<p>All begin with the same essential step:</p>
+<p>Breaking language into tokens.</p>
+<h2 id="section-2-why-ai-does-not-simply-use-words">Section 2 — Why AI Does Not Simply Use Words</h2>
+<p>At first, tokens may seem unnecessary.</p>
+<p>Why not simply treat every word as a separate unit?</p>
+<p>After all, humans think in words.</p>
+<p>Why shouldn't AI do the same?</p>
+<p>The answer becomes clear when we consider how large human language really is.</p>
+<p>English alone contains hundreds of thousands of words.</p>
+<p>Every year, new words are invented.</p>
+<p>Companies create new product names.</p>
+<p>Scientists introduce new terminology.</p>
+<p>Internet culture produces new slang.</p>
+<p>People combine words in creative ways.</p>
+<p>If an AI system tried to store every possible word as a separate item, the language would become almost impossible to manage.</p>
+<p>Consider the word:</p>
+<p>"unhappiness"</p>
+<p>Should it be treated as a completely unique word?</p>
+<p>What about:</p>
+<p>"happiness"</p>
+<p>"happy"</p>
+<p>"unhappy"</p>
+<p>"happily"</p>
+<p>These words are clearly related.</p>
+<p>Humans naturally recognize the connection.</p>
+<p>An AI system benefits from recognizing those relationships as well.</p>
+<p>This is one reason modern language models often break words into smaller pieces called subword tokens.</p>
+<p>Instead of treating "unhappiness" as a completely new word, the AI might divide it into parts such as:</p>
+<p><em>Figure 18.2: Modern language models often split words into smaller reusable pieces called subword tokens. Like building blocks, these pieces can be combined to represent millions of different words while helping AI recognize relationships between them.</em></p>
+<p>"un"</p>
+<p>"happi"</p>
+<p>"ness"</p>
+<p>Each part appears in many different words.</p>
+<p>By learning patterns involving these smaller pieces, the AI can understand a much larger vocabulary without memorizing every possible word.</p>
+<p>Think of it like building with LEGO® bricks.</p>
+<p>A child does not need a separate toy for every object in the world.</p>
+<p>Instead, the same collection of bricks can be combined in countless ways.</p>
+<p>Subword tokens work similarly.</p>
+<p>A relatively small collection of language pieces can be assembled into millions of words and phrases.</p>
+<p>This approach also helps AI handle words it has never seen before.</p>
+<p>Imagine encountering the word:</p>
+<p>"bioinformatics"</p>
+<p>Even if you have never seen it, you might recognize parts such as:</p>
+<p>"bio"</p>
+<p>"inform"</p>
+<p>"atics"</p>
+<p>Those familiar pieces provide clues about the word's meaning.</p>
+<p>AI systems gain a similar advantage when language is broken into reusable components.</p>
+<p>Another benefit involves efficiency.</p>
+<p>Modern language models are trained on enormous collections of text containing billions or even trillions of words.</p>
+<p>Managing a smaller set of reusable tokens is far more practical than maintaining separate representations for every possible word.</p>
+<p>As a result, tokenization helps language models become:</p>
+<ul>
+<li>More efficient</li>
+<li>More flexible</li>
+<li>Better at handling unfamiliar words</li>
+<li>Better at recognizing relationships between words</li>
+</ul>
+<p>This is why the process of tokenization plays such an important role in modern AI.</p>
+<p>The goal is not simply to break language apart.</p>
+<p>The goal is to break language apart in a way that helps the computer discover patterns.</p>
+<p>Once those patterns have been learned, the AI can begin understanding how pieces of language fit together.</p>
+<p>What appears to us as words and sentences becomes a system of reusable building blocks that the computer can analyze mathematically.</p>
+<p>And those building blocks are the foundation upon which modern language models are built.</p>
+<h2 id="section-3-from-tokens-to-numbers">Section 3 — From Tokens to Numbers</h2>
+<p>By now, we have seen that AI systems break language into tokens.</p>
+<p>But tokens alone are not enough.</p>
+<p>Remember one of the most important lessons from the previous chapter:</p>
+<p>Computers understand numbers.</p>
+<p>Not words.</p>
+<p>Not sentences.</p>
+<p>Not ideas.</p>
+<p>Numbers.</p>
+<p>This means that after text has been divided into tokens, each token must be converted into a numerical form that the computer can process.</p>
+<p>This process is surprisingly straightforward.</p>
+<p>Every token is assigned a unique numerical identifier.</p>
+<p><img alt="How language is transformed from words into token IDs that computers can process." src="../../images/ch18-tokens-to-numbers.png" /></p>
+<p><em>Figure 18.3: Before a language model can process text, words are broken into tokens and converted into numerical identifiers. This transforms human language into a format that computers can process mathematically.</em></p>
+<p>For example, a language model might represent the sentence:</p>
+<p>"The cat sat on the mat."</p>
+<p>as something like:</p>
+<p>"The" → 1024</p>
+<p>"cat" → 5847</p>
+<p>"sat" → 3192</p>
+<p>"on" → 891</p>
+<p>"the" → 1024</p>
+<p>"mat" → 7743</p>
+<p>The specific numbers themselves are not important.</p>
+<p>They are simply labels that allow the computer to keep track of different tokens.</p>
+<p>You can think of these identifiers as similar to library catalog numbers.</p>
+<p>A library may contain thousands of books.</p>
+<p>Each book is assigned a unique identifier that helps librarians locate and organize it.</p>
+<p>The number itself does not contain the book's meaning.</p>
+<p>It simply serves as a reference.</p>
+<p>Token identifiers work in much the same way.</p>
+<p>The word "cat" might be represented by one number, while the word "dog" is represented by another.</p>
+<p>At this stage, however, the computer still does not understand what either word means.</p>
+<p>It merely knows that they are different tokens.</p>
+<p>This is an important distinction.</p>
+<p>Many people imagine that assigning a number to a word somehow gives the computer an understanding of language.</p>
+<p>It does not.</p>
+<p>Replacing a word with a number is only the first step.</p>
+<p>The numerical identifier acts like a name tag.</p>
+<p>It tells the computer which token it is dealing with, but it does not explain what that token represents.</p>
+<p>A useful analogy is a telephone contact list.</p>
+<p>Suppose your phone stores:</p>
+<p>John → Contact #57</p>
+<p>Mary → Contact #92</p>
+<p>David → Contact #148</p>
+<p>These numbers help the phone identify different people, but they do not describe who those people are.</p>
+<p>The same is true for token identifiers.</p>
+<p>The number associated with a token helps the computer recognize it, but the meaning comes later.</p>
+<p>Modern language models process enormous vocabularies.</p>
+<p>Many contain tens of thousands or even hundreds of thousands of possible tokens.</p>
+<p>Every token has its own identifier.</p>
+<p>When you type a sentence into an AI system, the first thing that happens is that the words are converted into tokens and then into numerical identifiers.</p>
+<p>At that moment, human language has become machine-readable data.</p>
+<p>The computer can now begin applying mathematical operations to the text.</p>
+<p>This transformation is a critical step in the journey from language to intelligence.</p>
+<p>Words become tokens.</p>
+<p>Tokens become numbers.</p>
+<p>And those numbers become the raw material from which AI learns patterns.</p>
+<p>In the next section, we will take an even bigger step forward.</p>
+<p>We will discover that simple token identifiers are not enough for true language understanding.</p>
+<p>To capture meaning, AI needs something much more powerful.</p>
+<p>It needs a way to represent relationships between words.</p>
+<p>That idea leads us to one of the most important concepts in modern AI: embeddings.</p>
+<h2 id="section-4-why-numbers-alone-are-not-enough">Section 4 — Why Numbers Alone Are Not Enough</h2>
+<p>At this point, it might seem that we have solved the problem of language.</p>
+<p>Words become tokens.</p>
+<p>Tokens become numbers.</p>
+<p>The computer can process those numbers.</p>
+<p>Case closed.</p>
+<p>But there is a problem.</p>
+<p>The numbers themselves contain no meaning.</p>
+<p>Consider the words:</p>
+<p>"cat"</p>
+<p>"dog"</p>
+<p>"planet"</p>
+<p>"banana"</p>
+<p>A language model might assign them token identifiers such as:</p>
+<p>cat → 5847</p>
+<p>dog → 9231</p>
+<p>planet → 4178</p>
+<p>banana → 6702</p>
+<p>To a computer, these are simply labels.</p>
+<p>The number 5847 does not tell the AI that a cat is an animal.</p>
+<p>The number 9231 does not reveal that dogs and cats are related.</p>
+<p>The numbers contain no information about meaning, similarity, or relationships.</p>
+<p>Think about telephone numbers.</p>
+<p>Suppose two neighbors have these phone numbers:</p>
+<p>555-1234</p>
+<p>555-1235</p>
+<p>The numbers are very close together.</p>
+<p>But that does not mean the people are similar.</p>
+<p>Likewise, two people living on opposite sides of the country might have completely unrelated phone numbers.</p>
+<p>The numbers themselves tell us almost nothing about the individuals.</p>
+<div class="highlight"><pre><span></span><code>flowchart TB
+    A[&quot;cat → 5847&quot;] --&gt; E[&quot;Token IDs&quot;]
+    B[&quot;dog → 9231&quot;] --&gt; E
+    C[&quot;planet → 4178&quot;] --&gt; E
+    D[&quot;banana → 6702&quot;] --&gt; E
+
+    E --&gt; F[&quot;Identifiers Only&quot;]
+    F --&gt; G[&quot;No Meaning&quot;]
+</code></pre></div>
+<p><em>Figure 18.4: Token IDs help the computer identify words, but the numbers themselves do not capture meaning or relationships between concepts.</em></p>
+<p>Token identifiers work the same way.</p>
+<p>They are useful for identifying tokens, but they do not capture meaning.</p>
+<p>This creates a major challenge for AI.</p>
+<p>Human language is built on relationships.</p>
+<p>When humans hear the word "doctor," they often think about hospitals, medicine, patients, and health.</p>
+<p>When we hear "king," we may think of queens, kingdoms, royalty, and leadership.</p>
+<p>Words do not exist in isolation.</p>
+<p>Their meaning comes largely from their relationships to other words.</p>
+<p>If AI is going to understand language, it must somehow learn those relationships.</p>
+<p>Simply assigning numbers to tokens is not enough.</p>
+<p>The computer needs a way to represent meaning itself.</p>
+<p>Researchers spent decades searching for a solution.</p>
+<p>The breakthrough came when they realized that words could be represented not by a single number, but by collections of numbers that capture relationships between concepts.</p>
+<p>Instead of asking:</p>
+<p>"What number identifies this word?"</p>
+<p>they began asking:</p>
+<p>"What numerical representation best captures this word's meaning?"</p>
+<p>This idea transformed natural language processing.</p>
+<p>It allowed AI systems to recognize that:</p>
+<ul>
+<li>Cats and dogs are related.</li>
+<li>Doctors and nurses often appear in similar contexts.</li>
+<li>Paris and London are both cities.</li>
+<li>Apples and oranges are both fruits.</li>
+</ul>
+<p>The system could begin learning not just individual words, but the relationships between them.</p>
+<p>That capability became one of the foundations of modern language models.</p>
+<p>The solution is called an embedding.</p>
+<p>Embeddings allow AI to represent words, phrases, and concepts in a way that preserves meaning and relationships.</p>
+<p>They are one of the most important breakthroughs in the history of language AI.</p>
+<p>And they are the subject of our next chapter.</p>
+<h2 id="insight-box-why-ai-counts-words-instead-of-reading-them">Insight Box: Why AI Counts Words Instead of Reading Them</h2>
+<p>One of the most surprising facts about modern AI is that language models do not read text the way humans do.</p>
+<p>When you see the sentence:</p>
+<p>"The cat sat on the mat."</p>
+<p>you immediately recognize words, grammar, and meaning.</p>
+<p>You might even picture a cat sitting peacefully on a mat.</p>
+<p>An AI system does none of those things.</p>
+<p>Before it can process the sentence, it must first transform the text into tokens.</p>
+<p>Those tokens are then converted into numbers.</p>
+<p>By the time the information reaches the AI model, the original sentence has become a sequence of numerical values.</p>
+<p>This may seem like a strange way to work with language.</p>
+<p>After all, humans do not think in token IDs.</p>
+<p>Yet this approach allows computers to process vast amounts of text using mathematics.</p>
+<p>Every question you ask ChatGPT.</p>
+<p>Every document analyzed by an AI assistant.</p>
+<p>Every translation produced by a language model.</p>
+<p>Every AI-generated paragraph.</p>
+<p>All begin with tokenization.</p>
+<p>In a sense, tokens are the bridge between human language and machine computation.</p>
+<p>Humans communicate using words.</p>
+<p>Computers operate using numbers.</p>
+<p>Tokens connect the two worlds.</p>
+<p>But tokenization alone does not create understanding.</p>
+<p>A token ID merely identifies a piece of language.</p>
+<p>It does not explain what that language means.</p>
+<p>That realization led researchers to one of the most important breakthroughs in modern AI:</p>
+<p>finding ways to represent meaning itself.</p>
+<p>The story of tokens is therefore only the beginning.</p>
+<p>They provide the raw materials from which language models are built.</p>
+<p>The next challenge is learning how those materials acquire meaning.</p>
+<p>And that challenge leads directly to embeddings.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>In this chapter, we uncovered one of the most important secrets behind modern language models:</p>
+<p>AI does not directly read words.</p>
+<p>It processes tokens.</p>
+<p>At first glance, this may seem like a small technical detail, but tokenization is actually the foundation of how systems like ChatGPT operate.</p>
+<p>We began with ordinary language—a sentence a human can understand instantly. Then we followed the transformation step by step:</p>
+<ul>
+<li>Words become tokens  </li>
+<li>Tokens may break into smaller reusable pieces  </li>
+<li>Tokens are assigned numerical identifiers  </li>
+<li>Those numbers become the input for AI models  </li>
+</ul>
+<p>This process allows computers to handle language mathematically, in much the same way they process pixels in images.</p>
+<hr />
+<h3 id="the-flow-of-language-through-ai">The Flow of Language Through AI</h3>
+<p><img alt="Flow of Language Through AI" src="https://images.openai.com/static-rsc-4/iY_HfyzN5XwSQL2gikgLirRvIp2pbHNbSvm1XEgoOmjmWfq296Qbw_OKIwNVSmqV2xJogfNpSVvCC6dAu2tkKRCZG-Ud8s7nDHIh8VO1FzrmOQMpaI_MZt3xxntSE2Mm29Ggfmw1EQu-pcAORllBDgM35cVHQF9NS1VrsG9x2phZtFxuudyKcMtqidbbFGQH?purpose=fullsize" /></p>
+<hr />
+<h3 id="the-big-insight">The Big Insight</h3>
+<p>One of the most important insights from this chapter is that token IDs themselves do not contain meaning.</p>
+<p>The number assigned to “cat” does not tell the computer that a cat is an animal. It is simply a label.</p>
+<p>True language understanding requires something more: a way to capture relationships between words and concepts.</p>
+<p>That is why modern AI moved beyond simple token IDs toward embeddings—numerical representations that preserve meaning and similarity.</p>
+<hr />
+<h3 id="why-this-matters">Why This Matters</h3>
+<p>Understanding tokens changes how we interpret AI conversations.</p>
+<p>When you type a question into ChatGPT, the system is not “reading” your message like a human. Instead, it is:</p>
+<ul>
+<li>Breaking your text into tokens  </li>
+<li>Converting those tokens into numbers  </li>
+<li>Searching for patterns in those numbers  </li>
+<li>Predicting the most likely next tokens in response  </li>
+</ul>
+<p>The result can feel human, but underneath, the process is mathematical and statistical.</p>
+<hr />
+<h3 id="looking-ahead">Looking Ahead</h3>
+<p>Tokens are the bridge between human language and machine computation.</p>
+<p>But they are only the beginning.</p>
+<p>In the next chapter, we will explore how AI systems represent meaning itself using embeddings. We will see how words, phrases, and ideas can be placed in a mathematical “meaning space” where related concepts sit closer together.</p>
+<p>That breakthrough is what allows modern AI to recognize that:</p>
+<ul>
+<li>Cats and dogs are related  </li>
+<li>Paris and London are both cities  </li>
+<li>Doctor and nurse often appear in similar contexts  </li>
+</ul>
+<p>The journey from words to understanding is about to take a major leap forward.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sikijs/YourHonor-AI-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

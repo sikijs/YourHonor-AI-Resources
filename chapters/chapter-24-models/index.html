@@ -1,0 +1,2944 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Educational AI resources for law students — YourHonor AI">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter-23-backpropagation-simplified/">
+      
+      
+        <link rel="next" href="../chapter-25-why-bigger-models-work/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Chapter 24: Models - AI Learning Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-24-models" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AI Learning Center" class="md-header__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI Learning Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 24: Models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AI Learning Center" class="md-nav__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI Learning Center
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-01-what-is-intelligence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: What Is Intelligence?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-02-how-the-human-brain-inspired-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: How the Human Brain Inspired AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-03-artificial-neurons-%281943%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: Artificial Neurons (1943)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-04-alan-turing-and-thinking-machines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Alan Turing and Thinking Machines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-05-the-birth-of-AI-%281956%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: The Birth of AI (1956)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-06-the-perceptron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: The Perceptron
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-07-the-first-ai-winter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: The First AI Winter (1969–1974)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-08-expert-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Expert Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-09-backpropagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9: Backpropagation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-10-deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10: Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-11-the-gpu-revolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: The GPU Revolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-12-imagenet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12: ImageNet: The Dataset That Changed Everything
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-13-ai-beats-the-champions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13: AI Beats The Champions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-14-transformers-and-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14: Transformers and Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-15-large-language-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15: Large Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-16-data-the-fuel-of-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16: Data: The Fuel Of AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-17-how-computer-sees-everything-as-numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 17: How Computers See Everything as Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-18-tokens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 18: Tokens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-19-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 19: Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-20-neural-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 20: Neural Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-21-weights-and-parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 21: Weights and Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-22-training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 22: Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-23-backpropagation-simplified/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 23: Backpropagation Simplified
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 24: Models
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 24: Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-what-is-a-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1 — What Is a Model?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 1 — What Is a Model?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-rules-to-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Rules to Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-core-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Core Idea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-memory-not-rules-something-in-between" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not Memory. Not Rules. Something In Between.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-241-database-vs-ai-model-vs-human-intuition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 24.1 — Database vs AI Model vs Human Intuition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Figure 24.1 — Database vs AI Model vs Human Intuition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-what-a-model-actually-learns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2 — What a Model Actually Learns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 2 — What a Model Actually Learns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-patterns-not-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Patterns, Not Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-role-of-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Role of Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-gets-stored-inside-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Gets Stored Inside the Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-simple-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Simple Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-242-how-a-model-learns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 24.2 — How a Model Learns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-how-training-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3 — How Training Actually Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 3 — How Training Actually Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-basic-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Basic Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-by-correction-not-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning by Correction, Not Explanation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradual-adjustment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gradual Adjustment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-repetition-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Repetition Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-hidden-engine-behind-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Hidden Engine Behind Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-insight_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-243-how-training-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 24.3 — How Training Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-what-a-trained-model-really-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4 — What a Trained Model Really Is
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 4 — What a Trained Model Really Is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-process-to-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Process to Artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-actually-exists-inside" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Actually Exists Inside
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-it-still-feels-intelligent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why It Still Feels “Intelligent”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generalization-the-real-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generalization: The Real Power
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-insight_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-244-what-a-trained-model-really-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 24.4 — What a Trained Model Really Is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-why-bigger-models-work-better" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5 — Why Bigger Models Work Better
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 5 — Why Bigger Models Work Better">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-bigger-actually-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What “Bigger” Actually Means
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capacity-the-hidden-ingredient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capacity: The Hidden Ingredient
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emergent-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emergent Behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-245-how-scale-changes-capability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 24.5 — How Scale Changes Capability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Figure 24.5 — How Scale Changes Capability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Happens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling-is-not-just-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling Is Not Just Size
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-insight_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-the-big-idea-behind-ai-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box — The Big Idea Behind AI Models
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-25-why-bigger-models-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 25: Why Bigger Models Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-26-fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 26: Fine-tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-27-retrieval-augmented-generation-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 27: Retrieval-Augmented Generation (RAG)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-28-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 28: Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-29-vibe-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 29: Vibe Coding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-30-multimodal-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 30: Multimodal AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-31-hallucinations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 31: Hallucinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-32-what-ai-still-cannot-do/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 32: What AI Still Cannot Do
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-33-agi-and-beyond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 33: AGI (Artificial General Intelligence) and Beyond
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-34-the-future-of-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 34: The Future of Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-A-ai-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix A — AI Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-what-is-a-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1 — What Is a Model?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 1 — What Is a Model?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-rules-to-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Rules to Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-core-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Core Idea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-memory-not-rules-something-in-between" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not Memory. Not Rules. Something In Between.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-241-database-vs-ai-model-vs-human-intuition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 24.1 — Database vs AI Model vs Human Intuition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Figure 24.1 — Database vs AI Model vs Human Intuition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-what-a-model-actually-learns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2 — What a Model Actually Learns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 2 — What a Model Actually Learns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-patterns-not-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Patterns, Not Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-role-of-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Role of Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-gets-stored-inside-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Gets Stored Inside the Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-simple-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Simple Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-242-how-a-model-learns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 24.2 — How a Model Learns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-how-training-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3 — How Training Actually Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 3 — How Training Actually Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-basic-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Basic Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-by-correction-not-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning by Correction, Not Explanation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradual-adjustment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gradual Adjustment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-repetition-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Repetition Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-hidden-engine-behind-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Hidden Engine Behind Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-insight_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-243-how-training-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 24.3 — How Training Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-what-a-trained-model-really-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4 — What a Trained Model Really Is
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 4 — What a Trained Model Really Is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-process-to-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Process to Artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-actually-exists-inside" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Actually Exists Inside
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-it-still-feels-intelligent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why It Still Feels “Intelligent”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generalization-the-real-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generalization: The Real Power
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-insight_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-244-what-a-trained-model-really-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 24.4 — What a Trained Model Really Is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-why-bigger-models-work-better" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5 — Why Bigger Models Work Better
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 5 — Why Bigger Models Work Better">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-bigger-actually-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What “Bigger” Actually Means
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capacity-the-hidden-ingredient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capacity: The Hidden Ingredient
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emergent-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emergent Behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-245-how-scale-changes-capability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 24.5 — How Scale Changes Capability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Figure 24.5 — How Scale Changes Capability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Happens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling-is-not-just-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling Is Not Just Size
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-insight_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-the-big-idea-behind-ai-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box — The Big Idea Behind AI Models
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-24-models">Chapter 24: Models</h1>
+<h2 id="opening-story">Opening Story</h2>
+<p>A young attorney walks into court carrying two briefcases.</p>
+<p>One is labeled <strong>“Laws, precedents, statutes.”</strong><br />
+The other is labeled <strong>“Experience.”</strong></p>
+<p>Inside the courtroom, opposing counsel presents a complex contract dispute. The facts are messy. The clauses contradict each other. Even the judge pauses longer than usual before speaking.</p>
+<p>The attorney opens the first briefcase. It is full of information—years of legal knowledge, case citations, and structured rules. Everything is correct, organized, and complete. But something is missing: it does not immediately tell her what matters most in this specific situation.</p>
+<p>She opens the second briefcase. It contains experience—patterns from past cases, intuition about how judges tend to interpret ambiguity, and a sense of which arguments usually succeed. But it has a different problem: it cannot explain itself clearly or consistently.</p>
+<p>Alone, each briefcase is useful. Together, they start to look like something powerful.</p>
+<p>She pauses.</p>
+<p>Then she imagines a system that doesn’t separate the two—but merges them. A system where structure and learned experience are not competing forces, but parts of the same mechanism. One defines how information is organized. The other defines what has been learned from it.</p>
+<p>That idea is where modern AI models begin.</p>
+<p>Because a model is not just “knowledge,” and it is not just “design.” It is both working together:</p>
+<p>A blueprint for how to think about information, and a compressed memory of everything it has seen before.</p>
+<p>In the simplest terms:</p>
+<p>If data is what the model is given, and training is how it learns, then the model itself is what remains afterward—shaped, structured, and ready to respond.</p>
+<p>By the time she stands up to argue her case, she isn’t relying on either briefcase alone anymore.</p>
+<p>She is using a system that has learned how to combine them.</p>
+<h2 id="section-1-what-is-a-model">Section 1 — What Is a Model?</h2>
+<p>In everyday language, a “model” is something simple: a smaller version of something real. A model airplane. A model of a building. A model you can look at, touch, and understand without dealing with the full complexity of the real thing.</p>
+<p>In artificial intelligence, the idea is similar—but more abstract and far more powerful.</p>
+<p>An AI model is not a physical object. It is a system that has learned patterns from data and uses those patterns to make predictions or generate outputs.</p>
+<p>Think of it like this:</p>
+<p>You don’t explicitly program every answer. Instead, you train the system so it learns the structure of the problem itself.</p>
+<p>A model is what remains after learning has taken place.</p>
+<p>It is the “compressed intelligence” formed from exposure to massive amounts of examples.</p>
+<hr />
+<h3 id="from-rules-to-learning">From Rules to Learning</h3>
+<p>Before modern AI, systems were built using explicit rules.</p>
+<p>For example:
+- If a customer is late, send a reminder
+- If temperature &gt; 100°C, trigger alert
+- If email contains “urgent,” flag it</p>
+<p>This is rigid. Everything must be written by humans.</p>
+<p>But real-world problems don’t behave like neat rulebooks.</p>
+<p>Language changes. Fraud patterns evolve. Medical symptoms overlap. Legal arguments contradict each other.</p>
+<p>So instead of writing rules manually, we shifted the responsibility:</p>
+<p>We stopped telling machines <em>what to do in every case</em><br />
+and started showing them <em>many examples so they can learn patterns themselves</em>.</p>
+<p>That shift is what creates a model.</p>
+<hr />
+<h3 id="the-core-idea">The Core Idea</h3>
+<p>At its simplest, a model is:</p>
+<ul>
+<li>Input → Output system  </li>
+<li>shaped by experience (data)  </li>
+<li>refined through training  </li>
+</ul>
+<p>It takes something in (a sentence, an image, a signal) and produces something out (a prediction, a classification, a response).</p>
+<p>But what makes it powerful is not the input-output flow.</p>
+<p>It is what sits inside it: learned structure.</p>
+<hr />
+<h3 id="not-memory-not-rules-something-in-between">Not Memory. Not Rules. Something In Between.</h3>
+<h2 id="figure-241-database-vs-ai-model-vs-human-intuition">Figure 24.1 — Database vs AI Model vs Human Intuition</h2>
+<p><img alt="Database vs AI Model vs Human Intuition" src="../../images/ch24-db-model-intuition.svg" /></p>
+<p><strong>Caption:</strong><br />
+Database retrieves stored facts, AI models learn patterns and generate outputs, and human intuition combines experience and context to reason flexibly.</p>
+<p>A common misunderstanding is that models “store information” like a database.</p>
+<p>They don’t.</p>
+<p>They also don’t follow fixed rules like traditional software.</p>
+<p>Instead, they sit in a middle space:</p>
+<ul>
+<li>They are not memorizing every example</li>
+<li>They are not manually programmed rules</li>
+<li>They are statistical structures shaped by data</li>
+</ul>
+<p>A model is closer to intuition than to instruction.</p>
+<p>It behaves more like a trained mind than a lookup table.</p>
+<hr />
+<h3 id="why-this-matters">Why This Matters</h3>
+<p>This distinction is critical.</p>
+<p>Because once you understand what a model really is, everything else in AI starts to make sense:</p>
+<ul>
+<li>Why it can generalize to new situations  </li>
+<li>Why it sometimes makes mistakes  </li>
+<li>Why more data improves performance  </li>
+<li>Why architecture matters  </li>
+</ul>
+<p>A model is not magic.</p>
+<p>It is structure shaped by experience—nothing more, and nothing less.</p>
+<p>But when scaled up, that simple idea becomes something surprisingly powerful: a system that can approximate aspects of reasoning, language, vision, and decision-making.</p>
+<hr />
+<p>In the next section, we break this down further by asking a deeper question:</p>
+<p>If a model is shaped by learning… what exactly is it learning from?</p>
+<h2 id="section-2-what-a-model-actually-learns">Section 2 — What a Model Actually Learns</h2>
+<p>When people hear that an AI “learns,” it can sound vague—almost like a metaphor. But in technical terms, learning is very specific.</p>
+<p>A model does not learn ideas, meaning, or facts the way humans do. It learns <strong>statistical relationships between inputs and outputs</strong>.</p>
+<p>That sounds abstract, but the core idea is simple:</p>
+<blockquote>
+<p>A model learns how likely one thing is to follow another.</p>
+</blockquote>
+<hr />
+<h3 id="learning-patterns-not-rules">Learning Patterns, Not Rules</h3>
+<p>A traditional program follows explicit instructions:
+- If X happens, do Y</p>
+<p>A model does something different:
+- Given many examples of X → Y pairs, it estimates what Y should be for a new X</p>
+<p>Instead of being told the rules, it infers them indirectly from data.</p>
+<p>For example:
+- It sees thousands of sentences
+- It sees which words tend to follow others
+- It builds an internal structure that reflects those probabilities</p>
+<p>Nothing is explicitly stored as “knowledge.” Instead, the knowledge is embedded in numerical parameters.</p>
+<hr />
+<h3 id="the-role-of-data">The Role of Data</h3>
+<p>A model is only as good as the data it learns from.</p>
+<p>During training:
+- It is shown input examples
+- It makes predictions
+- It compares its predictions to the correct answers
+- It adjusts itself slightly to reduce errors</p>
+<p>Over time, this process reshapes the model so that it becomes better at predicting outcomes.</p>
+<p>This is not memorization in the traditional sense. It is <strong>compression of patterns across massive datasets</strong>.</p>
+<hr />
+<h3 id="what-gets-stored-inside-the-model">What Gets Stored Inside the Model</h3>
+<p>Inside a trained model are millions or even billions of numbers called <strong>parameters</strong> (or weights).</p>
+<p>These numbers:
+- Do not store sentences or images directly
+- Do not behave like a database
+- Encode relationships between concepts indirectly</p>
+<p>You can think of them as a dense mathematical structure that captures patterns like:
+- Word associations
+- Visual features (edges, shapes, objects)
+- Logical relationships between inputs and outputs</p>
+<p>But none of these exist in readable form. They are distributed across the network.</p>
+<hr />
+<h3 id="a-simple-analogy">A Simple Analogy</h3>
+<p>Imagine learning how people behave in a city:</p>
+<ul>
+<li>You do not write down every rule</li>
+<li>You observe thousands of interactions</li>
+<li>Over time, you develop intuition for how people are likely to act</li>
+</ul>
+<p>A model does something similar—but without consciousness, awareness, or understanding.</p>
+<p>It builds a statistical “feel” for the data.</p>
+<hr />
+<h3 id="key-insight">Key Insight</h3>
+<p>A model does not store knowledge like a library.</p>
+<p>It does not follow rules like software.</p>
+<p>Instead, it becomes a <strong>compressed representation of patterns in data</strong>, shaped entirely by what it has seen.</p>
+<p>This is why two models trained on different datasets behave differently—even if their architecture is identical.</p>
+<hr />
+<p>In the next section, we will break down what actually happens during training, and how a model gradually adjusts itself to reduce errors step by step.</p>
+<h2 id="figure-242-how-a-model-learns">Figure 24.2 — How a Model Learns</h2>
+<p><img alt="How a Model Learns" src="../../images/ch24-model-learning-loop.svg" /></p>
+<p><strong>Caption:</strong><br />
+A model learns through a feedback loop: it makes a prediction, compares it to the correct answer, computes an error signal, and adjusts its internal parameters to improve future predictions.</p>
+<h2 id="section-3-how-training-actually-works">Section 3 — How Training Actually Works</h2>
+<p>If Section 2 explained <em>what a model learns</em>, then this section explains <em>how it actually learns it</em>.</p>
+<p>The process is called <strong>training</strong>, and despite how advanced modern AI looks, the core idea is surprisingly simple:</p>
+<blockquote>
+<p>Training is repeated correction.</p>
+</blockquote>
+<hr />
+<h3 id="the-basic-loop">The Basic Loop</h3>
+<p>Training follows a cycle:</p>
+<ol>
+<li>The model receives an input  </li>
+<li>It produces an output (a prediction)  </li>
+<li>That prediction is compared to the correct answer  </li>
+<li>The difference between them is measured as an error  </li>
+<li>The model is adjusted slightly to reduce that error  </li>
+</ol>
+<p>Then the process repeats—millions or even billions of times.</p>
+<p>Each cycle is small. But together, they reshape the model.</p>
+<hr />
+<h3 id="learning-by-correction-not-explanation">Learning by Correction, Not Explanation</h3>
+<p>A key difference between humans and AI is <em>how learning happens</em>.</p>
+<p>Humans often learn through:
+- explanations
+- reasoning
+- instructions
+- understanding concepts</p>
+<p>A model does not learn in that way.</p>
+<p>It learns through:
+- trial
+- error
+- adjustment</p>
+<p>It is not told <em>why</em> something is correct.<br />
+It is only told <em>how wrong it was</em>.</p>
+<p>Over time, repeated correction builds structure.</p>
+<hr />
+<h3 id="gradual-adjustment">Gradual Adjustment</h3>
+<p>When a model makes a mistake, it does not “rewrite itself.”</p>
+<p>Instead, it makes very small changes to its internal parameters.</p>
+<p>Think of it like tuning thousands of tiny knobs:
+- One knob slightly adjusts how it understands grammar
+- Another adjusts how it recognizes patterns in images
+- Others influence relationships between concepts</p>
+<p>No single knob controls anything meaningful on its own.<br />
+But together, they determine the model’s behavior.</p>
+<p>This distributed structure is what makes modern AI both powerful and difficult to interpret.</p>
+<hr />
+<h3 id="why-repetition-matters">Why Repetition Matters</h3>
+<p>A model is not trained once and finished.</p>
+<p>It is trained through repeated exposure to:
+- massive datasets
+- repeated examples
+- repeated corrections</p>
+<p>This repetition is what allows it to generalize beyond the training data.</p>
+<p>It begins to recognize:
+- patterns in language
+- structure in images
+- relationships in data</p>
+<p>Not by memorizing them, but by reinforcing statistical structure.</p>
+<hr />
+<h3 id="the-hidden-engine-behind-learning">The Hidden Engine Behind Learning</h3>
+<p>Under the hood, training relies on a mathematical process that:
+- measures error
+- determines how each parameter contributed to that error
+- adjusts parameters in the direction that reduces future error</p>
+<p>You do not need the math to understand the idea:</p>
+<blockquote>
+<p>The system continuously asks: “How can I be slightly less wrong next time?”</p>
+</blockquote>
+<p>And then it acts on that answer.</p>
+<hr />
+<h3 id="key-insight_1">Key Insight</h3>
+<p>Training is not a moment. It is a process.</p>
+<p>A model does not suddenly become intelligent.</p>
+<p>It becomes gradually less wrong across enormous numbers of small updates.</p>
+<p>What emerges at the end is not knowledge in the human sense—but a highly tuned system of patterns that can respond effectively to new inputs.</p>
+<hr />
+<p>In the next section, we will connect everything so far into a single idea: what a “trained model” actually represents once training is complete.</p>
+<h2 id="figure-243-how-training-works">Figure 24.3 — How Training Works</h2>
+<p><img alt="How Training Works" src="../../images/ch24-training-process.svg" /></p>
+<p><strong>Caption:</strong><br />
+Training is a repeated loop where a model makes a prediction, compares it to the correct answer, computes an error, and updates its internal parameters to reduce future mistakes.</p>
+<h2 id="section-4-what-a-trained-model-really-is">Section 4 — What a Trained Model Really Is</h2>
+<p>After training is complete, something important happens:</p>
+<p>The system stops being “a learning process” and becomes a <strong>fixed structure</strong>.</p>
+<p>This is what we call a <strong>trained model</strong>.</p>
+<p>But that term is misleading if taken too literally. Nothing inside the system resembles knowledge in the human sense. There are no stored facts, no explicit rules, and no readable instructions.</p>
+<p>What remains is something more abstract:</p>
+<blockquote>
+<p>A trained model is a compressed mathematical representation of patterns learned from data.</p>
+</blockquote>
+<hr />
+<h3 id="from-process-to-artifact">From Process to Artifact</h3>
+<p>During training, the system is constantly changing.</p>
+<p>After training:
+- The changes stop
+- The parameters are frozen
+- The system becomes stable and reusable</p>
+<p>At this point, it is no longer “learning.”<br />
+It is now a tool that applies what it has already learned.</p>
+<p>You can think of it as the difference between:
+- A student studying (training)
+- A student taking an exam (inference)</p>
+<hr />
+<h3 id="what-actually-exists-inside">What Actually Exists Inside</h3>
+<p>A trained model is made up of:
+- Millions or billions of parameters (numbers)
+- A fixed architecture (structure of computation)
+- Learned statistical relationships encoded in those parameters</p>
+<p>Importantly:
+- No sentence is stored
+- No image is stored
+- No rule is explicitly written</p>
+<p>Instead, everything is distributed across the network in a highly compressed form.</p>
+<hr />
+<h3 id="why-it-still-feels-intelligent">Why It Still Feels “Intelligent”</h3>
+<p>Even though nothing inside the model resembles human understanding, it can still:
+- Complete sentences coherently
+- Recognize patterns in images
+- Generate plausible answers to new questions</p>
+<p>This happens because it has learned:</p>
+<blockquote>
+<p>how data tends to behave, not what data means.</p>
+</blockquote>
+<p>That distinction is crucial.</p>
+<p>A trained model is not reasoning in the human sense. It is:
+- matching patterns
+- extending structures
+- producing statistically likely outputs</p>
+<p>Yet at scale, this produces behavior that looks surprisingly intelligent.</p>
+<hr />
+<h3 id="generalization-the-real-power">Generalization: The Real Power</h3>
+<p>The most important property of a trained model is <strong>generalization</strong>.</p>
+<p>It can respond correctly to inputs it has never seen before.</p>
+<p>This happens because:
+- It does not memorize examples directly
+- It learns underlying structure in the data</p>
+<p>So when it encounters a new situation, it does not search for an exact match.</p>
+<p>Instead, it reconstructs a likely response based on patterns it has absorbed.</p>
+<hr />
+<h3 id="key-insight_2">Key Insight</h3>
+<p>A trained model is not a repository of knowledge.</p>
+<p>It is a <strong>compressed prediction engine</strong>.</p>
+<p>It takes an input and produces an output based on learned statistical structure—not stored facts.</p>
+<p>This is why two identical models trained on different data can behave completely differently.</p>
+<h2 id="figure-244-what-a-trained-model-really-is">Figure 24.4 — What a Trained Model Really Is</h2>
+<p><img alt="Trained Model Structure" src="../../images/ch24-trained-model-structure.svg" /></p>
+<p><strong>Caption:</strong><br />
+A trained model is the result of training: a frozen system of parameters that no longer changes. It no longer learns—it only applies learned patterns to new inputs during inference.</p>
+<p>They are shaped entirely by what they were exposed to.</p>
+<hr />
+<p>In the next section, we will break down why larger models tend to perform better—and what “scale” actually changes inside these systems.</p>
+<h2 id="section-5-why-bigger-models-work-better">Section 5 — Why Bigger Models Work Better</h2>
+<p>One of the most surprising discoveries in modern AI is this:</p>
+<blockquote>
+<p>When you make models larger, they don’t just get slightly better — they often become fundamentally more capable.</p>
+</blockquote>
+<p>At first, this seems counterintuitive. You might expect performance to improve gradually, like upgrading a camera or adding more storage to a phone.</p>
+<p>But AI doesn’t behave like typical engineering systems.</p>
+<p>Instead, it shows something closer to a <strong>phase change</strong>—where small increases in size unlock entirely new behaviors.</p>
+<hr />
+<h3 id="what-bigger-actually-means">What “Bigger” Actually Means</h3>
+<p>When we say a model is “bigger,” we are usually referring to:</p>
+<ul>
+<li>More parameters (internal numerical values)</li>
+<li>More layers (deeper structure)</li>
+<li>More training data (broader experience)</li>
+<li>More computation during training</li>
+</ul>
+<p>Each of these expands the model’s ability to represent patterns in data.</p>
+<p>But the most important factor is usually <strong>parameters</strong>.</p>
+<p>More parameters means:</p>
+<blockquote>
+<p>more internal “space” to store and refine patterns.</p>
+</blockquote>
+<hr />
+<h3 id="capacity-the-hidden-ingredient">Capacity: The Hidden Ingredient</h3>
+<p>Think of a model as a system with limited internal capacity.</p>
+<p>A small model can only capture:
+- simple relationships
+- surface-level patterns
+- basic associations</p>
+<p>A larger model can capture:
+- subtle relationships
+- long-range dependencies
+- abstract structures across data</p>
+<p>This is not because it is “smarter” in a human sense.<br />
+It is because it has more room to encode complexity.</p>
+<hr />
+<h3 id="emergent-behavior">Emergent Behavior</h3>
+<p>At a certain scale, something interesting happens:</p>
+<p>New capabilities appear that were not explicitly programmed.</p>
+<p>Examples include:
+- better reasoning in language tasks
+- improved translation quality
+- ability to follow multi-step instructions
+- more coherent long-form generation</p>
+<p>These are often called <strong>emergent behaviors</strong>.</p>
+<p>They do not come from a single rule or feature.<br />
+They arise from the interaction of many learned patterns.</p>
+<h2 id="figure-245-how-scale-changes-capability">Figure 24.5 — How Scale Changes Capability</h2>
+<p><img alt="How Scale Changes Capability" src="../../images/ch24-scaling-capability.svg" /></p>
+<p><strong>Caption:</strong><br />
+As models become larger and are trained on more data, their capabilities often improve gradually at first and then accelerate, enabling behaviors that smaller models cannot reliably perform.</p>
+<hr />
+<h3 id="why-this-happens">Why This Happens</h3>
+<p>A useful way to think about it:</p>
+<ul>
+<li>Small models are like shallow maps — they capture only main roads</li>
+<li>Large models are like detailed maps — they include side streets, intersections, and hidden paths</li>
+</ul>
+<p>When enough detail is present, the system can navigate unfamiliar situations more effectively.</p>
+<p>It is not guessing more intelligently.<br />
+It simply has more structure to work with.</p>
+<hr />
+<h3 id="scaling-is-not-just-size">Scaling Is Not Just Size</h3>
+<p>It is important to avoid a common misconception:</p>
+<blockquote>
+<p>Bigger alone is not enough.</p>
+</blockquote>
+<p>Performance depends on a combination of:
+- model size
+- data quality
+- training method
+- compute resources</p>
+<p>A large model trained poorly can perform worse than a smaller well-trained one.</p>
+<p>So scaling is not brute force—it is a balance of multiple factors.</p>
+<hr />
+<h3 id="key-insight_3">Key Insight</h3>
+<p>Scaling increases more than accuracy.</p>
+<p>It increases <strong>capability space</strong>.</p>
+<p>As models grow, they move from:
+- pattern matching → to structured reasoning behavior
+- simple completion → to multi-step coherence
+- local understanding → to broader generalization</p>
+<p>This is why modern AI progress is so tightly linked to scale.</p>
+<hr />
+<p>In the next section, we will connect everything so far into a single unified picture of what “AI systems” actually are in practice.</p>
+<h2 id="insight-box-the-big-idea-behind-ai-models">Insight Box — The Big Idea Behind AI Models</h2>
+<p>Throughout this chapter, we have used the word <em>model</em> repeatedly. By now, you may have noticed something surprising:</p>
+<p>A model is not a database.</p>
+<p>It does not store information in neatly organized records that can simply be looked up later.</p>
+<p>A model is not a collection of rules either.</p>
+<p>No programmer sits down and writes millions of instructions telling it exactly how to respond to every possible situation.</p>
+<p>And a model is not a human mind.</p>
+<p>It has no consciousness, self-awareness, understanding, beliefs, or intentions.</p>
+<p>Instead, a model is something unique:</p>
+<blockquote>
+<p>A model is a learned mathematical structure that captures patterns from data.</p>
+</blockquote>
+<p>Training shapes that structure by repeatedly reducing errors. The result is a system that can take new inputs and generate useful outputs based on patterns it has learned before.</p>
+<p>This idea lies at the heart of modern AI.</p>
+<p>Whether the system is recognizing faces, translating languages, generating legal summaries, or answering questions, the underlying principle is the same:</p>
+<p>The model is not retrieving intelligence.</p>
+<p>The model <em>is</em> the learned structure that makes intelligent behavior possible.</p>
+<hr />
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>At the beginning of this chapter, we asked a simple question:</p>
+<p><strong>What is a model?</strong></p>
+<p>The answer turned out to be more interesting than it first appeared.</p>
+<p>A model is not merely software. It is not merely data. It is not merely training.</p>
+<p>A model is what emerges when data, architecture, and learning come together.</p>
+<p>We explored how models learn patterns rather than rules, how training gradually adjusts billions of parameters, and how the final result becomes a compressed representation of experience encoded in numbers.</p>
+<p>We also saw why larger models often become dramatically more capable. As scale increases, models can capture richer and more complex patterns, allowing them to perform tasks that smaller systems struggle to handle.</p>
+<p>Most importantly, we learned that a model is not magic.</p>
+<p>It is a carefully trained prediction system.</p>
+<p>Everything from image recognition to modern chatbots ultimately depends on the same fundamental idea: learning patterns from data and using those patterns to respond to new situations.</p>
+<p>In the next chapter, we will look more closely at one of the most important discoveries in modern AI:</p>
+<p>Why does making a model larger often make it dramatically more capable?</p>
+<p>The answer will reveal how scale became one of the driving forces behind the AI revolution.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sikijs/YourHonor-AI-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

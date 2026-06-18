@@ -1,0 +1,34 @@
+<svg width="1200" height="450" xmlns="http://www.w3.org/2000/svg">
+<style>
+.box{fill:#f7f9fc;stroke:#2b3a55;stroke-width:2}
+.txt{font-family:Arial;font-size:18px;text-anchor:middle}
+.arrow{stroke:#2b3a55;stroke-width:2;marker-end:url(#a)}
+</style>
+
+<defs>
+<marker id="a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+<polygon points="0 0,10 3.5,0 7" fill="#2b3a55"></polygon>
+</marker>
+</defs>
+
+<rect x="40" y="180" width="180" height="70" class="box"></rect>
+<text x="130" y="222" class="txt">Reasoning</text>
+
+<rect x="290" y="180" width="180" height="70" class="box"></rect>
+<text x="380" y="222" class="txt">Memory</text>
+
+<rect x="540" y="180" width="180" height="70" class="box"></rect>
+<text x="630" y="222" class="txt">Tools</text>
+
+<rect x="790" y="180" width="180" height="70" class="box"></rect>
+<text x="880" y="222" class="txt">Actions</text>
+
+<rect x="1040" y="180" width="120" height="70" class="box"></rect>
+<text x="1100" y="222" class="txt">Goal</text>
+
+<line x1="220" y1="215" x2="290" y2="215" class="arrow"></line>
+<line x1="470" y1="215" x2="540" y2="215" class="arrow"></line>
+<line x1="720" y1="215" x2="790" y2="215" class="arrow"></line>
+<line x1="970" y1="215" x2="1040" y2="215" class="arrow"></line>
+
+</svg>

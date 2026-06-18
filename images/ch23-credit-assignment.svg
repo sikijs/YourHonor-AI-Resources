@@ -1,0 +1,68 @@
+<svg width="1000" height="650" viewBox="0 0 1000 650" xmlns="http://www.w3.org/2000/svg">
+
+<style>
+.title { font: bold 28px Arial, sans-serif; fill: #222; }
+.box { fill: #ffffff; stroke: #444; stroke-width: 2; rx: 10; ry: 10; }
+.node { fill: #f5f5f5; stroke: #333; stroke-width: 2; }
+.text { font: 18px Arial, sans-serif; fill: #333; }
+.small { font: 16px Arial, sans-serif; fill: #555; }
+.arrow { stroke: #666; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+.high { stroke: #d9534f; stroke-width: 5; }
+.medium { stroke: #f0ad4e; stroke-width: 3.5; }
+.low { stroke: #5bc0de; stroke-width: 2; }
+</style>
+
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+<polygon points="0 0,10 3,0 6" fill="#666"></polygon>
+</marker>
+</defs>
+
+<text x="500" y="40" text-anchor="middle" class="title">
+Credit Assignment: Who Caused the Error?
+</text>
+
+<!-- Input layer -->
+<circle cx="150" cy="180" r="25" class="node"></circle>
+<circle cx="150" cy="300" r="25" class="node"></circle>
+<circle cx="150" cy="420" r="25" class="node"></circle>
+
+<text x="150" y="480" text-anchor="middle" class="text">Inputs</text>
+
+<!-- Hidden layer -->
+<circle cx="450" cy="180" r="25" class="node"></circle>
+<circle cx="450" cy="300" r="25" class="node"></circle>
+<circle cx="450" cy="420" r="25" class="node"></circle>
+
+<text x="450" y="480" text-anchor="middle" class="text">Hidden Layer</text>
+
+<!-- Output -->
+<circle cx="800" cy="300" r="35" class="node"></circle>
+<text x="800" y="300" text-anchor="middle" class="text">Error</text>
+
+<!-- Connections (weights) -->
+<line x1="175" y1="180" x2="425" y2="180" class="low"></line>
+<line x1="175" y1="300" x2="425" y2="180" class="medium"></line>
+<line x1="175" y1="420" x2="425" y2="300" class="high"></line>
+
+<line x1="175" y1="180" x2="425" y2="300" class="medium"></line>
+<line x1="175" y1="300" x2="425" y2="300" class="high"></line>
+<line x1="175" y1="420" x2="425" y2="420" class="medium"></line>
+
+<line x1="475" y1="180" x2="765" y2="300" class="medium"></line>
+<line x1="475" y1="300" x2="765" y2="300" class="high"></line>
+<line x1="475" y1="420" x2="765" y2="300" class="low"></line>
+
+<!-- Legend -->
+<rect x="620" y="80" width="320" height="120" class="box"></rect>
+
+<line x1="640" y1="120" x2="700" y2="120" class="high"></line>
+<text x="710" y="125" class="small">High responsibility</text>
+
+<line x1="640" y1="150" x2="700" y2="150" class="medium"></line>
+<text x="710" y="155" class="small">Medium responsibility</text>
+
+<line x1="640" y1="180" x2="700" y2="180" class="low"></line>
+<text x="710" y="185" class="small">Low responsibility</text>
+
+</svg>

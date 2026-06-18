@@ -1,0 +1,42 @@
+<svg width="950" height="520" viewBox="0 0 950 520" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .title { font: bold 24px Arial; text-anchor: middle; }
+    .label { font: 18px Arial; fill: #333; }
+    .small { font: 15px Arial; fill: #555; }
+    .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 12; }
+    .arrow { stroke: #333; stroke-width: 2.5; marker-end: url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"></polygon>
+    </marker>
+  </defs>
+
+  <text x="475" y="40" class="title">How Model Size Changes Learning Behavior</text>
+
+  <!-- Small Model -->
+  <rect x="80" y="100" width="350" height="320" class="box"></rect>
+  <text x="255" y="140" class="label">Small Model</text>
+
+  <text x="255" y="190" class="small" text-anchor="middle">Memorizes Patterns</text>
+  <text x="255" y="230" class="small" text-anchor="middle">Works on Familiar Inputs</text>
+  <text x="255" y="270" class="small" text-anchor="middle">Struggles with New Questions</text>
+
+  <text x="255" y="330" class="small" text-anchor="middle">❌ Limited Generalization</text>
+
+  <!-- Large Model -->
+  <rect x="520" y="100" width="350" height="320" class="box"></rect>
+  <text x="695" y="140" class="label">Large Model</text>
+
+  <text x="695" y="190" class="small" text-anchor="middle">Learns Patterns + Structure</text>
+  <text x="695" y="230" class="small" text-anchor="middle">Handles New Inputs Well</text>
+  <text x="695" y="270" class="small" text-anchor="middle">Combines Concepts Flexibly</text>
+
+  <text x="695" y="330" class="small" text-anchor="middle">✅ Strong Generalization</text>
+
+  <!-- Arrow -->
+  <line x1="435" y1="260" x2="515" y2="260" class="arrow"></line>
+
+</svg>

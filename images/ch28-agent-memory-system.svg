@@ -1,0 +1,27 @@
+<svg width="1000" height="500" xmlns="http://www.w3.org/2000/svg">
+<style>
+.box{fill:#f7f9fc;stroke:#2b3a55;stroke-width:2}
+.txt{font-family:Arial;font-size:18px;text-anchor:middle}
+.arrow{stroke:#2b3a55;stroke-width:2;marker-end:url(#a)}
+</style>
+<defs>
+<marker id="a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+<polygon points="0 0,10 3.5,0 7" fill="#2b3a55"></polygon>
+</marker>
+</defs>
+
+<rect x="400" y="50" width="200" height="80" class="box"></rect>
+<text x="500" y="95" class="txt">Agent</text>
+
+<rect x="400" y="250" width="200" height="80" class="box"></rect>
+<text x="500" y="295" class="txt">Memory</text>
+
+<line x1="500" y1="130" x2="500" y2="250" class="arrow"></line>
+
+<text x="260" y="290" class="txt">Past Actions</text>
+<line x1="320" y1="290" x2="400" y2="290" class="arrow"></line>
+
+<text x="740" y="290" class="txt">Stored Knowledge</text>
+<line x1="680" y1="290" x2="600" y2="290" class="arrow"></line>
+
+</svg>

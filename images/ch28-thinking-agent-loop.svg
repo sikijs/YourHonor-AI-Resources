@@ -1,0 +1,47 @@
+<svg width="1000" height="700" xmlns="http://www.w3.org/2000/svg">
+
+<style>
+.box { fill:#f7f9fc; stroke:#2b3a55; stroke-width:2; rx:12; }
+.text { font-family: Arial, sans-serif; font-size:18px; fill:#1c2430; text-anchor:middle; }
+.arrow { stroke:#2b3a55; stroke-width:2; marker-end:url(#arrow); }
+.small { font-size:16px; fill:#3a4a5e; }
+</style>
+
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+<polygon points="0 0, 10 3.5, 0 7" fill="#2b3a55"></polygon>
+</marker>
+</defs>
+
+<rect x="400" y="30" width="200" height="60" class="box"></rect>
+<text x="500" y="65" class="text">Interpret Goal</text>
+
+<line x1="500" y1="90" x2="500" y2="150" class="arrow"></line>
+
+<rect x="400" y="150" width="200" height="60" class="box"></rect>
+<text x="500" y="185" class="text">Partial Plan</text>
+
+<line x1="500" y1="210" x2="500" y2="270" class="arrow"></line>
+
+<rect x="400" y="270" width="200" height="60" class="box"></rect>
+<text x="500" y="305" class="text">Take Action</text>
+
+<line x1="500" y1="330" x2="500" y2="390" class="arrow"></line>
+
+<rect x="400" y="390" width="200" height="60" class="box"></rect>
+<text x="500" y="425" class="text">Observe Result</text>
+
+<line x1="500" y1="450" x2="500" y2="510" class="arrow"></line>
+
+<rect x="400" y="510" width="200" height="60" class="box"></rect>
+<text x="500" y="545" class="text">Re-think</text>
+
+<line x1="500" y1="570" x2="500" y2="630" class="arrow"></line>
+
+<rect x="400" y="630" width="200" height="60" class="box"></rect>
+<text x="500" y="665" class="text">Update Plan</text>
+
+<!-- loop back -->
+<path d="M500 690 C500 760, 150 760, 150 350 C150 100, 350 80, 400 80" fill="none" class="arrow"></path>
+
+</svg>

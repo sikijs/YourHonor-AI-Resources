@@ -1,0 +1,2188 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Educational AI resources for law students — YourHonor AI">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter-10-deep-learning/">
+      
+      
+        <link rel="next" href="../chapter-12-imagenet/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Chapter 11: The GPU Revolution - AI Learning Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-11-the-gpu-revolution" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AI Learning Center" class="md-header__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI Learning Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 11: The GPU Revolution
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AI Learning Center" class="md-nav__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI Learning Center
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-01-what-is-intelligence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: What Is Intelligence?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-02-how-the-human-brain-inspired-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: How the Human Brain Inspired AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-03-artificial-neurons-%281943%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: Artificial Neurons (1943)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-04-alan-turing-and-thinking-machines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Alan Turing and Thinking Machines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-05-the-birth-of-AI-%281956%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: The Birth of AI (1956)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-06-the-perceptron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: The Perceptron
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-07-the-first-ai-winter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: The First AI Winter (1969–1974)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-08-expert-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Expert Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-09-backpropagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9: Backpropagation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-10-deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10: Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: The GPU Revolution
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: The GPU Revolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-the-problem-with-ordinary-computers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1: The Problem with Ordinary Computers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-what-is-a-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2: What Is a GPU?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-cpus-vs-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3: CPUs vs GPUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-the-discovery-that-changed-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4: The Discovery That Changed AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-nvidia-and-the-ai-boom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5: NVIDIA and the AI Boom
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-6-why-computing-power-still-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 6: Why Computing Power Still Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-the-hidden-engine-of-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box: The Hidden Engine of AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#looking-ahead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Looking Ahead
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-12-imagenet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12: ImageNet: The Dataset That Changed Everything
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-13-ai-beats-the-champions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13: AI Beats The Champions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-14-transformers-and-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14: Transformers and Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-15-large-language-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15: Large Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-16-data-the-fuel-of-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16: Data: The Fuel Of AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-17-how-computer-sees-everything-as-numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 17: How Computers See Everything as Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-18-tokens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 18: Tokens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-19-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 19: Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-20-neural-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 20: Neural Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-21-weights-and-parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 21: Weights and Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-22-training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 22: Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-23-backpropagation-simplified/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 23: Backpropagation Simplified
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-24-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 24: Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-25-why-bigger-models-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 25: Why Bigger Models Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-26-fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 26: Fine-tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-27-retrieval-augmented-generation-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 27: Retrieval-Augmented Generation (RAG)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-28-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 28: Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-29-vibe-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 29: Vibe Coding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-30-multimodal-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 30: Multimodal AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-31-hallucinations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 31: Hallucinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-32-what-ai-still-cannot-do/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 32: What AI Still Cannot Do
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-33-agi-and-beyond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 33: AGI (Artificial General Intelligence) and Beyond
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-34-the-future-of-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 34: The Future of Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-A-ai-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix A — AI Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-the-problem-with-ordinary-computers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1: The Problem with Ordinary Computers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-what-is-a-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2: What Is a GPU?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-cpus-vs-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3: CPUs vs GPUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-the-discovery-that-changed-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4: The Discovery That Changed AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-nvidia-and-the-ai-boom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5: NVIDIA and the AI Boom
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-6-why-computing-power-still-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 6: Why Computing Power Still Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-the-hidden-engine-of-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box: The Hidden Engine of AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#looking-ahead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Looking Ahead
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-11-the-gpu-revolution">Chapter 11: The GPU Revolution</h1>
+<h2 id="opening-story">Opening Story</h2>
+<p>In the early 2000s, millions of people around the world were spending money on faster computers for a simple reason:</p>
+<p>They wanted better video games.</p>
+<p>Gamers wanted richer worlds, smoother animation, and increasingly realistic graphics. To meet that demand, technology companies competed to build ever more powerful graphics hardware.</p>
+<p>Every year brought new advances.</p>
+<p>Characters looked more lifelike.</p>
+<p>Virtual worlds became larger and more detailed.</p>
+<p>Games that once seemed impossible became commonplace.</p>
+<p>Few people realized that this race to improve video game graphics was quietly laying the foundation for one of the most important technological revolutions of the twenty-first century.</p>
+<p>At the same time, artificial intelligence researchers faced a frustrating problem.</p>
+<p>They had promising ideas.</p>
+<p>They had neural networks.</p>
+<p>They had learning algorithms.</p>
+<p>What they lacked was enough computing power.</p>
+<p>Training a neural network requires enormous numbers of mathematical calculations. As networks became larger and more complex, the amount of computation grew dramatically.</p>
+<p>Researchers often found themselves waiting days, weeks, or even months for experiments to finish.</p>
+<p>Progress was limited not by imagination, but by hardware.</p>
+<p>Then an unexpected discovery changed everything.</p>
+<p>The same processors designed to draw millions of pixels on a computer screen turned out to be exceptionally good at performing the calculations required by neural networks.</p>
+<p>These devices were called Graphics Processing Units, or GPUs.</p>
+<p>What had been created for gaming suddenly became one of the most valuable tools in artificial intelligence.</p>
+<p>Researchers began using GPUs to train neural networks faster than ever before.</p>
+<p>Experiments that once took weeks could now be completed in days.</p>
+<p>Some tasks that had been impractical became possible.</p>
+<p>Others became routine.</p>
+<p>As computing power increased, neural networks grew larger.</p>
+<p>Datasets grew larger.</p>
+<p>Ambitions grew larger.</p>
+<p>The deep learning revolution that transformed artificial intelligence was no longer limited by the speed of ordinary computers.</p>
+<p>A technology built to power virtual worlds had become the engine behind modern AI.</p>
+<p>To understand how artificial intelligence changed the world, we must first understand the remarkable machine that made it possible.</p>
+<h2 id="section-1-the-problem-with-ordinary-computers">Section 1: The Problem with Ordinary Computers</h2>
+<p>To understand why GPUs changed artificial intelligence, we first need to understand the problem they were designed to solve.</p>
+<p>At first glance, training a neural network may not sound particularly difficult.</p>
+<p>After all, computers perform calculations every day.</p>
+<p>They calculate bank balances.</p>
+<p>They display websites.</p>
+<p>They run spreadsheets.</p>
+<p>They play music and videos.</p>
+<p>Why should AI be any different?</p>
+<p>The answer lies in scale.</p>
+<p>Training a neural network requires an enormous number of calculations.</p>
+<p>Imagine a neural network with millions of connections between its artificial neurons.</p>
+<p>Every time the network sees an example, it must process information through all of those connections.</p>
+<p>Then it must compare its answer to the correct answer.</p>
+<p>Then it must adjust countless internal values to improve future predictions.</p>
+<p>And it must repeat this process again.</p>
+<p>And again.</p>
+<p>And again.</p>
+<p>A modern AI system may perform this learning process billions of times during training.</p>
+<p>The amount of computation quickly becomes staggering.</p>
+<p>To appreciate the challenge, imagine trying to count every grain of sand on a beach.</p>
+<p>You could do it.</p>
+<p>But it would take an extremely long time.</p>
+<p>Now imagine counting every grain on every beach in the world.</p>
+<p>The task has not changed.</p>
+<p>Only the scale has changed.</p>
+<p>Training large neural networks creates a similar problem.</p>
+<p>The calculations themselves are not especially complicated.</p>
+<p>There are simply an enormous number of them.</p>
+<p>For decades, researchers relied primarily on Central Processing Units, or CPUs.</p>
+<p>The CPU is often described as the brain of a computer.</p>
+<p>It handles a wide variety of tasks and is designed to be flexible.</p>
+<p>A CPU can run a web browser, manage files, play music, and perform calculations.</p>
+<p>It is excellent at doing many different jobs.</p>
+<p>However, flexibility comes with a trade-off.</p>
+<p>Most CPUs are optimized to perform a relatively small number of tasks very quickly.</p>
+<p>This works well for everyday computing.</p>
+<p>It is less effective when faced with millions or billions of similar calculations that must be performed repeatedly.</p>
+<p>Neural networks create exactly that kind of workload.</p>
+<p>Consider a classroom filled with students solving the same math problem.</p>
+<p>If only one student works at a time, progress will be slow.</p>
+<p>If hundreds of students work simultaneously, the problem can be solved much faster.</p>
+<p>For many years, AI researchers were effectively relying on the first approach.</p>
+<p>Their computers were powerful, but they were not designed to perform massive numbers of calculations at the same time.</p>
+<p>As neural networks grew larger, training times grew longer.</p>
+<p>Experiments that researchers wanted to complete in hours often required days.</p>
+<p>Projects expected to take days could stretch into weeks.</p>
+<p>Some ambitious ideas were simply impractical because the required computing power did not exist.</p>
+<p>The challenge was becoming increasingly clear.</p>
+<p>If artificial intelligence was going to advance, researchers needed a way to perform far more calculations in far less time.</p>
+<p>What they needed was not just a faster computer.</p>
+<p>They needed a different kind of computer.</p>
+<p>Fortunately, that technology already existed.</p>
+<p>It had been built for an entirely different purpose.</p>
+<p>And it was sitting inside the gaming computers of millions of people around the world.</p>
+<h2 id="section-2-what-is-a-gpu">Section 2: What Is a GPU?</h2>
+<p>The solution to AI's computing problem came from an unexpected place.</p>
+<p>Video games.</p>
+<p>To understand why, we first need to understand what a GPU actually is.</p>
+<p>GPU stands for <strong>Graphics Processing Unit</strong>.</p>
+<p>As the name suggests, GPUs were originally designed to handle graphics.</p>
+<p>Whenever you play a video game, watch a 3D animation, or view a complex visual scene on a computer, millions of tiny calculations must be performed to create the images displayed on the screen.</p>
+<p>Every object must be drawn.</p>
+<p>Every shadow must be calculated.</p>
+<p>Every movement must be updated.</p>
+<p>And all of this must happen many times every second.</p>
+<p>A modern video game may display dozens of frames each second, with each frame containing millions of pixels.</p>
+<p>Producing those images requires an enormous amount of computation.</p>
+<p>Engineers quickly realized that ordinary CPUs were not ideal for this task.</p>
+<p>Graphics workloads involve many similar calculations that can be performed at the same time.</p>
+<p>Instead of relying on a small number of powerful processing units, GPU designers took a different approach.</p>
+<p>They built processors containing large numbers of smaller processing units that could work simultaneously.</p>
+<p>Imagine a construction project.</p>
+<p>A CPU is like a highly skilled worker equipped with many tools. The worker can perform a wide variety of tasks efficiently and adapt to changing situations.</p>
+<p>A GPU is more like a large team of workers performing many similar tasks at the same time.</p>
+<p>Neither approach is inherently better.</p>
+<p>They are simply designed for different kinds of work.</p>
+<p>For graphics, the second approach proved extremely effective.</p>
+<p>Thousands of calculations could be performed in parallel, allowing computers to generate increasingly realistic images and video games.</p>
+<p>For years, GPUs were viewed primarily as gaming technology.</p>
+<p>Gamers purchased them to improve performance.</p>
+<p>Game developers used them to create more immersive experiences.</p>
+<p>Few people outside the graphics industry paid much attention to them.</p>
+<p>Then researchers working on artificial intelligence noticed something interesting.</p>
+<p>Training a neural network also involves performing enormous numbers of similar calculations.</p>
+<p>Artificial neurons continuously multiply numbers, add values together, and adjust internal connections.</p>
+<p>The same operations are repeated again and again across millions—or even billions—of parameters.</p>
+<p>In other words, neural networks create exactly the kind of workload that GPUs were designed to handle.</p>
+<p>A processor built to calculate pixels could also calculate neurons.</p>
+<p>The connection was not immediately obvious.</p>
+<p>But once researchers recognized it, everything changed.</p>
+<p>Tasks that overwhelmed traditional processors could suddenly be completed far more quickly.</p>
+<p>Neural networks could become larger.</p>
+<p>Experiments could run faster.</p>
+<p>Researchers could test more ideas.</p>
+<p>What began as a tool for rendering dragons, race cars, and virtual worlds was about to become one of the most important technologies in artificial intelligence.</p>
+<p><img alt="What Is a GPU?" src="../../images/ch11-what-is-a-gpu.png" /></p>
+<p><em>Figure 11.1: A Graphics Processing Unit (GPU) contains hundreds or thousands of processing cores designed to perform many calculations simultaneously. Originally built for video games and computer graphics, GPUs proved ideally suited for training neural networks and became a key technology behind the modern AI revolution.</em></p>
+<p>The next step was to compare these two kinds of processors directly.</p>
+<p>Only then would researchers fully understand why GPUs were such a perfect match for deep learning.</p>
+<h2 id="section-3-cpus-vs-gpus">Section 3: CPUs vs GPUs</h2>
+<p>By the time researchers began experimenting with GPUs, they already knew that neural networks required enormous amounts of computation.</p>
+<p>What they needed to understand was whether GPUs could perform that work better than traditional processors.</p>
+<p>The answer turned out to be yes—and by a remarkable margin.</p>
+<p>To see why, imagine a large warehouse filled with thousands of boxes that must be inspected.</p>
+<p>One approach would be to assign the job to a small team of highly skilled workers.</p>
+<p>Each worker could examine boxes quickly and efficiently.</p>
+<p>They could adapt to unexpected situations and perform many different tasks.</p>
+<p>This is similar to how a CPU operates.</p>
+<p>A CPU contains a relatively small number of powerful processing cores designed to handle a wide variety of tasks.</p>
+<p>Now imagine a different approach.</p>
+<p>Instead of a small team, you hire thousands of workers.</p>
+<p>Each worker performs a simple inspection on a different box at the same time.</p>
+<p>No individual worker is as versatile as the highly skilled specialists, but together they can process enormous numbers of boxes simultaneously.</p>
+<p>This is similar to how a GPU operates.</p>
+<p>A GPU contains hundreds or even thousands of smaller processing cores designed to work in parallel.</p>
+<p>The difference is not intelligence.</p>
+<p>It is organization.</p>
+<p>CPUs are designed to excel at many different tasks.</p>
+<p>GPUs are designed to perform large numbers of similar tasks at the same time.</p>
+<p>For everyday computing, CPUs are indispensable.</p>
+<p>They manage operating systems, run applications, handle user input, and coordinate countless activities within a computer.</p>
+<p>Without CPUs, modern computers would not function.</p>
+<p>But neural networks create a very specific kind of workload.</p>
+<p>Training a neural network involves repeating similar mathematical operations millions or billions of times.</p>
+<p>Artificial neurons multiply numbers.</p>
+<p>Add values together.</p>
+<p>Adjust weights.</p>
+<p>Then repeat the process.</p>
+<p>Again.</p>
+<p>And again.</p>
+<p>And again.</p>
+<p>Because so many of these calculations are independent of one another, they can be performed simultaneously.</p>
+<p>This is exactly where GPUs shine.</p>
+<p>Imagine asking a CPU to calculate one thousand problems.</p>
+<p>It might assign a few powerful workers to solve them.</p>
+<p>A GPU approaches the challenge differently.</p>
+<p>It distributes the problems across hundreds or thousands of workers and solves many of them at the same time.</p>
+<p>The result can be a dramatic increase in speed.</p>
+<p>Tasks that once required weeks might take days.</p>
+<p>Tasks that required days might take hours.</p>
+<p>And experiments that were previously impractical suddenly become possible.</p>
+<p>For AI researchers, this was a game changer.</p>
+<p>Faster training meant more experiments.</p>
+<p>More experiments meant faster discoveries.</p>
+<p>Researchers could build larger neural networks, train them on bigger datasets, and explore ideas that had once been beyond reach.</p>
+<p>The impact extended far beyond convenience.</p>
+<p>Without GPUs, many of the deep learning breakthroughs of the 2010s would have been difficult, expensive, or simply impossible.</p>
+<p>The modern AI revolution did not happen because researchers found a shortcut.</p>
+<p>It happened because they found a way to perform an enormous number of calculations at unprecedented speed.</p>
+<p>And GPUs turned out to be the perfect tool for the job.</p>
+<p>Once researchers understood this advantage, adoption spread rapidly throughout the AI community.</p>
+<p>The age of GPU-powered artificial intelligence had begun.</p>
+<p>Figure 11.2 illustrates why GPUs proved so much more effective than traditional CPUs for deep learning workloads.</p>
+<p><img alt="CPU vs GPU: The Difference That Changed AI" src="../../images/ch11-cpu-vs-gpu.png" /></p>
+<p><em>Figure 11.2: CPUs and GPUs are both processors, but they are designed for different kinds of work. CPUs contain a small number of powerful cores optimized for flexibility, while GPUs contain hundreds or thousands of smaller cores optimized for parallel processing. This ability to perform many calculations simultaneously made GPUs ideal for training deep neural networks and helped spark the modern AI revolution.</em></p>
+<h2 id="section-4-the-discovery-that-changed-ai">Section 4: The Discovery That Changed AI</h2>
+<p>Sometimes the most important breakthroughs occur when a tool designed for one purpose is unexpectedly applied to another.</p>
+<p>That is exactly what happened with GPUs.</p>
+<p>When graphics processors were first developed, nobody was thinking about artificial intelligence.</p>
+<p>Their purpose was simple: create better graphics.</p>
+<p>They were built to render video games, display three-dimensional worlds, and process millions of pixels as quickly as possible.</p>
+<p>For years, that was exactly how they were used.</p>
+<p>Meanwhile, AI researchers continued struggling with a familiar problem.</p>
+<p>Neural networks showed promise, but training them remained painfully slow.</p>
+<p>Larger networks required more calculations.</p>
+<p>More calculations required more time.</p>
+<p>Progress often felt limited by hardware rather than ideas.</p>
+<p>Researchers began searching for ways to accelerate their experiments.</p>
+<p>Some noticed an intriguing similarity between computer graphics and neural networks.</p>
+<p>Both involved performing vast numbers of mathematical operations repeatedly.</p>
+<p>Both required large quantities of data to be processed.</p>
+<p>And both benefited from performing many calculations simultaneously.</p>
+<p>The question was obvious.</p>
+<p>Could GPUs be used for AI?</p>
+<p>At first, the idea seemed unconventional.</p>
+<p>Graphics processors were designed for games, not machine learning.</p>
+<p>Most researchers viewed them as specialized hardware with little relevance to artificial intelligence.</p>
+<p>But a small number of scientists decided to experiment.</p>
+<p>What they discovered was remarkable.</p>
+<p>Tasks that had taken days on traditional processors could often be completed much faster using GPUs.</p>
+<p>Larger neural networks became practical.</p>
+<p>More ambitious experiments became affordable.</p>
+<p>Researchers could test ideas at a pace that had previously been impossible.</p>
+<p>The impact was immediate.</p>
+<p>One of the researchers most closely associated with this shift was Geoffrey Hinton, whose work helped revive interest in neural networks during a period when many scientists had abandoned them.</p>
+<p>Hinton and his collaborators believed that larger neural networks could solve problems that smaller systems could not.</p>
+<p>The challenge was finding enough computing power to train them.</p>
+<p>GPUs helped provide that power.</p>
+<p>Then came a breakthrough that captured the attention of the entire AI community.</p>
+<p>In 2012, a deep neural network known as AlexNet competed in the ImageNet competition, one of the world's most important image-recognition challenges.</p>
+<p>The system was trained using GPUs and dramatically outperformed competing approaches.</p>
+<p>Its results shocked many researchers.</p>
+<p>For years, progress in computer vision had been gradual.</p>
+<p>AlexNet produced a leap forward.</p>
+<p>Suddenly, deep learning was no longer an interesting research topic.</p>
+<p>It was the most exciting area in artificial intelligence.</p>
+<p>The success of AlexNet demonstrated two important lessons.</p>
+<p>First, deep neural networks could achieve extraordinary results when trained on large datasets.</p>
+<p>Second, GPUs made training those networks practical.</p>
+<p>Together, these discoveries helped launch the modern deep learning era.</p>
+<p>Research laboratories around the world took notice.</p>
+<p>Universities expanded their deep learning programs.</p>
+<p>Technology companies invested billions of dollars in AI research.</p>
+<p>The demand for GPUs exploded.</p>
+<p>What had begun as an experiment became a movement.</p>
+<p>The realization that GPUs could accelerate neural networks did more than speed up existing research.</p>
+<p>It fundamentally changed what researchers believed was possible.</p>
+<p>Ideas that once seemed unrealistic suddenly became achievable.</p>
+<p>The age of deep learning had arrived.</p>
+<p>And GPUs were one of the key reasons why.</p>
+<p><img alt="The Discovery That Changed AI" src="../../images/ch11-the-discovery-that-changed-ai.png" /></p>
+<p><em>Figure 11.3: GPUs were originally developed for computer graphics, but researchers discovered they were ideally suited for training neural networks. The breakthrough reached a turning point in 2012 when AlexNet, trained on GPUs, dramatically outperformed competing systems in the ImageNet competition. This success helped launch the modern deep learning revolution.</em></p>
+<h2 id="section-5-nvidia-and-the-ai-boom">Section 5: NVIDIA and the AI Boom</h2>
+<p>As researchers discovered the power of GPUs, a surprising company found itself at the center of the AI revolution.</p>
+<p>That company was NVIDIA.</p>
+<p>When NVIDIA was founded in 1993, artificial intelligence was not its primary focus.</p>
+<p>The company's goal was to build graphics processors capable of producing increasingly realistic computer graphics.</p>
+<p>Its customers were gamers, game developers, engineers, and designers.</p>
+<p>For years, NVIDIA competed fiercely in the graphics hardware market.</p>
+<p>Each new generation of GPUs delivered better performance and more realistic visual experiences.</p>
+<p>The company became known for helping create the stunning graphics found in modern video games.</p>
+<p>At the time, few people could have predicted that these same processors would one day help power artificial intelligence systems capable of recognizing images, understanding language, and generating content.</p>
+<p>The shift began gradually.</p>
+<p>As researchers experimented with GPUs for neural network training, they discovered that NVIDIA's hardware often delivered remarkable performance improvements.</p>
+<p>Training tasks that had once taken weeks could sometimes be completed in days.</p>
+<p>As word spread through the research community, demand for GPU computing grew rapidly.</p>
+<p>NVIDIA recognized the opportunity.</p>
+<p>The company invested heavily in tools and software that made it easier for researchers to use GPUs for scientific computing and machine learning.</p>
+<p>One of the most important developments was a platform called CUDA.</p>
+<p>CUDA allowed programmers to harness the parallel-processing power of GPUs for purposes beyond graphics.</p>
+<p>Researchers could now write software that used GPUs to solve scientific and mathematical problems—including training neural networks.</p>
+<p>This proved to be a turning point.</p>
+<p>As deep learning gained momentum, universities, research laboratories, and technology companies increasingly relied on GPU-based computing.</p>
+<p>The demand for AI hardware accelerated.</p>
+<p>Then came the deep learning breakthroughs of the 2010s.</p>
+<p>Systems such as AlexNet demonstrated what was possible when large neural networks were trained on powerful GPU hardware.</p>
+<p>Soon, nearly every major AI research organization was using GPUs.</p>
+<p>Technology companies built massive data centers filled with them.</p>
+<p>Startups raced to acquire them.</p>
+<p>Researchers competed for access to them.</p>
+<p>GPUs became one of the most valuable resources in artificial intelligence.</p>
+<p>As generative AI systems emerged, demand increased even further.</p>
+<p>Training modern AI models requires enormous computational resources.</p>
+<p>Large clusters containing thousands of GPUs may work together for weeks or months to train a single advanced model.</p>
+<p>The scale would have seemed unimaginable just a few decades earlier.</p>
+<p>NVIDIA's story illustrates an important lesson about technological innovation.</p>
+<p>Sometimes a breakthrough occurs because someone invents a completely new technology.</p>
+<p>Other times, a technology developed for one purpose unexpectedly becomes essential for another.</p>
+<p>GPUs were created to render virtual worlds.</p>
+<p>Instead, they helped make modern artificial intelligence possible.</p>
+<p>Today, AI has become one of the largest drivers of demand for advanced computing hardware.</p>
+<p>And NVIDIA, once known primarily as a graphics company, now occupies a central place in the story of artificial intelligence.</p>
+<p>The rise of AI transformed NVIDIA.</p>
+<p>But the rise of NVIDIA also helped transform AI.</p>
+<p>1993
+NVIDIA Founded
+      ↓
+Gaming Graphics
+      ↓
+GPU Innovation
+      ↓
+Researchers Discover GPUs
+      ↓
+Deep Learning Boom
+      ↓
+Generative AI Era</p>
+<h2 id="section-6-why-computing-power-still-matters">Section 6: Why Computing Power Still Matters</h2>
+<p>The story of GPUs is not just a chapter in the history of artificial intelligence.</p>
+<p>It is an ongoing story.</p>
+<p>As impressive as modern AI systems may seem, they are the result of a simple principle that has shaped computing for decades:</p>
+<p>More computing power makes more ambitious ideas possible.</p>
+<p>Every major advance in AI requires enormous amounts of computation.</p>
+<p>Neural networks must process vast datasets.</p>
+<p>Large language models must analyze trillions of words.</p>
+<p>Image-generation systems must learn patterns from millions of images.</p>
+<p>Behind every breakthrough lies an extraordinary number of calculations.</p>
+<p>As AI models have grown larger, the demand for computing power has grown alongside them.</p>
+<p>Researchers now train some models using thousands of GPUs working together in massive data centers.</p>
+<p>These facilities contain rows upon rows of specialized hardware, consuming significant amounts of electricity while performing countless calculations every second.</p>
+<p>The scale is difficult to imagine.</p>
+<p>A modern AI model may require more computation than entire scientific projects required just a few decades ago.</p>
+<p>Yet researchers continue pushing forward.</p>
+<p>Why?</p>
+<p>Because increased computing power often unlocks new capabilities.</p>
+<p>Larger models can learn more complex patterns.</p>
+<p>More training data can improve performance.</p>
+<p>More sophisticated architectures can tackle increasingly difficult problems.</p>
+<p>Time and again, advances in hardware have enabled advances in AI.</p>
+<p>This relationship has become one of the defining characteristics of the field.</p>
+<p>Researchers improve algorithms.</p>
+<p>Engineers build faster hardware.</p>
+<p>The new hardware enables larger experiments.</p>
+<p>The experiments inspire new ideas.</p>
+<p>The cycle repeats.</p>
+<p>Some experts describe this as a positive feedback loop between computing power and artificial intelligence.</p>
+<p>Each advance helps drive the next.</p>
+<p>The result has been decades of accelerating progress.</p>
+<p>At the same time, this growth raises important questions.</p>
+<p>How much computing power will future AI systems require?</p>
+<p>Can hardware continue improving at the same pace?</p>
+<p>How can society balance growing computational demands with concerns about energy consumption and cost?</p>
+<p>Researchers are actively exploring these challenges.</p>
+<p>New generations of AI chips are being developed.</p>
+<p>More efficient algorithms are being created.</p>
+<p>Engineers are designing systems that can perform more work while using less energy.</p>
+<p>The search for better computing technology continues.</p>
+<p>One lesson from history is already clear.</p>
+<p>The future of AI will not be determined solely by clever algorithms.</p>
+<p>It will also be shaped by the machines that run them.</p>
+<p>The GPU revolution demonstrated that hardware can change the course of artificial intelligence.</p>
+<p>And as researchers continue building more powerful systems, computing power will remain one of the most important ingredients in the story of AI.</p>
+<p>The revolution that began with gaming graphics is far from over.</p>
+<p>In many ways, it is only just beginning.</p>
+<p>Better Hardware
+       ↓
+Larger Experiments
+       ↓
+Better AI Models
+       ↓
+New Applications
+       ↓
+Demand for More Computing
+       ↓
+Better Hardware</p>
+<h2 id="insight-box-the-hidden-engine-of-ai">Insight Box: The Hidden Engine of AI</h2>
+<p>When people think about artificial intelligence, they often focus on algorithms.</p>
+<p>They imagine clever software, advanced mathematics, and breakthroughs in machine learning.</p>
+<p>Those innovations are important.</p>
+<p>But they are only part of the story.</p>
+<p>Every AI system runs on physical hardware.</p>
+<p>Without computers capable of performing enormous numbers of calculations, even the most brilliant algorithms would remain ideas on paper.</p>
+<p>For decades, neural networks showed promise but were limited by available computing power.</p>
+<p>Researchers understood many of the underlying concepts long before modern AI became practical.</p>
+<p>What they lacked was a way to perform the required calculations quickly enough and cheaply enough.</p>
+<p>GPUs changed that.</p>
+<p>Originally developed to improve video game graphics, they provided the massive parallel processing needed to train large neural networks efficiently.</p>
+<p>Suddenly, researchers could experiment with larger models, larger datasets, and more ambitious ideas.</p>
+<p>The result was an explosion of progress.</p>
+<p>This chapter highlights an important lesson that appears throughout the history of technology:</p>
+<p>Innovation often occurs when different fields unexpectedly intersect.</p>
+<p>The gaming industry did not set out to create the foundation for modern AI.</p>
+<p>Yet the demand for better graphics helped drive the development of hardware that would later transform artificial intelligence.</p>
+<p>Today, advances in AI continue to depend on advances in computing power.</p>
+<p>New chips, faster processors, and more efficient hardware remain essential to the future of the field.</p>
+<p>The story of AI is not only the story of intelligent software.</p>
+<p>It is also the story of the machines that make that software possible.</p>
+<p>Behind every impressive AI system is an invisible engine performing billions of calculations.</p>
+<p>And for much of the modern AI revolution, that engine has been the GPU.</p>
+<h2 id="looking-ahead">Looking Ahead</h2>
+<p>By the early 2010s, artificial intelligence had something it had never possessed before.</p>
+<p>Powerful hardware.</p>
+<p>GPUs allowed researchers to train larger neural networks on larger datasets than ever before.</p>
+<p>But a critical question remained.</p>
+<p>Would these larger networks actually perform better?</p>
+<p>Many researchers were optimistic.</p>
+<p>Others remained skeptical.</p>
+<p>Neural networks had experienced periods of excitement before, only to disappoint when faced with real-world challenges.</p>
+<p>What the field needed was proof.</p>
+<p>That proof arrived in the form of a competition.</p>
+<p>Every year, researchers from around the world gathered to test their image-recognition systems on a massive dataset known as ImageNet.</p>
+<p>The challenge was simple to describe but extraordinarily difficult to solve:</p>
+<p>Could a computer correctly identify objects in millions of photographs?</p>
+<p>For years, progress had been gradual.</p>
+<p>Then, in 2012, a deep neural network called AlexNet entered the competition.</p>
+<p>Powered by GPUs and trained using deep learning techniques, it achieved results that stunned the AI community.</p>
+<p>The victory was more than a competition win.</p>
+<p>It was a turning point.</p>
+<p>Researchers suddenly realized that deep learning was not merely an interesting idea.</p>
+<p>It was a powerful new approach capable of outperforming many traditional methods.</p>
+<p>The success of AlexNet helped launch the modern era of artificial intelligence and convinced researchers, companies, and investors that deep learning represented the future.</p>
+<p>In the next chapter, we will explore the story of ImageNet, AlexNet, and the competition that changed AI forever.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sikijs/YourHonor-AI-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

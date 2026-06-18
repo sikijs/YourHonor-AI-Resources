@@ -1,0 +1,53 @@
+<svg width="900" height="520" xmlns="http://www.w3.org/2000/svg">
+
+  <rect width="900" height="520" fill="white"></rect>
+
+  <text x="450" y="50" text-anchor="middle" font-size="28" font-family="Arial" font-weight="bold">
+    Multimodal Fusion Inside a Model
+  </text>
+
+  <!-- Inputs -->
+  <rect x="80" y="120" width="160" height="70" fill="#f5f5f5" stroke="#444"></rect>
+  <text x="160" y="165" text-anchor="middle" font-size="20">Text</text>
+
+  <rect x="80" y="220" width="160" height="70" fill="#f5f5f5" stroke="#444"></rect>
+  <text x="160" y="265" text-anchor="middle" font-size="20">Image</text>
+
+  <rect x="80" y="320" width="160" height="70" fill="#f5f5f5" stroke="#444"></rect>
+  <text x="160" y="365" text-anchor="middle" font-size="20">Audio</text>
+
+  <rect x="80" y="420" width="160" height="70" fill="#f5f5f5" stroke="#444"></rect>
+  <text x="160" y="465" text-anchor="middle" font-size="20">Video</text>
+
+  <!-- Encoders -->
+  <rect x="320" y="120" width="160" height="370" fill="#e8f4ff" stroke="#2c5aa0"></rect>
+  <text x="400" y="140" text-anchor="middle" font-size="18" font-weight="bold">Encoders</text>
+
+  <!-- Shared space -->
+  <rect x="550" y="220" width="200" height="140" fill="#fff3cd" stroke="#b58900"></rect>
+  <text x="650" y="285" text-anchor="middle" font-size="18" font-weight="bold">
+    Shared
+  </text>
+  <text x="650" y="310" text-anchor="middle" font-size="18" font-weight="bold">
+    Embedding
+  </text>
+  <text x="650" y="335" text-anchor="middle" font-size="18" font-family="Arial">
+    Space
+  </text>
+
+  <!-- Decoder -->
+  <rect x="800" y="220" width="80" height="140" fill="#d4edda" stroke="#155724"></rect>
+  <text x="840" y="285" text-anchor="middle" font-size="16" font-weight="bold" transform="rotate(-90 840 285)">
+    Decoder
+  </text>
+
+  <!-- Arrows -->
+  <line x1="240" y1="155" x2="320" y2="155" stroke="#333" stroke-width="2"></line>
+  <line x1="240" y1="255" x2="320" y2="255" stroke="#333" stroke-width="2"></line>
+  <line x1="240" y1="355" x2="320" y2="355" stroke="#333" stroke-width="2"></line>
+  <line x1="240" y1="455" x2="320" y2="455" stroke="#333" stroke-width="2"></line>
+
+  <line x1="480" y1="300" x2="550" y2="300" stroke="#333" stroke-width="2"></line>
+  <line x1="750" y1="300" x2="800" y2="300" stroke="#333" stroke-width="2"></line>
+
+</svg>

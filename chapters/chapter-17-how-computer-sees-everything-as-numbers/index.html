@@ -1,0 +1,2105 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Educational AI resources for law students — YourHonor AI">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter-16-data-the-fuel-of-ai/">
+      
+      
+        <link rel="next" href="../chapter-18-tokens/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Chapter 17: How Computers See Everything as Numbers - AI Learning Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-17-how-computers-see-everything-as-numbers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AI Learning Center" class="md-header__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI Learning Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 17: How Computers See Everything as Numbers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AI Learning Center" class="md-nav__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI Learning Center
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-01-what-is-intelligence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: What Is Intelligence?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-02-how-the-human-brain-inspired-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: How the Human Brain Inspired AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-03-artificial-neurons-%281943%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: Artificial Neurons (1943)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-04-alan-turing-and-thinking-machines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Alan Turing and Thinking Machines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-05-the-birth-of-AI-%281956%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: The Birth of AI (1956)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-06-the-perceptron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: The Perceptron
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-07-the-first-ai-winter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: The First AI Winter (1969–1974)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-08-expert-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Expert Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-09-backpropagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9: Backpropagation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-10-deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10: Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-11-the-gpu-revolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: The GPU Revolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-12-imagenet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12: ImageNet: The Dataset That Changed Everything
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-13-ai-beats-the-champions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13: AI Beats The Champions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-14-transformers-and-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14: Transformers and Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-15-large-language-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15: Large Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-16-data-the-fuel-of-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16: Data: The Fuel Of AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 17: How Computers See Everything as Numbers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 17: How Computers See Everything as Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story-the-picture-that-became-millions-of-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story: The Picture That Became Millions of Numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-why-computers-need-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1 — Why Computers Need Numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-images-are-made-of-tiny-squares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2 — Images Are Made of Tiny Squares
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-how-colors-become-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3 — How Colors Become Numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-finding-patterns-in-the-pixels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4 — Finding Patterns in the Pixels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-seeing-beyond-images-everything-can-become-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5 — Seeing Beyond Images: Everything Can Become Numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-the-secret-language-of-computers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box: The Secret Language of Computers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-18-tokens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 18: Tokens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-19-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 19: Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-20-neural-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 20: Neural Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-21-weights-and-parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 21: Weights and Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-22-training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 22: Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-23-backpropagation-simplified/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 23: Backpropagation Simplified
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-24-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 24: Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-25-why-bigger-models-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 25: Why Bigger Models Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-26-fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 26: Fine-tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-27-retrieval-augmented-generation-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 27: Retrieval-Augmented Generation (RAG)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-28-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 28: Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-29-vibe-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 29: Vibe Coding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-30-multimodal-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 30: Multimodal AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-31-hallucinations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 31: Hallucinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-32-what-ai-still-cannot-do/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 32: What AI Still Cannot Do
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-33-agi-and-beyond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 33: AGI (Artificial General Intelligence) and Beyond
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-34-the-future-of-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 34: The Future of Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-A-ai-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix A — AI Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story-the-picture-that-became-millions-of-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story: The Picture That Became Millions of Numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-why-computers-need-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1 — Why Computers Need Numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-images-are-made-of-tiny-squares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2 — Images Are Made of Tiny Squares
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-how-colors-become-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3 — How Colors Become Numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-finding-patterns-in-the-pixels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4 — Finding Patterns in the Pixels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-seeing-beyond-images-everything-can-become-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5 — Seeing Beyond Images: Everything Can Become Numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-the-secret-language-of-computers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box: The Secret Language of Computers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-17-how-computers-see-everything-as-numbers">Chapter 17: How Computers See Everything as Numbers</h1>
+<h2 id="opening-story-the-picture-that-became-millions-of-numbers">Opening Story: The Picture That Became Millions of Numbers</h2>
+<p>Imagine you are holding a photograph of your granddaughter.</p>
+<p>You look at the picture and instantly recognize her face. You notice her smile. You remember the day the photo was taken. Perhaps you even feel an emotion attached to the memory.</p>
+<p>Now imagine showing that same photograph to a computer.</p>
+<p>The computer does not see a face.</p>
+<p>It does not see a smile.</p>
+<p>It does not see a granddaughter.</p>
+<p>In fact, it does not see a picture at all.</p>
+<p>What the computer receives is a giant collection of numbers.</p>
+<p>Every pixel in the image becomes numerical information. The colors become numbers. The brightness becomes numbers. The location of every tiny dot becomes numbers.</p>
+<p>A photograph that feels rich with meaning to a human is, to a computer, simply a large mathematical table.</p>
+<p>Yet something remarkable happens.</p>
+<p>By processing those numbers, modern AI systems can learn to recognize faces, identify animals, read handwriting, detect diseases in medical scans, and even generate entirely new images that never existed before.</p>
+<p>How can a machine do that?</p>
+<p>The answer begins with one of the most important ideas in artificial intelligence:</p>
+<p>Before AI can understand anything, it must first turn everything into numbers.</p>
+<p><img alt="Humans see meaning. Computers see numbers. AI bridges the gap." src="../../images/ch17-human-vs-computer-seeing.png" /></p>
+<p><em>Figure 17.1: Humans naturally see meaning, memories, and emotions. Computers see pixels and numbers. Artificial intelligence learns to connect the two.</em></p>
+<p>In this chapter, we will explore how computers represent images, words, sounds, and even ideas as numerical information. Once you understand this concept, many of the mysteries of AI begin to make sense.</p>
+<hr />
+<h2 id="section-1-why-computers-need-numbers">Section 1 — Why Computers Need Numbers</h2>
+<p>Human beings experience the world through sights, sounds, language, touch, and emotions.</p>
+<p>Computers experience none of these things.</p>
+<p>A computer has no eyes.</p>
+<p>No ears.</p>
+<p>No understanding of language.</p>
+<p>No sense of color.</p>
+<p>At its deepest level, a computer only understands electrical signals that can be represented as numbers.</p>
+<p>Everything a computer processes must eventually be converted into numerical form.</p>
+<p>Think about a calculator.</p>
+<p>If you enter:</p>
+<p>2 + 2</p>
+<p>the calculator can perform the operation because the information is already represented as numbers.</p>
+<p>But what happens when you show a calculator a photograph of a cat?</p>
+<p>It has no idea what to do.</p>
+<p>The image must first be translated into a numerical representation.</p>
+<p>The same principle applies to AI systems.</p>
+<p>Whether the input is:</p>
+<ul>
+<li>A photograph</li>
+<li>A sentence</li>
+<li>A voice recording</li>
+<li>A video clip</li>
+<li>A medical scan</li>
+<li>A legal document</li>
+</ul>
+<p>the information must first become numbers before the AI can process it.</p>
+<div class="highlight"><pre><span></span><code>flowchart TB
+    A[Photograph] --&gt; E[Numbers]
+    B[Sentence] --&gt; E
+    C[Sound Recording] --&gt; E
+    D[Video] --&gt; E
+    E --&gt; F[AI System]
+</code></pre></div>
+<p><em>Figure 17.2: Regardless of the original form, computers convert information into numbers before processing it.</em></p>
+<p>This idea may seem obvious, but it is one of the foundational concepts behind modern artificial intelligence.</p>
+<p>AI does not work with pictures.</p>
+<p>AI works with numbers that represent pictures.</p>
+<p>AI does not work with words.</p>
+<p>AI works with numbers that represent words.</p>
+<p>AI does not work with sounds.</p>
+<p>AI works with numbers that represent sounds.</p>
+<p>The challenge of AI is not simply performing calculations.</p>
+<p>The challenge is finding numerical representations that preserve enough information for the machine to recognize patterns.</p>
+<p>For example, when humans see the word:</p>
+<p>Dog</p>
+<p>we instantly associate it with fur, barking, pets, and countless memories.</p>
+<p>A computer sees none of those things.</p>
+<p>The word must first be converted into a numerical form that allows the machine to work with it.</p>
+<p>Likewise, when humans see a photograph of a dog, we recognize it immediately.</p>
+<p>The computer sees only a grid of numbers representing color values.</p>
+<p>The amazing achievement of modern AI is that it has learned how to find patterns inside those numbers and connect them to meaningful concepts.</p>
+<p>In a sense, AI is a giant pattern-detection system built entirely on mathematics.</p>
+<p>Everything begins with a simple rule:</p>
+<p><strong>If a computer cannot turn something into numbers, it cannot process it.</strong></p>
+<p>And once something becomes numbers, AI can begin learning from it.</p>
+<h2 id="section-2-images-are-made-of-tiny-squares">Section 2 — Images Are Made of Tiny Squares</h2>
+<p>When we look at a photograph, we see a complete image.</p>
+<p>We see people, trees, cars, buildings, animals, and countless other objects.</p>
+<p>Computers do not see images that way.</p>
+<p>To a computer, every digital image is made from thousands—or even millions—of tiny squares called pixels.</p>
+<p>The word <em>pixel</em> comes from the phrase <em>picture element</em>. A pixel is the smallest individual piece of a digital image.</p>
+<p>From a normal viewing distance, pixels are so small that they blend together seamlessly. This creates the illusion of a smooth photograph.</p>
+<p>But if you zoom in far enough, the illusion disappears.</p>
+<p><img alt="A digital photograph is made of thousands or millions of tiny pixels." src="../../images/ch17-photo-to-pixels.png" /></p>
+<p><em>Figure 17.3: What appears to be a smooth image is actually a grid of tiny colored squares called pixels.</em></p>
+<p>Instead of seeing a face, you begin to see a grid of tiny colored squares.</p>
+<p>Imagine looking at a large mosaic made from thousands of small tiles.</p>
+<p>From across the room, you see a complete picture.</p>
+<p>Up close, you see only individual tiles.</p>
+<p>Digital images work in exactly the same way.</p>
+<p>A photograph on your smartphone might contain millions of pixels. Each pixel stores information about a single tiny portion of the image.</p>
+<p>Consider a photograph that is 1,000 pixels wide and 1,000 pixels tall.</p>
+<p>That image contains:</p>
+<p>1,000 × 1,000 = 1,000,000 pixels</p>
+<p>In other words, one million tiny pieces of information combine to create a single picture.</p>
+<p>Each pixel contributes a small amount of visual information. By itself, a single pixel means almost nothing.</p>
+<p>Together, millions of pixels create the detailed images we see every day.</p>
+<p>This idea is crucial because AI never examines a photograph as a complete picture.</p>
+<p>Instead, it examines the individual pixels.</p>
+<p>When an AI system analyzes an image of a dog, it does not immediately recognize fur, ears, or a tail.</p>
+<p>At first, it sees only a massive collection of pixel values.</p>
+<p>The AI's task is to discover patterns hidden inside those pixels.</p>
+<p>Over time, during training, the system learns that certain arrangements of pixels often correspond to specific objects.</p>
+<p>Eventually, patterns of pixels become shapes.</p>
+<p>Shapes become features.</p>
+<p>Features become recognizable objects.</p>
+<p>That is how an image of a dog eventually becomes the concept of a dog.</p>
+<p>Everything begins with pixels.</p>
+<p>Before AI can recognize faces, read handwriting, detect tumors, or identify traffic signs, it must first examine the tiny squares that make up the image.</p>
+<p>The journey from pixels to understanding is one of the most remarkable achievements in modern artificial intelligence.</p>
+<h2 id="section-3-how-colors-become-numbers">Section 3 — How Colors Become Numbers</h2>
+<p>So far, we have learned that images are made of pixels.</p>
+<p>But a question remains:</p>
+<p>How does a computer know what color each pixel should be?</p>
+<p>The answer is surprisingly simple.</p>
+<p>Computers represent colors using numbers.</p>
+<p>Every pixel in a digital image contains numerical values that describe its color. The most common system is called RGB, which stands for:</p>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<p>These three colors act like the primary ingredients of digital color.</p>
+<p>By combining different amounts of red, green, and blue, a computer can create millions of different colors.</p>
+<p>Think of it like mixing paint.</p>
+<p>An artist might combine different amounts of red, yellow, and blue to create new colors.</p>
+<p>A computer performs a similar process, except it uses red, green, and blue light.</p>
+<p>Each RGB value is represented by a number ranging from 0 to 255.</p>
+<p>A value of:</p>
+<ul>
+<li>0 means none of that color</li>
+<li>255 means the maximum amount of that color</li>
+</ul>
+<p>For example:</p>
+<p>Red pixel:</p>
+<p>Red = 255</p>
+<p>Green = 0</p>
+<p>Blue = 0</p>
+<p>Yellow pixel:</p>
+<p>Red = 255</p>
+<p>Green = 255</p>
+<p>Blue = 0</p>
+<p>White pixel:</p>
+<p>Red = 255</p>
+<p>Green = 255</p>
+<p>Blue = 255</p>
+<p>Black pixel:</p>
+<p>Red = 0</p>
+<p>Green = 0</p>
+<p>Blue = 0</p>
+<p>Every pixel in an image contains a set of three numbers like these.</p>
+<p><img alt="RGB color values determine the color of every pixel in a digital image." src="../../images/ch17-rgb-color-values.png" /></p>
+<p><em>Figure 17.4: Computers represent colors using combinations of red, green, and blue values. Every pixel stores three numbers that define its color.</em></p>
+<p>A photograph containing one million pixels therefore contains roughly three million color values.</p>
+<p>That is a tremendous amount of numerical information.</p>
+<p>Yet modern computers process these numbers effortlessly.</p>
+<p>To humans, a photograph appears to be a meaningful scene.</p>
+<p>To a computer, the same photograph is simply a giant table of RGB values.</p>
+<p>Imagine zooming into a picture of a blue sky.</p>
+<p>You might find pixels represented by values such as:</p>
+<p>(120, 180, 255)</p>
+<p>To you, that is a pleasant shade of blue.</p>
+<p>To the computer, it is merely three numbers.</p>
+<p>This idea reveals something important about AI.</p>
+<p>When an AI system looks at an image of a dog, it does not see fur, eyes, ears, or a tail.</p>
+<p>Instead, it sees millions of RGB values arranged in a grid.</p>
+<p>The intelligence comes from learning patterns within those values.</p>
+<p>Over time, the AI discovers that certain combinations of colors and shapes frequently appear together.</p>
+<p>Those patterns eventually become meaningful concepts.</p>
+<p>What begins as numbers eventually becomes recognition.</p>
+<p>A face becomes a face.</p>
+<p>A stop sign becomes a stop sign.</p>
+<p>A dog becomes a dog.</p>
+<p>All because the computer learned how to interpret patterns hidden inside millions of color values.</p>
+<p>The remarkable fact is that every photograph ever taken with a digital camera, every image on a website, and every picture analyzed by AI ultimately comes down to the same thing:</p>
+<p>Rows and rows of numbers.</p>
+<h2 id="section-4-finding-patterns-in-the-pixels">Section 4 — Finding Patterns in the Pixels</h2>
+<p>At this point, we know that a computer sees an image as a massive collection of numbers.</p>
+<p>Every pixel has color values.</p>
+<p>Every image is a grid of pixels.</p>
+<p>But a fascinating question remains:</p>
+<p>How does AI turn all of those numbers into understanding?</p>
+<p>The answer is pattern recognition.</p>
+<p>Humans are natural pattern detectors.</p>
+<p>When you see two dots and a curved line, you instantly recognize a smiley face.</p>
+<p>When you see a few familiar shapes and colors, you recognize a car, a tree, or a dog.</p>
+<p>You rarely think about the process because your brain performs it automatically.</p>
+<p>AI systems must learn to do something similar.</p>
+<p>Imagine showing an AI thousands of photographs of dogs.</p>
+<p>At first, the images appear to be nothing more than enormous collections of RGB values.</p>
+<p>The AI does not know what a dog is.</p>
+<p>It does not know what fur is.</p>
+<p>It does not know what ears are.</p>
+<p>All it sees are numbers.</p>
+<p>During training, however, the AI begins searching for patterns that appear repeatedly.</p>
+<p>Certain groups of pixels often form edges.</p>
+<p>Certain edges often form shapes.</p>
+<p>Certain shapes frequently appear together.</p>
+<p>Over time, the AI discovers that some combinations of shapes appear in nearly every photograph labeled "dog."</p>
+<p>Without being explicitly programmed, it gradually learns what characteristics are useful for identifying a dog.</p>
+<p>This learning process happens in stages.</p>
+<p>At the lowest level, the AI learns simple visual features such as:</p>
+<ul>
+<li>Edges</li>
+<li>Lines</li>
+<li>Corners</li>
+<li>Color transitions</li>
+</ul>
+<p>These features may seem unimportant to humans, but they provide the building blocks for understanding an image.</p>
+<p>As information moves deeper through the neural network, the AI begins combining these simple features into more complex ones.</p>
+<div class="highlight"><pre><span></span><code>flowchart LR
+    A[Pixels] --&gt; B[Edges]
+    B --&gt; C[Shapes]
+    C --&gt; D[Parts]
+    D --&gt; E[Objects]
+    E --&gt; F[Understanding]
+</code></pre></div>
+<p><em>Figure 17.5: AI gradually builds understanding by combining simple visual patterns into increasingly complex concepts.</em></p>
+<p>Edges become shapes.</p>
+<p>Shapes become parts.</p>
+<p>Parts become objects.</p>
+<p>A collection of curved edges might become an ear.</p>
+<p>Several ears, eyes, and a nose might become a face.</p>
+<p>A face combined with other features might become a dog.</p>
+<p>The remarkable aspect of this process is that the AI never truly "sees" the dog the way a human does.</p>
+<p>It discovers statistical patterns that consistently appear when dogs are present.</p>
+<p>To humans, recognition feels natural.</p>
+<p>To AI, recognition is the result of finding useful patterns within vast amounts of numerical data.</p>
+<p>This idea extends far beyond photographs.</p>
+<p>The same principle helps AI recognize:</p>
+<ul>
+<li>Handwritten text</li>
+<li>Medical images</li>
+<li>Traffic signs</li>
+<li>Human faces</li>
+<li>Manufacturing defects</li>
+<li>Satellite imagery</li>
+</ul>
+<p>In every case, the process begins the same way.</p>
+<p>Numbers become patterns.</p>
+<p>Patterns become features.</p>
+<p>Features become understanding.</p>
+<p>That transformation is the foundation of modern computer vision.</p>
+<h2 id="section-5-seeing-beyond-images-everything-can-become-numbers">Section 5 — Seeing Beyond Images: Everything Can Become Numbers</h2>
+<p>By now, we have explored how computers represent photographs as pixels and colors as numbers.</p>
+<p>But images are only one type of information.</p>
+<p>The same principle applies to almost everything AI processes.</p>
+<p>Text becomes numbers.</p>
+<p>Sound becomes numbers.</p>
+<p>Video becomes numbers.</p>
+<div class="highlight"><pre><span></span><code>flowchart TB
+    A[Images] --&gt; E[Numbers]
+    B[Text] --&gt; E
+    C[Sound] --&gt; E
+    D[Video] --&gt; E
+    E --&gt; F[AI Learning]
+</code></pre></div>
+<p><em>Figure 17.6: Different types of information can all be converted into numbers, allowing AI systems to learn from them using the same underlying principles.</em></p>
+<p>Even concepts and relationships can eventually be represented using numbers.</p>
+<p>This idea is one of the most important themes in artificial intelligence.</p>
+<p>Once information can be expressed numerically, a computer can analyze it, compare it, and search for patterns within it.</p>
+<p>Consider a simple sentence:</p>
+<p>"The cat sat on the mat."</p>
+<p>To a human, these words have meaning.</p>
+<p>To a computer, they must first be converted into a numerical form.</p>
+<p>Modern AI systems break sentences into smaller pieces called tokens.</p>
+<p>Each token is assigned a numerical identifier.</p>
+<p>For example:</p>
+<p>"The" → 1024</p>
+<p>"cat" → 5847</p>
+<p>"sat" → 3192</p>
+<p>These numbers are not important by themselves.</p>
+<p>They simply provide a way for the computer to represent language mathematically.</p>
+<p>The same idea applies to sound.</p>
+<p>When you speak into a smartphone, your voice creates vibrations in the air.</p>
+<p>A microphone converts those vibrations into electrical signals.</p>
+<p>The computer then converts those signals into numerical values that describe the sound wave.</p>
+<p>What feels like speech to you becomes a sequence of numbers to the machine.</p>
+<p>Video follows the same pattern.</p>
+<p>A video is essentially a rapid sequence of images displayed one after another.</p>
+<p>Since each image can be represented as numbers, an entire video can also be represented numerically.</p>
+<p>This means that photographs, books, conversations, songs, movies, and even medical scans can all be transformed into data that AI can process.</p>
+<p>At first glance, these forms of information seem completely different.</p>
+<p>A photograph looks nothing like a spoken sentence.</p>
+<p>A song feels very different from a legal document.</p>
+<p>Yet to a computer, they share something important.</p>
+<p>They can all be represented using numbers.</p>
+<p>This realization has driven many of the breakthroughs in modern AI.</p>
+<p>Once researchers learned how to convert different kinds of information into numerical representations, the same underlying learning techniques could be applied across many domains.</p>
+<p>The AI that recognizes faces, the AI that translates languages, and the AI that generates text all rely on the same fundamental principle:</p>
+<p>Convert information into numbers.</p>
+<p>Learn patterns within those numbers.</p>
+<p>Use those patterns to make predictions.</p>
+<p>In many ways, the story of artificial intelligence is the story of finding better ways to represent the world numerically.</p>
+<p>The more effectively we can translate reality into numbers, the more effectively AI can learn from it.</p>
+<h2 id="insight-box-the-secret-language-of-computers">Insight Box: The Secret Language of Computers</h2>
+<p>One of the biggest surprises in artificial intelligence is that computers do not experience the world the way humans do.</p>
+<p>When you look at a photograph, you see people, places, memories, and meaning.</p>
+<p>When a computer looks at the same photograph, it sees numbers.</p>
+<p>When you read a sentence, you understand ideas.</p>
+<p>When a computer reads that sentence, it sees numerical representations.</p>
+<p>When you listen to music, you hear melody and emotion.</p>
+<p>When a computer processes music, it analyzes patterns in numerical data.</p>
+<p>This may seem strange at first, but it reveals a profound truth:</p>
+<p><strong>The computer's language is mathematics.</strong></p>
+<p>Everything an AI system learns begins with converting information into numbers.</p>
+<p>Pictures become pixels.</p>
+<p>Pixels become color values.</p>
+<p>Words become tokens.</p>
+<p>Sounds become waveforms.</p>
+<p>Videos become sequences of images.</p>
+<p>Once information has been translated into numbers, AI can search for patterns that humans might never notice.</p>
+<p>That ability has enabled remarkable breakthroughs in fields ranging from medicine and science to language and art.</p>
+<p>The next time you use an AI system, remember what is happening behind the scenes.</p>
+<p>The machine is not seeing what you see.</p>
+<p>It is not hearing what you hear.</p>
+<p>It is not reading what you read.</p>
+<p>Instead, it is finding meaning hidden inside vast oceans of numbers.</p>
+<p>And from those numbers, intelligence begins to emerge.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>At first, it may seem almost magical that artificial intelligence can recognize faces, describe photographs, drive vehicles, or generate images.</p>
+<p>But beneath all of these impressive abilities lies a surprisingly simple idea.</p>
+<p>Computers understand numbers.</p>
+<p>Nothing more.</p>
+<p>Nothing less.</p>
+<p>A photograph that appears rich and meaningful to us is, to a computer, a grid of pixels.</p>
+<p>Each pixel contains color values.</p>
+<p>Those color values are stored as numbers.</p>
+<p>By finding patterns within those numbers, AI systems gradually learn to recognize edges, shapes, objects, and eventually entire scenes.</p>
+<p>The same principle extends far beyond images.</p>
+<p>Text becomes numbers.</p>
+<p>Sound becomes numbers.</p>
+<p>Video becomes numbers.</p>
+<p>Much of modern AI can be understood as the process of transforming the world into numerical representations and then discovering patterns within them.</p>
+<p>This chapter marks an important milestone in our journey.</p>
+<p>We have moved beyond the history of AI and begun exploring how AI actually works beneath the surface.</p>
+<p>Understanding that computers see the world as numbers provides the foundation for many of the chapters ahead.</p>
+<p>In the next chapter, we will examine one of the most important ideas behind modern language models.</p>
+<p>If computers only understand numbers, how can they work with words?</p>
+<p>The answer begins with something called a token.</p>
+<p>And as we will discover, every conversation with an AI system starts by turning language into pieces that a computer can understand.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sikijs/YourHonor-AI-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

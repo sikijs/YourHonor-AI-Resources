@@ -1,0 +1,2312 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Educational AI resources for law students — YourHonor AI">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter-15-large-language-models/">
+      
+      
+        <link rel="next" href="../chapter-17-how-computer-sees-everything-as-numbers/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Chapter 16: Data: The Fuel Of AI - AI Learning Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-16-data-the-fuel-of-ai" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AI Learning Center" class="md-header__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI Learning Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 16: Data: The Fuel Of AI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AI Learning Center" class="md-nav__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI Learning Center
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-01-what-is-intelligence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: What Is Intelligence?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-02-how-the-human-brain-inspired-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: How the Human Brain Inspired AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-03-artificial-neurons-%281943%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: Artificial Neurons (1943)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-04-alan-turing-and-thinking-machines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Alan Turing and Thinking Machines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-05-the-birth-of-AI-%281956%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: The Birth of AI (1956)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-06-the-perceptron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: The Perceptron
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-07-the-first-ai-winter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: The First AI Winter (1969–1974)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-08-expert-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Expert Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-09-backpropagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9: Backpropagation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-10-deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10: Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-11-the-gpu-revolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: The GPU Revolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-12-imagenet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12: ImageNet: The Dataset That Changed Everything
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-13-ai-beats-the-champions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13: AI Beats The Champions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-14-transformers-and-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14: Transformers and Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-15-large-language-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15: Large Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16: Data: The Fuel Of AI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16: Data: The Fuel Of AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story-teaching-a-child-about-dogs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story: Teaching a Child About Dogs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-what-is-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1 — What Is Data?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-the-many-forms-of-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2 — The Many Forms of Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-why-data-quality-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3 — Why Data Quality Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-teaching-ai-with-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4 — Teaching AI with Labels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-learning-without-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5 — Learning Without Labels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-6-from-raw-data-to-training-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 6 — From Raw Data to Training Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-data-is-experience-for-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box: Data Is Experience for AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-17-how-computer-sees-everything-as-numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 17: How Computers See Everything as Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-18-tokens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 18: Tokens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-19-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 19: Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-20-neural-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 20: Neural Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-21-weights-and-parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 21: Weights and Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-22-training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 22: Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-23-backpropagation-simplified/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 23: Backpropagation Simplified
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-24-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 24: Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-25-why-bigger-models-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 25: Why Bigger Models Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-26-fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 26: Fine-tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-27-retrieval-augmented-generation-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 27: Retrieval-Augmented Generation (RAG)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-28-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 28: Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-29-vibe-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 29: Vibe Coding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-30-multimodal-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 30: Multimodal AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-31-hallucinations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 31: Hallucinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-32-what-ai-still-cannot-do/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 32: What AI Still Cannot Do
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-33-agi-and-beyond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 33: AGI (Artificial General Intelligence) and Beyond
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-34-the-future-of-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 34: The Future of Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-A-ai-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix A — AI Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story-teaching-a-child-about-dogs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story: Teaching a Child About Dogs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-what-is-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1 — What Is Data?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-the-many-forms-of-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2 — The Many Forms of Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-why-data-quality-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3 — Why Data Quality Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-teaching-ai-with-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4 — Teaching AI with Labels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-learning-without-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5 — Learning Without Labels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-6-from-raw-data-to-training-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 6 — From Raw Data to Training Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-data-is-experience-for-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box: Data Is Experience for AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-16-data-the-fuel-of-ai">Chapter 16: Data: The Fuel Of AI</h1>
+<h2 id="opening-story-teaching-a-child-about-dogs">Opening Story: Teaching a Child About Dogs</h2>
+<p>Imagine trying to teach a young child what a dog is.</p>
+<p>You could start with a definition:</p>
+<p>"A dog is a domesticated mammal belonging to the species <em>Canis familiaris</em>."</p>
+<p>Technically correct.</p>
+<p>But not very useful.</p>
+<p>Instead, most children learn differently.</p>
+<p>They see a dog in the park.</p>
+<p>They see another dog in a picture book.</p>
+<p>They meet a neighbor's dog.</p>
+<p>They watch videos of dogs running, barking, and playing.</p>
+<p>Over time, the child begins noticing patterns.</p>
+<p>Some dogs are large.</p>
+<p>Some are small.</p>
+<p>Some have long hair.</p>
+<p>Some have short hair.</p>
+<p>They look different, yet somehow they all belong to the same category.</p>
+<p>Eventually, when the child encounters a dog they have never seen before, they can still recognize it.</p>
+<p>Why?</p>
+<p>Because they learned from examples.</p>
+<p>The more examples they encountered, the better their understanding became.</p>
+<p>Artificial intelligence learns in a surprisingly similar way.</p>
+<p>AI systems are not born knowing what a dog, a contract, a medical image, or a sentence looks like.</p>
+<p>They learn from data.</p>
+<p>Millions of examples allow an AI system to discover patterns that would be impossible to describe with a simple set of rules.</p>
+<p>In many ways, data plays the same role for AI that experience plays for humans.</p>
+<p>Without experience, people struggle to learn.</p>
+<p>Without data, AI cannot learn at all.</p>
+<p>That is why data is often described as the fuel of artificial intelligence.</p>
+<p>Just as a car cannot travel without fuel, an AI system cannot learn without data.</p>
+<p>To understand modern AI, we must first understand the resource that makes it possible.</p>
+<p>And that resource is data.</p>
+<h2 id="section-1-what-is-data">Section 1 — What Is Data?</h2>
+<p>The word <em>data</em> appears constantly in discussions about artificial intelligence.</p>
+<p>Companies collect data.</p>
+<p>Researchers analyze data.</p>
+<p>AI models train on data.</p>
+<p>But what exactly is data?</p>
+<p>In its simplest form, data is information.</p>
+<p>It can be numbers, words, images, sounds, videos, documents, measurements, or observations about the world.</p>
+<p>Every day, people generate enormous amounts of data without even thinking about it.</p>
+<p>When you send a text message, you create data.</p>
+<p>When you take a photograph, you create data.</p>
+<p>When you make an online purchase, watch a video, visit a website, or use a navigation app, data is generated.</p>
+<p>To a human, these activities feel completely different.</p>
+<p>To a computer, they are all forms of information that can be stored and processed.</p>
+<p>Consider a weather station.</p>
+<p>Every hour it records:</p>
+<ul>
+<li>Temperature</li>
+<li>Humidity</li>
+<li>Wind speed</li>
+<li>Air pressure</li>
+</ul>
+<p>Each measurement is a piece of data.</p>
+<p>After a year, the station has accumulated thousands of measurements.</p>
+<p>Patterns begin to emerge.</p>
+<p>Meteorologists can study those patterns to better understand weather conditions.</p>
+<p>Artificial intelligence works in a similar way.</p>
+<p>Rather than learning from a handful of examples, AI systems often learn from millions or even billions of pieces of data.</p>
+<p>For example:</p>
+<ul>
+<li>An image-recognition system learns from photographs.</li>
+<li>A language model learns from text.</li>
+<li>A speech-recognition system learns from audio recordings.</li>
+<li>A recommendation system learns from user behavior.</li>
+</ul>
+<p>The type of data may differ, but the underlying principle remains the same.</p>
+<p>The AI searches for patterns.</p>
+<p>This is an important distinction.</p>
+<p>Data by itself is not intelligence.</p>
+<p>A pile of books is not intelligent.</p>
+<p>A hard drive full of photographs is not intelligent.</p>
+<p>A database containing millions of documents is not intelligent.</p>
+<p>Intelligence emerges when a system can learn useful patterns from the data.</p>
+<p>An analogy may help.</p>
+<p>Imagine walking into a giant warehouse filled with puzzle pieces.</p>
+<p>At first, the pieces appear random.</p>
+<p>But as you begin assembling them, a picture gradually emerges.</p>
+<p>Data provides the puzzle pieces.</p>
+<p>AI attempts to discover the picture hidden inside them.</p>
+<p>The quality of the picture depends heavily on the quality of the pieces.</p>
+<p>If the pieces are missing, damaged, or misleading, the final picture will be incomplete.</p>
+<p>The same is true for AI.</p>
+<p>The quality of an AI system is often limited by the quality of the data used to train it.</p>
+<p>This principle is so important that data scientists have a common saying:</p>
+<p><strong>"Garbage in, garbage out."</strong></p>
+<p>If poor-quality data goes into a system, poor-quality results are likely to come out.</p>
+<p>As we will see throughout this chapter, collecting data is only the beginning.</p>
+<p>The real challenge is obtaining the right data, organizing it properly, and using it effectively.</p>
+<p>Modern AI systems are powerful not simply because they use data, but because they learn from enormous quantities of carefully prepared data.</p>
+<p>Before AI can become intelligent, it must first have something to learn from.</p>
+<h2 id="section-2-the-many-forms-of-data">Section 2 — The Many Forms of Data</h2>
+<p>When people hear the word <em>data</em>, they often imagine rows of numbers in a spreadsheet.</p>
+<p>While spreadsheets are certainly a form of data, modern artificial intelligence works with many different types of information.</p>
+<p>In fact, almost anything that can be recorded, stored, or measured can become data.</p>
+<div class="highlight"><pre><span></span><code>                 DATA
+                   │
+    ┌──────────────┼──────────────┐
+    │              │              │
+  Text          Images         Audio
+    │              │              │
+ Books         Photos         Speech
+ Emails        X-rays         Music
+ Articles      Videos         Calls
+
+                   │
+                Video
+                   │
+             Motion + Sound
+
+                   │
+            Structured Data
+                   │
+          Tables / Databases
+</code></pre></div>
+<p><em>Figure 16.1: Modern AI systems learn from many different forms of data, including text, images, audio, video, and structured information.</em></p>
+<p>Consider how humans experience the world.</p>
+<p>We read words.</p>
+<p>We look at images.</p>
+<p>We listen to sounds.</p>
+<p>We watch videos.</p>
+<p>We observe events and interactions.</p>
+<p>Artificial intelligence can learn from many of these same forms of information.</p>
+<p>One of the most common types is <strong>text data</strong>.</p>
+<p>Books, websites, emails, articles, contracts, research papers, and conversations all contain text.</p>
+<p>Large Language Models such as ChatGPT learn primarily from enormous collections of written language.</p>
+<p>Every sentence becomes an opportunity to learn patterns about words, grammar, facts, and ideas.</p>
+<p>Another important category is <strong>image data</strong>.</p>
+<p>Photographs, medical scans, satellite images, X-rays, handwritten notes, and security-camera footage all contain visual information.</p>
+<p>By analyzing millions of images, AI systems can learn to recognize faces, identify objects, detect diseases, and interpret complex visual scenes.</p>
+<p>AI can also learn from <strong>audio data</strong>.</p>
+<p>Speech recordings, music, phone calls, and environmental sounds provide valuable information.</p>
+<p>This type of data enables systems to recognize spoken language, transcribe conversations, identify speakers, and even generate realistic synthetic voices.</p>
+<p>A fourth category is <strong>video data</strong>.</p>
+<p>Video combines images, motion, and often sound into a continuous stream of information.</p>
+<p>By learning from videos, AI systems can recognize activities, track movement, analyze behavior, and understand events unfolding over time.</p>
+<p>Some AI systems also learn from <strong>structured data</strong>.</p>
+<p>Structured data is information organized into clearly defined categories, such as spreadsheets, databases, and financial records.</p>
+<p>For example, a bank might store information about transactions, account balances, and payment histories in structured formats that AI can analyze for patterns.</p>
+<p>These categories often overlap.</p>
+<p>Consider a social media post.</p>
+<p>It may contain:</p>
+<ul>
+<li>Text</li>
+<li>Images</li>
+<li>Video</li>
+<li>Audio</li>
+<li>User interactions</li>
+</ul>
+<p>A single post can therefore generate multiple forms of data simultaneously.</p>
+<p>As AI systems become more advanced, they increasingly combine these different sources of information.</p>
+<p>Rather than learning only from text or only from images, modern systems are beginning to learn from many forms of data at once.</p>
+<p>This capability is known as <strong>multimodal AI</strong>.</p>
+<p>A multimodal system might examine a photograph, read a description, listen to an audio recording, and combine all of that information to generate a response.</p>
+<p>Humans naturally integrate information from multiple senses.</p>
+<p>Modern AI is gradually moving in the same direction.</p>
+<p>The variety of available data is one reason AI has advanced so rapidly in recent years.</p>
+<p>The world produces an astonishing amount of information every day.</p>
+<p>Every photograph, document, recording, transaction, and message becomes a potential source of learning.</p>
+<p>For AI, the challenge is no longer finding data.</p>
+<p>The challenge is determining which data is useful and how it can be transformed into knowledge.</p>
+<p>As we will soon discover, having large amounts of data is helpful—but quantity alone is not enough.</p>
+<p>The quality of the data matters just as much.</p>
+<h2 id="section-3-why-data-quality-matters">Section 3 — Why Data Quality Matters</h2>
+<p>Imagine trying to learn history from a collection of books.</p>
+<p>Some books are accurate.</p>
+<p>Some contain outdated information.</p>
+<p>Some are missing pages.</p>
+<p>Others are filled with mistakes.</p>
+<p>Even if you read thousands of these books, your understanding of history would still be flawed because the information itself is flawed.</p>
+<p>Artificial intelligence faces the same challenge.</p>
+<p>An AI system can only learn from the data it receives.</p>
+<p>If the data is incomplete, inaccurate, biased, or misleading, those problems can become part of the model's behavior.</p>
+<p>This principle is often summarized by a famous phrase in computer science:</p>
+<p><strong>"Garbage in, garbage out."</strong></p>
+<div class="highlight"><pre><span></span><code>          DATA QUALITY
+
+      High Quality Data
+               │
+               ▼
+      Better Learning
+               │
+               ▼
+      Better AI Results
+
+
+      Poor Quality Data
+               │
+               ▼
+      Confused Learning
+               │
+               ▼
+      Poor AI Results
+
+     (&quot;Garbage In,
+      Garbage Out&quot;)
+</code></pre></div>
+<p><em>Figure 16.2: The quality of an AI system is heavily influenced by the quality of the data used to train it.</em></p>
+<p>In other words, poor-quality input often leads to poor-quality results.</p>
+<p>Consider an AI system designed to identify cats in photographs.</p>
+<p>Suppose the training dataset contains thousands of images labeled as cats.</p>
+<p>At first glance, that sounds ideal.</p>
+<p>But what if many of the labels are incorrect?</p>
+<p>What if dogs are mistakenly labeled as cats?</p>
+<p>What if blurry images are labeled inconsistently?</p>
+<p>What if most of the photographs were taken under unusual lighting conditions?</p>
+<p>The AI would learn from those mistakes.</p>
+<p>As a result, its predictions would become less reliable.</p>
+<p>The same problem occurs in more serious applications.</p>
+<p>Medical AI systems depend on accurate medical records and correctly diagnosed cases.</p>
+<p>Financial AI systems depend on reliable transaction data.</p>
+<p>Legal AI systems depend on trustworthy documents and accurate legal information.</p>
+<p>When the quality of the data improves, the quality of the AI often improves as well.</p>
+<p>Data quality involves several important characteristics.</p>
+<p><strong>Accuracy</strong></p>
+<p>The information should be correct.</p>
+<p>Errors in the data can lead to errors in the model.</p>
+<p><strong>Completeness</strong></p>
+<p>Important information should not be missing.</p>
+<p>Large gaps can make learning difficult.</p>
+<p><strong>Consistency</strong></p>
+<p>Similar information should be recorded in similar ways.</p>
+<p>Inconsistent data can confuse learning systems.</p>
+<p><strong>Relevance</strong></p>
+<p>The data should be related to the task being performed.</p>
+<p>Training a medical AI using sports statistics would obviously be unhelpful.</p>
+<p>Another challenge is bias.</p>
+<p>Data reflects the real world, and the real world is not always balanced or fair.</p>
+<p>If certain groups, viewpoints, or situations are underrepresented in a dataset, the AI may learn distorted patterns.</p>
+<p>Researchers spend enormous amounts of time trying to identify and reduce these problems.</p>
+<p>In many AI projects, preparing and cleaning data requires more effort than building the model itself.</p>
+<p>This surprises many people.</p>
+<p>When news stories discuss AI breakthroughs, they often focus on algorithms, neural networks, or powerful computers.</p>
+<p>Yet behind every successful AI system lies an enormous amount of careful work devoted to collecting, organizing, verifying, and improving data.</p>
+<p>A useful analogy is cooking.</p>
+<p>The most talented chef in the world cannot create an exceptional meal using spoiled ingredients.</p>
+<p>Likewise, even the most sophisticated AI model cannot consistently produce high-quality results when trained on poor-quality data.</p>
+<p>The lesson is simple but important.</p>
+<p>Data is the fuel of AI.</p>
+<p>High-quality data is high-quality fuel.</p>
+<p>And just as the quality of fuel affects the performance of a vehicle, the quality of data strongly influences the performance of an AI system.</p>
+<p>Before an AI model can learn effectively, it must first be given reliable information from which to learn.</p>
+<h2 id="section-4-teaching-ai-with-labels">Section 4 — Teaching AI with Labels</h2>
+<p>Imagine showing a child a series of photographs.</p>
+<p>For each photograph, you point and say:</p>
+<p>"Dog."</p>
+<p>"Dog."</p>
+<p>"Dog."</p>
+<p>Then:</p>
+<p>"Cat."</p>
+<p>"Cat."</p>
+<p>"Cat."</p>
+<p>Over time, the child begins to recognize the difference between dogs and cats.</p>
+<p>The labels help connect the image to the correct concept.</p>
+<p>Many AI systems learn in a similar way.</p>
+<p>A <strong>label</strong> is a piece of information that tells the AI what a particular example represents.</p>
+<p>For example, a photograph might be labeled:</p>
+<ul>
+<li>Dog</li>
+<li>Cat</li>
+<li>Car</li>
+<li>Bicycle</li>
+<li>Tree</li>
+</ul>
+<p>A medical image might be labeled:</p>
+<ul>
+<li>Healthy</li>
+<li>Disease Present</li>
+</ul>
+<p>An email might be labeled:</p>
+<ul>
+<li>Spam</li>
+<li>Not Spam</li>
+</ul>
+<p>A customer review might be labeled:</p>
+<ul>
+<li>Positive</li>
+<li>Negative</li>
+</ul>
+<p>These labels act as teaching signals.</p>
+<div class="highlight"><pre><span></span><code>      Photograph
+           │
+           ▼
+      [ Picture ]
+           │
+           ▼
+     Label: &quot;Cat&quot;
+           │
+           ▼
+      AI Learns
+</code></pre></div>
+<p><em>Figure 16.3: In supervised learning, examples are paired with labels that tell the AI the correct answer. These labeled examples help the model learn useful patterns.</em></p>
+<p>They provide examples of the correct answers the AI should learn to recognize.</p>
+<p>This approach is called <strong>supervised learning</strong>.</p>
+<p>The word <em>supervised</em> does not mean a human watches every decision the AI makes.</p>
+<p>Instead, it means the training process uses examples that already contain the correct answers.</p>
+<p>The AI repeatedly studies the examples, makes predictions, compares its predictions to the labels, and gradually improves.</p>
+<p>Consider a simple example.</p>
+<p>Suppose an AI is shown a photograph labeled:</p>
+<p><strong>Cat</strong></p>
+<p>At first, the model might incorrectly predict:</p>
+<p><strong>Dog</strong></p>
+<p>The training system calculates the error and adjusts the model's internal parameters.</p>
+<p>After seeing thousands or millions of examples, the AI gradually becomes better at identifying the correct patterns.</p>
+<p>The learning process looks like this:</p>
+<p>Example
+↓
+Prediction
+↓
+Compare with Label
+↓
+Measure Error
+↓
+Adjust Model
+↓
+Try Again</p>
+<p>This cycle is repeated over and over until the model's predictions improve.</p>
+<p>Labels have played a crucial role in many of the most successful AI systems ever created.</p>
+<p>Image-recognition systems learned from millions of labeled photographs.</p>
+<p>Speech-recognition systems learned from recordings paired with written transcripts.</p>
+<p>Medical AI systems learned from scans that experts had already diagnosed.</p>
+<p>Without labels, many of these breakthroughs would have been impossible.</p>
+<p>However, labeling data can be expensive and time-consuming.</p>
+<p>Imagine trying to label ten million photographs by hand.</p>
+<p>Someone must inspect every image and assign the correct category.</p>
+<p>The process requires enormous amounts of human effort.</p>
+<p>This challenge has led researchers to develop alternative approaches that require fewer labels or no labels at all.</p>
+<p>Large Language Models, for example, learn much of their knowledge without being explicitly told the correct answer for every sentence they encounter.</p>
+<p>Instead, they often learn by predicting missing words or tokens within text.</p>
+<p>We will explore those approaches shortly.</p>
+<p>For now, the important idea is simple:</p>
+<p>Labels are one of the ways humans teach AI.</p>
+<p>By providing examples along with the correct answers, people create learning opportunities that allow machines to gradually improve their understanding of the world.</p>
+<h2 id="section-5-learning-without-labels">Section 5 — Learning Without Labels</h2>
+<p>Imagine entering a room filled with thousands of photographs.</p>
+<p>No labels.</p>
+<p>No captions.</p>
+<p>No instructions.</p>
+<p>No one tells you which images contain cats, dogs, cars, trees, or people.</p>
+<p>At first, the collection appears chaotic.</p>
+<p>But after studying the photographs for a while, you begin noticing patterns.</p>
+<p>Certain images contain similar shapes.</p>
+<p>Others share similar colors.</p>
+<p>Some appear to belong to the same category even though nobody has identified them.</p>
+<p>Humans naturally organize information in this way.</p>
+<p>Artificial intelligence can do something similar.</p>
+<p>In the previous section, we explored supervised learning, where examples are paired with labels that provide the correct answers.</p>
+<p>But in many situations, labels are unavailable.</p>
+<p>The world contains far more unlabeled data than labeled data.</p>
+<p>Most photographs on the internet are not carefully categorized.</p>
+<p>Most documents have not been manually annotated.</p>
+<p>Most conversations do not come with detailed explanations of their meaning.</p>
+<p>If AI could learn only from labeled data, its capabilities would be severely limited.</p>
+<p>This challenge led researchers to explore another approach known as <strong>unsupervised learning</strong>.</p>
+<p>In unsupervised learning, the AI receives data without being told the correct answers.</p>
+<p>Instead, the system attempts to discover patterns on its own.</p>
+<div class="highlight"><pre><span></span><code>      Unlabeled Data
+
+  ○  ○  ○    △  △  △
+  ○  ○  ○    △  △  △
+  ○  ○  ○    △  △  △
+
+          AI
+           │
+           ▼
+
+     Finds Patterns
+
+      Group A   Group B
+</code></pre></div>
+<p><em>Figure 16.4: In unsupervised learning, the AI is not given correct answers. Instead, it discovers patterns and relationships hidden within the data.</em></p>
+<p>For example, an AI might examine thousands of customer purchases and discover that certain products are frequently bought together.</p>
+<p>No human explicitly provided that rule.</p>
+<p>The pattern emerged from the data itself.</p>
+<p>Similarly, an AI studying photographs may discover groups of visually similar images.</p>
+<p>A system analyzing documents may identify common topics.</p>
+<p>A model processing language may learn relationships between words and phrases.</p>
+<p>The goal is not to find predetermined answers.</p>
+<p>The goal is to uncover structure hidden within the data.</p>
+<p>A useful analogy is sorting a box of mixed buttons.</p>
+<p>Imagine a large container filled with buttons of different sizes, shapes, and colors.</p>
+<p>Without instructions, you might begin grouping them.</p>
+<p>Large buttons in one pile.</p>
+<p>Small buttons in another.</p>
+<p>Red buttons together.</p>
+<p>Blue buttons together.</p>
+<p>You are discovering patterns rather than following labels.</p>
+<p>Many AI systems perform similar forms of organization.</p>
+<p>This idea became especially important as researchers began working with massive datasets.</p>
+<p>Labeling millions or billions of examples by hand is often impractical.</p>
+<p>However, unlabeled data is abundant.</p>
+<p>Web pages, books, images, videos, and audio recordings can be collected in enormous quantities.</p>
+<p>The challenge is finding ways for AI to learn from them.</p>
+<p>Large Language Models provide one of the most successful examples of this approach.</p>
+<p>During training, a language model is usually not given a teacher who explains every sentence.</p>
+<p>Instead, the model learns by predicting missing words or tokens within text.</p>
+<p>The text itself becomes the teacher.</p>
+<p>Every sentence creates a learning opportunity.</p>
+<p>By repeatedly making predictions and correcting mistakes, the model gradually learns patterns about language, grammar, facts, and relationships between ideas.</p>
+<p>This insight transformed modern AI.</p>
+<p>Researchers discovered that vast amounts of unlabeled data could teach machines far more than previously imagined.</p>
+<p>Rather than relying entirely on carefully labeled examples, AI systems could learn directly from the information already present in the world.</p>
+<p>Today, many of the most powerful AI models combine both approaches.</p>
+<p>They learn from enormous quantities of unlabeled data and are later refined using smaller amounts of labeled data.</p>
+<p>Together, these methods allow AI systems to learn at a scale that would otherwise be impossible.</p>
+<p>The result is a simple but powerful lesson:</p>
+<p>Sometimes the data itself contains the answers.</p>
+<p>The challenge is learning how to find them.</p>
+<h2 id="section-6-from-raw-data-to-training-data">Section 6 — From Raw Data to Training Data</h2>
+<p>Imagine trying to prepare a meal for hundreds of guests.</p>
+<p>Before any cooking can begin, ingredients must be gathered.</p>
+<p>Vegetables must be washed.</p>
+<p>Spoiled items must be discarded.</p>
+<p>Measurements must be organized.</p>
+<p>Everything must be prepared before it reaches the kitchen.</p>
+<p>Artificial intelligence faces a similar challenge.</p>
+<p>The data used to train AI systems rarely arrives in a perfect form.</p>
+<p>Instead, it often contains errors, duplicates, missing information, formatting problems, and irrelevant content.</p>
+<p>Before an AI model can learn effectively, the data must usually be prepared.</p>
+<p>This process is known as <strong>data preparation</strong>.</p>
+<p>The exact steps vary from one project to another, but the overall goal remains the same:</p>
+<p>Transform raw information into data that can be used for learning.</p>
+<div class="highlight"><pre><span></span><code>          Raw Data
+              │
+              ▼
+        Collection
+              │
+              ▼
+         Filtering
+              │
+              ▼
+          Cleaning
+              │
+              ▼
+       Organization
+              │
+              ▼
+       Training Data
+              │
+              ▼
+          AI Model
+</code></pre></div>
+<p><em>Figure 16.5: Raw data must be collected, filtered, cleaned, and organized before it can be used to train an AI model.</em></p>
+<p>The process often begins with <strong>data collection</strong>.</p>
+<p>Researchers gather information from sources such as books, websites, documents, images, audio recordings, databases, and many other repositories of information.</p>
+<p>Once collected, the data is examined and filtered.</p>
+<p>Duplicate entries may be removed.</p>
+<p>Corrupted files may be discarded.</p>
+<p>Obvious errors may be corrected.</p>
+<p>Information that is irrelevant to the task may be excluded.</p>
+<p>Next comes <strong>data cleaning</strong>.</p>
+<p>Anyone who has worked with real-world information quickly discovers that data is often messy.</p>
+<p>Names may be misspelled.</p>
+<p>Dates may use different formats.</p>
+<p>Records may be incomplete.</p>
+<p>Some entries may contain mistakes.</p>
+<p>Cleaning helps make the dataset more consistent and reliable.</p>
+<p>After cleaning, the data is often organized into a format that computers can process efficiently.</p>
+<p>Images may be resized.</p>
+<p>Documents may be converted into text.</p>
+<p>Audio recordings may be transcribed.</p>
+<p>Information may be categorized and stored in structured formats.</p>
+<p>Only then is the data ready for training.</p>
+<p>For very large AI systems, this preparation process can involve enormous amounts of work.</p>
+<p>Teams of researchers, engineers, and data specialists may spend months or even years preparing datasets before a model is trained.</p>
+<p>In many projects, data preparation consumes more time than building the AI model itself.</p>
+<p>This surprises many newcomers to AI.</p>
+<p>The spotlight often falls on neural networks, algorithms, and powerful computers.</p>
+<p>Yet those systems depend on the quality of the data that feeds them.</p>
+<p>An AI model is like a student preparing for an exam.</p>
+<p>The model's performance depends heavily on the quality of the material available for study.</p>
+<p>Well-prepared training data helps the model learn useful patterns.</p>
+<p>Poorly prepared data makes learning more difficult.</p>
+<p>This is one reason why successful AI projects require much more than clever algorithms.</p>
+<p>They require careful attention to the information used for learning.</p>
+<p>Before intelligence can emerge, the data must first be prepared.</p>
+<p>Only then can training begin.</p>
+<h2 id="insight-box-data-is-experience-for-ai">Insight Box: Data Is Experience for AI</h2>
+<p>One of the most common misconceptions about artificial intelligence is that the intelligence comes primarily from the algorithm.</p>
+<p>Algorithms are important, but they are only part of the story.</p>
+<p>Imagine two students preparing for the same exam.</p>
+<p>One student studies a few pages of notes.</p>
+<p>The other studies thousands of pages of books, articles, examples, and practice problems.</p>
+<p>Even if both students have similar learning abilities, the second student will usually develop a much deeper understanding because they have learned from more experience.</p>
+<p>AI systems work in a similar way.</p>
+<p>The neural network provides the learning mechanism, but the data provides the experience.</p>
+<p>Every photograph, document, audio recording, transaction, conversation, or measurement becomes an opportunity for the system to learn patterns about the world.</p>
+<p>This is why data is often called the fuel of AI.</p>
+<p>But a more accurate comparison might be this:</p>
+<p><strong>Data is experience for AI.</strong></p>
+<p>Just as humans learn from the experiences they accumulate throughout their lives, AI systems learn from the examples they encounter during training.</p>
+<p>The quantity of experience matters.</p>
+<p>The quality of experience matters.</p>
+<p>And the diversity of experience matters.</p>
+<p>When people understand this idea, many mysteries about AI become easier to understand.</p>
+<p>Why do some models perform better than others?</p>
+<p>Often because they learned from better data.</p>
+<p>Why do AI systems sometimes make mistakes?</p>
+<p>Often because their training data was incomplete, inaccurate, or biased.</p>
+<p>Why has AI improved so rapidly in recent years?</p>
+<p>Because modern systems can learn from unprecedented amounts of data.</p>
+<p>The lesson is simple but profound:</p>
+<p><strong>The intelligence of an AI system is shaped by the experiences it learns from—and those experiences come from data.</strong></p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Every modern AI system begins with data.</p>
+<p>Before a model can recognize objects, understand language, generate images, recommend products, or answer questions, it must first learn from examples.</p>
+<p>Data provides those examples.</p>
+<p>It is the raw material from which AI systems discover patterns, relationships, and knowledge.</p>
+<p>In this chapter, we explored the many forms that data can take—from text and images to audio, video, and structured records. We saw why quality matters, how labels help teach machines, how systems can learn from unlabeled information, and how raw data must be carefully prepared before training can begin.</p>
+<p>Perhaps the most important lesson is that data alone is not intelligence.</p>
+<p>A library full of books is not intelligent.</p>
+<p>A database containing billions of records is not intelligent.</p>
+<p>Intelligence emerges when a system learns useful patterns from information.</p>
+<p>The better the data, the better the opportunity for learning.</p>
+<p>But an important question remains.</p>
+<p>Even after data has been collected, cleaned, and prepared, computers still face a challenge.</p>
+<p>Computers do not understand words.</p>
+<p>They do not see photographs the way humans do.</p>
+<p>They do not hear music or recognize faces in the same way we do.</p>
+<p>At their most fundamental level, computers understand only numbers.</p>
+<p>This raises an intriguing question:</p>
+<p>How can a computer learn from books, images, videos, and conversations if it understands only numbers?</p>
+<p>The answer lies at the heart of modern artificial intelligence.</p>
+<p>Before a machine can learn from information, that information must be transformed into a numerical form that the computer can process.</p>
+<p>In the next chapter, we will explore how this transformation happens and discover one of the most important ideas in AI:</p>
+<p>How computers see everything as numbers.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sikijs/YourHonor-AI-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

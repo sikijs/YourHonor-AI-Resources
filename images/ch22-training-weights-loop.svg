@@ -1,0 +1,69 @@
+<svg width="1100" height="650" viewBox="0 0 1100 650" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .box { fill:#f7f9fc; stroke:#2b3a55; stroke-width:2; rx:12; }
+    .title { font: bold 20px sans-serif; fill:#1c2b3a; }
+    .text { font: 16px sans-serif; fill:#1c2b3a; }
+    .small { font: 14px sans-serif; fill:#3a4a5a; }
+    .arrow { stroke:#2b3a55; stroke-width:2; marker-end:url(#arrowhead); }
+    .knob { fill:#ffffff; stroke:#2b3a55; stroke-width:2; }
+    .red { stroke:#d64545; }
+    .green { stroke:#2e8b57; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2b3a55"></polygon>
+    </marker>
+  </defs>
+
+  <!-- Input -->
+  <rect x="420" y="40" width="260" height="60" class="box"></rect>
+  <text x="450" y="75" class="title">Input Data</text>
+
+  <!-- Model -->
+  <rect x="380" y="140" width="340" height="90" class="box"></rect>
+  <text x="500" y="175" class="title">AI Model</text>
+  <text x="430" y="205" class="small">(millions of weights inside)</text>
+
+  <!-- Prediction -->
+  <rect x="420" y="270" width="260" height="60" class="box"></rect>
+  <text x="455" y="305" class="title">Prediction</text>
+
+  <!-- Loss -->
+  <rect x="420" y="360" width="260" height="60" class="box"></rect>
+  <text x="450" y="395" class="title">Loss (Error)</text>
+
+  <!-- Feedback -->
+  <rect x="410" y="450" width="280" height="60" class="box"></rect>
+  <text x="445" y="485" class="title">Feedback Signal</text>
+
+  <!-- Weights / Knobs -->
+  <rect x="250" y="540" width="600" height="90" class="box"></rect>
+  <text x="430" y="575" class="title">Weights (Adjustment Knobs)</text>
+
+  <!-- Knobs -->
+  <circle cx="330" cy="610" r="12" class="knob"></circle>
+  <circle cx="380" cy="610" r="12" class="knob"></circle>
+  <circle cx="430" cy="610" r="12" class="knob"></circle>
+  <circle cx="480" cy="610" r="12" class="knob"></circle>
+  <circle cx="530" cy="610" r="12" class="knob"></circle>
+  <circle cx="580" cy="610" r="12" class="knob"></circle>
+  <circle cx="630" cy="610" r="12" class="knob"></circle>
+
+  <!-- Arrows main flow -->
+  <line x1="550" y1="100" x2="550" y2="140" class="arrow"></line>
+  <line x1="550" y1="230" x2="550" y2="270" class="arrow"></line>
+  <line x1="550" y1="330" x2="550" y2="360" class="arrow"></line>
+  <line x1="550" y1="420" x2="550" y2="450" class="arrow"></line>
+  <line x1="550" y1="510" x2="550" y2="540" class="arrow"></line>
+
+  <!-- Feedback arrows to knobs -->
+  <line x1="420" y1="480" x2="360" y2="560" class="arrow red"></line>
+  <line x1="500" y1="510" x2="430" y2="560" class="arrow red"></line>
+  <line x1="600" y1="510" x2="580" y2="560" class="arrow green"></line>
+
+  <!-- Loop note -->
+  <text x="760" y="300" class="small">Small updates repeat many times</text>
+
+</svg>

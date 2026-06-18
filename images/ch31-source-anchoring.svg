@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520">
+  <rect width="100%" height="100%" fill="#0b1220"></rect>
+
+  <text x="50" y="60" fill="#ffffff" font-size="30" font-family="Arial">
+    Source Anchoring Check
+  </text>
+
+  <!-- Claim -->
+  <rect x="60" y="140" width="360" height="260" rx="12" fill="#111827" stroke="#38bdf8"></rect>
+  <text x="90" y="190" fill="#38bdf8" font-size="20">AI Claim</text>
+
+  <text x="90" y="240" fill="#e2e8f0" font-size="14">Case: Smith v. Jones (2014)</text>
+  <text x="90" y="270" fill="#e2e8f0" font-size="14">Oral contract enforced</text>
+  <text x="90" y="300" fill="#ef4444" font-size="14">No citation provided</text>
+
+  <!-- Arrow -->
+  <line x1="420" y1="270" x2="580" y2="270" stroke="#facc15" stroke-width="4"></line>
+  <polygon points="580,270 565,260 565,280" fill="#facc15"></polygon>
+
+  <text x="430" y="240" fill="#facc15" font-size="14">Verify Source</text>
+
+  <!-- Verified -->
+  <rect x="600" y="140" width="340" height="260" rx="12" fill="#111827" stroke="#22c55e"></rect>
+  <text x="630" y="190" fill="#22c55e" font-size="20">Verification Step</text>
+
+  <text x="630" y="240" fill="#e2e8f0" font-size="14">Check legal database</text>
+  <text x="630" y="270" fill="#e2e8f0" font-size="14">Confirm case existence</text>
+  <text x="630" y="300" fill="#22c55e" font-size="14">Validated or rejected</text>
+
+</svg>

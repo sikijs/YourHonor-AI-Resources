@@ -1,0 +1,1912 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Educational AI resources for law students — YourHonor AI">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter-20-neural-networks/">
+      
+      
+        <link rel="next" href="../chapter-22-training/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Chapter 21: Weights and Parameters - AI Learning Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-21-weights-and-parameters" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AI Learning Center" class="md-header__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI Learning Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 21: Weights and Parameters
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AI Learning Center" class="md-nav__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI Learning Center
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-01-what-is-intelligence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: What Is Intelligence?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-02-how-the-human-brain-inspired-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: How the Human Brain Inspired AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-03-artificial-neurons-%281943%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: Artificial Neurons (1943)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-04-alan-turing-and-thinking-machines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Alan Turing and Thinking Machines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-05-the-birth-of-AI-%281956%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: The Birth of AI (1956)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-06-the-perceptron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: The Perceptron
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-07-the-first-ai-winter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: The First AI Winter (1969–1974)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-08-expert-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Expert Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-09-backpropagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9: Backpropagation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-10-deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10: Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-11-the-gpu-revolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: The GPU Revolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-12-imagenet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12: ImageNet: The Dataset That Changed Everything
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-13-ai-beats-the-champions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13: AI Beats The Champions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-14-transformers-and-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14: Transformers and Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-15-large-language-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15: Large Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-16-data-the-fuel-of-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16: Data: The Fuel Of AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-17-how-computer-sees-everything-as-numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 17: How Computers See Everything as Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-18-tokens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 18: Tokens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-19-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 19: Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-20-neural-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 20: Neural Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 21: Weights and Parameters
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 21: Weights and Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story-choosing-a-restaurant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story: Choosing a Restaurant
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-what-is-a-weight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1: What Is a Weight?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-learning-means-changing-weights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2: Learning Means Changing Weights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-what-are-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3: What Are Parameters?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 3: What Are Parameters?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#figure-212-parameters-the-models-memory-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 21.2: Parameters — The Model's Memory Library
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-why-parameter-count-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4: Why Parameter Count Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-the-hidden-knowledge-inside-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5: The Hidden Knowledge Inside AI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 5: The Hidden Knowledge Inside AI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insight-box-the-numbers-that-hold-knowledge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box: The Numbers That Hold Knowledge
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-22-training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 22: Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-23-backpropagation-simplified/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 23: Backpropagation Simplified
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-24-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 24: Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-25-why-bigger-models-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 25: Why Bigger Models Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-26-fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 26: Fine-tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-27-retrieval-augmented-generation-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 27: Retrieval-Augmented Generation (RAG)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-28-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 28: Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-29-vibe-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 29: Vibe Coding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-30-multimodal-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 30: Multimodal AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-31-hallucinations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 31: Hallucinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-32-what-ai-still-cannot-do/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 32: What AI Still Cannot Do
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-33-agi-and-beyond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 33: AGI (Artificial General Intelligence) and Beyond
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-34-the-future-of-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 34: The Future of Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-A-ai-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix A — AI Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story-choosing-a-restaurant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story: Choosing a Restaurant
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-what-is-a-weight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1: What Is a Weight?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-learning-means-changing-weights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2: Learning Means Changing Weights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-what-are-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3: What Are Parameters?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 3: What Are Parameters?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#figure-212-parameters-the-models-memory-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 21.2: Parameters — The Model's Memory Library
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-why-parameter-count-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4: Why Parameter Count Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-the-hidden-knowledge-inside-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5: The Hidden Knowledge Inside AI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 5: The Hidden Knowledge Inside AI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insight-box-the-numbers-that-hold-knowledge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box: The Numbers That Hold Knowledge
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-21-weights-and-parameters">Chapter 21: Weights and Parameters</h1>
+<h2 id="opening-story-choosing-a-restaurant">Opening Story: Choosing a Restaurant</h2>
+<p>Imagine that you and a group of friends are trying to decide where to have dinner.</p>
+<p>Several factors influence your choice. The quality of the food matters. The price matters. The distance matters. The atmosphere matters. The availability of parking matters. If someone in the group is vegetarian, that matters too.</p>
+<p>But not all of these factors are equally important.</p>
+<p>For one person, food quality might be the most important consideration. They are willing to drive farther and pay a little more if the restaurant serves excellent meals. Another person may care most about price. A third person may prioritize convenience and choose the closest option.</p>
+<p>Without realizing it, your brain is assigning different levels of importance to each factor. Food quality might count heavily in the decision, while parking availability might have only a small influence. The final choice emerges from combining all of these factors according to their relative importance.</p>
+<p>Artificial intelligence systems make decisions in a surprisingly similar way.</p>
+<p>When a neural network receives information, it does not treat every input equally. Some inputs are given greater importance, while others have less influence. The numerical values that determine this importance are called <strong>weights</strong>. During training, the AI gradually adjusts these weights, learning which signals are most useful for making accurate predictions.</p>
+<p>Modern AI systems contain millions, billions, or even trillions of these adjustable values. Together, they represent what the system has learned from experience. These learned values are known as <strong>parameters</strong>, and they form the knowledge stored inside an AI model.</p>
+<p>In the previous chapter, we explored how neural networks process information through interconnected layers. In this chapter, we will look inside those connections and discover the hidden numbers that make learning possible. Understanding weights and parameters is one of the most important steps toward understanding how modern AI systems actually work.</p>
+<h2 id="section-1-what-is-a-weight">Section 1: What Is a Weight?</h2>
+<p>In the previous chapter, we learned that a neural network is made up of many interconnected artificial neurons. Information flows from one neuron to another through these connections. But not all connections are treated equally.</p>
+<p>Each connection in a neural network has an associated numerical value called a <strong>weight</strong>. A weight determines how much influence one neuron has on another. In simple terms, a weight tells the network how important a particular piece of information is when making a decision.</p>
+<p>Consider the restaurant example from the opening story. Suppose you are choosing a restaurant based on three factors: food quality, price, and distance. If food quality matters most to you, it will have a greater influence on your decision than the other factors. In a neural network, that greater influence would be represented by a larger weight.</p>
+<p>You can think of a weight as a volume control knob. Important signals have their volume turned up, while less important signals have their volume turned down. The neural network combines all of these weighted signals before producing an output.</p>
+<p>For example, imagine an AI system that helps identify whether an email is spam. Certain clues may be highly important, such as suspicious links or known spam phrases. Other clues may be less significant. Through training, the network learns which signals deserve higher weights and which deserve lower ones.</p>
+<p>The remarkable aspect of neural networks is that these weights are not manually programmed. Instead, the network learns them automatically from data. During training, the system repeatedly adjusts its weights, gradually discovering which combinations lead to accurate predictions.</p>
+<p>Without weights, every input would be treated equally, and the network would have little ability to learn complex patterns. Weights give neural networks the flexibility to distinguish between strong signals and weak signals, making intelligent behavior possible.</p>
+<p><strong>Key Takeaway:</strong> A weight is a numerical value that determines how much influence an input or connection has within a neural network. Learning largely consists of adjusting these weights to improve the network's predictions.</p>
+<h2 id="section-2-learning-means-changing-weights">Section 2: Learning Means Changing Weights</h2>
+<p>One of the most important ideas in artificial intelligence is that learning is not about adding new rules to a program. Instead, learning is about adjusting weights.</p>
+<p>Imagine a child learning to recognize dogs. At first, the child may confuse dogs with wolves, foxes, or other animals. Over time, repeated exposure helps the child notice which features are most important. The child learns to pay more attention to certain clues and less attention to others.</p>
+<p>A neural network learns in a similar way.</p>
+<p>When a neural network begins training, its weights are usually assigned random values. At this stage, the network has no useful knowledge and its predictions are often incorrect. It is essentially making educated guesses.</p>
+<p>The network is then shown many examples. After each prediction, the system measures how far its answer is from the correct answer. This difference is called the <strong>error</strong>.</p>
+<p>The goal of training is to reduce this error. To do that, the network slightly adjusts its weights. Connections that contribute to correct predictions may become stronger, while connections that contribute to mistakes may become weaker.</p>
+<p><img alt="The Learning Cycle" src="../../images/ch21-learning-cycle.svg" /></p>
+<p><em>Figure 21.1: During training, a neural network repeatedly makes predictions, measures its errors, and adjusts its weights. Over time, these adjustments improve the network's performance.</em></p>
+<p>This process repeats thousands, millions, or even billions of times. With each adjustment, the network gradually improves its understanding of the patterns hidden within the data. What begins as a collection of random numbers slowly transforms into a system capable of making useful predictions.</p>
+<p>Consider an AI system trained to recognize handwritten digits. Early in training, the network may confuse a handwritten "3" with an "8." As it processes more examples, it learns which visual features are most important for distinguishing between the two. The weights connected to those features are adjusted accordingly, improving the system's accuracy.</p>
+<p>This is why AI learning can be described in a surprisingly simple way: learning is the process of finding better weights. Everything the network learns—from recognizing faces to understanding language—is ultimately stored in the values of those weights.</p>
+<p><strong>Key Takeaway:</strong> Neural networks learn by adjusting their weights. Training is a continuous process of making predictions, measuring errors, and modifying weights to improve future performance.</p>
+<h2 id="section-3-what-are-parameters">Section 3: What Are Parameters?</h2>
+<p>As neural networks became larger and more sophisticated, researchers needed a way to describe all of the values that the network learns during training. This is where the term <strong>parameter</strong> enters the picture.</p>
+<p>A parameter is a value inside an AI model that can be adjusted through learning. In most neural networks, weights are the most important type of parameter. Every time a weight changes during training, the model is updating one of its parameters.</p>
+<blockquote>
+<h3 id="figure-212-parameters-the-models-memory-library">Figure 21.2: Parameters — The Model's Memory Library</h3>
+<p><strong>Before Training</strong></p>
+<div class="highlight"><pre><span></span><code>Empty Library
+
+┌─────────────────┐
+│                 │
+│    No Books     │
+│                 │
+└─────────────────┘
+</code></pre></div>
+<p>The model starts with little useful knowledge.</p>
+<p>↓ Training on large amounts of data ↓</p>
+<p><strong>After Training</strong></p>
+<div class="highlight"><pre><span></span><code>Model&#39;s Memory Library
+
+┌─────────────────┐
+│ Language        │
+│ Facts           │
+│ Patterns        │
+│ Relationships   │
+│ Examples        │
+│ Knowledge       │
+└─────────────────┘
+</code></pre></div>
+<p>All of this learned knowledge is stored in the model's <strong>parameters</strong>.</p>
+</blockquote>
+<p>You can think of parameters as the memory of a neural network. They store everything the system has learned from its training data. When people say that a model has learned how to recognize faces, translate languages, or answer questions, that knowledge is not stored as human-readable rules. Instead, it is encoded within millions or billions of parameter values.</p>
+<p>Imagine teaching a student to identify different species of birds. Over time, the student learns to notice subtle details such as beak shape, feather patterns, and wing structure. The knowledge is stored in the student's experience and judgment rather than in a written list of rules. Similarly, an AI model stores what it has learned within its parameters.</p>
+<p>Modern AI models contain enormous numbers of parameters. Early neural networks might have contained only a few hundred or a few thousand parameters. Today's large language models may contain hundreds of billions or even trillions of parameters. Each parameter contributes a tiny piece to the model's overall behavior, but together they create systems capable of remarkably complex tasks.</p>
+<p>This explains why model size is often discussed in AI. When people refer to a "7-billion-parameter model" or a "70-billion-parameter model," they are describing how many adjustable values the system contains. A larger number of parameters generally gives a model greater capacity to learn patterns, although size alone does not guarantee better performance.</p>
+<p>The distinction between weights and parameters is simple but important. A weight is a specific adjustable connection within a neural network. A parameter is a broader term that refers to any value the model learns during training. In many neural networks, most parameters are weights.</p>
+<p>Understanding parameters helps us appreciate what an AI model truly is. At its core, a trained model is not a collection of programmed instructions. It is a vast collection of learned numerical values that collectively capture patterns from data.</p>
+<p><strong>Key Takeaway:</strong> Parameters are the learned values inside an AI model. They store the knowledge acquired during training, and weights are the most common type of parameter in modern neural networks.</p>
+<h2 id="section-4-why-parameter-count-matters">Section 4: Why Parameter Count Matters</h2>
+<p>If parameters represent what an AI model has learned, an obvious question arises: does having more parameters make a model smarter?</p>
+<p>The answer is often yes—but only up to a point.</p>
+<p>Imagine two libraries. One contains a few hundred books, while the other contains millions of books covering countless subjects. The larger library has the potential to hold far more knowledge and information. Similarly, a model with more parameters has a greater capacity to learn patterns from data.</p>
+<p>This is one reason why modern AI models are much larger than their predecessors. Early neural networks might have contained only thousands of parameters. Today's advanced language models contain billions or even trillions of parameters. These additional parameters allow the models to capture more complex relationships, remember more patterns, and perform a wider variety of tasks.</p>
+<p>However, parameter count alone does not determine quality. A larger model still requires high-quality training data and effective training methods. A poorly trained model with billions of parameters may perform worse than a smaller model trained on better data.</p>
+<p>An analogy can be found in education. A student with access to a huge library does not automatically become knowledgeable. Learning depends on how effectively the information is studied and understood. Likewise, AI models benefit from both sufficient capacity and effective training.</p>
+<p>Researchers often describe models by their parameter count. You may hear references to a "7-billion-parameter model," a "70-billion-parameter model," or even larger systems. These numbers provide a rough indication of the model's capacity, although they do not tell the entire story.</p>
+<p>As AI has evolved, increasing parameter counts have often led to surprising improvements in performance. Larger models have demonstrated stronger language understanding, better reasoning abilities, and greater flexibility across different tasks. This trend has become one of the defining characteristics of modern AI development.</p>
+<p>Understanding parameter count helps explain why AI models vary so greatly in capability. The number of parameters influences how much a model can learn, but true performance depends on the combination of model size, training data, computing power, and learning techniques.</p>
+<p><strong>Key Takeaway:</strong> More parameters generally give a model greater capacity to learn patterns and perform complex tasks, but parameter count alone does not guarantee intelligence or quality. Effective training remains just as important as model size.</p>
+<h2 id="section-5-the-hidden-knowledge-inside-ai">Section 5: The Hidden Knowledge Inside AI</h2>
+<p>When people interact with an AI system, they often see only the final result. A chatbot answers a question, a translation system converts text into another language, or an image-recognition system identifies objects in a photograph. What remains hidden is the vast collection of learned parameters that make these capabilities possible.</p>
+<p>It is tempting to imagine that AI systems store knowledge in the same way that humans do. We might assume there is a database containing facts, definitions, and rules that the AI simply retrieves when needed. In reality, most neural networks work very differently.</p>
+<p>The knowledge learned during training is distributed across millions or billions of parameters. No single parameter represents a complete fact, idea, or rule. Instead, knowledge emerges from the combined effect of many parameters working together. A single parameter may contribute only a tiny amount to the model's behavior, but collectively they create the patterns that allow the system to understand language, recognize images, and make predictions.</p>
+<p>An analogy can be found in the human brain. Neuroscientists do not believe that a single neuron stores a complete memory. Instead, memories are believed to arise from patterns of activity across large networks of neurons. Similarly, an AI model does not store knowledge in one specific location. What it has learned is spread throughout its parameters.</p>
+<p>This distributed form of knowledge helps explain both the strengths and limitations of AI systems. Because knowledge is represented as patterns rather than explicit rules, AI can recognize subtle relationships and generalize to new situations. At the same time, it can sometimes make mistakes or produce unexpected answers because it is relying on learned patterns rather than true understanding.</p>
+<p>As models grow larger and acquire more parameters, they gain the ability to capture increasingly complex relationships within data. This is one reason why modern AI systems can perform tasks that would have seemed extraordinary only a few years ago. Yet regardless of a model's size, its capabilities ultimately depend on the knowledge encoded within its parameters.</p>
+<p>The next time you use an AI system, it is worth remembering what lies beneath the surface. Behind every response is a vast network of learned numerical values, each contributing a small piece to the final result. Together, these parameters form the hidden knowledge that powers modern artificial intelligence.</p>
+<p><strong>Key Takeaway:</strong> AI models do not store knowledge as human-readable rules or facts. Instead, knowledge is distributed across millions or billions of parameters, whose combined interactions produce the intelligent behavior we observe.</p>
+<h3 id="insight-box-the-numbers-that-hold-knowledge">Insight Box: The Numbers That Hold Knowledge</h3>
+<p>One of the most surprising facts about modern AI is that everything it learns is ultimately stored as numbers.</p>
+<p>When an AI model is trained, it does not create a collection of written rules, facts, or instructions. Instead, it adjusts millions or billions of numerical values called parameters. These numbers determine how strongly different patterns influence the model's decisions.</p>
+<p>To humans, a list of billions of numbers would appear meaningless. Yet within those numbers lies the model's ability to recognize faces, translate languages, answer questions, and generate text. What appears to be intelligence emerges from the combined effect of countless learned values working together.</p>
+<p>This idea highlights a profound difference between human knowledge and machine learning. Humans often think in words, concepts, and experiences. AI models store knowledge as mathematical relationships encoded within parameters.</p>
+<p>The next time you hear that a model contains billions of parameters, remember what that really means: billions of learned numerical values that collectively represent the model's understanding of the world.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>At first glance, weights and parameters may seem like obscure technical details hidden deep inside AI systems. In reality, they are among the most important concepts in all of artificial intelligence.</p>
+<p>Weights determine how strongly different pieces of information influence a model's decisions. During training, these weights are adjusted repeatedly, allowing the system to learn from experience. Over time, the collection of learned values grows into the model's parameters—the numerical memory that stores everything the AI has learned.</p>
+<p>This perspective reveals an important truth about modern AI. A trained model is not a collection of hand-written rules or carefully programmed instructions. Instead, it is a vast network of learned parameters that capture patterns, relationships, and knowledge from data.</p>
+<p>Understanding weights and parameters also helps explain why AI models vary so greatly in capability. Larger models often contain billions of parameters, giving them the capacity to learn more complex patterns. Yet regardless of size, every model learns through the same fundamental process: adjusting its parameters to reduce errors and improve predictions.</p>
+<p>As we continue our exploration of AI, it is worth remembering that the impressive abilities of modern systems ultimately arise from these learned numerical values. Whether an AI is recognizing images, translating languages, or generating human-like text, its behavior is shaped by the parameters created during training.</p>
+<p>In the next chapter, we will examine that training process in greater detail. We will follow the journey of an AI model as it learns from data, makes mistakes, receives feedback, and gradually improves. This process of training is where the numbers inside a model acquire their meaning and where artificial intelligence truly begins to learn.</p>
+<p><strong>Chapter Summary:</strong> Weights control the influence of information within a neural network, while parameters store what the model has learned. Together, they form the foundation of modern AI and enable machines to learn from experience rather than follow fixed rules.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sikijs/YourHonor-AI-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

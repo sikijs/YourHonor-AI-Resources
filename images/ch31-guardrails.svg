@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560">
+  <rect width="100%" height="100%" fill="#0b1220"></rect>
+
+  <text x="50" y="60" fill="#ffffff" font-size="30" font-family="Arial">
+    Guardrails and Constraints Layer
+  </text>
+
+  <!-- Model -->
+  <rect x="380" y="200" width="240" height="160" rx="12" fill="#111827" stroke="#a855f7"></rect>
+  <text x="450" y="260" fill="#a855f7" font-size="16">AI Model</text>
+
+  <!-- Guardrails -->
+  <rect x="380" y="120" width="240" height="60" rx="12" fill="#111827" stroke="#facc15"></rect>
+  <text x="420" y="155" fill="#facc15" font-size="14">Guardrails</text>
+
+  <rect x="380" y="380" width="240" height="60" rx="12" fill="#111827" stroke="#38bdf8"></rect>
+  <text x="420" y="415" fill="#38bdf8" font-size="14">Policies / Rules</text>
+
+  <!-- Arrows -->
+  <line x1="500" y1="180" x2="500" y2="200" stroke="#facc15" stroke-width="3"></line>
+  <line x1="500" y1="360" x2="500" y2="380" stroke="#38bdf8" stroke-width="3"></line>
+
+  <!-- Side notes -->
+  <text x="60" y="260" fill="#cbd5e1" font-size="14">Only answer from sources</text>
+  <text x="60" y="285" fill="#cbd5e1" font-size="14">Require citations</text>
+  <text x="60" y="310" fill="#cbd5e1" font-size="14">Reject uncertain queries</text>
+
+</svg>

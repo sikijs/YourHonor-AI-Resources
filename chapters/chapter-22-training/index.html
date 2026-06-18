@@ -1,0 +1,2306 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Educational AI resources for law students — YourHonor AI">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter-21-weights-and-parameters/">
+      
+      
+        <link rel="next" href="../chapter-23-backpropagation-simplified/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Chapter 22: Training - AI Learning Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-22-training" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AI Learning Center" class="md-header__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI Learning Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 22: Training
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AI Learning Center" class="md-nav__button md-logo" aria-label="AI Learning Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI Learning Center
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sikijs/YourHonor-AI-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-01-what-is-intelligence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: What Is Intelligence?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-02-how-the-human-brain-inspired-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: How the Human Brain Inspired AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-03-artificial-neurons-%281943%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: Artificial Neurons (1943)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-04-alan-turing-and-thinking-machines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Alan Turing and Thinking Machines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-05-the-birth-of-AI-%281956%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: The Birth of AI (1956)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-06-the-perceptron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: The Perceptron
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-07-the-first-ai-winter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: The First AI Winter (1969–1974)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-08-expert-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Expert Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-09-backpropagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9: Backpropagation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-10-deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10: Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-11-the-gpu-revolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: The GPU Revolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-12-imagenet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12: ImageNet: The Dataset That Changed Everything
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-13-ai-beats-the-champions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13: AI Beats The Champions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-14-transformers-and-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14: Transformers and Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-15-large-language-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15: Large Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-16-data-the-fuel-of-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16: Data: The Fuel Of AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-17-how-computer-sees-everything-as-numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 17: How Computers See Everything as Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-18-tokens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 18: Tokens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-19-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 19: Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-20-neural-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 20: Neural Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-21-weights-and-parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 21: Weights and Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 22: Training
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 22: Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story-learning-to-shoot-a-basketball" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story: Learning to Shoot a Basketball
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-what-does-it-mean-to-train-an-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1: What Does It Mean to Train an AI?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-training-data-the-ais-practice-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2: Training Data — The AI's Practice Material
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-the-learning-signal-how-ai-knows-it-is-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3: The Learning Signal — How AI Knows It Is Wrong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-adjusting-the-knobs-how-ai-actually-learns-from-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4: Adjusting the Knobs — How AI Actually Learns from Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-repetition-at-scale-why-one-round-of-learning-is-not-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5: Repetition at Scale — Why One Round of Learning Is Not Enough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-6-learning-in-small-batches-why-ai-doesnt-study-everything-at-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 6: Learning in Small Batches — Why AI Doesn’t Study Everything at Once
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-7-the-complete-picture-how-training-really-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 7: The Complete Picture — How Training Really Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-what-training-really-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box — What Training Really Means
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-23-backpropagation-simplified/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 23: Backpropagation Simplified
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-24-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 24: Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-25-why-bigger-models-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 25: Why Bigger Models Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-26-fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 26: Fine-tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-27-retrieval-augmented-generation-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 27: Retrieval-Augmented Generation (RAG)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-28-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 28: Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-29-vibe-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 29: Vibe Coding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-30-multimodal-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 30: Multimodal AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-31-hallucinations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 31: Hallucinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-32-what-ai-still-cannot-do/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 32: What AI Still Cannot Do
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-33-agi-and-beyond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 33: AGI (Artificial General Intelligence) and Beyond
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-34-the-future-of-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 34: The Future of Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-A-ai-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix A — AI Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opening-story-learning-to-shoot-a-basketball" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening Story: Learning to Shoot a Basketball
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-what-does-it-mean-to-train-an-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1: What Does It Mean to Train an AI?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-training-data-the-ais-practice-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2: Training Data — The AI's Practice Material
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-the-learning-signal-how-ai-knows-it-is-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3: The Learning Signal — How AI Knows It Is Wrong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-adjusting-the-knobs-how-ai-actually-learns-from-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4: Adjusting the Knobs — How AI Actually Learns from Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-repetition-at-scale-why-one-round-of-learning-is-not-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5: Repetition at Scale — Why One Round of Learning Is Not Enough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-6-learning-in-small-batches-why-ai-doesnt-study-everything-at-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 6: Learning in Small Batches — Why AI Doesn’t Study Everything at Once
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-7-the-complete-picture-how-training-really-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 7: The Complete Picture — How Training Really Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insight-box-what-training-really-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insight Box — What Training Really Means
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-22-training">Chapter 22: Training</h1>
+<h2 id="opening-story-learning-to-shoot-a-basketball">Opening Story: Learning to Shoot a Basketball</h2>
+<p>Imagine a teenager standing alone on a basketball court.</p>
+<p>He picks up a basketball, aims at the hoop, and shoots.</p>
+<p>The ball misses.</p>
+<p>It bounces off the rim and rolls away.</p>
+<p>Most people would not be surprised. After all, nobody becomes a great basketball player on their first attempt.</p>
+<p>So he tries again.</p>
+<p>This time the ball flies too far.</p>
+<p>Another miss.</p>
+<p>He adjusts his aim and shoots again.</p>
+<p>Still wrong.</p>
+<p>Again.</p>
+<p>Again.</p>
+<p>Again.</p>
+<p>After dozens of attempts, something interesting begins to happen.</p>
+<p>The player starts noticing patterns.</p>
+<p>When he throws too hard, the ball overshoots the basket.</p>
+<p>When he releases too late, the ball drifts to one side.</p>
+<p>Every mistake provides information.</p>
+<p>Without realizing it, he is learning.</p>
+<p>Each shot gives feedback.</p>
+<p>Each miss helps him make a small correction.</p>
+<p>Over time, those tiny adjustments accumulate. His movements become more accurate. His timing improves. Eventually, shots that once seemed impossible begin dropping through the hoop with surprising consistency.</p>
+<p>Now imagine teaching a computer to recognize a cat in a photograph.</p>
+<p>The computer does not understand fur, whiskers, tails, or animals. At first, its guesses are essentially random.</p>
+<p>A picture appears.</p>
+<p>"Is this a cat?"</p>
+<p>The computer guesses.</p>
+<p>Usually, it is wrong.</p>
+<p>But just like the basketball player, the computer receives feedback.</p>
+<p>Wrong.</p>
+<p>Adjust.</p>
+<p>Try again.</p>
+<p>Wrong.</p>
+<p>Adjust.</p>
+<p>Try again.</p>
+<p>Thousands of times.</p>
+<p>Millions of times.</p>
+<p>Eventually, the computer becomes better and better at recognizing patterns that distinguish cats from everything else.</p>
+<p>This process of learning from repeated mistakes is called <strong>training</strong>.</p>
+<p>Training is one of the most important ideas in modern AI. It is the process through which a model improves its performance by repeatedly making predictions, measuring its errors, and adjusting itself to do better next time.</p>
+<p>In the previous chapter, we learned about weights and parameters—the tiny numerical values that control how a neural network makes decisions.</p>
+<p>In this chapter, we will see how those numbers are actually learned.</p>
+<p>The secret is surprisingly simple:</p>
+<p><strong>Guess. Measure the error. Adjust. Repeat.</strong></p>
+<p>Everything from image recognition systems to ChatGPT ultimately learns through some version of this cycle.</p>
+<h2 id="section-1-what-does-it-mean-to-train-an-ai">Section 1: What Does It Mean to Train an AI?</h2>
+<p>By now, we have learned that a neural network contains weights and parameters—the numerical values that influence every decision the model makes.</p>
+<p>But an important question remains:</p>
+<p><strong>Where do those numbers come from?</strong></p>
+<p>The answer is simple:</p>
+<p><strong>They are learned through training.</strong></p>
+<p>Training is the process of teaching an AI model how to perform a task by showing it examples and allowing it to improve through repeated practice.</p>
+<p>Think about how humans learn.</p>
+<p>A child learning to read does not memorize every possible sentence. Instead, the child reads many examples and gradually learns patterns in language.</p>
+<p>A medical student studies thousands of cases and slowly learns to recognize symptoms and diagnoses.</p>
+<p>A musician practices the same piece repeatedly until the correct movements become automatic.</p>
+<p>Learning requires exposure, feedback, and repetition.</p>
+<p>AI learns in a surprisingly similar way.</p>
+<p>Suppose we want to build an AI system that can recognize cats in photographs.</p>
+<p>At the beginning, the model knows nothing about cats.</p>
+<p>It does not understand fur.</p>
+<p>It does not understand ears.</p>
+<p>It does not understand tails.</p>
+<p>To the computer, every image is simply a collection of numbers.</p>
+<p>The model starts by making a guess.</p>
+<p>The image is shown to the AI.</p>
+<p>"Is this a cat?"</p>
+<p>Perhaps it answers:</p>
+<p><strong>20% confidence.</strong></p>
+<p>But the correct answer is actually:</p>
+<p><strong>Yes, this is a cat.</strong></p>
+<p>The model made a poor prediction.</p>
+<p>So the training process adjusts some of the model's internal weights and tries again with another example.</p>
+<p>The cycle repeats thousands, millions, or even billions of times.</p>
+<p>With each example, the model gradually improves.</p>
+<p>It begins noticing patterns that frequently appear in cat images.</p>
+<p>Pointed ears.</p>
+<p>Whiskers.</p>
+<p>Eye shapes.</p>
+<p>Body outlines.</p>
+<p>Over time, the model becomes increasingly accurate.</p>
+<p>The remarkable thing is that nobody explicitly programs these rules.</p>
+<p>An engineer does not write instructions such as:</p>
+<ul>
+<li>If whiskers exist, then cat.</li>
+<li>If pointed ears exist, then cat.</li>
+</ul>
+<p>Instead, the AI discovers useful patterns on its own by learning from data.</p>
+<p>This is one of the biggest differences between traditional software and modern AI.</p>
+<p>Traditional software follows rules written by humans.</p>
+<p>AI learns rules from experience.</p>
+<p>You can think of training as a long process of trial and error.</p>
+<p>The model makes a prediction.</p>
+<p>The prediction is evaluated.</p>
+<p>The model adjusts itself.</p>
+<p>Then it tries again.</p>
+<div class="highlight"><pre><span></span><code>flowchart TD
+
+    A[Input Data] --&gt; B[Model Makes Prediction]
+    B --&gt; C[Compare with Correct Answer]
+    C --&gt; D[Calculate Error]
+    D --&gt; E[Adjust Weights]
+    E --&gt; F[Try Again]
+
+    F -. Repeat Thousands or Millions of Times .-&gt; B
+</code></pre></div>
+<p>This learning cycle lies at the heart of nearly every modern AI system.</p>
+<p>Whether the task is recognizing faces, translating languages, recommending movies, predicting legal outcomes, or generating text, the underlying principle is the same:</p>
+<p><strong>Training allows a model to transform from a collection of random numbers into a system that has learned useful patterns from data.</strong></p>
+<h2 id="section-2-training-data-the-ais-practice-material">Section 2: Training Data — The AI's Practice Material</h2>
+<p>Imagine trying to learn a new language without ever hearing anyone speak it.</p>
+<p>Or learning to play the piano without touching a piano.</p>
+<p>Or becoming a lawyer without reading a single case.</p>
+<p>Learning requires practice material.</p>
+<p>The same is true for AI.</p>
+<p>No matter how sophisticated a model's architecture may be, it cannot learn without data.</p>
+<p>In fact, data is often described as the fuel of AI.</p>
+<p>Training data consists of examples that teach a model how to perform a task.</p>
+<p>If we want an AI system to recognize cats, we show it many images of cats.</p>
+<p>If we want it to translate languages, we provide examples of sentences and their translations.</p>
+<p>If we want it to summarize legal documents, we provide documents along with high-quality summaries.</p>
+<p>The model learns by studying these examples and searching for patterns.</p>
+<div class="highlight"><pre><span></span><code>flowchart TD
+
+    A[Student] --&gt; B[Studies Examples]
+    B --&gt; C[Learns Concepts]
+    C --&gt; D[Applies Knowledge]
+
+    E[AI Model] --&gt; F[Studies Training Data]
+    F --&gt; G[Learns Patterns]
+    G --&gt; H[Makes Predictions]
+</code></pre></div>
+<p><strong>Caption:</strong><br />
+<em>Figure 22.3: Human learning and AI learning follow a similar pattern. Both improve by studying examples and extracting useful patterns.</em></p>
+<p>Let's return to our cat-recognition example.</p>
+<p>Suppose we provide the model with thousands of photographs.</p>
+<p>Each image has a label attached:</p>
+<ul>
+<li>Cat</li>
+<li>Not Cat</li>
+</ul>
+<p>At first, the model's predictions are little better than random guesses.</p>
+<p>But as it processes more examples, it gradually discovers patterns that help distinguish one category from the other.</p>
+<p>The more useful examples it sees, the better it becomes at recognizing those patterns.</p>
+<p>You can think of training data as a textbook filled with examples.</p>
+<p>The AI does not memorize every page.</p>
+<p>Instead, it tries to learn the underlying lessons hidden within the examples.</p>
+<p>This idea explains one of the most important principles in AI:</p>
+<p><strong>The quality of the training data strongly influences the quality of the model.</strong></p>
+<p>Imagine teaching a student using a textbook filled with mistakes.</p>
+<p>The student would likely learn incorrect information.</p>
+<p>The same thing happens with AI.</p>
+<p>If the training data contains errors, biases, misleading information, or poor examples, those problems can be reflected in the model's behavior.</p>
+<p>This is why AI researchers spend enormous amounts of time collecting, cleaning, organizing, and evaluating datasets.</p>
+<p>In many AI projects, preparing the data requires more effort than building the model itself.</p>
+<p>Modern AI systems are trained on astonishing amounts of information.</p>
+<p>Image-recognition systems may analyze millions of photographs.</p>
+<p>Speech-recognition systems may learn from thousands of hours of recorded audio.</p>
+<p>Large language models such as ChatGPT are trained on vast collections of books, articles, websites, and other text sources.</p>
+<p>The goal is not to memorize everything.</p>
+<p>The goal is to expose the model to enough examples that it can discover useful patterns and apply them to situations it has never seen before.</p>
+<p>Without training data, an AI model is like a student who has never opened a book.</p>
+<p>The architecture may exist.</p>
+<p>The parameters may exist.</p>
+<p>But there is no knowledge to learn from.</p>
+<p>Training data provides the experiences that make learning possible.</p>
+<h2 id="section-3-the-learning-signal-how-ai-knows-it-is-wrong">Section 3: The Learning Signal — How AI Knows It Is Wrong</h2>
+<p>Training data gives the AI examples.</p>
+<p>But examples alone are not enough.</p>
+<p>A model also needs to know one critical thing:</p>
+<p><strong>Was it right or wrong?</strong></p>
+<p>Without this feedback, learning cannot happen.</p>
+<p>Imagine again the student learning to play basketball.</p>
+<p>If they shoot the ball and no one tells them whether it went in or not, they have no way to improve.</p>
+<p>They might keep making the same mistakes forever.</p>
+<p>AI systems face the same problem.</p>
+<p>After making a prediction, the model needs a way to measure how far off it was from the correct answer.</p>
+<p>This measurement is called <strong>error</strong>.</p>
+<p>In machine learning, we often call it <strong>loss</strong>.</p>
+<p>Loss is simply a number that tells us how bad the model's prediction was.</p>
+<ul>
+<li>Small loss → good prediction</li>
+<li>Large loss → bad prediction</li>
+</ul>
+<p>Think of it as a scorecard for every guess the AI makes.</p>
+<p>Let’s return to the cat recognition example.</p>
+<p>The model sees an image and says:</p>
+<blockquote>
+<p>“This is a cat” (60% confidence)</p>
+</blockquote>
+<p>But the correct answer is:</p>
+<blockquote>
+<p>“This is not a cat”</p>
+</blockquote>
+<p>The system compares the prediction to the truth and calculates an error value.</p>
+<p>That error becomes a signal.</p>
+<p>Not a punishment.</p>
+<p>Not a judgment.</p>
+<p>Just information.</p>
+<p>And that information is crucial.</p>
+<p>Because now the model knows:</p>
+<ul>
+<li>Which direction it was wrong in</li>
+<li>How far off it was</li>
+<li>How much it needs to adjust</li>
+</ul>
+<p>This idea is extremely important:</p>
+<p><strong>AI does not learn from being right. It learns from being wrong.</strong></p>
+<p>Every mistake becomes a guide for improvement.</p>
+<p>You can think of loss as a compass.</p>
+<p>It does not tell the model where to go directly.</p>
+<p>But it does point out whether it is heading in the right direction or not.</p>
+<p>Now connect this back to the training loop.</p>
+<ol>
+<li>The model makes a prediction</li>
+<li>The prediction is compared to the correct answer</li>
+<li>The error (loss) is calculated</li>
+<li>The model uses that error to adjust itself</li>
+</ol>
+<p>This cycle repeats again and again.</p>
+<p><img alt="Loss Feedback Loop" src="../../images/ch22-loss-feedback-loop.svg" /></p>
+<p><strong>Figure 22.4: The loss signal acts as feedback.</strong><br />
+It measures how wrong the prediction is and guides the model to adjust its internal weights for the next attempt.</p>
+<p>Without the loss signal, training would be blind.</p>
+<p>The model would be guessing without feedback.</p>
+<p>With it, every mistake becomes a stepping stone toward better performance.</p>
+<p>In the next section, we will see what the model actually <em>does</em> with this error signal—how it adjusts its internal weights to reduce future mistakes.</p>
+<h2 id="section-4-adjusting-the-knobs-how-ai-actually-learns-from-mistakes">Section 4: Adjusting the Knobs — How AI Actually Learns from Mistakes</h2>
+<p>We now know two key ingredients of training:</p>
+<ol>
+<li>The model makes a prediction</li>
+<li>We measure how wrong it is using loss</li>
+</ol>
+<p>But this raises a deeper question:</p>
+<p><strong>What does the model actually <em>do</em> with that error?</strong></p>
+<p>It cannot simply “try harder.”</p>
+<p>It cannot “understand” in the human sense.</p>
+<p>Instead, it changes numbers.</p>
+<p>Inside every neural network are millions—or even billions—of tiny values called <strong>weights</strong>.</p>
+<p>You can think of these weights as adjustment knobs.</p>
+<p>Each knob influences how the model processes information.</p>
+<p>Some knobs matter a lot.</p>
+<p>Some matter very little.</p>
+<p>But together, they determine the final output.</p>
+<p>Now imagine the model makes a mistake.</p>
+<p>The loss function tells us:</p>
+<blockquote>
+<p>“This prediction is too high.”</p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p>“This prediction is too low.”</p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p>“This result is completely off.”</p>
+</blockquote>
+<p>But it does not stop there.</p>
+<p>It also provides a direction for improvement.</p>
+<p>Not a full solution.</p>
+<p>Just guidance.</p>
+<p>This is where learning becomes powerful.</p>
+<p>Instead of guessing randomly, the model adjusts its internal knobs slightly in the direction that reduces future error.</p>
+<p>Not a big jump.</p>
+<p>Just a small correction.</p>
+<p>Then it tries again.</p>
+<p>Think back to the basketball example.</p>
+<p>A player misses a shot slightly to the left.</p>
+<p>The correction is not dramatic.</p>
+<p>They do not suddenly change their entire technique.</p>
+<p>They simply adjust their aim a little to the right.</p>
+<p>That is exactly how AI learns.</p>
+<p>Small, continuous adjustments.</p>
+<p>Now scale that idea up.</p>
+<p>Instead of one player adjusting one movement, imagine millions of knobs being adjusted at the same time.</p>
+<p>Each knob is nudged just a tiny bit.</p>
+<p>Some increase.</p>
+<p>Some decrease.</p>
+<p>Some stay almost the same.</p>
+<p>But collectively, these small changes improve the system’s performance.</p>
+<p>Over time, the model becomes more accurate, more stable, and more reliable.</p>
+<p>This adjustment process is guided by a mathematical method that determines:</p>
+<ul>
+<li>Which weights contributed to the error</li>
+<li>How much each weight should change</li>
+<li>In which direction to move each adjustment</li>
+</ul>
+<p>You do not need the math to understand the idea.</p>
+<p>The key insight is simple:</p>
+<p><strong>Learning is not about changing everything at once. It is about making small, intelligent corrections repeatedly.</strong></p>
+<p>This is what allows AI systems to improve from random guessing to highly accurate prediction systems.</p>
+<p><img alt="Training Loop with Weights" src="../../images/ch22-training-weights-loop.svg" /></p>
+<p><strong>Figure 22.5: How AI learns by adjusting weights.</strong><br />
+The model makes a prediction, measures error (loss), receives feedback, and updates internal weights. Each adjustment is small, but repeated many times it leads to learning.</p>
+<p>In the next section, we will look at how these adjustments are applied repeatedly over large datasets—what it actually means when we say a model is “trained over many epochs.”</p>
+<h2 id="section-5-repetition-at-scale-why-one-round-of-learning-is-not-enough">Section 5: Repetition at Scale — Why One Round of Learning Is Not Enough</h2>
+<p>So far, we have described training as a cycle:</p>
+<ul>
+<li>Make a prediction</li>
+<li>Measure the error</li>
+<li>Adjust the weights</li>
+<li>Try again</li>
+</ul>
+<p>But there is a subtle detail that changes everything:</p>
+<p><strong>This cycle is not done once. It is done millions of times.</strong></p>
+<p>One round of learning is not enough for a model to become intelligent.</p>
+<p>Real learning comes from repetition.</p>
+<p>Think again about learning to play basketball.</p>
+<p>If you take one shot, correct your mistake, and stop—you do not become a good player.</p>
+<p>Even ten shots are not enough.</p>
+<p>Even one hundred shots are not enough.</p>
+<p>Improvement comes only after thousands of attempts, each one slightly refining your skill.</p>
+<p>AI training works the same way, but at a much larger scale.</p>
+<p>Instead of a student taking thousands of shots, a model might process:</p>
+<ul>
+<li>Millions of images</li>
+<li>Billions of words</li>
+<li>Thousands of hours of audio</li>
+</ul>
+<p>Each example contributes a tiny lesson.</p>
+<p>Now connect this back to the learning loop.</p>
+<p>Each time the model:</p>
+<ol>
+<li>Makes a prediction</li>
+<li>Computes loss</li>
+<li>Adjusts weights</li>
+</ol>
+<p>…it completes one <strong>training step</strong>.</p>
+<p>But training does not stop there.</p>
+<p>The model repeats this process over and over, often cycling through the entire dataset multiple times.</p>
+<p>Each full pass through the data is called an <strong>epoch</strong>.</p>
+<p><img alt="Training over multiple epochs" src="../../images/ch22-epochs-loop.svg" /></p>
+<p><strong>Figure 22.6: Training happens in repeated cycles called epochs.</strong><br />
+Each epoch means the model has seen the full dataset once. Repeating this cycle allows the model to refine its understanding over time.</p>
+<p>You can think of an epoch as one complete learning round.</p>
+<ul>
+<li>One epoch = the model has seen all training examples once</li>
+<li>Many epochs = the model sees the same data repeatedly, refining its understanding each time</li>
+</ul>
+<p>Why repeat the same data?</p>
+<p>Because understanding is not instant.</p>
+<p>The first time the model sees data, it learns very rough patterns.</p>
+<p>The second time, it begins refining them.</p>
+<p>The third time, it corrects subtle mistakes.</p>
+<p>Over many passes, the model gradually stabilizes into a reliable system.</p>
+<p>There is an important tradeoff here.</p>
+<p>If a model learns too little, it underperforms.</p>
+<p>If it trains too much on the same data, it may begin to memorize instead of generalize.</p>
+<p>This balance between learning and over-learning is one of the central challenges in AI training.</p>
+<p>But at its core, the idea is simple:</p>
+<p><strong>Intelligence is not created in a single step. It emerges through repeated exposure and gradual adjustment.</strong></p>
+<p>Training is not a moment.</p>
+<p>It is a process stretched across time, data, and repetition.</p>
+<p>And when that process is scaled up enough, simple prediction systems begin to behave in surprisingly intelligent ways.</p>
+<h2 id="section-6-learning-in-small-batches-why-ai-doesnt-study-everything-at-once">Section 6: Learning in Small Batches — Why AI Doesn’t Study Everything at Once</h2>
+<p>So far, we have described training as if the model learns from the entire dataset in one go.</p>
+<p>But in reality, that is not how it works.</p>
+<p>Modern AI systems do not study everything at once.</p>
+<p>Instead, they learn in small groups of examples called <strong>batches</strong>.</p>
+<p>Think about studying for an exam.</p>
+<p>If you try to read an entire textbook in a single sitting, your brain quickly becomes overloaded.</p>
+<p>But if you break the material into smaller sections and study them step by step, learning becomes manageable and more effective.</p>
+<p>AI follows the same principle.</p>
+<p>Instead of processing millions of examples at once, the model processes a small subset of data, makes adjustments, and then moves on to the next subset.</p>
+<p>Each batch acts like a mini-lesson.</p>
+<p>Here is what happens in one batch:</p>
+<ol>
+<li>The model receives a small group of training examples</li>
+<li>It makes predictions for each example</li>
+<li>It calculates the error (loss)</li>
+<li>It updates its weights slightly</li>
+</ol>
+<p>Then it repeats this process with the next batch.</p>
+<p>Why not use the full dataset at once?</p>
+<p>There are three important reasons.</p>
+<p>First, <strong>computational limits</strong>.</p>
+<p>Processing the entire dataset simultaneously would require enormous memory and computing power. Breaking it into batches makes training practical.</p>
+<p>Second, <strong>speed of learning</strong>.</p>
+<p>Smaller updates happen more frequently. This allows the model to adjust continuously instead of waiting for one massive correction.</p>
+<p>Third, and most interestingly, <strong>better generalization</strong>.</p>
+<p>Because each batch contains only part of the data, the model sees slightly different patterns each time. This introduces a form of controlled randomness that actually helps the model avoid overfitting.</p>
+<p>Overfitting is when a model becomes too focused on memorizing the training data instead of learning general patterns.</p>
+<p>Batching helps prevent this by forcing the model to learn gradually from varied slices of data.</p>
+<p>Now we can connect all the pieces together:</p>
+<ul>
+<li>A <strong>batch</strong> is a small group of examples</li>
+<li>A <strong>step</strong> is one update based on a batch</li>
+<li>An <strong>epoch</strong> is one full pass through all batches</li>
+</ul>
+<p>So training looks like this:</p>
+<p>Many steps → one epoch → many epochs → learning emerges</p>
+<p>This structure is what makes modern AI training scalable.</p>
+<p>Instead of trying to understand everything at once, the model learns:</p>
+<ul>
+<li>A little at a time</li>
+<li>From different parts of the data</li>
+<li>Repeatedly over many cycles</li>
+</ul>
+<p>And from this simple but powerful structure, intelligence begins to emerge.</p>
+<p><img alt="Training with Batches" src="../../images/ch22-batching-training.svg" /></p>
+<p><strong>Figure 22.7: Training happens in small batches instead of the full dataset.</strong><br />
+Each batch produces a small weight update. One epoch is completed when all batches have been processed once.</p>
+<h2 id="section-7-the-complete-picture-how-training-really-works">Section 7: The Complete Picture — How Training Really Works</h2>
+<p>At this point, we have broken training into several pieces:</p>
+<ul>
+<li>The model makes a prediction</li>
+<li>We measure the error using loss</li>
+<li>The model adjusts its internal weights</li>
+<li>The process repeats over many steps</li>
+<li>The data is processed in batches</li>
+<li>The system cycles through the dataset over many epochs</li>
+</ul>
+<p>Individually, each idea is simple.</p>
+<p>But the real power of AI comes from how all of these parts work together as one system.</p>
+<p>Let’s zoom out.</p>
+<p>Training an AI model is not a collection of separate techniques.</p>
+<p>It is a single continuous loop running at scale.</p>
+<p>Here is the complete flow:</p>
+<p><img alt="AI Training System Overview" src="../../images/ch22-training-system-overview.svg" /></p>
+<p><strong>Figure 22.8: The complete AI training system.</strong><br />
+Training is a continuous loop where data is processed in batches, predictions are evaluated using loss, and weights are updated repeatedly over many epochs.</p>
+<ol>
+<li>A batch of data is selected from the dataset</li>
+<li>The model processes the data and makes predictions</li>
+<li>The predictions are compared to the correct answers</li>
+<li>The loss function calculates how wrong the model is</li>
+<li>That error signal is used to adjust the model’s weights</li>
+<li>The system moves to the next batch and repeats</li>
+</ol>
+<p>Once all batches have been processed, one <strong>epoch</strong> is complete.</p>
+<p>Then the process starts again.</p>
+<p>This cycle continues for many epochs.</p>
+<p>Thousands of steps.</p>
+<p>Millions of adjustments.</p>
+<p>Eventually, something remarkable happens.</p>
+<p>The model stops behaving like a random system and starts behaving like a structured one.</p>
+<p>It begins to consistently recognize patterns in data.</p>
+<p>Not because someone explicitly programmed those patterns.</p>
+<p>But because the training process shaped the internal parameters over time.</p>
+<p>You can think of this entire system as a learning engine.</p>
+<p>Data flows in.</p>
+<p>Predictions come out.</p>
+<p>Errors flow back in.</p>
+<p>Weights are adjusted.</p>
+<p>And the cycle repeats.</p>
+<p>Nothing in this process requires understanding in the human sense.</p>
+<p>There is no awareness.</p>
+<p>No intention.</p>
+<p>No reasoning at the beginning.</p>
+<p>Only repeated adjustment guided by error.</p>
+<p>And yet, over time, this simple loop produces systems that can:</p>
+<ul>
+<li>Recognize images</li>
+<li>Understand language</li>
+<li>Translate text</li>
+<li>Generate responses</li>
+<li>Assist in complex tasks</li>
+</ul>
+<p>The key insight is this:</p>
+<p><strong>Intelligence, in modern AI systems, is not a single breakthrough moment. It is the result of a repeated feedback loop operating at massive scale.</strong></p>
+<p>Once you understand this full cycle, every modern AI system—from image classifiers to large language models—starts to look less like magic and more like engineering.</p>
+<p>A very large system.</p>
+<p>Built on a very simple idea.</p>
+<p>Repeat. Correct. Improve.</p>
+<p>Again and again.</p>
+<h2 id="insight-box-what-training-really-means">Insight Box — What Training Really Means</h2>
+<p>If you strip away all the technical terms, training is surprisingly simple.</p>
+<p>It is a loop that runs over and over again:</p>
+<ul>
+<li>The model makes a prediction  </li>
+<li>It checks how wrong it was  </li>
+<li>It adjusts itself slightly  </li>
+<li>It repeats the process  </li>
+</ul>
+<p>Nothing more complicated than that.</p>
+<p>But when this simple loop is repeated millions or billions of times, something interesting happens.</p>
+<p>The model stops behaving like a random system and starts behaving like a structured one that can recognize patterns in data.</p>
+<p>There is no moment where the model “understands” in a human sense.</p>
+<p>There is no sudden leap into intelligence.</p>
+<p>Instead, intelligence emerges slowly from repetition, feedback, and adjustment.</p>
+<p>The key idea is this:</p>
+<p><strong>AI does not learn by thinking. It learns by correcting.</strong></p>
+<p>Every improvement is the result of many small updates, not one big decision.</p>
+<p>Once you see training this way, modern AI systems become less mysterious.</p>
+<p>They are not magic.</p>
+<p>They are feedback systems running at scale.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Training is the quiet engine behind every modern AI system.</p>
+<p>It is not a single algorithm or a clever trick. It is a process—a disciplined loop that turns raw data into structured behavior.</p>
+<p>At first glance, the steps seem almost too simple: predict, measure error, adjust, repeat. But simplicity is deceptive here. When this loop is executed at scale, across massive datasets and billions of parameters, it produces systems that can recognize patterns, generate language, and solve problems that once required human intelligence.</p>
+<p>The important shift in understanding is this:</p>
+<p>AI is not “built” in the traditional sense. It is <em>trained</em>.</p>
+<p>And training is not about teaching rules directly. It is about shaping behavior indirectly through feedback.</p>
+<p>What emerges from this process is not memorization, but adaptation. Not instruction, but refinement.</p>
+<p>This is why modern AI feels so powerful—and sometimes unpredictable. It has not been explicitly programmed for every situation. It has learned statistical structure from experience.</p>
+<p>If there is one idea to carry forward, it is this:</p>
+<p><strong>Intelligence in AI is not designed. It is optimized.</strong></p>
+<p>In the next chapter, we will look deeper into how this optimization actually works—how errors are traced backward through a network to improve every internal connection. That process is where learning becomes precise, and where the real mechanics of “learning from mistakes” are fully revealed.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sikijs/YourHonor-AI-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

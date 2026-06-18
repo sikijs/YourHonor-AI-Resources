@@ -1,0 +1,37 @@
+<svg width="900" height="600" xmlns="http://www.w3.org/2000/svg">
+<style>
+.title { font:bold 24px sans-serif; }
+.label { font:18px sans-serif; }
+.box { fill:#eef5ff; stroke:black; stroke-width:2; }
+.arrow { stroke:black; stroke-width:3; fill:none; }
+</style>
+
+<text x="220" y="40" class="title">
+The Intelligence Feedback Loop
+</text>
+
+<rect x="300" y="90" width="300" height="70" class="box"></rect>
+<text x="350" y="135" class="label">
+More Capable AI
+</text>
+
+<line x1="450" y1="160" x2="450" y2="250" stroke="black" stroke-width="3"></line>
+
+<rect x="300" y="250" width="300" height="70" class="box"></rect>
+<text x="345" y="295" class="label">
+Improves Research
+</text>
+
+<line x1="450" y1="320" x2="450" y2="410" stroke="black" stroke-width="3"></line>
+
+<rect x="300" y="410" width="300" height="70" class="box"></rect>
+<text x="320" y="455" class="label">
+Builds Better AI Systems
+</text>
+
+<path d="M300 445 C120 445 120 125 300 125" fill="none" stroke="black" stroke-width="3"></path>
+
+<text x="80" y="280" class="label">
+Feedback Loop
+</text>
+</svg>

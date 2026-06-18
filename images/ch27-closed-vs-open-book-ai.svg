@@ -1,0 +1,28 @@
+<svg width="900" height="420" viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="420" fill="#ffffff"></rect>
+
+  <!-- Left side -->
+  <rect x="60" y="90" width="300" height="260" rx="16" fill="#f5f5f5" stroke="#333"></rect>
+  <text x="210" y="60" text-anchor="middle" font-size="20" font-family="Arial">Closed-Book AI</text>
+
+  <circle cx="210" cy="180" r="50" fill="#ddd" stroke="#333"></circle>
+  <text x="210" y="185" text-anchor="middle" font-size="12">Model</text>
+
+  <text x="210" y="260" text-anchor="middle" font-size="14">No external lookup</text>
+  <text x="210" y="285" text-anchor="middle" font-size="14">Answers from memory patterns</text>
+
+  <!-- Right side -->
+  <rect x="540" y="90" width="300" height="260" rx="16" fill="#f0fff4" stroke="#2d6a4f"></rect>
+  <text x="690" y="60" text-anchor="middle" font-size="20" font-family="Arial">Open-Book AI (RAG)</text>
+
+  <circle cx="640" cy="180" r="40" fill="#cce5ff" stroke="#333"></circle>
+  <text x="640" y="185" text-anchor="middle" font-size="12">Model</text>
+
+  <rect x="700" y="140" width="90" height="80" fill="#fff" stroke="#333"></rect>
+  <text x="745" y="185" text-anchor="middle" font-size="12">Docs</text>
+
+  <line x1="680" y1="180" x2="700" y2="180" stroke="#333" stroke-width="2"></line>
+
+  <text x="690" y="260" text-anchor="middle" font-size="14">Searches before answering</text>
+  <text x="690" y="285" text-anchor="middle" font-size="14">Grounded in real sources</text>
+</svg>
