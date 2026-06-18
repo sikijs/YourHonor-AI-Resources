@@ -97,7 +97,6 @@
       if (input) {
         input.checked = true;
       }
-      var nav = items[i].querySelector(':scope > .md-nav');
     }
   }
 
@@ -114,5 +113,7 @@
   } else {
     init();
   }
+  window.addEventListener('load', expandNavTree);
+  setTimeout(expandNavTree, 200);
   document.addEventListener('DOMContentSwitch', expandNavTree);
 })();
