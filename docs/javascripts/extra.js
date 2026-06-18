@@ -90,17 +90,29 @@
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      createToggle();
-      restoreSidebarState();
-      createRightToggle();
-      restoreTocState();
-    });
-  } else {
+  function expandNavTree() {
+    var items = document.querySelectorAll('.md-sidebar--primary .md-nav__item--nested');
+    for (var i = 0; i < items.length; i++) {
+      var input = items[i].querySelector('input.md-nav__toggle');
+      if (input) {
+        input.checked = true;
+      }
+      var nav = items[i].querySelector(':scope > .md-nav');
+    }
+  }
+
+  function init() {
     createToggle();
     restoreSidebarState();
     createRightToggle();
     restoreTocState();
+    expandNavTree();
   }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  document.addEventListener('DOMContentSwitch', expandNavTree);
 })();
