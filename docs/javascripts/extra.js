@@ -119,6 +119,22 @@
       lists[i].style.setProperty('max-height', 'none', 'important');
       lists[i].style.setProperty('height', 'auto', 'important');
     }
+    var debug = [];
+    debug.push('navs: ' + navs.length);
+    debug.push('nested: ' + items.length);
+    debug.push('items: ' + allItems.length);
+    debug.push('lists: ' + lists.length);
+    var ch3 = document.querySelector('.md-sidebar--primary .md-nav__item:nth-child(3)');
+    debug.push('ch3 exists: ' + !!ch3);
+    if (ch3) {
+      var cs = getComputedStyle(ch3);
+      debug.push('ch3 display: ' + cs.display);
+      debug.push('ch3 visibility: ' + cs.visibility);
+      debug.push('ch3 opacity: ' + cs.opacity);
+      var ch3rect = ch3.getBoundingClientRect();
+      debug.push('ch3 rect: ' + JSON.stringify({top: ch3rect.top, bottom: ch3rect.bottom, height: ch3rect.height}));
+    }
+    console.log('expandNavTree debug:', debug.join(' | '));
   }
 
   function init() {
