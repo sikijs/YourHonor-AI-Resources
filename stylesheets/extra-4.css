@@ -118,6 +118,7 @@
   }
   .md-nav--primary .md-nav__list {
     overflow: visible !important;
+    margin-left: 0 !important;
   }
   .md-nav--primary .md-nav__item {
     border-top: none !important;
@@ -128,33 +129,20 @@
   .md-sidebar--primary .md-sidebar__scrollwrap {
     overflow: visible !important;
   }
+  .md-nav__toggle {
+    display: none !important;
+  }
   .md-nav__toggle ~ .md-nav {
-    display: grid !important;
-    grid-template-rows: minmax(0.4rem, 0fr) !important;
-    opacity: 0 !important;
-    transition: grid-template-rows 0.25s, opacity 0.25s, visibility 0ms 0.25s !important;
-    visibility: collapse !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
     transform: none !important;
     position: static !important;
+    height: auto !important;
+    max-height: none !important;
+    grid-template-rows: none !important;
   }
   .md-nav__toggle ~ .md-nav > .md-nav__list {
-    overflow: hidden !important;
-  }
-  .md-nav__toggle.md-toggle--indeterminate ~ .md-nav,
-  .md-nav__toggle:checked ~ .md-nav {
-    grid-template-rows: minmax(0.4rem, 1fr) !important;
-    opacity: 1 !important;
-    transition: grid-template-rows 0.25s, opacity 0.15s 0.1s, visibility 0ms !important;
-    visibility: visible !important;
-  }
-  /* Force all nested navs in left sidebar to stay expanded (prevents JS from collapsing at narrow widths) */
-  .md-sidebar--primary .md-nav__item--nested > .md-nav {
-    display: block !important;
-    grid-template-rows: none !important;
-    max-height: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-    visibility: visible !important;
-    position: static !important;
+    overflow: visible !important;
   }
 }
