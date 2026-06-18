@@ -108,6 +108,17 @@
         input.checked = true;
       }
     }
+    var allItems = document.querySelectorAll('.md-sidebar--primary .md-nav__item');
+    for (var i = 0; i < allItems.length; i++) {
+      allItems[i].style.setProperty('display', 'list-item', 'important');
+    }
+    var lists = document.querySelectorAll('.md-sidebar--primary .md-nav__list');
+    for (var i = 0; i < lists.length; i++) {
+      lists[i].style.setProperty('display', 'block', 'important');
+      lists[i].style.setProperty('overflow', 'visible', 'important');
+      lists[i].style.setProperty('max-height', 'none', 'important');
+      lists[i].style.setProperty('height', 'auto', 'important');
+    }
   }
 
   function init() {
