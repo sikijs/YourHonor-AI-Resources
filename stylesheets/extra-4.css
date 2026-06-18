@@ -127,6 +127,7 @@
     display: none !important;
   }
   .md-sidebar--primary .md-sidebar__scrollwrap {
+    position: static !important;
     overflow-y: auto !important;
     max-height: calc(100vh - 4rem) !important;
   }
