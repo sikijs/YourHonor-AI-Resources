@@ -128,4 +128,23 @@
   .md-sidebar--primary .md-sidebar__scrollwrap {
     overflow: visible !important;
   }
+  .md-nav__toggle ~ .md-nav {
+    display: grid !important;
+    grid-template-rows: minmax(0.4rem, 0fr) !important;
+    opacity: 0 !important;
+    transition: grid-template-rows 0.25s, opacity 0.25s, visibility 0ms 0.25s !important;
+    visibility: collapse !important;
+    transform: none !important;
+    position: static !important;
+  }
+  .md-nav__toggle ~ .md-nav > .md-nav__list {
+    overflow: hidden !important;
+  }
+  .md-nav__toggle.md-toggle--indeterminate ~ .md-nav,
+  .md-nav__toggle:checked ~ .md-nav {
+    grid-template-rows: minmax(0.4rem, 1fr) !important;
+    opacity: 1 !important;
+    transition: grid-template-rows 0.25s, opacity 0.15s 0.1s, visibility 0ms !important;
+    visibility: visible !important;
+  }
 }
