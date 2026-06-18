@@ -17,12 +17,13 @@ theme:
 
 nav:
   - Home: index.md
-  - Chapters:
+  - "Part 1: What Is Intelligence?":
       - chapters/chapter-01-what-is-intelligence.md
       - chapters/chapter-02-how-the-human-brain-inspired-ai.md
       - chapters/chapter-03-artificial-neurons-(1943).md
       - chapters/chapter-04-alan-turing-and-thinking-machines.md
       - chapters/chapter-05-the-birth-of-AI-(1956).md
+  - "Part 2: The Journey of AI":
       - chapters/chapter-06-the-perceptron.md
       - chapters/chapter-07-the-first-ai-winter.md
       - chapters/chapter-08-expert-systems.md
@@ -32,6 +33,7 @@ nav:
       - chapters/chapter-12-imagenet.md
       - chapters/chapter-13-ai-beats-the-champions.md
       - chapters/chapter-14-transformers-and-attention.md
+  - "Part 3: How AI Works":
       - chapters/chapter-15-large-language-models.md
       - chapters/chapter-16-data-the-fuel-of-ai.md
       - chapters/chapter-17-how-computer-sees-everything-as-numbers.md
@@ -42,12 +44,14 @@ nav:
       - chapters/chapter-22-training.md
       - chapters/chapter-23-backpropagation-simplified.md
       - chapters/chapter-24-models.md
+  - "Part 4: Modern AI in Practice":
       - chapters/chapter-25-why-bigger-models-work.md
       - chapters/chapter-26-fine-tuning.md
       - chapters/chapter-27-retrieval-augmented-generation-rag.md
       - chapters/chapter-28-agents.md
       - chapters/chapter-29-vibe-coding.md
       - chapters/chapter-30-multimodal-ai.md
+  - "Part 5: Limits, Risks & the Future":
       - chapters/chapter-31-hallucinations.md
       - chapters/chapter-32-what-ai-still-cannot-do.md
       - chapters/chapter-33-agi-and-beyond.md
@@ -66,7 +70,7 @@ extra_javascript:
   - javascripts/extra.js
 
 extra_css:
-  - stylesheets/extra-3.css
+  - stylesheets/extra-4.css
 
 extra:
   social:
