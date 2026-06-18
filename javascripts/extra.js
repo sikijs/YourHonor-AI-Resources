@@ -91,6 +91,16 @@
   }
 
   function expandNavTree() {
+    var navs = document.querySelectorAll('.md-sidebar--primary .md-nav');
+    for (var i = 0; i < navs.length; i++) {
+      navs[i].style.setProperty('display', 'block', 'important');
+      navs[i].style.setProperty('opacity', '1', 'important');
+      navs[i].style.setProperty('visibility', 'visible', 'important');
+      navs[i].style.setProperty('transform', 'none', 'important');
+      navs[i].style.setProperty('position', 'static', 'important');
+      navs[i].style.setProperty('height', 'auto', 'important');
+      navs[i].style.setProperty('max-height', 'none', 'important');
+    }
     var items = document.querySelectorAll('.md-sidebar--primary .md-nav__item--nested');
     for (var i = 0; i < items.length; i++) {
       var input = items[i].querySelector('input.md-nav__toggle');
@@ -106,6 +116,10 @@
     createRightToggle();
     restoreTocState();
     expandNavTree();
+    var mo = new MutationObserver(function() {
+      expandNavTree();
+    });
+    mo.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['checked', 'aria-expanded', 'class'] });
   }
 
   if (document.readyState === 'loading') {
@@ -114,6 +128,7 @@
     init();
   }
   window.addEventListener('load', expandNavTree);
-  setTimeout(expandNavTree, 200);
+  setTimeout(expandNavTree, 500);
+  setTimeout(expandNavTree, 1000);
   document.addEventListener('DOMContentSwitch', expandNavTree);
 })();
