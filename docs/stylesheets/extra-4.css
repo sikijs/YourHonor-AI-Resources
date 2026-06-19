@@ -208,3 +208,9 @@
   color: var(--md-accent-fg-color);
   border-bottom-color: var(--md-accent-fg-color);
 }
+
+.md-nav__item--active > .md-nav__link {
+  font-weight: 700 !important;
+  border-left: 3px solid #f5a623 !important;
+  padding-left: 0.6em !important;
+}
