@@ -90,63 +90,11 @@
     }
   }
 
-  function expandNavTree() {
-    var navs = document.querySelectorAll('.md-sidebar--primary .md-nav');
-    for (var i = 0; i < navs.length; i++) {
-      navs[i].style.setProperty('display', 'block', 'important');
-      navs[i].style.setProperty('opacity', '1', 'important');
-      navs[i].style.setProperty('visibility', 'visible', 'important');
-      navs[i].style.setProperty('transform', 'none', 'important');
-      navs[i].style.setProperty('position', 'static', 'important');
-      navs[i].style.setProperty('height', 'auto', 'important');
-      navs[i].style.setProperty('max-height', 'none', 'important');
-    }
-    var items = document.querySelectorAll('.md-sidebar--primary .md-nav__item--nested');
-    for (var i = 0; i < items.length; i++) {
-      var input = items[i].querySelector('input.md-nav__toggle');
-      if (input) {
-        input.checked = true;
-      }
-    }
-    var allItems = document.querySelectorAll('.md-sidebar--primary .md-nav__item');
-    for (var i = 0; i < allItems.length; i++) {
-      allItems[i].style.setProperty('display', 'list-item', 'important');
-    }
-    var lists = document.querySelectorAll('.md-sidebar--primary .md-nav__list');
-    for (var i = 0; i < lists.length; i++) {
-      lists[i].style.setProperty('display', 'block', 'important');
-      lists[i].style.setProperty('overflow', 'visible', 'important');
-      lists[i].style.setProperty('max-height', 'none', 'important');
-      lists[i].style.setProperty('height', 'auto', 'important');
-    }
-    var debug = [];
-    debug.push('navs: ' + navs.length);
-    debug.push('nested: ' + items.length);
-    debug.push('items: ' + allItems.length);
-    debug.push('lists: ' + lists.length);
-    var ch3 = document.querySelector('.md-sidebar--primary .md-nav__item:nth-child(3)');
-    debug.push('ch3 exists: ' + !!ch3);
-    if (ch3) {
-      var cs = getComputedStyle(ch3);
-      debug.push('ch3 display: ' + cs.display);
-      debug.push('ch3 visibility: ' + cs.visibility);
-      debug.push('ch3 opacity: ' + cs.opacity);
-      var ch3rect = ch3.getBoundingClientRect();
-      debug.push('ch3 rect: ' + JSON.stringify({top: ch3rect.top, bottom: ch3rect.bottom, height: ch3rect.height}));
-    }
-    console.log('expandNavTree debug:', debug.join(' | '));
-  }
-
   function init() {
     createToggle();
     restoreSidebarState();
     createRightToggle();
     restoreTocState();
-    expandNavTree();
-    var mo = new MutationObserver(function() {
-      expandNavTree();
-    });
-    mo.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['checked', 'aria-expanded', 'class'] });
   }
 
   if (document.readyState === 'loading') {
@@ -154,8 +102,4 @@
   } else {
     init();
   }
-  window.addEventListener('load', expandNavTree);
-  setTimeout(expandNavTree, 500);
-  setTimeout(expandNavTree, 1000);
-  document.addEventListener('DOMContentSwitch', expandNavTree);
 })();
