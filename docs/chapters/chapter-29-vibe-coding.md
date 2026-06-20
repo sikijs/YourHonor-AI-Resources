@@ -777,6 +777,7 @@ Examples include:
 * ChatGPT
 * Claude
 * Gemini
+* OpenCode
 
 Each tool has different strengths, but they share a common goal:
 

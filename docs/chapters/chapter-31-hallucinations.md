@@ -88,7 +88,6 @@ If those patterns resemble factual language, the output will also *sound factual
 
 ## Visual: How Hallucination Emerges
 
-Place this image directly below this section.
 
 ![Hallucination Concept](../images/ch31-hallucination-definition.svg)
 
@@ -117,7 +116,6 @@ That mismatch is where most real-world misuse begins.
 
 ## Visual: Confidence vs Accuracy Gap
 
-Place this image directly below this section.
 
 ![Confidence vs Accuracy](../images/ch31-confidence-vs-accuracy.svg)
 
@@ -147,7 +145,6 @@ And that difference is fundamental.
 
 ## Visual: Two Ways of Producing Answers
 
-Place this image directly below this section.
 
 ![Generation vs Retrieval](../images/ch31-generation-vs-retrieval.svg)
 
@@ -228,7 +225,6 @@ So when the model generates an answer, it is completing a linguistic pattern—n
 
 ## Visual: What the Model Actually Learns
 
-Place this image directly below this section.
 
 ![Training Objective vs Truth](../images/ch31-training-objective.svg)
 
@@ -274,7 +270,6 @@ This is especially dangerous in domains where incorrect phrasing still looks aut
 
 ## Visual: Plausible but Wrong Path
 
-Place this image directly below this section.
 
 ![Plausibility vs Correctness](../images/ch31-plausibility-vs-correctness.svg)
 
@@ -300,7 +295,6 @@ That isolation is where hallucinations grow.
 
 ## Visual: Isolated Generation System
 
-Place this image directly below this section.
 
 ![Isolated Model System](../images/ch31-isolated-system.svg)
 
@@ -406,7 +400,6 @@ If not, the response is likely generated rather than retrieved.
 
 ## Visual: Source Anchoring Check
 
-Place this image directly below this section.
 
 ![Source Anchoring](../images/ch31-source-anchoring.svg)
 
@@ -435,7 +428,6 @@ It is likely filling gaps rather than recalling grounded information.
 
 ## Visual: Specificity Stress Test Flow
 
-Place this image directly below this section.
 
 ![Specificity Stress Test](../images/ch31-specificity-stress.svg)
 
@@ -464,7 +456,6 @@ Inconsistency is a warning signal.
 
 ## Visual: Cross Verification System
 
-Place this image directly below this section.
 
 ![Cross Verification](../images/ch31-cross-verification.svg)
 
@@ -503,7 +494,6 @@ The system appears competent even when it is uncertain.
 
 ## Visual: Trust Illusion Loop
 
-Place this image directly below this section.
 
 ![Trust Illusion Loop](../images/ch31-trust-illusion.svg)
 
@@ -564,7 +554,6 @@ When these components work together, hallucinations can be reduced significantly
 
 ## Visual: From Model to System
 
-Place this image directly below this section.
 
 ![AI System Architecture](../images/ch31-system-architecture.svg)
 
@@ -591,7 +580,6 @@ The model is no longer guessing in isolation—it is anchored to evidence.
 
 ## Visual: RAG Pipeline
 
-Place this image directly below this section.
 
 ![RAG Pipeline](../images/ch31-rag-pipeline.svg)
 
@@ -640,7 +628,6 @@ They control how the model is allowed to behave.
 
 ## Visual: Guardrails Layer
 
-Place this image directly below this section.
 
 ![Guardrails System](../images/ch31-guardrails.svg)
 
@@ -668,7 +655,6 @@ The difference is simple but important:
 
 ## Visual: Tool-Enabled AI Flow
 
-Place this image directly below this section.
 
 ![Tool Use System](../images/ch31-tool-use.svg)
 
@@ -772,7 +758,6 @@ These outputs look real because they follow correct formatting patterns.
 
 ### Visual: Fabricated Entity Failure
 
-Place this image directly below this section.
 
 ![Fabricated Entities](../images/ch31-fabricated-entities.svg)
 
@@ -798,7 +783,6 @@ A real case exists, but:
 
 ### Visual: Blended Reality Failure
 
-Place this image directly below this section.
 
 ![Blended Reality](../images/ch31-blended-reality.svg)
 
@@ -824,7 +808,6 @@ Even when the reasoning is correct, the authority is not.
 
 ### Visual: Citation Hallucination Layer
 
-Place this image directly below this section.
 
 ![Citation Hallucination](../images/ch31-citation-hallucination.svg)
 
@@ -846,7 +829,6 @@ This is subtle and difficult to detect without careful review.
 
 ### Visual: Reasoning Drift Path
 
-Place this image directly below this section.
 
 ![Reasoning Drift](../images/ch31-reasoning-drift.svg)
 
@@ -869,7 +851,6 @@ This is common in legal reasoning.
 
 ### Visual: Overgeneralization Expansion
 
-Place this image directly below this section.
 
 ![Overgeneralization](../images/ch31-overgeneralization.svg)
 
@@ -900,6 +881,7 @@ Even a single fabricated case can undermine an entire argument.
 ---
 
 ### Why it happens:
+
 Because legal writing has strong structural predictability:
 
 - Case formats are repetitive  
@@ -927,6 +909,7 @@ This creates *false legal authority*.
 ---
 
 ### Why this is dangerous:
+
 Law depends on precise interpretation, not just existence of cases.
 
 A slightly wrong interpretation can change:
@@ -982,7 +965,6 @@ This creates a perfect environment for hallucinations to look legitimate.
 
 ## Visual: Legal Vulnerability Map
 
-Place this image directly below this section.
 
 ![Legal Vulnerability](../images/ch31-legal-vulnerability.svg)
 
@@ -1067,7 +1049,6 @@ It is about role separation.
 
 ## Visual: Human–AI Responsibility Split
 
-Place this image directly below this section.
 
 ![Human AI Workflow Split](../images/ch31-human-ai-split.svg)
 
@@ -1082,9 +1063,11 @@ It is to enforce a **verification pipeline**.
 A reliable workflow looks like this:
 
 ### Step 1 — Generate
+
 AI produces a draft answer.
 
 ### Step 2 — Extract claims
+
 Identify:
 - Facts  
 - Citations  
@@ -1092,19 +1075,20 @@ Identify:
 - Numbers or entities  
 
 ### Step 3 — Validate
+
 Cross-check against:
 - Primary sources  
 - Databases  
 - Trusted references  
 
 ### Step 4 — Decide
+
 Only then accept, modify, or reject.
 
 ---
 
 ## Visual: Verification Pipeline
 
-Place this image directly below this section.
 
 ![Verification Workflow](../images/ch31-verification-pipeline.svg)
 
@@ -1134,7 +1118,6 @@ Not blind trust.
 
 ## Visual: Human-in-the-Loop System
 
-Place this image directly below this section.
 
 ![Human in Loop System](../images/ch31-human-in-loop.svg)
 
@@ -1147,16 +1130,19 @@ Not every AI interaction carries the same risk.
 We can classify usage into three tiers:
 
 ## Low Risk
+
 - Brainstorming ideas  
 - Drafting emails  
 - Summarizing general knowledge  
 
 ## Medium Risk
+
 - Technical explanations  
 - Research assistance  
 - Educational content  
 
 ## High Risk
+
 - Legal interpretation  
 - Medical guidance  
 - Financial or compliance decisions  
@@ -1167,7 +1153,6 @@ Each tier requires a different level of verification rigor.
 
 ## Visual: AI Risk Tier Model
 
-Place this image directly below this section.
 
 ![Risk Tier Model](../images/ch31-risk-tiers.svg)
 
@@ -1211,7 +1196,6 @@ Not elimination of error—but containment of error impact.
 
 ## Visual: Defense-in-Depth AI System
 
-Place this image directly below this section.
 
 ![Defense in Depth](../images/ch31-defense-in-depth.svg)
 
@@ -1392,6 +1376,7 @@ Once hallucinations are understood as system behavior rather than anomalies, the
 > What are the hard limits of these systems, even when everything is designed correctly?
 
 There are domains where:
+
 - Retrieval is incomplete  
 - Context is insufficient  
 - Ambiguity cannot be resolved  

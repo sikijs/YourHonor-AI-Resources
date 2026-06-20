@@ -19,7 +19,8 @@ The AI responded instantly:
 
 The attorney stood. “There absolutely is. Clause 14 conflicts with Clause 22 under California commercial code interpretation standards.”
 
-The AI did not hesitate.  
+The AI did not hesitate.
+
 “I do not detect a contradiction.”
 
 Now the room shifted.
@@ -849,7 +850,7 @@ But regardless of how advanced future systems become, one principle is likely to
 The most important intelligence in the room will still be the intelligence that knows when to question the answer.
 
 
-## Insight Box — The Difference Between Looking Intelligent and Being Intelligent
+### Insight Box — The Difference Between Looking Intelligent and Being Intelligent
 
 One of the most surprising lessons in artificial intelligence is that a system can appear remarkably intelligent without possessing many of the abilities humans take for granted.
 
@@ -872,7 +873,7 @@ But understanding its limitations is just as important as understanding its capa
 The future will belong not to those who blindly trust AI, nor to those who reject it, but to those who know when to use it, when to question it, and when human judgment remains indispensable.
 
 
-## Final Thoughts — Understanding the Boundaries
+### Final Thoughts — Understanding the Boundaries
 
 Every technology has limits.
 

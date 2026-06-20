@@ -1,0 +1,51 @@
+<svg width="700" height="450" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 26px sans-serif; fill: #222; }
+    .label { font: 18px sans-serif; fill: #333; }
+    .small { font: 15px sans-serif; fill: #555; }
+    .brain { fill: #e8eefc; stroke: #4a6fa5; stroke-width: 3; }
+    .line { stroke: #666; stroke-width: 2; }
+  </style>
+
+  <text x="350" y="40" text-anchor="middle" class="title">
+    The Human Brain
+  </text>
+
+  <!-- Brain shape -->
+  <path class="brain" d="M220,220
+           C180,140 240,90 310,110
+           C330,60 420,60 450,120
+           C530,100 580,170 540,240
+           C590,320 520,390 430,370
+           C390,420 300,410 260,360
+           C180,360 150,280 220,220 Z"></path>
+
+  <!-- Fold lines -->
+  <path d="M280 140 C330 170 330 230 280 260" fill="none" stroke="#7a95c4" stroke-width="2"></path>
+  <path d="M350 120 C400 160 400 230 350 290" fill="none" stroke="#7a95c4" stroke-width="2"></path>
+  <path d="M430 130 C470 180 470 250 430 300" fill="none" stroke="#7a95c4" stroke-width="2"></path>
+
+  <!-- Labels -->
+  <line x1="180" y1="150" x2="80" y2="120" class="line"></line>
+  <text x="20" y="115" class="label">Learning</text>
+
+  <line x1="180" y1="220" x2="70" y2="220" class="line"></line>
+  <text x="10" y="225" class="label">Memory</text>
+
+  <line x1="200" y1="300" x2="80" y2="330" class="line"></line>
+  <text x="10" y="340" class="label">Decision Making</text>
+
+  <line x1="520" y1="150" x2="640" y2="120" class="line"></line>
+  <text x="650" y="125" class="label">Language</text>
+
+  <line x1="540" y1="230" x2="650" y2="230" class="line"></line>
+  <text x="655" y="235" class="label">Creativity</text>
+
+  <line x1="500" y1="320" x2="640" y2="350" class="line"></line>
+  <text x="650" y="355" class="label">Pattern Recognition</text>
+
+  <text x="350" y="425" text-anchor="middle" class="small">
+    A single organ responsible for learning, memory, language,
+    creativity, and decision-making.
+  </text>
+</svg>
